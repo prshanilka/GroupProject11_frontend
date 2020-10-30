@@ -3,6 +3,7 @@ import 'firebase/auth'
 import { currentUser, isAuthGuardActive } from '../../constants/config'
 import { setCurrentUser, getCurrentUser } from '../../utils'
 import axios from 'axios';
+import bapi from '../../api/auth';
 export default {
   state: {
     currentUser: isAuthGuardActive ? getCurrentUser() : currentUser,
@@ -57,16 +58,17 @@ export default {
   actions: {
     login({ commit }, payload) {
       commit('clearError')
-      commit('setProcessing', true)
+      commit('setProcessing', true);
       
-  /*
+ /*
     firebase
         .auth()
         .signInWithEmailAndPassword(payload.email, payload.password)
         .then(
           user => {
-            const item = { uid: user.user.uid, ...currentUser }
+            const item = { uid: "OZoBsVqoWbYEflHa3HPeppVS9p02", ...currentUser }
             console.log(typeof item);
+            console.log(item);
             setCurrentUser(item)
             commit('setUser', item)
           },
@@ -79,27 +81,43 @@ export default {
           }
         )
        
-         */
+
       axios.post('http://localhost/a.php', 
       {
         email: payload.email,
         password: payload.password
 
-      }).then(user => {
-        
-            console.log(user.data)
-             const item = { uid: 2, ...user.data }
-             setCurrentUser(item)
-             commit('setUser', item)
-             console.log(item);
-           },
-           err => {
-            setCurrentUser(null);
-            commit('setError', err.message)
-            setTimeout(() => {
-              commit('clearError')
-            }, 3000)
-          }
+      })
+      
+      */
+
+      const ddd= {
+        username : payload.email,
+        password: payload.password
+
+      }
+      bapi.auth(ddd , (err,results) => {
+
+        console.log("sadsad");
+        if (err){
+          setCurrentUser(null);
+          console.log("ssss");
+          console.log(err);
+          commit('setError', err.message)
+          setTimeout(() => {
+            commit('clearError')
+          }, 3000)
+        }
+        if(results){
+          console.log('dddd')
+          console.log(currentUser)
+          const item = { uid: "${ results.id }", ...results }
+
+          setCurrentUser(item)
+          commit('setUser', item)
+        }
+
+      });
            
            
 
@@ -107,12 +125,6 @@ export default {
            
            
            
-           
-           
-           ).catch(err => {
-             console.log(err.response);
-
-           });
 
 
 
