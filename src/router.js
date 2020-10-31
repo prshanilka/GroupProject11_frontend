@@ -8,6 +8,19 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/elderlogin",
+    component: () => import(/* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"),
+  },
+
+  {
+    path: "/elderform",
+    component: () => import(/* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"),
+  },
+
+
+
+
+  {
     path: "/",
     component: () => import(/* webpackChunkName: "home" */ "./views/home"),
   },
