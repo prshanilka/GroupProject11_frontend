@@ -17,7 +17,7 @@
                 <h6 class="mb-4">{{ $t('user.login-title')}}</h6>
 
                 <b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-bottom">
-                    <b-form-group :label="$t('user.email')" class="has-float-label mb-4">
+                    <b-form-group :label="$t('user.username')" class="has-float-label mb-4">
                         <b-form-input type="text" v-model="$v.form.email.$model" :state="!$v.form.email.$error" />
                         <b-form-invalid-feedback v-if="!$v.form.email.required">Please enter your email address</b-form-invalid-feedback>
                         <b-form-invalid-feedback v-else-if="!$v.form.email.email">Please enter a valid email address</b-form-invalid-feedback>
@@ -76,8 +76,8 @@ export default {
     data() {
         return {
             form: {
-                email: "test@coloredstrategies.com",
-                password: "xxxxxx"
+                email: "",
+                password: ""
             },
         };
     },
@@ -91,7 +91,6 @@ export default {
             },
             email: {
                 required,
-                email,
                 minLength: minLength(4)
             }
         }
@@ -103,8 +102,8 @@ export default {
         ...mapActions(["login"]),
         formSubmit() {
             this.$v.$touch();
-           this.form.email = "piaf-vue@coloredstrategies.com";
-           this.form.password = "piaf123";
+           //this.form.email = "piaf-vue@coloredstrategies.com";
+           //this.form.password = "piaf123";
             this.$v.form.$touch();
            // if (!this.$v.form.$anyError) {
                 this.login({
