@@ -2,59 +2,118 @@
 	<b-row>
 		<b-colxx xxs="12">
 			<div class="text-center">
-				<h1>Third One</h1>
+				<h1>Elder Form</h1>
 			</div>
-			<b-card class="mb-4" title="Custom Rules">
-				<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-					<b-form-group label="elder name ">
-						<b-form-input type="text" v-model="$v.name.$model" :state="!$v.name.$error" />
-						<b-form-invalid-feedback v-if="!$v.name.required">Please enter your name</b-form-invalid-feedback>
+
+			<b-card class="mb-4">
+				<b-form class="av-tooltip tooltip-label-right">
+					<b-form-group label="Samurdi no ">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.samurdi_no.$model"
+							:state="!$v.elder.samurdi_no.$error"
+						/>
 						<b-form-invalid-feedback
-							v-else-if="!$v.name.minLength || !$v.name.maxLength"
-						>Your name must be between 2 and 16 characters</b-form-invalid-feedback>
+							v-if="!$v.elder.samurdi_no.minLength || !$v.elder.samurdi_no.maxLength"
+						>
+							Your Samurdi no must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
+					</b-form-group>
+
+					<b-form-group label="People Aid no">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.people_aid_no.$model"
+							:state="!$v.elder.people_aid_no.$error"
+						/>
 						<b-form-invalid-feedback
-							v-else-if="!$v.name.alpha"
-						>Your name must be composed only with letters</b-form-invalid-feedback>
+							v-if="!$v.elder.people_aid_no.minLength || !$v.elder.people_aid_no.maxLength"
+						>
+							Your People Aid no must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group :label="$t('forms.email')">
-						<b-form-input type="text" v-model="$v.email.$model" :state="!$v.email.$error" />
-						<b-form-invalid-feedback v-if="!$v.email.required">Please enter your email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.email.email">Please enter a valid email address</b-form-invalid-feedback>
+					<b-form-group label="Other No" class="error-l-100">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.other_no.$model"
+							:state="!$v.elder.other_no.$error"
+						/>
+						<b-form-invalid-feedback v-if="!$v.elder.other_no.minLength || !$v.elder.other_no.maxLength">
+							Your Other No must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="E-mail Again" class="error-l-100">
-						<b-form-input type="text" v-model="$v.emailAgain.$model" :state="!$v.emailAgain.$error" />
-						<b-form-invalid-feedback v-if="!$v.emailAgain.required">Please enter your email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.emailAgain.email">Please enter a valid email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.emailAgain.sameAsEmail">Your inputs does not match</b-form-invalid-feedback>
+					<b-form-group label="Agent name(if appointing)" class="error-l-100">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.agent_name.$model"
+							:state="!$v.elder.agent_name.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.agent_name.minLength || !$v.elder.agent_name.maxLength"
+						>
+							Your Agent name must be between 6 and 16
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Number" class="error-l-100">
-						<b-form-input type="text" v-model="$v.number.$model" :state="!$v.number.$error" />
-						<b-form-invalid-feedback v-if="!$v.number.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.number.numeric">Value must be a number</b-form-invalid-feedback>
+					<b-form-group label="Agent Nic ">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.agent_nic.$model"
+							:state="!$v.elder.agent_nic.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.agent_nic.minLength || !$v.elder.agent_nic.maxLength"
+						>
+							Your Agent Nic only 10
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Max">
-						<b-form-input type="text" v-model="$v.max.$model" :state="!$v.max.$error" />
-						<b-form-invalid-feedback v-if="!$v.max.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.max.numeric">Value must be a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.max.maxValue">Maximum 5</b-form-invalid-feedback>
+					<b-form-group label="Agent phone no">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.agent_phone_no.$model"
+							:state="!$v.elder.agent_phone_no.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.agent_phone_no.minLength || !$v.elder.agent_phone_no.maxLength"
+						>
+							YourAgent phone no only 10
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
-
-					<b-form-group label="Min">
-						<b-form-input type="text" v-model="$v.min.$model" :state="!$v.min.$error" />
-						<b-form-invalid-feedback v-if="!$v.min.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.min.numeric">Value must be a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.min.minValue">Minimum 5</b-form-invalid-feedback>
+					<b-form-group label="Agent Address" class="error-l-125">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.agent_address.$model"
+							:state="!$v.elder.agent_address.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.agent_address.minLength || !$v.elder.agent_address.maxLength"
+						>
+							Your Agent Address be between 10 and 256
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
-					<b-form-group label="Regex (^[A-Z]*$)" class="error-l-125">
-						<b-form-input type="text" v-model="$v.withRegex.$model" :state="!$v.withRegex.$error" />
-						<b-form-invalid-feedback v-if="!$v.withRegex.required">Please enter uppercase characters</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.withRegex.upperCase">Only uppercase characters</b-form-invalid-feedback>
+					<b-form-group label="Agent relationship with Elder" class="error-l-125">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.agent_relationship_with_elder.$model"
+							:state="!$v.elder.agent_relationship_with_elder.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.agent_relationship_with_elder.minLength || !$v.elder.agent_relationship_with_elder.maxLength"
+						>
+							Your Agent relationship with Elder must be between 4 and 16
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
-					<b-button type="submit" variant="primary" class="mt-4">{{ $t('forms.submit') }}</b-button>
 				</b-form>
 			</b-card>
 		</b-colxx>
@@ -87,58 +146,110 @@ export default {
 			number: "",
 			max: "",
 			min: "",
-			withRegex: ""
+			withRegex: "",
+			elder: {
+				samurdi_no: "",
+				people_aid_no: "",
+				other_no: "",
+				agent_name: "",
+				agent_nic: "",
+				agent_phone_no: "",
+				agent_address: "",
+				agent_relationship_with_elder: ""
+			}
 		};
 	},
 	mixins: [validationMixin],
 	validations: {
-		name: {
-			required,
-			maxLength: maxLength(16),
-			minLength: minLength(2),
-			alpha
-		},
-		email: {
-			required,
-			email
-		},
-		emailAgain: {
-			required,
-			email,
-			sameAsEmail: sameAs("email")
-		},
-		number: {
-			required,
-			numeric
-		},
-		max: {
-			required,
-			numeric,
-			maxValue: maxValue(5)
-		},
-		min: {
-			required,
-			numeric,
-			minValue: minValue(5)
-		},
-		withRegex: {
-			required,
-			upperCase
+		elder: {
+			samurdi_no: {
+				minLength: minLength(3),
+				maxLength: maxLength(16)
+			},
+			people_aid_no: {
+				minLength: minLength(3),
+				maxLength: maxLength(16)
+			},
+			other_no: {
+				minLength: minLength(3),
+				maxLength: maxLength(16)
+			},
+			agent_name: {
+				minLength: minLength(6),
+				maxLength: maxLength(32)
+			},
+			agent_nic: {
+				minLength: minLength(10),
+				maxLength: maxLength(10)
+			},
+			agent_phone_no: {
+				numeric,
+				minLength: minLength(10),
+				maxLength: maxLength(10)
+			},
+			agent_address: {
+				minLength: minLength(10),
+				maxLength: maxLength(256)
+			},
+			agent_relationship_with_elder: {
+				minLength: minLength(4),
+				maxLength: maxLength(16)
+			}
 		}
+		// name: {
+		// 	required,
+		// 	maxLength: maxLength(16),
+		// 	minLength: minLength(2),
+		// 	alpha
+		// },
+		// email: {
+		// 	required,
+		// 	email
+		// },
+		// emailAgain: {
+		// 	required,
+		// 	email,
+		// 	sameAsEmail: sameAs("email")
+		// },
+		// number: {
+		// 	required,
+		// 	numeric
+		// },
+		// max: {
+		// 	required,
+		// 	numeric,
+		// 	maxValue: maxValue(5)
+		// },
+		// min: {
+		// 	required,
+		// 	numeric,
+		// 	minValue: minValue(5)
+		// },
+		// withRegex: {
+		// 	required,
+		// 	upperCase
+		// }
 	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
+			console.log(this.$v.$invalid + "errere 3");
 			console.log(
 				JSON.stringify({
-					name: this.name,
-					email: this.email,
-					emailAgain: this.emailAgain,
-					max: this.max,
-					min: this.min,
-					withRegex: this.withRegex
+					elder: this.elder
 				})
 			);
+
+			if (!this.$v.$invalid) {
+				return {
+					valid: this.$v.$invalid,
+					elder: this.elder
+				};
+			} else {
+				return {
+					valid: this.$v.$invalid
+				};
+			}
 		}
 	}
 };
