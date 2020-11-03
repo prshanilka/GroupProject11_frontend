@@ -50,7 +50,7 @@ export default {
 			default: false
 		},
 		topNavDisabled: {
-			default: false
+			default: true
 		},
 		withValidate: {
 			default: false
@@ -60,6 +60,9 @@ export default {
 			default: () => {
 				console.log("called done!");
 			}
+		},
+		elder: {
+			default: ""
 		}
 	},
 	data() {
@@ -67,7 +70,8 @@ export default {
 			tabs: [],
 			currentActive: 0,
 			totalTabs: 0,
-			isCompleted: false
+			isCompleted: false,
+			elderdetails: Array(3)
 		};
 	},
 
@@ -104,15 +108,26 @@ export default {
 		},
 
 		nextTab() {
-		////	console.log("newx");
-		 
 			let valid = true;
 			if (this.withValidate) {
 				valid = this.tabs[this.currentActive].validate();
 				if (valid) this.tabs[this.currentActive].submit();
 			}
 
-			if (valid) {
+			console.log(
+				this.tabs[this.currentActive].$children[0].$children[0].elder.name
+			);
+			var reply = this.tabs[
+				this.currentActive
+			].$children[0].$children[0].onValitadeFormSubmit();
+			valid = reply.valid;
+			var el = reply.elder;
+			// console.log(el);
+
+			this.elderdetails[this.currentActive] = el;
+			console.log(valid + "  pear");
+
+			if (!valid) {
 				this.currentActive++;
 				this.tabStatusFix();
 				if (this.currentActive >= this.totalTabs) {
@@ -121,9 +136,15 @@ export default {
 					if (doneTab) {
 						doneTab.isActive = true;
 					} else this.tabs[this.currentActive - 1].isActive = true;
-					this.done();
+					this.finishedBusiness();
 				} else this.tabs[this.currentActive].isActive = true;
 			}
+		},
+		finishedBusiness() {
+			this.done();
+			console.log(this.elderdetails);
+
+			// console.log(this.nameNow);
 		}
 	}
 };

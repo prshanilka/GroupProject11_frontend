@@ -49,7 +49,7 @@ export default {
 		this.isDone = this.done;
 	},
 	methods: {
-		ss: () => {
+		ss ()  {
 			console.log("Hello sahan");
 		}
 	}
