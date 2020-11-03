@@ -1,61 +1,131 @@
 <template>
 	<b-row>
-		<b-colxx xxs="12">
+		<b-colxx xxs="12" class="align-self-center">
 			<div class="text-center">
-				<h1>secound One</h1>
+				<h1>Elder Form</h1>
 			</div>
 
-			<b-card class="mb-4" title="Custom Rules">
-				<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-					<b-form-group label="elder name ">
-						<b-form-input type="text" v-model="$v.name.$model" :state="!$v.name.$error" />
-						<b-form-invalid-feedback v-if="!$v.name.required">Please enter your name</b-form-invalid-feedback>
+			<b-card class="mb-4">
+				<b-form class="av-tooltip tooltip-label-right">
+					<b-form-group label="Elders Id (if exists) ">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.elder_id.$model"
+							:state="!$v.elder.elder_id.$error"
+						/>
+						<b-form-invalid-feedback v-if="!$v.elder.elder_id.minLength || !$v.elder.elder_id.maxLength">
+							Your Elders Id must be between 2 and 16
+							characters
+						</b-form-invalid-feedback>
+					</b-form-group>
+					<b-form-group label="Local elder committe name (if only a member) ">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.elder_committe_name.$model"
+							:state="!$v.elder.elder_committe_name.$error"
+						/>
 						<b-form-invalid-feedback
-							v-else-if="!$v.name.minLength || !$v.name.maxLength"
-						>Your name must be between 2 and 16 characters</b-form-invalid-feedback>
+							v-if="!$v.elder.elder_committe_name.minLength || !$v.elder.elder_committe_name.maxLength"
+						>
+							Your Local elder committe name must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
+					</b-form-group>
+
+					<b-form-group label="committe Membership No (if only a member)">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.comm_membership_no.$model"
+							:state="!$v.elder.comm_membership_no.$error"
+						/>
 						<b-form-invalid-feedback
-							v-else-if="!$v.name.alpha"
-						>Your name must be composed only with letters</b-form-invalid-feedback>
+							v-if="!$v.elder.comm_membership_no.minLength || !$v.elder.comm_membership_no.maxLength"
+						>
+							Your committe Membership No must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group :label="$t('forms.email')">
-						<b-form-input type="text" v-model="$v.email.$model" :state="!$v.email.$error" />
-						<b-form-invalid-feedback v-if="!$v.email.required">Please enter your email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.email.email">Please enter a valid email address</b-form-invalid-feedback>
+					<b-form-group label="Nearest Post Office" class="error-l-100">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.nearest_post_office.$model"
+							:state="!$v.elder.nearest_post_office.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.nearest_post_office.required"
+						>Please enter a Your Source of Income</b-form-invalid-feedback>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.nearest_post_office.minLength || !$v.elder.nearest_post_office.maxLength"
+						>
+							Your Nearest Post Office No must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="E-mail Again" class="error-l-100">
-						<b-form-input type="text" v-model="$v.emailAgain.$model" :state="!$v.emailAgain.$error" />
-						<b-form-invalid-feedback v-if="!$v.emailAgain.required">Please enter your email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.emailAgain.email">Please enter a valid email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.emailAgain.sameAsEmail">Your inputs does not match</b-form-invalid-feedback>
+					<b-form-group label="Lives with whome" class="error-l-100">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.lives_with.$model"
+							:state="!$v.elder.lives_with.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.lives_with.required"
+						>Please enter a Lives with whome Details</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Number" class="error-l-100">
-						<b-form-input type="text" v-model="$v.number.$model" :state="!$v.number.$error" />
-						<b-form-invalid-feedback v-if="!$v.number.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.number.numeric">Value must be a number</b-form-invalid-feedback>
+					<b-form-group label="Other Elder Nic">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.other_elder_nic.$model"
+							:state="!$v.elder.other_elder_nic.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.other_elder_nic.minLength || !$v.elder.other_elder_nic.maxLength"
+						>
+							Your Elder Nic must be 10
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Max">
-						<b-form-input type="text" v-model="$v.max.$model" :state="!$v.max.$error" />
-						<b-form-invalid-feedback v-if="!$v.max.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.max.numeric">Value must be a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.max.maxValue">Maximum 5</b-form-invalid-feedback>
+					<b-form-group label="Other Names and details">
+						<b-form-textarea
+							type="text"
+							v-model="$v.elder.other_names_and_details.$model"
+							:state="!$v.elder.other_names_and_details.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.other_names_and_details.minLength || !$v.elder.other_names_and_details.maxLength"
+						>
+							Other Names and details No must be between 10 and 256
+							characters
+						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Min">
-						<b-form-input type="text" v-model="$v.min.$model" :state="!$v.min.$error" />
-						<b-form-invalid-feedback v-if="!$v.min.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.min.numeric">Value must be a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.min.minValue">Minimum 5</b-form-invalid-feedback>
+					<b-form-group label="Source of Income">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.source_of_income.$model"
+							:state="!$v.elder.source_of_income.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.source_of_income.required"
+						>Please enter a Your Source of Income</b-form-invalid-feedback>
+						<b-form-invalid-feedback
+							v-else-if="!$v.elder.source_of_income.minLength"
+						>PleaceEnter More than 3 characters</b-form-invalid-feedback>
 					</b-form-group>
-					<b-form-group label="Regex (^[A-Z]*$)" class="error-l-125">
-						<b-form-input type="text" v-model="$v.withRegex.$model" :state="!$v.withRegex.$error" />
-						<b-form-invalid-feedback v-if="!$v.withRegex.required">Please enter uppercase characters</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.withRegex.upperCase">Only uppercase characters</b-form-invalid-feedback>
+					<b-form-group label="Monthly Income" class="error-l-125">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.monthly_income.$model"
+							:state="!$v.elder.monthly_income.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.monthly_income.required"
+						>Please enter your Monthly Income</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-else-if="!$v.elder.monthly_income.numeric">Only Numbers</b-form-invalid-feedback>
 					</b-form-group>
-					<b-button type="submit" variant="primary" class="mt-4">{{ $t('forms.submit') }}</b-button>
 				</b-form>
 			</b-card>
 		</b-colxx>
@@ -80,67 +150,130 @@ const {
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
 
 export default {
+	// props: {
+	// 	elder: {
+	// 		default: ""
+	// 	}
+	// },
 	data() {
 		return {
-			name: "",
-			email: "",
-			emailAgain: "",
-			number: "",
-			max: "",
-			min: "",
-			withRegex: ""
+			// name: "",
+			// email: "",
+			// emailAgain: "",
+			// number: "",
+			// max: "",
+			// min: "",
+			// withRegex: "",
+			elder: {
+				elder_id: "",
+				elder_committe_name: "",
+				comm_membership_no: "",
+				nearest_post_office: "",
+				lives_with: "",
+				other_elder_nic: "",
+				other_names_and_details: "",
+				source_of_income: "",
+				monthly_income: ""
+			}
 		};
 	},
 	mixins: [validationMixin],
 	validations: {
-		name: {
-			required,
-			maxLength: maxLength(16),
-			minLength: minLength(2),
-			alpha
-		},
-		email: {
-			required,
-			email
-		},
-		emailAgain: {
-			required,
-			email,
-			sameAsEmail: sameAs("email")
-		},
-		number: {
-			required,
-			numeric
-		},
-		max: {
-			required,
-			numeric,
-			maxValue: maxValue(5)
-		},
-		min: {
-			required,
-			numeric,
-			minValue: minValue(5)
-		},
-		withRegex: {
-			required,
-			upperCase
+		elder: {
+			elder_id: {
+				maxLength: maxLength(16),
+				minLength: minLength(2)
+			},
+			elder_committe_name: {
+				maxLength: maxLength(16),
+				minLength: minLength(2)
+			},
+			comm_membership_no: {
+				maxLength: maxLength(16),
+				minLength: minLength(2)
+			},
+			nearest_post_office: {
+				required,
+				maxLength: maxLength(16),
+				minLength: minLength(3)
+			},
+			lives_with: {
+				required
+			},
+			other_elder_nic: {
+				maxLength: maxLength(10),
+				minLength: minLength(10)
+			},
+			other_names_and_details: {
+				maxLength: maxLength(256),
+				minLength: minLength(10)
+			},
+			source_of_income: {
+				required,
+				minLength: minLength(3)
+			},
+			monthly_income: {
+				required,
+				numeric
+			}
 		}
+		// name: {
+		// 	required,
+		// 	maxLength: maxLength(16),
+		// 	minLength: minLength(2),
+		// 	alpha
+		// },
+		// email: {
+		// 	required,
+		// 	email
+		// },
+		// emailAgain: {
+		// 	required,
+		// 	email,
+		// 	sameAsEmail: sameAs("email")
+		// },
+		// number: {
+		// 	required,
+		// 	numeric
+		// },
+		// max: {
+		// 	required,
+		// 	numeric,
+		// 	maxValue: maxValue(5)
+		// },
+		// min: {
+		// 	required,
+		// 	numeric,
+		// 	minValue: minValue(5)
+		// },
+		// withRegex: {
+		// 	required,
+		// 	upperCase
+		// }
 	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
+			console.log(this.$v.$invalid + "errere 2");
 			console.log(
 				JSON.stringify({
-					name: this.name,
-					email: this.email,
-					emailAgain: this.emailAgain,
-					max: this.max,
-					min: this.min,
-					withRegex: this.withRegex
+					elder: this.elder
 				})
 			);
+			if (!this.$v.$invalid) {
+				return {
+					valid: this.$v.$invalid,
+					elder: this.elder
+				};
+			} else {
+				return {
+					valid: this.$v.$invalid
+				};
+			}
 		}
 	}
+	// mounted() {
+	// 	console.log(this.elder.name + " tab");
+	// }
 };
 </script>

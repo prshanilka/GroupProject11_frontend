@@ -2,60 +2,122 @@
 	<b-row>
 		<b-colxx xxs="12">
 			<div class="text-center">
-				<h1>First One</h1>
+				<h1>Elder Form</h1>
 			</div>
-
-			<b-card class="mb-4" title="Custom Rules">
-				<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
+			<!-- //there was an emit click method ss -->
+			<b-card class="mb-4">
+				<b-form class="av-tooltip tooltip-label-right">
 					<b-form-group label="elder name ">
-						<b-form-input type="text" v-model="$v.name.$model" :state="!$v.name.$error" />
-						<b-form-invalid-feedback v-if="!$v.name.required">Please enter your name</b-form-invalid-feedback>
+						<b-form-input type="text" v-model="$v.elder.name.$model" :state="!$v.elder.name.$error" />
+						<b-form-invalid-feedback v-if="!$v.elder.name.required">Please enter your Elder name</b-form-invalid-feedback>
 						<b-form-invalid-feedback
-							v-else-if="!$v.name.minLength || !$v.name.maxLength"
-						>Your name must be between 2 and 16 characters</b-form-invalid-feedback>
+							v-else-if="!$v.elder.name.minLength || !$v.elder.maxLength"
+						>Your name must be between 2 and 32 characters</b-form-invalid-feedback>
+					</b-form-group>
+
+					<b-form-group label="Address">
+						<b-form-textarea
+							type="text"
+							v-model="$v.elder.address.$model"
+							:state="!$v.elder.address.$error"
+						/>
+						<b-form-invalid-feedback v-if="!$v.elder.address.required">Please enter your address</b-form-invalid-feedback>
 						<b-form-invalid-feedback
-							v-else-if="!$v.name.alpha"
-						>Your name must be composed only with letters</b-form-invalid-feedback>
+							v-else-if="!$v.elder.address.minLength || !$v.elder.address.maxLength"
+						>Your Address must be between 10 and 256 characters</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group :label="$t('forms.email')">
-						<b-form-input type="text" v-model="$v.email.$model" :state="!$v.email.$error" />
-						<b-form-invalid-feedback v-if="!$v.email.required">Please enter your email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.email.email">Please enter a valid email address</b-form-invalid-feedback>
+					<b-form-group label="Nic No ">
+						<b-form-input type="text" v-model="$v.elder.nic_no.$model" :state="!$v.elder.nic_no.$error" />
+						<b-form-invalid-feedback v-if="!$v.elder.nic_no.required">Please enter your Nic No</b-form-invalid-feedback>
+						<b-form-invalid-feedback
+							v-else-if="!$v.elder.nic_no.minLength"
+						>Please enter a valid Nic no min lenhth 10</b-form-invalid-feedback>
+						<b-form-invalid-feedback
+							v-else-if="!$v.elder.nic_no.maxLength"
+						>Please enter a valid Nic no max lenhth 10</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="E-mail Again" class="error-l-100">
-						<b-form-input type="text" v-model="$v.emailAgain.$model" :state="!$v.emailAgain.$error" />
-						<b-form-invalid-feedback v-if="!$v.emailAgain.required">Please enter your email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.emailAgain.email">Please enter a valid email address</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.emailAgain.sameAsEmail">Your inputs does not match</b-form-invalid-feedback>
+					<b-form-group label="E-mail " class="error-l-100">
+						<b-form-input type="text" v-model="$v.elder.email.$model" :state="!$v.elder.email.$error" />
+						<b-form-invalid-feedback v-if="!$v.elder.email.required">Please enter your email address</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-else-if="!$v.elder.email.email">Please enter valid email address</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Number" class="error-l-100">
-						<b-form-input type="text" v-model="$v.number.$model" :state="!$v.number.$error" />
-						<b-form-invalid-feedback v-if="!$v.number.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.number.numeric">Value must be a number</b-form-invalid-feedback>
+					<b-form-group label="Sex">
+						<b-form-radio v-model="$v.elder.sex.$model" :state="!$v.elder.sex.$error" value="male">Male</b-form-radio>
+						<b-form-radio
+							v-model="$v.elder.sex.$model"
+							:state="!$v.elder.sex.$error"
+							value="female"
+						>Female</b-form-radio>
 					</b-form-group>
 
-					<b-form-group label="Max">
-						<b-form-input type="text" v-model="$v.max.$model" :state="!$v.max.$error" />
-						<b-form-invalid-feedback v-if="!$v.max.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.max.numeric">Value must be a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.max.maxValue">Maximum 5</b-form-invalid-feedback>
+					<b-form-group label=" Phone Number" class="error-l-100">
+						<b-form-input
+							placeholder="033XXXXXXX"
+							type="text"
+							v-model="$v.elder.phone_no.$model"
+							:state="!$v.elder.phone_no.$error"
+						/>
+						<b-form-invalid-feedback v-if="!$v.elder.phone_no.required">Please enter Phone Numberr</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-else-if="!$v.elder.phone_no.numeric">Value must be a Numbers</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-else-if="!$v.elder.phone_no.minLength">Numbers min 10 Numbers</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-else-if="!$v.elder.phone_no.maxLength">Numbers max 10 Numbers</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Min">
-						<b-form-input type="text" v-model="$v.min.$model" :state="!$v.min.$error" />
-						<b-form-invalid-feedback v-if="!$v.min.required">Please enter a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.min.numeric">Value must be a number</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.min.minValue">Minimum 5</b-form-invalid-feedback>
+					<b-form-group label="District">
+						<b-form-select
+							v-model="$v.elder.district.$model"
+							:options="district_option"
+							:state="!$v.elder.district.$error"
+						></b-form-select>
+						<b-form-invalid-feedback v-if="!$v.elder.district.required">Please enter District</b-form-invalid-feedback>
 					</b-form-group>
-					<b-form-group label="Regex (^[A-Z]*$)" class="error-l-125">
-						<b-form-input type="text" v-model="$v.withRegex.$model" :state="!$v.withRegex.$error" />
-						<b-form-invalid-feedback v-if="!$v.withRegex.required">Please enter uppercase characters</b-form-invalid-feedback>
-						<b-form-invalid-feedback v-else-if="!$v.withRegex.upperCase">Only uppercase characters</b-form-invalid-feedback>
+
+					<b-form-group label="Divisional Office">
+						<b-form-select
+							v-model="$v.elder.divisional_off.$model"
+							:options="divisional_off_option"
+							:state="!$v.elder.divisional_off.$error"
+						></b-form-select>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.divisional_off.required"
+						>Please enter Divisional Office</b-form-invalid-feedback>
 					</b-form-group>
-					<b-button type="submit" variant="primary" class="mt-4">{{ $t('forms.submit') }}</b-button>
+					<b-form-group label="Grama Niladari Division" class="error-l-125">
+						<b-form-select
+							v-model="$v.elder.grama_niladari_div.$model"
+							:options="grama_niladari_div_option"
+							:state="!$v.elder.grama_niladari_div.$error"
+						></b-form-select>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.grama_niladari_div.required"
+						>Please enter Grama Niladari Division</b-form-invalid-feedback>
+					</b-form-group>
+
+					<b-form-group label="DAte Of Birth" class="error-l-125">
+						<b-colxx xxs="12" xl="4" class="mb-4">
+							<b-card>
+								<b-form>
+									<b-row class="mb-0">
+										<b-colxx xxs="12">
+											<b-form-group>
+												<datepicker
+													v-model="$v.elder.birth_day.$model"
+													:state="!$v.elder.birth_day.$error"
+													:inline="true"
+													:bootstrap-styling="true"
+													class="embeded"
+												></datepicker>
+												<b-form-invalid-feedback v-if="!$v.elder.birth_day.required">Please enter Date of Birth</b-form-invalid-feedback>
+											</b-form-group>
+										</b-colxx>
+									</b-row>
+								</b-form>
+							</b-card>
+						</b-colxx>
+					</b-form-group>
 				</b-form>
 			</b-card>
 		</b-colxx>
@@ -78,68 +140,129 @@ const {
 } = require("vuelidate/lib/validators");
 
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
-
+import Datepicker from "vuejs-datepicker";
 export default {
+	components: {
+		datepicker: Datepicker
+	},
 	data() {
 		return {
-			name: "",
-			email: "",
-			emailAgain: "",
-			number: "",
-			max: "",
-			min: "",
-			withRegex: ""
+			elder: {
+				name: "",
+				address: "",
+				nic_no: "",
+				email: "",
+				sex: "male",
+				phone_no: "",
+				district: null,
+				divisional_off: null,
+				grama_niladari_div: null,
+				birth_day: "1997-11-07T16:41:00.000Z"
+			},
+			district_option: [
+				{ value: null, text: "Please select an District", disabled: true },
+				{ value: "0", text: "Colombo" },
+				{ value: "1", text: "Gampaha" },
+				{ value: "2", text: "Kaluthara" },
+				{ value: "3", text: "Rathnapura", disabled: true }
+			],
+			divisional_off_option: [
+				{ value: null, text: "Please select an Division", disabled: true },
+				{ value: "0", text: "Gampaha Town" },
+				{ value: "1", text: "Henagama" },
+				{ value: "2", text: "Kiridiwala" },
+				{ value: "3", text: "kadawatha", disabled: true }
+			],
+			grama_niladari_div_option: [
+				{
+					value: null,
+					text: "Please select Grama Niladari",
+					disabled: true
+				},
+				{ value: "0", text: "Gampaha South" },
+				{ value: "1", text: "Gampaha North" },
+				{ value: "2", text: "Gampaha west" },
+				{ value: "3", text: "gampaha East", disabled: true }
+			]
 		};
 	},
 	mixins: [validationMixin],
 	validations: {
-		name: {
-			required,
-			maxLength: maxLength(16),
-			minLength: minLength(2),
-			alpha
-		},
-		email: {
-			required,
-			email
-		},
-		emailAgain: {
-			required,
-			email,
-			sameAsEmail: sameAs("email")
-		},
-		number: {
-			required,
-			numeric
-		},
-		max: {
-			required,
-			numeric,
-			maxValue: maxValue(5)
-		},
-		min: {
-			required,
-			numeric,
-			minValue: minValue(5)
-		},
-		withRegex: {
-			required,
-			upperCase
+		elder: {
+			name: {
+				required,
+				maxLength: maxLength(32),
+				minLength: minLength(2)
+			},
+			address: {
+				required,
+				maxLength: maxLength(256),
+				minLength: minLength(10)
+			},
+			nic_no: {
+				required,
+				maxLength: maxLength(10),
+				minLength: minLength(10)
+			},
+			email: {
+				required,
+				email
+			},
+			sex: {
+				required
+			},
+			phone_no: {
+				required,
+				numeric,
+				maxLength: maxLength(10),
+				minLength: minLength(10)
+			},
+			district: {
+				required
+			},
+			divisional_off: {
+				required
+			},
+			grama_niladari_div: {
+				required
+			},
+			birth_day: {
+				required
+			}
 		}
 	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
+
 			console.log(
 				JSON.stringify({
-					name: this.name,
-					email: this.email,
-					emailAgain: this.emailAgain,
-					max: this.max,
-					min: this.min,
-					withRegex: this.withRegex
+					elder: this.elder
 				})
 			);
+			if (!this.$v.$invalid) {
+				return {
+					valid: this.$v.$invalid,
+					elder: this.elder
+				};
+			} else {
+				return {
+					valid: this.$v.$invalid
+				};
+			}
+		},
+		ss() {
+			console.log("now");
+			var el = {
+				name: "ben"
+			};
+			this.$emit("changexx", el);
+			console.log("end");
+		}
+	},
+	watch: {
+		name: function() {
+			console.log("change");
 		}
 	}
 };

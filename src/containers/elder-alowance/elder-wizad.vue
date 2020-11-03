@@ -1,26 +1,21 @@
 <template>
 	<b-card no-body>
 		<b-card-body class="wizard wizard-default">
-			<form-wizard :last-step-end="true">
-				<tab
-					:name="$t('wizard.step-name-1')"
-					:desc="$t('wizard.step-desc-1')"
-					:selected="true"
-				 
-				>
+			<form-wizard :last-step-end="true" :elder="this.elder">
+				<tab :name="$t('wizard.step-name-1')" :desc="$t('wizard.step-desc-1')" :selected="true">
 					<div class="wizard-basic-step">
 						<b-form>
-							<b-form-group   >
-								<elderformcon1 />
+							<b-form-group>
+								<elderformcon1 @changexx="changexx" />
 							</b-form-group>
 						</b-form>
 					</div>
 				</tab>
-				<tab :name="$t('wizard.step-name-2')" :desc="$t('wizard.step-desc-2')">
+				<tab :name="$t('wizard.step-name-2')" :desc="$t('wizard.step-desc-2') ">
 					<div class="wizard-basic-step">
 						<b-form>
-							<b-form-group >
-								<elderformcon2 />
+							<b-form-group>
+								<elderformcon2 :elder="this.elder" @changexx="changexx" />
 							</b-form-group>
 						</b-form>
 					</div>
@@ -28,7 +23,7 @@
 				<tab :name="$t('wizard.step-name-3')" :desc="$t('wizard.step-desc-3')">
 					<div class="wizard-basic-step">
 						<b-form>
-							<b-form-group  >
+							<b-form-group>
 								<elderformcon3 />
 							</b-form-group>
 						</b-form>
@@ -60,9 +55,21 @@ export default {
 		elderformcon2: elderformcon2,
 		elderformcon3: elderformcon3
 	},
+
+	data() {
+		return {
+			elder: {
+				name: "sahan"
+			}
+		};
+	},
 	methods: {
-		fff: () => {
+		fff() {
 			console.log("helll");
+		},
+		changexx(el) {
+			this.elder = el;
+			console.log(this.elder.name);
 		}
 	}
 };
