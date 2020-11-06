@@ -9,20 +9,47 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/elderlogin",
-    component: () => import(/* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"),
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
+      )
   },
 
   {
     path: "/elderform",
-    component: () => import(/* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"),
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
+      )
   },
 
+  {
+    path: "/elderlist",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
+      )
+  },
 
+  {
+    path: "/agentform",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
+      )
+  },
 
+  {
+    path: "/divisional_office_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_office_form"
+      )
+  },
 
   {
     path: "/",
-    component: () => import(/* webpackChunkName: "home" */ "./views/home"),
+    component: () => import(/* webpackChunkName: "home" */ "./views/home")
   },
   {
     path: adminRoot,
@@ -44,26 +71,34 @@ const routes = [
           {
             path: "default",
             component: () =>
-              import(/* webpackChunkName: "dashboards" */ "./views/app/dashboards/Default"),
+              import(
+                /* webpackChunkName: "dashboards" */ "./views/app/dashboards/Default"
+              )
             // meta: { roles: [UserRole.Admin] },
           },
           {
             path: "analytics",
 
             component: () =>
-              import(/* webpackChunkName: "dashboards" */ "./views/app/dashboards/Analytics"),
+              import(
+                /* webpackChunkName: "dashboards" */ "./views/app/dashboards/Analytics"
+              )
             // meta: { roles: [UserRole.Admin] },
           },
           {
             path: "ecommerce",
             component: () =>
-              import(/* webpackChunkName: "dashboards" */ "./views/app/dashboards/Ecommerce"),
+              import(
+                /* webpackChunkName: "dashboards" */ "./views/app/dashboards/Ecommerce"
+              )
             // meta: { roles: [UserRole.Editor] },
           },
           {
             path: "content",
             component: () =>
-              import(/* webpackChunkName: "dashboards" */ "./views/app/dashboards/Content"),
+              import(
+                /* webpackChunkName: "dashboards" */ "./views/app/dashboards/Content"
+              )
             // meta: { roles: [UserRole.Editor] },
           }
         ]
@@ -77,51 +112,69 @@ const routes = [
           {
             path: "product",
             component: () =>
-              import(/* webpackChunkName : "product" */ "./views/app/pages/product"),
+              import(
+                /* webpackChunkName : "product" */ "./views/app/pages/product"
+              ),
             redirect: `${adminRoot}/pages/product/data-list`,
             children: [
               {
                 path: "data-list",
                 component: () =>
-                  import(/* webpackChunkName: "product" */ "./views/app/pages/product/DataList")
+                  import(
+                    /* webpackChunkName: "product" */ "./views/app/pages/product/DataList"
+                  )
               },
               {
                 path: "thumb-list",
                 component: () =>
-                  import(/* webpackChunkName: "product" */ "./views/app/pages/product/ThumbList")
+                  import(
+                    /* webpackChunkName: "product" */ "./views/app/pages/product/ThumbList"
+                  )
               },
               {
                 path: "image-list",
                 component: () =>
-                  import(/* webpackChunkName: "product" */ "./views/app/pages/product/ImageList")
+                  import(
+                    /* webpackChunkName: "product" */ "./views/app/pages/product/ImageList"
+                  )
               },
               {
                 path: "details",
                 component: () =>
-                  import(/* webpackChunkName: "product" */ "./views/app/pages/product/Details")
+                  import(
+                    /* webpackChunkName: "product" */ "./views/app/pages/product/Details"
+                  )
               },
               {
                 path: "details-alt",
                 component: () =>
-                  import(/* webpackChunkName: "product" */ "./views/app/pages/product/DetailsAlt")
+                  import(
+                    /* webpackChunkName: "product" */ "./views/app/pages/product/DetailsAlt"
+                  )
               }
             ]
           },
           {
             path: "profile",
             component: () =>
-              import(/* webpackChunkName : "profile" */ "./views/app/pages/profile"),
+              import(
+                /* webpackChunkName : "profile" */ "./views/app/pages/profile"
+              ),
             redirect: `${adminRoot}/pages/profile/social`,
             children: [
               {
                 path: "social",
                 component: () =>
-                  import(/* webpackChunkName: "profile" */ "./views/app/pages/profile/Social")
+                  import(
+                    /* webpackChunkName: "profile" */ "./views/app/pages/profile/Social"
+                  )
               },
               {
                 path: "portfolio",
                 component: () =>
-                  import(/* webpackChunkName: "profile" */ "./views/app/pages/profile/Portfolio")
+                  import(
+                    /* webpackChunkName: "profile" */ "./views/app/pages/profile/Portfolio"
+                  )
               }
             ]
           },
@@ -134,50 +187,68 @@ const routes = [
               {
                 path: "blog-list",
                 component: () =>
-                  import(/* webpackChunkName: "blog" */ "./views/app/pages/blog/BlogList")
+                  import(
+                    /* webpackChunkName: "blog" */ "./views/app/pages/blog/BlogList"
+                  )
               },
               {
                 path: "blog-detail",
                 component: () =>
-                  import(/* webpackChunkName: "blog" */ "./views/app/pages/blog/BlogDetail")
+                  import(
+                    /* webpackChunkName: "blog" */ "./views/app/pages/blog/BlogDetail"
+                  )
               }
             ]
           },
           {
             path: "miscellaneous",
             component: () =>
-              import(/* webpackChunkName : "miscellaneous" */ "./views/app/pages/miscellaneous"),
+              import(
+                /* webpackChunkName : "miscellaneous" */ "./views/app/pages/miscellaneous"
+              ),
             redirect: `${adminRoot}/pages/miscellaneous/faq`,
             children: [
               {
                 path: "faq",
                 component: () =>
-                  import(/* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Faq")
+                  import(
+                    /* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Faq"
+                  )
               },
               {
                 path: "knowledge-base",
                 component: () =>
-                  import(/* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/KnowledgeBase")
+                  import(
+                    /* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/KnowledgeBase"
+                  )
               },
               {
                 path: "search",
                 component: () =>
-                  import(/* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Search")
+                  import(
+                    /* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Search"
+                  )
               },
               {
                 path: "prices",
                 component: () =>
-                  import(/* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Prices")
+                  import(
+                    /* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Prices"
+                  )
               },
               {
                 path: "mailing",
                 component: () =>
-                  import(/* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Mailing")
+                  import(
+                    /* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Mailing"
+                  )
               },
               {
                 path: "invoice",
                 component: () =>
-                  import(/* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Invoice")
+                  import(
+                    /* webpackChunkName: "miscellaneous" */ "./views/app/pages/miscellaneous/Invoice"
+                  )
               }
             ]
           }
@@ -186,29 +257,39 @@ const routes = [
       {
         path: "applications",
         component: () =>
-          import(/* webpackChunkName: "applications" */ "./views/app/applications"),
+          import(
+            /* webpackChunkName: "applications" */ "./views/app/applications"
+          ),
         redirect: `${adminRoot}/applications/todo`,
         children: [
           {
             path: "todo",
             component: () =>
-              import(/* webpackChunkName: "applications" */ "./views/app/applications/Todo")
+              import(
+                /* webpackChunkName: "applications" */ "./views/app/applications/Todo"
+              )
           },
           {
             path: "survey",
             component: () =>
-              import(/* webpackChunkName: "applications" */ "./views/app/applications/Survey")
+              import(
+                /* webpackChunkName: "applications" */ "./views/app/applications/Survey"
+              )
           },
           {
             path: "survey/:id",
             component: () =>
-              import(/* webpackChunkName: "applications" */ "./views/app/applications/SurveyDetail"),
+              import(
+                /* webpackChunkName: "applications" */ "./views/app/applications/SurveyDetail"
+              ),
             props: true
           },
           {
             path: "chat",
             component: () =>
-              import(/* webpackChunkName: "applications" */ "./views/app/applications/Chat")
+              import(
+                /* webpackChunkName: "applications" */ "./views/app/applications/Chat"
+              )
           }
         ]
       },
@@ -226,143 +307,197 @@ const routes = [
               {
                 path: "layouts",
                 component: () =>
-                  import(/* webpackChunkName: "forms" */ "./views/app/ui/forms/Layouts")
+                  import(
+                    /* webpackChunkName: "forms" */ "./views/app/ui/forms/Layouts"
+                  )
               },
               {
                 path: "components",
                 component: () =>
-                  import(/* webpackChunkName: "forms" */ "./views/app/ui/forms/Components")
+                  import(
+                    /* webpackChunkName: "forms" */ "./views/app/ui/forms/Components"
+                  )
               },
               {
                 path: "validations",
                 component: () =>
-                  import(/* webpackChunkName: "forms" */ "./views/app/ui/forms/Validations")
+                  import(
+                    /* webpackChunkName: "forms" */ "./views/app/ui/forms/Validations"
+                  )
               },
               {
                 path: "wizard",
                 component: () =>
-                  import(/* webpackChunkName: "forms" */ "./views/app/ui/forms/Wizard")
-              },
+                  import(
+                    /* webpackChunkName: "forms" */ "./views/app/ui/forms/Wizard"
+                  )
+              }
             ]
           },
           {
             path: "datatables",
             component: () =>
-              import(/* webpackChunkName : "datatables" */ "./views/app/ui/datatables"),
+              import(
+                /* webpackChunkName : "datatables" */ "./views/app/ui/datatables"
+              ),
             redirect: `${adminRoot}/ui/datatables/divided-table`,
             children: [
               {
                 path: "divided-table",
                 component: () =>
-                  import(/* webpackChunkName: "datatables" */ "./views/app/ui/datatables/DividedTable")
+                  import(
+                    /* webpackChunkName: "datatables" */ "./views/app/ui/datatables/DividedTable"
+                  )
               },
               {
                 path: "scrollable",
                 component: () =>
-                  import(/* webpackChunkName: "datatables" */ "./views/app/ui/datatables/Scrollable")
+                  import(
+                    /* webpackChunkName: "datatables" */ "./views/app/ui/datatables/Scrollable"
+                  )
               },
               {
                 path: "default",
                 component: () =>
-                  import(/* webpackChunkName: "datatables" */ "./views/app/ui/datatables/Default")
+                  import(
+                    /* webpackChunkName: "datatables" */ "./views/app/ui/datatables/Default"
+                  )
               }
             ]
           },
           {
             path: "components",
             component: () =>
-              import(/* webpackChunkName : "components" */ "./views/app/ui/components"),
+              import(
+                /* webpackChunkName : "components" */ "./views/app/ui/components"
+              ),
             redirect: `${adminRoot}/ui/components/alerts`,
             children: [
               {
                 path: "alerts",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Alerts")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Alerts"
+                  )
               },
               {
                 path: "badges",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Badges")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Badges"
+                  )
               },
               {
                 path: "buttons",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Buttons")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Buttons"
+                  )
               },
               {
                 path: "cards",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Cards")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Cards"
+                  )
               },
               {
                 path: "carousel",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Carousel")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Carousel"
+                  )
               },
               {
                 path: "charts",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Charts")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Charts"
+                  )
               },
               {
                 path: "collapse",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Collapse")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Collapse"
+                  )
               },
               {
                 path: "dropdowns",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Dropdowns")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Dropdowns"
+                  )
               },
               {
                 path: "editors",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Editors")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Editors"
+                  )
               },
               {
                 path: "icons",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Icons")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Icons"
+                  )
               },
               {
                 path: "input-groups",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/InputGroups")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/InputGroups"
+                  )
               },
               {
                 path: "jumbotron",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Jumbotron")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Jumbotron"
+                  )
               },
               {
                 path: "maps",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Maps")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Maps"
+                  )
               },
               {
                 path: "modal",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Modal")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Modal"
+                  )
               },
               {
                 path: "navigation",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Navigation")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Navigation"
+                  )
               },
               {
                 path: "popover-tooltip",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/PopoverTooltip")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/PopoverTooltip"
+                  )
               },
               {
                 path: "sortable",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Sortable")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Sortable"
+                  )
               },
               {
                 path: "tables",
                 component: () =>
-                  import(/* webpackChunkName: "components" */ "./views/app/ui/components/Tables")
+                  import(
+                    /* webpackChunkName: "components" */ "./views/app/ui/components/Tables"
+                  )
               }
             ]
           }
@@ -377,28 +512,38 @@ const routes = [
           {
             path: "types",
             component: () =>
-              import(/* webpackChunkName : "menu-types" */ "./views/app/menu/Types")
+              import(
+                /* webpackChunkName : "menu-types" */ "./views/app/menu/Types"
+              )
           },
           {
             path: "levels",
             component: () =>
-              import(/* webpackChunkName : "menu-levels" */ "./views/app/menu/levels"),
+              import(
+                /* webpackChunkName : "menu-levels" */ "./views/app/menu/levels"
+              ),
             redirect: `${adminRoot}/menu/levels/third-level-1`,
             children: [
               {
                 path: "third-level-1",
                 component: () =>
-                  import(/* webpackChunkName: "menu-levels" */ "./views/app/menu/levels/Third-level-1")
+                  import(
+                    /* webpackChunkName: "menu-levels" */ "./views/app/menu/levels/Third-level-1"
+                  )
               },
               {
                 path: "third-level-2",
                 component: () =>
-                  import(/* webpackChunkName: "menu-levels" */ "./views/app/menu/levels/Third-level-2")
+                  import(
+                    /* webpackChunkName: "menu-levels" */ "./views/app/menu/levels/Third-level-2"
+                  )
               },
               {
                 path: "third-level-3",
                 component: () =>
-                  import(/* webpackChunkName: "menu-levels" */ "./views/app/menu/levels/Third-level-3")
+                  import(
+                    /* webpackChunkName: "menu-levels" */ "./views/app/menu/levels/Third-level-3"
+                  )
               }
             ]
           }
@@ -417,7 +562,8 @@ const routes = [
   },
   {
     path: "/unauthorized",
-    component: () => import(/* webpackChunkName: "error" */ "./views/Unauthorized")
+    component: () =>
+      import(/* webpackChunkName: "error" */ "./views/Unauthorized")
   },
   {
     path: "/user",
@@ -443,8 +589,7 @@ const routes = [
         path: "reset-password",
         component: () =>
           import(/* webpackChunkName: "user" */ "./views/user/ResetPassword")
-      },
-
+      }
     ]
   },
   {
@@ -456,7 +601,7 @@ const routes = [
 const router = new VueRouter({
   linkActiveClass: "active",
   routes,
-  mode: "history",
+  mode: "history"
 });
 router.beforeEach(AuthGuard);
 export default router;
