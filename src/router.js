@@ -40,6 +40,14 @@ const routes = [
   },
 
   {
+    path: "/postoffice",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/postoffice_form"
+      )
+  },
+
+  {
     path: "/divisional_office_form",
     component: () =>
       import(
