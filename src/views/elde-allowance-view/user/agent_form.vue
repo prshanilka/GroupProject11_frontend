@@ -1,0 +1,24 @@
+<template>
+	<AppLayout>
+		<ajentForm />
+	</AppLayout>
+</template>
+
+
+
+
+<script>
+import AppLayout from "../../../layouts/AppLayout";
+import ajentForm from "../../../containers/elder-alowance/agent form";
+
+export default {
+	name: "elform",
+	components: {
+		AppLayout: AppLayout,
+		ajentForm: ajentForm
+	}
+};
+</script>
+
+<style>
+</style>
