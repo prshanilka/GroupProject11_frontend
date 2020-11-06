@@ -243,11 +243,6 @@ const routes = [
                 component: () =>
                   import(/* webpackChunkName: "forms" */ "./views/app/ui/forms/Wizard")
               },
-              {
-                path: "newelder",
-                component: () =>
-                  import(/* webpackChunkName: "forms" */ "./views/app/ui/forms/forms-elder")
-              },
             ]
           },
           {
