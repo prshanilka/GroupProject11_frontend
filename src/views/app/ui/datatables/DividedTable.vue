@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div>
     <datatable-heading
       :title="$t('menu.divided-table')"
@@ -45,7 +44,6 @@
         />
       </b-colxx>
     </b-row>
-=======
 	<div>
 		<datatable-heading
 			:title="$t('menu.divided-table')"
@@ -87,7 +85,6 @@
 				/>
 			</b-colxx>
 		</b-row>
->>>>>>> 8e9db6f63e0166db5012d705f36c9b0a6c32f865
 
 		<v-contextmenu ref="contextmenu">
 			<v-contextmenu-item @click="onContextMenuAction('copy')">
