@@ -19,6 +19,7 @@
           ref="vuetable"
           class="table-divided order-with-arrow"
           :api-url="apiBase"
+          :http-options= "{headers:{'Authorization' : 'Basicsadasdasdasdas333'}}"
           :query-params="makeQueryParams"
           :per-page="perPage"
           :reactive-api-url="true"

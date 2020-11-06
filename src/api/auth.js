@@ -3,10 +3,27 @@ const bapi = axios.create({
   baseURL: 'http://localhost:3000/api/',
   //headers: { 'X-API-TOKEN': store.state.token },
 })
-const token="ddd";
+let token='ffff';
 const config = {
   headers: { Authorization: `Bearer ${token}` }
 };
+bapi.interceptors.response.use(res => {
+  //console.log('sssssssssssss');
+ // config.headers.Authorization='Bearer '+localStorage.jwt;
+ // console.log(config);
+  //console.log(res);
+  // Important: response interceptors **must** return the response.
+  return res;
+},function (error) {
+  if (401 === error.res.status) {
+    console.log(error);
+  }
+     
+});
+
+
+
+
 
 const bodyParameters = {
 };
@@ -45,5 +62,5 @@ export default {
 
 
 
-}
+  },
 }

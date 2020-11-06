@@ -110,7 +110,7 @@ export default {
         }
         if(results){
           console.log('dddd')
-          console.log(currentUser)
+          //console.log(currentUser)
           const item = { uid: "${ results.id }", ...results }
 
           setCurrentUser(item)
