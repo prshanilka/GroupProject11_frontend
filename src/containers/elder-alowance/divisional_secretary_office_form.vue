@@ -5,11 +5,20 @@
 				<h1>divisional secretary office detail Form</h1>
 			</div>
 			<b-card class="mb-4 text-center" v-show="!submit_div">
-				<h2 class="mb-2">You SuccecFully Added The District</h2>
+				<h2 class="mb-2">You SuccecFully Added The Divisional secretary</h2>
 				<p>Division is registerd Now</p>
 			</b-card>
 			<b-card class="mb-4" v-show="submit_div">
 				<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
+					<b-form-group label="District">
+						<b-form-select
+							v-model="$v.div_sec_off.district_id.$model"
+							:options="district_option"
+							:state="!$v.div_sec_off.district_id.$error"
+						></b-form-select>
+						<b-form-invalid-feedback v-if="!$v.div_sec_off.district_id.required">Please enter District</b-form-invalid-feedback>
+					</b-form-group>
+
 					<b-form-group label="Divisional code">
 						<b-form-input
 							type="text"
@@ -19,17 +28,6 @@
 						<b-form-invalid-feedback
 							v-if="!$v.div_sec_off.divisional_id.required"
 						>Please enter Divisional Code</b-form-invalid-feedback>
-					</b-form-group>
-
-					<b-form-group label="District">
-						<b-form-input
-							type="text"
-							v-model="$v.div_sec_off.district_id.$model"
-							:state="!$v.div_sec_off.district_id.$error"
-						/>
-						<b-form-invalid-feedback
-							v-if="!$v.div_sec_off.district_id.required"
-						>Please enter District Code</b-form-invalid-feedback>
 					</b-form-group>
 
 					<b-form-group label="Divisional Name" class="error-l-100">
@@ -172,7 +170,31 @@ export default {
 				no_of_officers: "",
 				count_of_priority_listed_elders: "",
 				count_of_benifishers_elders: ""
-			}
+			},
+			district_option: [
+				{
+					value: null,
+					text: "Please select an District",
+					disabled: true
+				},
+				{
+					value: "0",
+					text: "Colombo"
+				},
+				{
+					value: "1",
+					text: "Gampaha"
+				},
+				{
+					value: "2",
+					text: "Kaluthara"
+				},
+				{
+					value: "3",
+					text: "Rathnapura",
+					disabled: true
+				}
+			]
 			// name: "",
 			// email: "",
 			// emailAgain: "",
@@ -266,7 +288,7 @@ export default {
 				this.submit_div = !this.submit_div;
 				console.log(
 					JSON.stringify({
-						agent: this.agent
+						"div-office": this.div_sec_off
 					})
 				);
 			}

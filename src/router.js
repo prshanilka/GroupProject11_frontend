@@ -43,7 +43,7 @@ const routes = [
     path: "/postoffice",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/postoffice_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_form"
       )
   },
 
