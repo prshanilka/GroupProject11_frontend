@@ -1,49 +1,4 @@
 <template>
-  <div>
-    <datatable-heading
-      :title="$t('menu.divided-table')"
-      :selectAll="selectAll"
-      :isSelectedAll="isSelectedAll"
-      :isAnyItemSelected="isAnyItemSelected"
-      :keymap="keymap"
-      :changePageSize="changePageSize"
-      :searchChange="searchChange"
-      :from="from"
-      :to="to"
-      :total="total"
-      :perPage="perPage"
-    ></datatable-heading>
-    <b-row>
-      <b-colxx xxs="12">
-        <vuetable
-          ref="vuetable"
-          class="table-divided order-with-arrow"
-          :api-url="apiBase"
-          :http-options= "{headers:{'Authorization' : 'Basicsadasdasdasdas333'}}"
-          :query-params="makeQueryParams"
-          :per-page="perPage"
-          :reactive-api-url="true"
-          :fields="fields"
-          pagination-path
-          :row-class="onRowClass"
-          @vuetable:pagination-data="onPaginationData"
-          @vuetable:row-clicked="rowClicked"
-          @vuetable:cell-rightclicked="rightClicked"
-        >
-          <template slot="actions" slot-scope="props">
-            <b-form-checkbox
-              :checked="selectedItems.includes(props.rowData.id)"
-              class="itemCheck mb-0"
-            ></b-form-checkbox>
-          </template>
-        </vuetable>
-        <vuetable-pagination-bootstrap
-          class="mt-4"
-          ref="pagination"
-          @vuetable-pagination:change-page="onChangePage"
-        />
-      </b-colxx>
-    </b-row>
 	<div>
 		<datatable-heading
 			:title="$t('menu.divided-table')"
@@ -64,6 +19,7 @@
 					ref="vuetable"
 					class="table-divided order-with-arrow"
 					:api-url="apiBase"
+					:http-options= "{headers:{'Authorization' : 'Basicsadasdasdasdas333'}}"
 					:query-params="makeQueryParams"
 					:per-page="perPage"
 					:reactive-api-url="true"
