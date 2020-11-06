@@ -48,6 +48,15 @@ const routes = [
   },
 
   {
+    path: "/gramaniladai_division_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_ division"
+      )
+  },
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////
+  {
     path: "/",
     component: () => import(/* webpackChunkName: "home" */ "./views/home")
   },
