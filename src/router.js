@@ -43,7 +43,7 @@ const routes = [
     path: "/postoffice",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/postoffice_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_form"
       )
   },
 
@@ -55,6 +55,15 @@ const routes = [
       )
   },
 
+  {
+    path: "/gramaniladai_division_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_ division"
+      )
+  },
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////
   {
     path: "/",
     component: () => import(/* webpackChunkName: "home" */ "./views/home")

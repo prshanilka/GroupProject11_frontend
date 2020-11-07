@@ -2,7 +2,6 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import { currentUser, isAuthGuardActive } from '../../constants/config'
 import { setCurrentUser, getCurrentUser } from '../../utils'
-import axios from 'axios';
 import bapi from '../../api/auth';
 export default {
   state: {
@@ -110,7 +109,7 @@ export default {
         }
         if(results){
           console.log('dddd')
-          console.log(currentUser)
+          //console.log(currentUser)
           const item = { uid: "${ results.id }", ...results }
 
           setCurrentUser(item)
