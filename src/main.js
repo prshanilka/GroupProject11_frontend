@@ -28,6 +28,15 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { getCurrentLanguage } from "./utils";
 
+//import interceptorsSetup from './interceptor/interceptor'
+
+// and running it somewhere here
+//interceptorsSetup()
+
+
+
+
+
 Vue.use(BootstrapVue);
 Vue.use(VueI18n);
 const messages = { en: en, es: es };
@@ -52,6 +61,8 @@ Vue.component("vue-perfect-scrollbar", vuePerfectScrollbar);
 
 firebase.initializeApp(firebaseConfig);
 Vue.config.productionTip = false;
+
+
 
 export default new Vue({
   i18n,
