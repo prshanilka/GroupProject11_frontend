@@ -63,6 +63,22 @@ const routes = [
       )
   },
 
+  {
+    path: "/postoffice_officer",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_officer_form"
+      )
+  },
+
+  {
+    path: "/gramaniladai_officer",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_officer_form"
+      )
+  },
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   {
     path: "/",
