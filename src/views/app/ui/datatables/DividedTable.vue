@@ -19,7 +19,7 @@
 					ref="vuetable"
 					class="table-divided order-with-arrow"
 					:api-url="apiBase"
-					:http-options= "{headers:{'Authorization' : 'Basicsadasdasdasdas333'}}"
+					:http-fetch="myFetch"
 					:query-params="makeQueryParams"
 					:per-page="perPage"
 					:reactive-api-url="true"
@@ -64,7 +64,8 @@ import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../../components/Common/VuetablePaginationBootstrap";
 import { apiUrl } from "../../../../constants/config";
 import DatatableHeading from "../../../../containers/datatable/DatatableHeading";
-
+//import axios from 'axios';
+import { myF } from "../../../../api/auth"
 export default {
 	props: ["title"],
 	components: {
@@ -131,6 +132,9 @@ export default {
 		};
 	},
 	methods: {
+		myFetch(){
+			return myF();
+		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
 			return sortOrder[0]

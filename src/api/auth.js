@@ -21,14 +21,42 @@ bapi.interceptors.response.use(res => {
      
 });
 
+bapi.interceptors.request.use(function(config) {
+  if(localStorage.jwt){
+    const token = localStorage.jwt;
+  }
+  else{
+    const token = "ddd";
+  }
+  
 
+  if(token) {
+      config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+  
+}, function(err) {
+  return Promise.reject(err);
+});
 
 
 
 const bodyParameters = {
 };
-export default {
 
+export async function myF () {
+  return bapi.get('https://api.coloredstrategies.com/cakes/fordatatable?page=1&per_page=8&search=')
+}
+
+
+
+
+
+
+
+
+
+export default {
   getSomeData () {
     return bapi.get('/endpoint')
   },
