@@ -79,6 +79,14 @@ const routes = [
       )
   },
 
+  {
+    path: "/divisional_office_officer",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_office_officer_form"
+      )
+  },
+
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   {
     path: "/",
