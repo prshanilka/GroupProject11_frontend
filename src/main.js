@@ -9,6 +9,8 @@ import store from "./store";
 // Multi Language Add
 import en from "./locales/en.json";
 import es from "./locales/es.json";
+import sinhala from "./locales/sinhala.json";
+import tamil from "./locales/tamil.json";
 import VueI18n from "vue-i18n";
 import { firebaseConfig } from "./constants/config";
 // Notification Component Add
@@ -33,13 +35,9 @@ import { getCurrentLanguage } from "./utils";
 // and running it somewhere here
 //interceptorsSetup()
 
-
-
-
-
 Vue.use(BootstrapVue);
 Vue.use(VueI18n);
-const messages = { en: en, es: es };
+const messages = { en: en, es: es, sinhala: sinhala, tamil: tamil };
 const locale = getCurrentLanguage();
 const i18n = new VueI18n({
   locale: locale,
@@ -61,8 +59,6 @@ Vue.component("vue-perfect-scrollbar", vuePerfectScrollbar);
 
 firebase.initializeApp(firebaseConfig);
 Vue.config.productionTip = false;
-
-
 
 export default new Vue({
   i18n,

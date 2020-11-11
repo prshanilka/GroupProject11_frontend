@@ -1,0 +1,17 @@
+{
+  "user": {
+    "login-title": "Iniciar sesión",
+    "register": "Registro",
+    "forgot-password": "Se te olvidó tu contraseña",
+    "email": "WAnakkam",
+    "password": "Contraseña",
+    "password-again": "Contraseña Again",
+    "forgot-password-question": "¿Contraseña olvidada?",
+    "fullname": "Nombre completo",
+    "login-button": "INICIAR SESIÓN",
+    "register-button": "REGISTRO",
+    "reset-password-button": "REINICIAR",
+    "buy": "COMPRAR",
+    "username": "Nombre de Usuario"
+  }
+}

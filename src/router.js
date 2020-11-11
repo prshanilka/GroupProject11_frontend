@@ -8,6 +8,13 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/elderlayout",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/Layout-check/Elder-layout"
+      )
+  },
+  {
     path: "/elderlogin",
     component: () =>
       import(
