@@ -1,27 +1,27 @@
 <template>
 	<div id="app-container" :class="getMenuType">
-		<topnav />
-		<sidebar />
+		<etopnav />
+		<esidebar />
 		<main>
 			<div class="container-fluid">
 				<slot></slot>
 			</div>
 		</main>
-		<footer-component />
+		<efooter-component />
 	</div>
 </template>
 
 <script>
-import Sidebar from "../containers/navs/Sidebar";
-import Topnav from "../containers/navs/Topnav";
-import Footer from "../containers/navs/Footer";
+import ESidebar from "../containers/navs/Elder allowance/ESidebar";
+import ETopnav from "../containers/navs/Elder allowance/ETopnav";
+import EFooter from "../containers/navs/Elder allowance/EFooter";
 import { mapGetters } from "vuex";
 
 export default {
 	components: {
-		topnav: Topnav,
-		sidebar: Sidebar,
-		"footer-component": Footer
+		etopnav: ETopnav,
+		esidebar: ESidebar,
+		"efooter-component": EFooter
 	},
 	data() {
 		return {

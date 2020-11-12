@@ -102,9 +102,9 @@ import { mapGetters, mapMutations } from "vuex";
 import {
 	menuHiddenBreakpoint,
 	subHiddenBreakpoint
-} from "../../constants/config";
-import menuItems from "../../constants/menu";
-import { UserRole } from "../../utils/auth.roles";
+} from "../../../constants/config";
+import menuItems from "../../../constants/menu";
+import { UserRole } from "../../../utils/auth.roles";
 
 export default {
 	data() {
