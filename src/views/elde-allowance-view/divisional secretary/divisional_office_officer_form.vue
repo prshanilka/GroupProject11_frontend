@@ -1,18 +1,18 @@
 <template>
 	<AppLayout>
-		<eLelderwizad />
+		<Div_sec_off_officer />
 	</AppLayout>
 </template>
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import eLelderwizad from "../../../containers/elder-alowance/elder-wizad";
+import div_sec_off_officer from "../../../containers/elder-alowance/divisional_office_officer";
 
 export default {
 	name: "elform",
 	components: {
 		AppLayout: AppLayout,
-		eLelderwizad: eLelderwizad
+		Div_sec_off_officer: div_sec_off_officer
 	}
 };
 </script>

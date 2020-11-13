@@ -8,6 +8,13 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: "/elderlayout/elder",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/Layout-check/Elder-layout"
+      )
+  },
+  {
     path: "/elderlogin",
     component: () =>
       import(
@@ -16,23 +23,14 @@ const routes = [
   },
 
   {
-    path: "/elderform",
+    path: "/elder/elder-form",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
       )
   },
-
   {
-    path: "/elderlist",
-    component: () =>
-      import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
-      )
-  },
-
-  {
-    path: "/agentform",
+    path: "/elder/agent-form",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
@@ -40,7 +38,15 @@ const routes = [
   },
 
   {
-    path: "/postoffice",
+    path: "/elder/elder-list",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
+      )
+  },
+
+  {
+    path: "/post/post-office",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_form"
@@ -48,7 +54,15 @@ const routes = [
   },
 
   {
-    path: "/divisional_office_form",
+    path: "/post/post-office-officer",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_officer_form"
+      )
+  },
+
+  {
+    path: "/division/divisional-office-form",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_office_form"
@@ -56,10 +70,25 @@ const routes = [
   },
 
   {
-    path: "/gramaniladai_division_form",
+    path: "/division/divisional-office-officer",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_office_officer_form"
+      )
+  },
+
+  {
+    path: "/grama/gramaniladai-division-form",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_ division"
+      )
+  },
+  {
+    path: "/grama/gramaniladai-officer",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_officer_form"
       )
   },
 

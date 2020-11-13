@@ -18,7 +18,7 @@
 
 
 <script>
-import AppLayout from "../../../layouts/AppLayout";
+import AppLayout from "../../../layouts/EAppLayout";
 import axios from "axios";
 
 export default {
@@ -46,7 +46,8 @@ export default {
 				},
 				"add"
 			],
-			itemss: [{
+			itemss: [
+				{
 					isActive: true,
 					user_id: 2,
 					id: "",
@@ -153,9 +154,9 @@ export default {
 					table_id: 0,
 					role_id: 1,
 					is_deleted: 0
-				}]
+				}
+			]
 		};
-	},
-	 
+	}
 };
 </script>

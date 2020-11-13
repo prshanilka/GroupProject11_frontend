@@ -1,18 +1,18 @@
 <template>
 	<AppLayout>
-		<eLelderwizad />
+		<Officers />
 	</AppLayout>
 </template>
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import eLelderwizad from "../../../containers/elder-alowance/elder-wizad";
+import officers from "../../../containers/elder-alowance/postoffice_officers";
 
 export default {
 	name: "elform",
 	components: {
 		AppLayout: AppLayout,
-		eLelderwizad: eLelderwizad
+		Officers: officers
 	}
 };
 </script>

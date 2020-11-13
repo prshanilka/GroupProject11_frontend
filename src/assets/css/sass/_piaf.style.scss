@@ -377,9 +377,10 @@ hr {
 }
 
 .logo-single {
-  width: 110px;
-  height: 35px;
-  background: url($logo-path) no-repeat;
+  margin: auto;
+  width: 220px;
+  height: 70px;
+  background: url("/assets/logos/swsw.png") no-repeat;
   background-position: center center;
   display: inline-block;
   margin-bottom: 60px;
@@ -1855,24 +1856,24 @@ button {
   }
 
   .navbar-logo {
-    width: 110px;
-    height: 35px;
+    width: 220px;
+    height: 70px;
     position: absolute;
     left: 0;
     right: 0;
-    margin: 0 auto;
+    margin:  auto;
 
     .logo {
       width: 100%;
       height: 100%;
-      background: url($logo-path) no-repeat;
+      background: url('/assets/logos/swsw.png') no-repeat;
       background-position: center center;
     }
 
     .logo-mobile {
       width: 100%;
       height: 100%;
-      background: url($logo-path-mobile) no-repeat;
+      background: url('/assets/logos/sese-min.png') no-repeat;
       background-position: center center;
     }
 
@@ -1881,7 +1882,8 @@ button {
     }
 
     @include respond-below(xxs) {
-      width: 20px;
+      width: 40px;
+       height: 40px;
     }
   }
 
