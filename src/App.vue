@@ -1,7 +1,7 @@
 <template>
 	<div class="h-100">
 		<router-view />
-		<color-switcher />
+		<!-- <color-switcher /> -->
 	</div>
 </template>
 

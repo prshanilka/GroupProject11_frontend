@@ -8,7 +8,7 @@
 
 
 <script>
-import AppLayout from "../../../layouts/AppLayout";
+import AppLayout from "../../../layouts/EAppLayout";
 import grama_niladari_division_form from "../../../containers/elder-alowance/grama_niladari_division_form";
 
 export default {

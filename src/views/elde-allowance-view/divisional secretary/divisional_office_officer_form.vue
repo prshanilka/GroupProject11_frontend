@@ -1,19 +1,19 @@
 <template>
-<AppLayout>
-    <Div_sec_off_officer />
-</AppLayout>
+	<AppLayout>
+		<Div_sec_off_officer />
+	</AppLayout>
 </template>
 
 <script>
-import AppLayout from "../../../layouts/AppLayout";
+import AppLayout from "../../../layouts/EAppLayout";
 import div_sec_off_officer from "../../../containers/elder-alowance/divisional_office_officer";
 
 export default {
-    name: "elform",
-    components: {
-        AppLayout: AppLayout,
-        Div_sec_off_officer: div_sec_off_officer
-    }
+	name: "elform",
+	components: {
+		AppLayout: AppLayout,
+		Div_sec_off_officer: div_sec_off_officer
+	}
 };
 </script>
 
