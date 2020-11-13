@@ -8,7 +8,6 @@ import router from "./router";
 import store from "./store";
 // Multi Language Add
 import en from "./locales/en.json";
-import es from "./locales/es.json";
 import sinhala from "./locales/sinhala.json";
 import tamil from "./locales/tamil.json";
 import VueI18n from "vue-i18n";
@@ -37,7 +36,7 @@ import { getCurrentLanguage } from "./utils";
 
 Vue.use(BootstrapVue);
 Vue.use(VueI18n);
-const messages = { en: en, es: es, sinhala: sinhala, tamil: tamil };
+const messages = { en: en, සිංහල: sinhala, தமிழ்: tamil };
 const locale = getCurrentLanguage();
 const i18n = new VueI18n({
   locale: locale,

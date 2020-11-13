@@ -21,6 +21,44 @@
     "buy": "BUY",
     "username": "Username"
   },
+  "form": {
+    "address":"Address",
+    "nic":"NIC",
+    "email":"E-Mail",
+    "sex":"Sex",
+    "number":"Phone Number",
+    "district":"Ditrict",
+    "divisional":"Divisional Secratriat",
+    "gramaniladari-division":"Grama Niladari Division",
+    "birth":"Birth Day",
+    "submit":"Submit",
+    "e-name":"Please enter your full name",
+    "v-name":"Your name must be between 3 and 16 characters",
+    "e-nic":"Please enter your Nic no",
+    "v-nic":"Your Nic must be only 10 characters",
+    "e-address":"Please enter your address",
+    "v-address":"Your Address must be between 6 and 256 characters",
+    "e-number":"Please enter your phone number",
+    "v-number":"Your phone number must be only 10 numbers",
+    "e-mali":"Please enter your email address",
+    "v-mail":"Please enter valid email address"
+  },
+  "elder":{
+    "form":"Elder Form",
+    "name":"Elder Full Name"
+  },
+  "agent":{
+    "form":"Agent Form",
+    "name":"Agent Full Name",
+    "form-success":"You SuccecFully Added The Agent",
+    "form-register":"Agent is registerd Now",
+    "relation":"Relationship with Elder",
+    "e-relation":"Please enter Relationship with Elder"
+  },
+
+
+
+
   "menu": {
     "home": "Home",
     "app": "Home",
