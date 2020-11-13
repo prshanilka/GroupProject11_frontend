@@ -8,7 +8,7 @@
 
 
 <script>
-import AppLayout from "../../../layouts/AppLayout";
+import AppLayout from "../../../layouts/EAppLayout";
 import eLelderwizad from "../../../containers/elder-alowance/elder-wizad";
 
 export default {

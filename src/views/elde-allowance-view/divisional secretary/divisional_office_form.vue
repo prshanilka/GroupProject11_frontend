@@ -8,7 +8,7 @@
 
 
 <script>
-import AppLayout from "../../../layouts/AppLayout";
+import AppLayout from "../../../layouts/EAppLayout";
 import divi_sec_off_form from "../../../containers/elder-alowance/divisional_secretary_office_form";
 
 export default {

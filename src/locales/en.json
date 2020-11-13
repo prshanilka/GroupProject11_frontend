@@ -22,6 +22,17 @@
     "username": "Username"
   },
   "menu": {
+    "elderform": "Elder Form",
+    "agentform": "Agent Form",
+    "elderlist": "Elder List",
+    "postoffice": "Post Office",
+    "postoffice-officer": "Post Officer",
+    "divisional-office-form": "Divisional Office",
+    "divisional-office-officer": "Divisional Officer",
+    "gramaniladai-division-form": "GramaNiladari Div",
+    "gramaniladai-officer": "GramaNiladari Off",
+    "elderlang": "Sinhala",
+
     "home": "Home",
     "app": "Home",
     "dashboards": "Dashboards",
@@ -224,7 +235,7 @@
     "friends": "FRIENDS",
     "images": "IMAGES",
     "purchase": "PURCHASE",
-    "prices":{
+    "prices": {
       "developer": "DEVELOPER",
       "team": "TEAM",
       "enterprise": "ENTERPRISE",
@@ -233,8 +244,8 @@
       "245Support": "24/5 Support",
       "247Support": "24/7 Support",
       "useractionsauditlog": "User actions audit log",
-      "featurecomparison" : "Feature Comparison",
-      "pricecomparison" : "Price Comparison"
+      "featurecomparison": "Feature Comparison",
+      "pricecomparison": "Price Comparison"
     }
   },
   "chat": {
@@ -469,13 +480,10 @@
     "lastname": "Last name",
     "lastname-message": "Please enter your last name!",
 
-
     "password-confirm": "Confirm Password",
     "validation-bootstrap": "Bootstrap Validation",
     "validation-vuelidate": "Vuelidate Validation",
     "name": "Name"
-
-
   },
   "form-components": {
     "custom-inputs": "Custom Inputs",
@@ -508,8 +516,8 @@
     "type-a-cake": "Type a Cake",
     "start": "Start",
     "end": "End",
-    "month-view-only" :"Month View Only",
-    "year-and-month-view-only" :"Year and Month View Only"
+    "month-view-only": "Month View Only",
+    "year-and-month-view-only": "Year and Month View Only"
   },
   "icons": {
     "simplelineicons": "Simple Line Icons",
@@ -612,7 +620,7 @@
     "vue-pagination": "Pagination",
     "vue-scrollable": "Scrollable"
   },
-  "wizard":{
+  "wizard": {
     "step-name-1": "Step 1",
     "step-name-2": "Step 2",
     "step-name-3": "Step 3",
