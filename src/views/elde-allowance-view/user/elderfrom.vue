@@ -1,22 +1,19 @@
 <template>
-	<AppLayout>
-		<eLelderwizad />
-	</AppLayout>
+<AppLayout>
+    <eLelderwizad />
+</AppLayout>
 </template>
-
-
-
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
 import eLelderwizad from "../../../containers/elder-alowance/elder-wizad";
 
 export default {
-	name: "elform",
-	components: {
-		AppLayout: AppLayout,
-		eLelderwizad: eLelderwizad
-	}
+    name: "elform",
+    components: {
+        AppLayout: AppLayout,
+        eLelderwizad: eLelderwizad
+    }
 };
 </script>
 
