@@ -1,8 +1,12 @@
 <template>
 <b-row>
     <b-colxx xxs="12">
-
-        <b-card class="mb-4" :title="$t('elder.form')">
+        <b-card>
+            <div class="text-center">
+                <h1>{{$t('elder.form')}}</h1>
+            </div>
+        </b-card>
+        <b-card class="mb-4">
             <!-- //there was an emit click method ss -->
 
             <b-form class="av-tooltip tooltip-label-right">
@@ -45,16 +49,16 @@
 
                 <b-form-group :label="$t('form.district')">
                     <b-form-select v-model="$v.elder.district.$model" :options="district_option" :state="!$v.elder.district.$error"></b-form-select>
-                    <b-form-invalid-feedback v-if="!$v.elder.district.required">{{$t('form.e-ditrict')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.district.required">{{$t('form.e-district')}}</b-form-invalid-feedback>
                 </b-form-group>
 
                 <b-form-group :label="$t('form.divisional')">
                     <b-form-select v-model="$v.elder.divisional_off.$model" :options="divisional_off_option" :state="!$v.elder.divisional_off.$error"></b-form-select>
-                    <b-form-invalid-feedback v-if="!$v.elder.divisional_off.required">Please enter Divisional Office</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.divisional_off.required">{{$t('form.e-divisional')}}</b-form-invalid-feedback>
                 </b-form-group>
                 <b-form-group :label="$t('form.gramaniladari-division')" class="error-l-125">
                     <b-form-select v-model="$v.elder.grama_niladari_div.$model" :options="grama_niladari_div_option" :state="!$v.elder.grama_niladari_div.$error"></b-form-select>
-                    <b-form-invalid-feedback v-if="!$v.elder.grama_niladari_div.required">Please enter Grama Niladari Division</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.grama_niladari_div.required">{{$t('form.e-grama')}}</b-form-invalid-feedback>
                 </b-form-group>
 
                 <b-form-group :label="$t('form.birth')" class="error-l-125">
@@ -118,7 +122,7 @@ export default {
             },
             district_option: [{
                     value: null,
-                    text: "Please select an District",
+                    text: "Please select an District/කරුණාකර දිස්ත්‍රික්කය ඇතුළත් කරන්න",
                     disabled: true
                 },
                 {

@@ -45,7 +45,9 @@
     "n-number":"Value must be a Numbers",
     "e-mali":"Please enter your email address",
     "v-mail":"Please enter valid email address",
-    "e-district":"Please enter District"
+    "e-district":"Please enter District",
+    "e-divisional":"Please enter Divisional Office",
+    "e-grama":"Please enter Grama Niladari Division"
   },
   "elder":{
     "form":"Elder Form",

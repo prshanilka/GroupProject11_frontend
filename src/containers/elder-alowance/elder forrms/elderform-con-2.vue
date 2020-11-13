@@ -2,7 +2,13 @@
 <b-row>
     <b-colxx xxs="12" class="align-self-center">
 
-        <b-card class="mb-4" :title="$t('elder.form')">
+        <b-card>
+            <div class="text-center">
+                <h1>{{$t('elder.form')}}</h1>
+            </div>
+        </b-card>
+
+        <b-card class="mb-4">
 
             <b-form class="av-tooltip tooltip-label-right">
                 <b-form-group :label="$t('elder.id')">
@@ -12,7 +18,7 @@
                         characters
                     </b-form-invalid-feedback>
                 </b-form-group>
-                <b-form-group label="Local elder committe name (if only a member) ">
+                <b-form-group label="Local elder committe name (if only a member)">
                     <b-form-input type="text" v-model="$v.elder.elder_committe_name.$model" :state="!$v.elder.elder_committe_name.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.elder_committe_name.minLength || !$v.elder.elder_committe_name.maxLength">
                         Your Local elder committe name must be between 3 and 16
