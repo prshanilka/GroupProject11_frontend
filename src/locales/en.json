@@ -26,6 +26,8 @@
     "nic":"NIC",
     "email":"E-Mail",
     "sex":"Sex",
+    "male":"Male",
+    "female":"Female",
     "number":"Phone Number",
     "district":"Ditrict",
     "divisional":"Divisional Secratriat",
@@ -40,8 +42,10 @@
     "v-address":"Your Address must be between 6 and 256 characters",
     "e-number":"Please enter your phone number",
     "v-number":"Your phone number must be only 10 numbers",
+    "n-number":"Value must be a Numbers",
     "e-mali":"Please enter your email address",
-    "v-mail":"Please enter valid email address"
+    "v-mail":"Please enter valid email address",
+    "e-district":"Please enter District"
   },
   "elder":{
     "form":"Elder Form",

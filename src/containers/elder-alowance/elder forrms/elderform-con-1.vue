@@ -8,45 +8,44 @@
             <b-form class="av-tooltip tooltip-label-right">
                 <b-form-group :label="$t('elder.name')">
                     <b-form-input type="text" v-model="$v.elder.name.$model" :state="!$v.elder.name.$error" />
-                    <b-form-invalid-feedback v-if="!$v.elder.name.required">Please enter your Elder name</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.name.minLength || !$v.elder.maxLength">Your name must be between 2 and 32 characters</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.name.required">{{$t('form.e-name')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.elder.name.minLength || !$v.elder.maxLength">{{$t('form.v-name')}}</b-form-invalid-feedback>
                 </b-form-group>
 
                 <b-form-group :label="$t('form.address')">
                     <b-form-textarea type="text" v-model="$v.elder.address.$model" :state="!$v.elder.address.$error" />
-                    <b-form-invalid-feedback v-if="!$v.elder.address.required">Please enter your address</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.address.minLength || !$v.elder.address.maxLength">Your Address must be between 10 and 256 characters</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.address.required">{{$t('form.e-address')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.elder.address.minLength || !$v.elder.address.maxLength">{{$t('form.v-address')}}</b-form-invalid-feedback>
                 </b-form-group>
 
                 <b-form-group :label="$t('form.nic')">
                     <b-form-input type="text" v-model="$v.elder.nic_no.$model" :state="!$v.elder.nic_no.$error" />
-                    <b-form-invalid-feedback v-if="!$v.elder.nic_no.required">Please enter your Nic No</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.nic_no.minLength">Please enter a valid Nic no min lenhth 10</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.nic_no.maxLength">Please enter a valid Nic no max lenhth 10</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.nic_no.required">{{$t('form.e-nic')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.elder.nic_no.minLength || !$v.elder.nic_no.maxLength">{{$t('form.v-nic')}}</b-form-invalid-feedback>
                 </b-form-group>
 
                 <b-form-group :label="$t('form.email')" class="error-l-100">
                     <b-form-input type="text" v-model="$v.elder.email.$model" :state="!$v.elder.email.$error" />
-                    <b-form-invalid-feedback v-if="!$v.elder.email.required">Please enter your email address</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.email.email">Please enter valid email address</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.email.required">{{$t('form.e-mail')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.elder.email.email">{{$t('form.v-mail')}}</b-form-invalid-feedback>
                 </b-form-group>
 
                 <b-form-group :label="$t('form.sex')">
-                    <b-form-radio v-model="$v.elder.sex.$model" :state="!$v.elder.sex.$error" value="male">Male</b-form-radio>
-                    <b-form-radio v-model="$v.elder.sex.$model" :state="!$v.elder.sex.$error" value="female">Female</b-form-radio>
+                    <b-form-radio v-model="$v.elder.sex.$model" :state="!$v.elder.sex.$error" value="male">{{$t('form.male')}}</b-form-radio>
+                    <b-form-radio v-model="$v.elder.sex.$model" :state="!$v.elder.sex.$error" value="female">{{$t('form.female')}}</b-form-radio>
                 </b-form-group>
 
                 <b-form-group :label="$t('form.number')" class="error-l-100">
                     <b-form-input placeholder="033XXXXXXX" type="text" v-model="$v.elder.phone_no.$model" :state="!$v.elder.phone_no.$error" />
-                    <b-form-invalid-feedback v-if="!$v.elder.phone_no.required">Please enter Phone Numberr</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.phone_no.numeric">Value must be a Numbers</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.phone_no.minLength">Numbers min 10 Numbers</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.phone_no.maxLength">Numbers max 10 Numbers</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.phone_no.required">{{$t('form.e-number')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.elder.phone_no.numeric">{{$t('form.n-number')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.elder.phone_no.minLength || !$v.elder.phone_no.maxLength">{{$t('form.v-number')}}</b-form-invalid-feedback>
+
                 </b-form-group>
 
                 <b-form-group :label="$t('form.district')">
                     <b-form-select v-model="$v.elder.district.$model" :options="district_option" :state="!$v.elder.district.$error"></b-form-select>
-                    <b-form-invalid-feedback v-if="!$v.elder.district.required">Please enter District</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.elder.district.required">{{$t('form.e-ditrict')}}</b-form-invalid-feedback>
                 </b-form-group>
 
                 <b-form-group :label="$t('form.divisional')">
