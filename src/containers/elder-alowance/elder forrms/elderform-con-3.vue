@@ -9,7 +9,7 @@
 
         <b-card class="mb-4">
             <b-form class="av-tooltip tooltip-label-right">
-                <b-form-group label="Samurdi no ">
+                <b-form-group :label="$t('elder.smurdi')">
                     <b-form-input type="text" v-model="$v.elder.samurdi_no.$model" :state="!$v.elder.samurdi_no.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.samurdi_no.minLength || !$v.elder.samurdi_no.maxLength">
                         Your Samurdi no must be between 3 and 16
@@ -17,7 +17,7 @@
                     </b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="People Aid no">
+                <b-form-group :label="$t('elder.aid')">
                     <b-form-input type="text" v-model="$v.elder.people_aid_no.$model" :state="!$v.elder.people_aid_no.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.people_aid_no.minLength || !$v.elder.people_aid_no.maxLength">
                         Your People Aid no must be between 3 and 16
@@ -25,7 +25,7 @@
                     </b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Other No" class="error-l-100">
+                <b-form-group :label="$t('elder.other')" class="error-l-100">
                     <b-form-input type="text" v-model="$v.elder.other_no.$model" :state="!$v.elder.other_no.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.other_no.minLength || !$v.elder.other_no.maxLength">
                         Your Other No must be between 3 and 16

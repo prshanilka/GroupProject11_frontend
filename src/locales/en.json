@@ -45,13 +45,25 @@
     "n-number":"Value must be a Numbers",
     "e-mali":"Please enter your email address",
     "v-mail":"Please enter valid email address",
-    "e-district":"Please enter District",
-    "e-divisional":"Please enter Divisional Office",
-    "e-grama":"Please enter Grama Niladari Division"
+    "e-district":"Please select District",
+    "e-divisional":"Please select Divisional Office",
+    "e-grama":"Please select Grama Niladari Division",
+    "post":"Nearest Post Office",
+    "e-post":"Please Select Nearest Post Office"
   },
   "elder":{
     "form":"Elder Form",
-    "name":"Elder Full Name"
+    "name":"Elder Full Name",
+    "id":"Adult Identity Card No",
+    "r-name":"Name of Rural Elders Committee (if only one member)",
+    "r-number":"Member Number of Rural Elders Committee (if only a member)",
+    "live":"Who do you live with?",
+    "other-name":"Other Names and Details",
+    "income":"Source of Income",
+    "m-income":"Monthly Income",
+    "smurdi":"Samurdhi Number",
+    "aid":"Public Aid Number",
+    "other":"Other"
   },
   "agent":{
     "form":"Agent Form",
@@ -60,6 +72,45 @@
     "form-register":"Agent is registerd Now",
     "relation":"Relationship with Elder",
     "e-relation":"Please enter Relationship with Elder"
+  },
+  "officer":{
+    "d-form":"Divisional Secratary Office Officer Details Form",
+    "g-form":"Gramaniladari Officer Details Form",
+    "p-form":"Post Office Officer Details Form",
+    "id":"Officer ID",
+    "name":"Officer Full Name",
+    "form-success":"You SuccecFully Added The Officer",
+    "form-register":"Officer is registerd Now",
+    "e-id":"Please Enter Officer ID",
+    "type":"Officer Type",
+    "designation":"Designation",
+    "e-type":"Please Enter Officer Type",
+    "e-designation":"Please Enter Officer Designation"
+  },
+  "office":{
+    "d-form":"Divisional Secratary Office Details Form",
+    "d-success":"You SuccecFully Added The Divisional secretary Office",
+    "d-register":"Divisional secratary office is registerd Now",
+    "g-form":"Gramaniladari Details Form",
+    "g-success":"You SuccecFully Added The Grama Niladari Division",
+    "g-register":"Gramaniladari Division is registerd Now",
+    "p-form":"Post Office Details Form",
+    "p-success":"You SuccecFully Added The Post Office",
+    "p-register":"Post Office is registerd Now",
+    "d-name":"Divisional Secratary Office Name",
+    "d-e-name":"Please enter your Divisional Name",
+    "address":"Office Address",
+    "email":"Office E-Mail",
+    "number":"Office Phone Number",
+    "e-address":"Please enter Office address",
+    "v-address":"Office Address must be between 6 and 256 characters",
+    "e-number":"Please enter Office phone number",
+    "v-number":"Office phone number must be only 10 numbers",
+    "e-mali":"Please enter Office email address",
+    "bank":"Divisional Secratary Office Bank Account No",
+    "officers":"No Of Officers Assigned To Elders Allowance Service",
+    "elders":"No of priority listed elders  from Division",
+    "benifishers":"No Of Benifishers elders From Division"
   },
 
 

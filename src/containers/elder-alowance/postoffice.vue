@@ -2,11 +2,11 @@
 <b-row>
     <b-colxx xxs="12">
         <div class="text-center">
-            <h1>Post Office Details Form</h1>
+            <h1>{{$t('office.p-form')}}</h1>
         </div>
         <b-card class="mb-4 text-center" v-show="!submit_ag">
-            <h2 class="mb-2">You Succecfully Added The Post Office</h2>
-            <p>Post Office is registerd Now</p>
+            <h2 class="mb-2">{{$t('office.p-succsess')}}</h2>
+            <p>{{$t('office.p-register')}}</p>
         </b-card>
         <b-card class="mb-4" v-show="submit_ag">
             <b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
@@ -51,7 +51,7 @@
                     <b-form-invalid-feedback v-if="!$v.postoffice.num_of_officers.numeric">Please enter number of Officers should be numeric value</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-button type="submit" variant="primary" class="mt-4">{{ $t('forms.submit') }}</b-button>
+                <b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
             </b-form>
         </b-card>
     </b-colxx>

@@ -122,7 +122,7 @@ export default {
             },
             district_option: [{
                     value: null,
-                    text: "Please select an District/කරුණාකර දිස්ත්‍රික්කය ඇතුළත් කරන්න",
+                    text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
                     disabled: true
                 },
                 {
@@ -145,7 +145,7 @@ export default {
             ],
             divisional_off_option: [{
                     value: null,
-                    text: "Please select an Division",
+                    text: "Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
                     disabled: true
                 },
                 {
@@ -168,7 +168,7 @@ export default {
             ],
             grama_niladari_div_option: [{
                     value: null,
-                    text: "Please select Grama Niladari",
+                    text: "Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
                     disabled: true
                 },
                 {
