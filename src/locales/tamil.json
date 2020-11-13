@@ -1,17 +1,47 @@
 {
   "user": {
-    "login-title": "Iniciar sesión",
-    "register": "Registro",
-    "forgot-password": "Se te olvidó tu contraseña",
-    "email": "WAnakkam",
-    "password": "Contraseña",
-    "password-again": "Contraseña Again",
-    "forgot-password-question": "¿Contraseña olvidada?",
-    "fullname": "Nombre completo",
-    "login-button": "INICIAR SESIÓN",
-    "register-button": "REGISTRO",
-    "reset-password-button": "REINICIAR",
-    "buy": "COMPRAR",
-    "username": "Nombre de Usuario"
+    "login-title": "உள்நுழைய",
+    "register": "பதிவு",
+    "forgot-password": "கடவுச்சொல்லை மறந்துவிட்டீர்களா?",
+    "email": "மின்னஞ்சல்",
+    "password": "கடவுச்சொல்",
+    "password-again": "கடவுச்சொல் மீண்டும்",
+    "forgot-password-question": "கடவுச்சொல்லை மறந்துவிட்டீர்களா?",
+    "fullname": "முழு பெயர்",
+    "login-button": "உள்நுழைய",
+    "register-button": "பதிவு",
+    "reset-password-button": "மீட்டமை",
+    "username": "பயனர்பெயர்"
+  },
+  "wizard":{
+    "step-name-1": "படி 1",
+    "step-name-2": "படி 2",
+    "step-name-3": "படி 3",
+    "step-desc-1": "First step description",
+    "step-desc-2": "Second step description",
+    "step-desc-3": "Third step description",
+    "content-1": "Step content for first step.",
+    "content-2": "Step content for second step.",
+    "content-3": "Last step content!",
+    "content-thanks": "Thank You!",
+    "next": "Next",
+    "prev": "Back",
+    "registered": "Your registration completed successfully!",
+    "async": "Async save for 3 seconds!"
+  },
+  "form":{
+    "address":"ලිපිනය",
+    "nic":"ජා/හැ  අංකය",
+    "email":"විදයුත් ලිපිනය",
+    "sex":"ස්ත්‍රී/පුරුෂ භාවය",
+    "number":"දුරකථන අංකය",
+    "district":"දිස්ත්‍රික්කය",
+    "divisional":"ප්‍රාදේශීය ලේඛම් කොඨ්ඨාෂ‍ය",
+    "gramaniladari-division":"ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය",
+    "birth":"උපන් දිනය"
+  },
+  "elder":{
+    "form":"වැඩිහිටි අයදුම් පත්‍රය",
+    "name":"වැඩිහිටියාගේ සම්පූර්ණ නම"
   }
 }

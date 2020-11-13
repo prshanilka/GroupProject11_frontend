@@ -1,17 +1,66 @@
 {
   "user": {
-    "login-title": "Iniciar sesión",
-    "register": "Registro",
-    "forgot-password": "Se te olvidó tu contraseña",
+    "login-title": "ඇතුල් වන්න",
+    "register": "ලියාපදිංචි වන්න",
+    "forgot-password": "මුරපදය අමතක වුණා ද?",
     "email": "විදයුත් ලිපිනය",
-    "password": "Contraseña",
-    "password-again": "Contraseña Again",
-    "forgot-password-question": "¿Contraseña olvidada?",
-    "fullname": "Nombre completo",
-    "login-button": "INICIAR SESIÓN",
-    "register-button": "REGISTRO",
-    "reset-password-button": "REINICIAR",
-    "buy": "COMPRAR",
-    "username": "Nombre de Usuario"
+    "password": "මුරපදය",
+    "password-again": "මුරපදය නැවත වතාවක්",
+    "forgot-password-question": "මුරපදය අමතක වුණා ද?",
+    "fullname": "සම්පූර්ණ නම",
+    "login-button": "ඇතුල් වන්න",
+    "register-button": "ලියාපදිංචි වන්න",
+    "reset-password-button": "යළි පිහිටුවන්න",
+    "username": "පරිශීලක නාමය"
+  },
+  "wizard":{
+    "step-name-1": "පියවර 1",
+    "step-name-2": "පියවර 2",
+    "step-name-3": "පියවර 3",
+    "step-desc-1": "පළමු පියවර විස්තරය",
+    "step-desc-2": "දෙවන පියවර විස්තරය",
+    "step-desc-3": "තෙවන පියවර විස්තරය",
+    "content-1": "පළමු පියවර සඳහා පියවර අන්තර්ගතය.",
+    "content-2": "දෙවන පියවර සඳහා පියවර අන්තර්ගතය.",
+    "content-3": "අවසාන පියවර අන්තර්ගතය!",
+    "content-thanks": "ඔබට ස්තුතියි!",
+    "next": "ඊළඟ",
+    "prev": "ආපසු",
+    "registered": "ඔබගේ ලියාපදිංචිය සාර්ථකව අවසන්!",
+    "async": "Async save for 3 seconds!"
+  },
+  "form":{
+    "address":"ලිපිනය",
+    "nic":"ජා/හැ  අංකය",
+    "email":"විදයුත් ලිපිනය",
+    "sex":"ස්ත්‍රී/පුරුෂ භාවය",
+    "number":"දුරකථන අංකය",
+    "district":"දිස්ත්‍රික්කය",
+    "divisional":"ප්‍රාදේශීය ලේඛම් කොඨ්ඨාෂ‍ය",
+    "gramaniladari-division":"ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය",
+    "birth":"උපන් දිනය",
+    "submit":"ඉදිරිපත් කරන්න",
+    "e-name":"කරුණාකර ඔබගේ සම්පූර්ණ නම ඇතුලත් කරන්න",
+    "v-name":"ඔබේ නම අක්ෂර 3 ත් 16 ත් අතර විය යුතුය",
+    "e-nic":"කරුණාකර ඔබේ ජා/හැ අංකය ඇතුළත් කරන්න",
+    "v-nic":"ඔබේ ජා/හැ අංකය අක්ෂර 10 ක් පමණක් විය යුතුය",
+    "e-address":"කරුණාකර ඔබේ ලිපිනය ඇතුළත් කරන්න",
+    "v-address":"ඔබේ ලිපිනය අක්ෂර 6 ත් 256 ත් අතර විය යුතුය",
+    "e-number":"කරුණාකර ඔබගේ දුරකථන අංකය ඇතුළත් කරන්න",
+    "v-number":"ඔබගේ දුරකථන අංකය අංක 10 ක් පමණක් විය යුතුය",
+    "e-mail":"කරුණාකර ඔබේ විද්‍යුත් තැපැල් ලිපිනය ඇතුළත් කරන්න",
+    "v-mail":"කරුණාකර වලංගු විද්‍යුත් තැපැල් ලිපිනයක් ඇතුළත් කරන්න"
+  },
+  "elder":{
+    "form":"වැඩිහිටි අයදුම් පත්‍රය",
+    "name":"වැඩිහිටියාගේ සම්පූර්ණ නම"
+  },
+  "agent":{
+    "form":"නියෝජිත පෝරමය",
+    "name":"නියෝජිතයාගේ සම්පූර්ණ නම",
+    "form-success":"ඔබ නියෝජිතයා සාර්ථකව ඇතුළත් කළා.",
+    "form-register":"නියෝජිතයා දැන් ලියාපදිංචි වී ඇත.",
+    "relation":"වැඩිහිටියා සමඟ සම්බන්ධතාවය",
+    "e-relation":"කරුණාකර වැඩිහිටියා සමඟ සම්බන්ධතාවය ඇතුළත් කරන්න"
   }
 }

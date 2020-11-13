@@ -12,10 +12,9 @@ export const menuHiddenBreakpoint = 768;
 export const defaultLocale = "en";
 export const defaultDirection = "ltr";
 export const localeOptions = [
-  { id: "sinhala", name: "Sinhala LTR", direction: "ltr" },
-  { id: "tamil", name: "Tamil LTR", direction: "ltr" },
+  { id: "සිංහල", name: "සිංහල", direction: "ltr" },
+  { id: "தமிழ்", name: "தமிழ்", direction: "ltr" },
   { id: "en", name: "English LTR", direction: "ltr" },
-  { id: "es", name: "Español", direction: "ltr" },
   { id: "enrtl", name: "English RTL", direction: "rtl" }
 ];
 
