@@ -103,7 +103,7 @@ import {
 	menuHiddenBreakpoint,
 	subHiddenBreakpoint
 } from "../../../constants/config";
-import menuItems from "../../../constants/menu";
+import menuItems from "../../../constants/elder-allowance-menu";
 import { UserRole } from "../../../utils/auth.roles";
 
 export default {
@@ -115,7 +115,10 @@ export default {
 		};
 	},
 	mounted() {
+		console.log(this.$route.path);
+
 		this.selectMenu();
+
 		window.addEventListener("resize", this.handleWindowResize);
 		document.addEventListener("click", this.handleDocumentClick);
 		this.handleWindowResize();
@@ -135,6 +138,9 @@ export default {
 			const currentParentUrl = this.$route.path
 				.split("/")
 				.filter(x => x !== "")[1];
+
+			// console.log(currentParentUrl);
+
 			if (currentParentUrl !== undefined || currentParentUrl !== null) {
 				this.selectedParentMenu = currentParentUrl.toLowerCase();
 			} else {
@@ -321,6 +327,8 @@ export default {
 		$route(to, from) {
 			if (to.path !== from.path) {
 				const toParentUrl = to.path.split("/").filter(x => x !== "")[1];
+				console.log(toParentUrl);
+
 				if (toParentUrl !== undefined || toParentUrl !== null) {
 					this.selectedParentMenu = toParentUrl.toLowerCase();
 				} else {

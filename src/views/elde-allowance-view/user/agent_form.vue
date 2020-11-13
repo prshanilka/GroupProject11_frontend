@@ -8,7 +8,7 @@
 
 
 <script>
-import AppLayout from "../../../layouts/AppLayout";
+import AppLayout from "../../../layouts/EAppLayout";
 import ajentForm from "../../../containers/elder-alowance/agent form";
 
 export default {
