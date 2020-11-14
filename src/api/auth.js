@@ -15,12 +15,6 @@ export function myF () {
 }
 
 
-
-
-
-
-
-
 export default {
   getSomeData () {
     return bapi.get('/endpoint')
