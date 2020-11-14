@@ -3,57 +3,16 @@ const bapi = axios.create({
   baseURL: 'http://localhost:3000/api/',
   //headers: { 'X-API-TOKEN': store.state.token },
 })
-let token='ffff';
-const config = {
-  headers: { Authorization: `Bearer ${token}` }
-};
-bapi.interceptors.response.use(res => {
-  //console.log('sssssssssssss');
- // config.headers.Authorization='Bearer '+localStorage.jwt;
- // console.log(config);
-  //console.log(res);
-  // Important: response interceptors **must** return the response.
-  return res;
-},function (error) {
-  if (401 === error.res.status) {
-    console.log(error);
-  }
-     
-});
 
-bapi.interceptors.request.use(function(config) {
-  if(localStorage.jwt){
-    const token = localStorage.jwt;
-  }
-  else{
-    const token = "ddd";
-  }
-  
-
-  if(token) {
-      config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-  
-}, function(err) {
-  return Promise.reject(err);
-});
 
 
 
 const bodyParameters = {
 };
 
-export async function myF () {
-  return bapi.get('https://api.coloredstrategies.com/cakes/fordatatable?page=1&per_page=8&search=')
+export function myF () {
+  return axios.get('http://localhost:3000/api/elders')
 }
-
-
-
-
-
-
-
 
 
 export default {
@@ -63,7 +22,7 @@ export default {
   auth: (req,callBack) => {
     bodyParameters.username=req.username;
     bodyParameters.password=req.password;
-    bapi.post('/users/login',bodyParameters,config
+  bapi.post('/users/login',bodyParameters
   ).then(
     user => {
       console.log("ds");
@@ -74,6 +33,7 @@ export default {
         }
         const udata=user.data;
         localStorage.jwt=udata.token;
+        localStorage.jwtr=udata.refresh;
         return callBack(null,udata.data);
 
     }

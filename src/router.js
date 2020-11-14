@@ -612,6 +612,7 @@ const routes = [
       import(/* webpackChunkName: "error" */ "./views/Unauthorized")
   },
   {
+    name: "login",
     path: "/user",
     component: () => import(/* webpackChunkName: "user" */ "./views/user"),
     redirect: "/user/login",
