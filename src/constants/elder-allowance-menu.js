@@ -46,7 +46,7 @@ const data = [
     id: "post-office",
     icon: "iconsminds-post-mail-2",
     label: "menu.postoffice",
-    to: `/post/post-office`,
+    to: `/post/`,
     subs: [
       {
         id: "post-office",
@@ -55,10 +55,10 @@ const data = [
         to: `/post/post-office`
       },
       {
-        id: "post-office-officer",
+        id: "officer-post",
         icon: "iconsminds-add-user",
         label: "menu.postoffice-officer",
-        to: `/post/post-office-officer`
+        to: `/post/officer-post`
       }
     ]
   },

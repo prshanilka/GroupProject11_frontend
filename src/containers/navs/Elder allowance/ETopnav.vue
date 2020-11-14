@@ -32,9 +32,9 @@
 						<span class="name">{{$i18n.locale.toUpperCase()}}</span>
 					</template>
 					<b-dropdown-item
-						v-for="(l,index) in localeOptions"
+						v-for="(l,index) in ElderAllowancelocaleOptions"
 						:key="index"
-						@click="changeLocale(l.id, l.direction)"
+						@click.prevent="changeLocale(l.id)"
 					>{{l.name}}</b-dropdown-item>
 				</b-dropdown>
 			</div>
@@ -48,7 +48,7 @@
 		</router-link>
 
 		<div class="navbar-right">
-			<div class="d-none d-md-inline-block align-middle mr-3">
+			<div class="d-none d-md-inline-block align-middle mr-3 position-relative d-inline-block">
 				<switches
 					id="tool-mode-switch"
 					v-model="isDarkActive"
@@ -182,7 +182,7 @@ import { MenuIcon, MobileMenuIcon } from "../../../components/Svg";
 import {
 	searchPath,
 	menuHiddenBreakpoint,
-	localeOptions,
+	ElderAllowancelocaleOptions,
 	buyUrl,
 	adminRoot
 } from "../../../constants/config";
@@ -207,7 +207,7 @@ export default {
 			menuHiddenBreakpoint,
 			searchPath,
 			adminRoot,
-			localeOptions,
+			ElderAllowancelocaleOptions,
 			buyUrl,
 			notifications,
 			isDarkActive: false
@@ -239,11 +239,11 @@ export default {
 			}
 		},
 
-		changeLocale(locale, direction) {
-			const currentDirection = getDirection().direction;
-			if (direction !== currentDirection) {
-				setDirection(direction);
-			}
+		changeLocale(locale) {
+			// const currentDirection = getDirection().direction;
+			// if (direction !== currentDirection) {
+			// 	setDirection(direction);
+			// }
 
 			this.setLang(locale);
 		},

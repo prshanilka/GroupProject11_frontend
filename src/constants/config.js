@@ -18,6 +18,12 @@ export const localeOptions = [
   { id: "enrtl", name: "English RTL", direction: "rtl" }
 ];
 
+export const ElderAllowancelocaleOptions = [
+  { id: "සිංහල", name: "සිංහල" },
+  { id: "தமிழ்", name: "தமிழ்" },
+  { id: "en", name: "English " }
+];
+
 export const firebaseConfig = {
   apiKey: "AIzaSyDe94G7L-3soXVSpVbsYlB5DfYH2L91aTU",
   authDomain: "piaf-vue-login.firebaseapp.com",

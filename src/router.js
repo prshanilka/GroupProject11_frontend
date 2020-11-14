@@ -54,7 +54,7 @@ const routes = [
   },
 
   {
-    path: "/post/post-office-officer",
+    path: "/post/officer-post",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_officer_form"
