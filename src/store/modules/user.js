@@ -2,8 +2,8 @@ import firebase from 'firebase/app'
 import 'firebase/auth'
 import { currentUser, isAuthGuardActive } from '../../constants/config'
 import { setCurrentUser, getCurrentUser } from '../../utils'
-import axios from 'axios';
 import bapi from '../../api/auth';
+import axios from 'axios';
 export default {
   state: {
     currentUser: isAuthGuardActive ? getCurrentUser() : currentUser,
@@ -110,7 +110,7 @@ export default {
         }
         if(results){
           console.log('dddd')
-          console.log(currentUser)
+          //console.log(currentUser)
           const item = { uid: "${ results.id }", ...results }
 
           setCurrentUser(item)
@@ -185,6 +185,19 @@ export default {
           setCurrentUser(null);
           commit('setLogout')
         }, _error => { })
+    },
+    REFRESH_TOKEN: () => {
+      return new Promise((resolve, reject) => {
+          axios.post('/users/refresh')
+          .then(response => {
+            console.log("ddd");
+            console.log(response);
+            resolve(response);
+          })
+          .catch(error => {
+            reject(error);
+          });
+      });
     }
   }
 }

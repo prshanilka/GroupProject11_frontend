@@ -21,7 +21,56 @@
     "buy": "BUY",
     "username": "Username"
   },
+  "form": {
+    "address":"Address",
+    "nic":"NIC",
+    "email":"E-Mail",
+    "sex":"Sex",
+    "number":"Phone Number",
+    "district":"Ditrict",
+    "divisional":"Divisional Secratriat",
+    "gramaniladari-division":"Grama Niladari Division",
+    "birth":"Birth Day",
+    "submit":"Submit",
+    "e-name":"Please enter your full name",
+    "v-name":"Your name must be between 3 and 16 characters",
+    "e-nic":"Please enter your Nic no",
+    "v-nic":"Your Nic must be only 10 characters",
+    "e-address":"Please enter your address",
+    "v-address":"Your Address must be between 6 and 256 characters",
+    "e-number":"Please enter your phone number",
+    "v-number":"Your phone number must be only 10 numbers",
+    "e-mali":"Please enter your email address",
+    "v-mail":"Please enter valid email address"
+  },
+  "elder":{
+    "form":"Elder Form",
+    "name":"Elder Full Name"
+  },
+  "agent":{
+    "form":"Agent Form",
+    "name":"Agent Full Name",
+    "form-success":"You SuccecFully Added The Agent",
+    "form-register":"Agent is registerd Now",
+    "relation":"Relationship with Elder",
+    "e-relation":"Please enter Relationship with Elder"
+  },
+
+
+
+
   "menu": {
+    "elderform": "Elder Form",
+    "agentform": "Agent Form",
+    "elderlist": "Elder List",
+    "postoffice": "Post Office",
+    "postoffice-officer": "Post Officer",
+    "divisional-office-form": "Divisional Office",
+    "divisional-office-officer": "Divisional Officer",
+    "gramaniladai-division-form": "GramaNiladari Div",
+    "gramaniladai-officer": "GramaNiladari Off",
+    "elderlang": "Sinhala",
+
     "home": "Home",
     "app": "Home",
     "dashboards": "Dashboards",
@@ -224,7 +273,7 @@
     "friends": "FRIENDS",
     "images": "IMAGES",
     "purchase": "PURCHASE",
-    "prices":{
+    "prices": {
       "developer": "DEVELOPER",
       "team": "TEAM",
       "enterprise": "ENTERPRISE",
@@ -233,8 +282,8 @@
       "245Support": "24/5 Support",
       "247Support": "24/7 Support",
       "useractionsauditlog": "User actions audit log",
-      "featurecomparison" : "Feature Comparison",
-      "pricecomparison" : "Price Comparison"
+      "featurecomparison": "Feature Comparison",
+      "pricecomparison": "Price Comparison"
     }
   },
   "chat": {
@@ -469,13 +518,10 @@
     "lastname": "Last name",
     "lastname-message": "Please enter your last name!",
 
-
     "password-confirm": "Confirm Password",
     "validation-bootstrap": "Bootstrap Validation",
     "validation-vuelidate": "Vuelidate Validation",
     "name": "Name"
-
-
   },
   "form-components": {
     "custom-inputs": "Custom Inputs",
@@ -508,8 +554,8 @@
     "type-a-cake": "Type a Cake",
     "start": "Start",
     "end": "End",
-    "month-view-only" :"Month View Only",
-    "year-and-month-view-only" :"Year and Month View Only"
+    "month-view-only": "Month View Only",
+    "year-and-month-view-only": "Year and Month View Only"
   },
   "icons": {
     "simplelineicons": "Simple Line Icons",
@@ -612,7 +658,7 @@
     "vue-pagination": "Pagination",
     "vue-scrollable": "Scrollable"
   },
-  "wizard":{
+  "wizard": {
     "step-name-1": "Step 1",
     "step-name-2": "Step 2",
     "step-name-3": "Step 3",
