@@ -2,7 +2,13 @@
 <b-row>
     <b-colxx xxs="12" class="align-self-center">
 
-        <b-card class="mb-4" :title="$t('elder.form')">
+        <b-card>
+            <div class="text-center">
+                <h1>{{$t('elder.form')}}</h1>
+            </div>
+        </b-card>
+
+        <b-card class="mb-4">
 
             <b-form class="av-tooltip tooltip-label-right">
                 <b-form-group :label="$t('elder.id')">
@@ -12,7 +18,7 @@
                         characters
                     </b-form-invalid-feedback>
                 </b-form-group>
-                <b-form-group label="Local elder committe name (if only a member) ">
+                <b-form-group :label="$t('elder.r-name')">
                     <b-form-input type="text" v-model="$v.elder.elder_committe_name.$model" :state="!$v.elder.elder_committe_name.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.elder_committe_name.minLength || !$v.elder.elder_committe_name.maxLength">
                         Your Local elder committe name must be between 3 and 16
@@ -20,7 +26,7 @@
                     </b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="committe Membership No (if only a member)">
+                <b-form-group :label="$t('elder.r-number')">
                     <b-form-input type="text" v-model="$v.elder.comm_membership_no.$model" :state="!$v.elder.comm_membership_no.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.comm_membership_no.minLength || !$v.elder.comm_membership_no.maxLength">
                         Your committe Membership No must be between 3 and 16
@@ -28,7 +34,7 @@
                     </b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Nearest Post Office" class="error-l-100">
+                <b-form-group :label="$t('form.post')" class="error-l-100">
                     <b-form-input type="text" v-model="$v.elder.nearest_post_office.$model" :state="!$v.elder.nearest_post_office.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.nearest_post_office.required">Please enter a Your Source of Income</b-form-invalid-feedback>
                     <b-form-invalid-feedback v-if="!$v.elder.nearest_post_office.minLength || !$v.elder.nearest_post_office.maxLength">
@@ -37,7 +43,7 @@
                     </b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Lives with whome" class="error-l-100">
+                <b-form-group :label="$t('elder.live')" class="error-l-100">
                     <b-form-input type="text" v-model="$v.elder.lives_with.$model" :state="!$v.elder.lives_with.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.lives_with.required">Please enter a Lives with whome Details</b-form-invalid-feedback>
                 </b-form-group>
@@ -50,7 +56,7 @@
                     </b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Other Names and details">
+                <b-form-group :label="$t('elder.other')">
                     <b-form-textarea type="text" v-model="$v.elder.other_names_and_details.$model" :state="!$v.elder.other_names_and_details.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.other_names_and_details.minLength || !$v.elder.other_names_and_details.maxLength">
                         Other Names and details No must be between 10 and 256
@@ -58,15 +64,15 @@
                     </b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Source of Income">
+                <b-form-group :label="$t('elder.income')">
                     <b-form-input type="text" v-model="$v.elder.source_of_income.$model" :state="!$v.elder.source_of_income.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.source_of_income.required">Please enter a Your Source of Income</b-form-invalid-feedback>
                     <b-form-invalid-feedback v-else-if="!$v.elder.source_of_income.minLength">PleaceEnter More than 3 characters</b-form-invalid-feedback>
                 </b-form-group>
-                <b-form-group label="Monthly Income" class="error-l-125">
+                <b-form-group :label="$t('elder.m-income')" class="error-l-125">
                     <b-form-input type="text" v-model="$v.elder.monthly_income.$model" :state="!$v.elder.monthly_income.$error" />
                     <b-form-invalid-feedback v-if="!$v.elder.monthly_income.required">Please enter your Monthly Income</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.elder.monthly_income.numeric">Only Numbers</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.elder.monthly_income.numeric">{{$t('form.n-number')}}</b-form-invalid-feedback>
                 </b-form-group>
             </b-form>
         </b-card>
