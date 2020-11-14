@@ -28,8 +28,145 @@ import VueScrollTo from "vue-scrollto";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { getCurrentLanguage } from "./utils";
-
+import axios from 'axios';
 //import interceptorsSetup from './interceptor/interceptor'
+axios.defaults.baseURL='http://localhost:3000/api/';
+  //headers: { 'X-API-TOKEN': store.state.token },
+  /*
+axios.interceptors.response.use(res => {
+    console.log('sssssssssssss');
+   // config.headers.Authorization='Bearer '+localStorage.jwt;
+   // console.log(config);
+    //console.log(res);
+    //console.log("res");
+   // console.log(res);
+    return res;
+  },error => {
+    const originalRequest = error.config;
+    //console.log(originalRequest);
+    if (401 === error.response.status) {
+      //console.log(error.response);
+      if(error.response.data.trefresh){
+          axios.get('/users/refresh').then(
+            res => {
+              //console.log(config);
+              localStorage.jwt=res.data.token
+             const ref =new Promise(resolve =>{
+                resolve(axios(originalRequest));
+             })
+             return ref;
+            }
+          ).catch(err => {
+              //console.log(err.response);
+              return Promise.reject(err);
+          });
+  
+      }
+  
+      
+    }
+       
+  });
+  */
+
+
+
+
+
+
+ let isRefreshing = false;
+ let subscribers = [];
+ 
+ axios.interceptors.response.use(
+  async response => {
+     return response;
+   },
+   async err => {
+     const {
+       config,
+       response: { status, data }
+     } = err;
+ 
+     const originalRequest = config;
+     
+     if (data.message === "Missing token") {
+       router.push({ name: "login" });
+       return Promise.reject(false);
+     }
+     if (data.message === "Invalid Refresh Token") {
+      // router.push({ name: "login" });
+       return Promise.reject(false);
+     }
+  
+     if (originalRequest.url.includes("login_check")) {
+       return Promise.reject(err);
+     }
+ 
+     if (status === 401 && data.trefresh === 1) {
+       if (!isRefreshing) {
+         isRefreshing = true;
+        await store
+           .dispatch("REFRESH_TOKEN")
+           .then(({ status , data }) => {
+             if (status === 200 || status == 204) {
+               localStorage.jwt=data.token;
+               isRefreshing = false;
+             }
+           })
+           .catch(error => {
+            router.push({ name: "login" });
+             console.error(error);
+             return Promise.reject(false);
+           });
+       }
+      return  new Promise(resolve => {
+           resolve(axios(originalRequest));
+
+       });
+     }
+   }
+ );
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+axios.interceptors.request.use(function(config) {
+    if(config.url == "/users/refresh"){
+      config.headers.Authorization = `Bearer ${localStorage.jwtr}`;
+      return config;
+    }
+    if(localStorage.jwt){
+      config.headers.Authorization = `Bearer ${localStorage.jwt}`;
+      return config;
+    }
+    
+    
+  }, function(err) {
+    return Promise.reject(err);
+  });
+  
 
 // and running it somewhere here
 //interceptorsSetup()
