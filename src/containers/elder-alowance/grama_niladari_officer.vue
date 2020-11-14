@@ -2,59 +2,59 @@
 <b-row>
     <b-colxx xxs="12">
         <div class="text-center">
-            <h1>Gramaniladari Officer Details Form</h1>
+            <h1>{{$t('officer.g-form')}}</h1>
         </div>
         <b-card class="mb-4 text-center" v-show="!submit_ag">
-            <h2 class="mb-2">You Succecfully Added The Officer</h2>
-            <p>Officer is registerd Now</p>
+            <h2 class="mb-2">{{$t('officer.form-success')}}</h2>
+            <p>{{$t('officer.form-register')}}</p>
         </b-card>
         <b-card class="mb-4" v-show="submit_ag">
             <b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
 
-                <b-form-group label="Officer ID">
+                <b-form-group :label="$t('officer.id')">
                     <b-form-input type="text" v-model="$v.gramaniladari_officer.officer_id.$model" :state="!$v.gramaniladari_officer.officer_id.$error" />
-                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.officer_id.required">Please Enter Officer ID</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.officer_id.required">{{$t('officer.e-id')}}</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Name">
+                <b-form-group :label="$t('officer.name')">
                     <b-form-input type="text" v-model="$v.gramaniladari_officer.name.$model" :state="!$v.gramaniladari_officer.name.$error" />
-                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.name.required">Please Enter Officer Name</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.name.required">{{$t('form.e-name')}}</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="NIC No">
+                <b-form-group :label="$t('form.nic')">
                     <b-form-input type="text" v-model="$v.gramaniladari_officer.nic.$model" :state="!$v.gramaniladari_officer.nic.$error" />
-                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.nic.required">Please enter your Nic no</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.gramaniladari_officer.nic.minLength || !$v.gramaniladari_officer.nic.maxLength">Your Nic must be only 10 characters</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.nic.required">{{$t('form.e-nic')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.gramaniladari_officer.nic.minLength || !$v.gramaniladari_officer.nic.maxLength">{{$t('form.v-nic')}}</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Phone Number">
+                <b-form-group :label="$t('form.number')">
                     <b-form-input type="text" v-model="$v.gramaniladari_officer.phone.$model" :state="!$v.gramaniladari_officer.phone.$error" />
-                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.phone.required">Please enter a number</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.gramaniladari_officer.phone.minLength || !$v.gramaniladari_officer.phone.maxLength">Phone number must be only 10 numbers</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.phone.required">{{$t('form.e-number')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.gramaniladari_officer.phone.minLength || !$v.gramaniladari_officer.phone.maxLength">{{$t('form.v-number')}}</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="E-mail " class="error-l-100">
+                <b-form-group :label="$t('form.email')" class="error-l-100">
                     <b-form-input type="text" v-model="$v.gramaniladari_officer.email.$model" :state="!$v.gramaniladari_officer.email.$error" />
-                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.email.required">Please enter officer email address</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.gramaniladari_officer.email.email">Please enter valid email address</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.email.required">{{$t('form.e-mail')}}</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-else-if="!$v.gramaniladari_officer.email.email">{{$t('form.v-mail')}}</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="District">
+                <b-form-group :label="$t('form.district')">
                     <b-form-select v-model="$v.gramaniladari_officer.district_id.$model" :options="district_option" :state="!$v.gramaniladari_officer.district_id.$error"></b-form-select>
-                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.district_id.required">Please enter District</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.district_id.required">{{$t('form.e-district')}}</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Divisional Secratary Office">
+                <b-form-group :label="$t('form.divisional')">
                     <b-form-select type="text" v-model="$v.gramaniladari_officer.divisional_id.$model" :options="divisional_off_option" :state="!$v.gramaniladari_officer.divisional_id.$error" />
-                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.divisional_id.required">Please enter Divisional Code</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.divisional_id.required">{{$t('form.e-divisional')}}</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-form-group label="Gramaniladari Division">
+                <b-form-group :label="$t('form.gramaniladari-division')">
                     <b-form-select type="text" v-model="$v.gramaniladari_officer.gramaniladari_division_id.$model" :options="gramaniladari_division_option" :state="!$v.gramaniladari_officer.gramaniladari_division_id.$error" />
-                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.gramaniladari_division_id.required">Please enter Divisional Code</b-form-invalid-feedback>
+                    <b-form-invalid-feedback v-if="!$v.gramaniladari_officer.gramaniladari_division_id.required">{{$t('form.e-grama')}}</b-form-invalid-feedback>
                 </b-form-group>
 
-                <b-button type="submit" variant="primary" class="mt-4">{{ $t('forms.submit') }}</b-button>
+                <b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
             </b-form>
         </b-card>
     </b-colxx>
@@ -96,7 +96,7 @@ export default {
             },
             district_option: [{
                     value: null,
-                    text: "Please select an District",
+                    text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
                     disabled: true
                 },
                 {
@@ -119,7 +119,7 @@ export default {
             ],
             divisional_off_option: [{
                     value: null,
-                    text: "Please select an Division",
+                    text: "Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
                     disabled: true
                 },
                 {
@@ -142,7 +142,7 @@ export default {
             ],
             gramaniladari_division_option: [{
                     value: null,
-                    text: "Please select an Division",
+                    text: "Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
                     disabled: true
                 },
                 {
