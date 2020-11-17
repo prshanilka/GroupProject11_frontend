@@ -1878,7 +1878,8 @@ button {
     }
 
     @include respond-below(sm) {
-      width: 220px;
+      width: 40px;
+       height: 40px;
     }
 
     @include respond-below(xxs) {

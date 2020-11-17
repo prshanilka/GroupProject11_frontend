@@ -26,8 +26,9 @@
 					<i class="simple-icon-magnifier"></i>
 				</span>
 			</div>
+
 			<div class="d-inline-block">
-				<b-dropdown id="langddm" class="ml-2" variant="light" size="sm" toggle-class="language-button">
+				<b-dropdown id="langddm" class="ml-2" variant="light" size="xs" toggle-class="language-button">
 					<template slot="button-content">
 						<span class="name">{{$i18n.locale.toUpperCase()}}</span>
 					</template>
@@ -43,8 +44,8 @@
 			</div>-->
 		</div>
 		<router-link class="navbar-logo" tag="a" :to="adminRoot">
-			<span class="logo d-none d-xs-block"></span>
-			<span class="logo-mobile d-block d-xs-none"></span>
+			<span class="logo d-none d-md-block"></span>
+			<span class="logo-mobile d-block d-md-none"></span>
 		</router-link>
 
 		<div class="navbar-right">

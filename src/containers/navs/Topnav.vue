@@ -47,8 +47,8 @@
 			</div>
 		</div>
 		<router-link class="navbar-logo" tag="a" :to="adminRoot">
-			<span class="logo d-none d-xs-block"></span>
-			<span class="logo-mobile d-block d-xs-none"></span>
+			<span class="logo d-none d-sm-block"></span>
+			<span class="logo-mobile d-block d-sm-none"></span>
 		</router-link>
 
 		<div class="navbar-right">

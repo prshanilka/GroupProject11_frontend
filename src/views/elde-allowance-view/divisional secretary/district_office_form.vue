@@ -1,18 +1,21 @@
 <template>
 	<AppLayout>
-		<Grmaniladari-officers />
+		<dis-off-form />
 	</AppLayout>
 </template>
 
+
+
+
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import grmaniladari_officers from "../../../containers/elder-alowance/grama_niladari_officer";
+import dis_off_form from "../../../containers/elder-alowance/district_office_form";
 
 export default {
 	name: "elform",
 	components: {
 		AppLayout: AppLayout,
-		"Grmaniladari-officers": grmaniladari_officers
+		"dis-off-form": dis_off_form
 	}
 };
 </script>
