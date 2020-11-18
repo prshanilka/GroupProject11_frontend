@@ -1,13 +1,15 @@
 <template>
 	<b-row>
 		<b-colxx xxs="12">
-			<div class="text-center">
-				<h1>Elder Form</h1>
-			</div>
+			<b-card>
+				<div class="text-center">
+					<h1>{{$t('elder.form')}}</h1>
+				</div>
+			</b-card>
 
 			<b-card class="mb-4">
 				<b-form class="av-tooltip tooltip-label-right">
-					<b-form-group label="Samurdi no ">
+					<b-form-group :label="$t('elder.smurdi')">
 						<b-form-input
 							type="text"
 							v-model="$v.elder.samurdi_no.$model"
@@ -21,7 +23,7 @@
 						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="People Aid no">
+					<b-form-group :label="$t('elder.aid')">
 						<b-form-input
 							type="text"
 							v-model="$v.elder.people_aid_no.$model"
@@ -35,7 +37,7 @@
 						</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Other No" class="error-l-100">
+					<b-form-group :label="$t('elder.other')" class="error-l-100">
 						<b-form-input
 							type="text"
 							v-model="$v.elder.other_no.$model"

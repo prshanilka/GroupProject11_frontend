@@ -115,7 +115,7 @@ export default {
 		};
 	},
 	mounted() {
-		console.log(this.$route.path);
+		// console.log(this.$route.path);
 
 		this.selectMenu();
 
@@ -327,7 +327,7 @@ export default {
 		$route(to, from) {
 			if (to.path !== from.path) {
 				const toParentUrl = to.path.split("/").filter(x => x !== "")[1];
-				console.log(toParentUrl);
+				// console.log(toParentUrl);
 
 				if (toParentUrl !== undefined || toParentUrl !== null) {
 					this.selectedParentMenu = toParentUrl.toLowerCase();
