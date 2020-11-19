@@ -29,12 +29,10 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import { getCurrentLanguage } from "./utils";
 import axios from 'axios';
-//import interceptorsSetup from './interceptor/interceptor'
 axios.defaults.baseURL='http://localhost:3000/api/';
-  //headers: { 'X-API-TOKEN': store.state.token },
  let isRefreshing = false;
  
- axios.interceptors.response.use(
+axios.interceptors.response.use(
   async response => {
      return response;
    },
@@ -51,7 +49,7 @@ axios.defaults.baseURL='http://localhost:3000/api/';
        return Promise.reject(false);
      }
      if (data.message === "Invalid Refresh Token") {
-      // router.push({ name: "login" });
+       router.push({ name: "login" });
        return Promise.reject(false);
      }
   
@@ -86,29 +84,6 @@ axios.defaults.baseURL='http://localhost:3000/api/';
  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 axios.interceptors.request.use(function(config) {
     if(config.url == "/users/refresh"){
       config.headers.Authorization = `Bearer ${localStorage.jwtr}`;
@@ -124,9 +99,6 @@ axios.interceptors.request.use(function(config) {
     return Promise.reject(err);
   });
   
-
-// and running it somewhere here
-//interceptorsSetup()
 
 Vue.use(BootstrapVue);
 Vue.use(VueI18n);
