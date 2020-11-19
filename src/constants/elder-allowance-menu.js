@@ -1,18 +1,19 @@
-import { adminRoot } from "./config";
+import { adminRoot,elderRoot } from "./config";
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
   {
-    icon: "simple-icon-pie-chart",
-    label: "menu.analytics",
-    to: `${adminRoot}/dashboards/analytics`
-    // roles: [UserRole.Admin],
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${elderRoot}/dashboards/`,
+    roles: [UserRole.Admin, UserRole.Elders],
   },
   {
     id: "elder",
     icon: "iconsminds-tumblr",
     label: "menu.elderlang",
-    to: `/elderlayout/elder`
+    to: `/elderlayout/elder`,
+    roles: [UserRole.Editor]
   },
 
   {
@@ -20,6 +21,7 @@ const data = [
     icon: "simple-icon-user-following",
     label: "menu.agentform",
     to: `/elder`,
+    roles: [UserRole.Editor],
     subs: [
       {
         icon: "simple-icon-user-following",
@@ -59,6 +61,7 @@ const data = [
     icon: "iconsminds-post-mail-2",
     label: "menu.postoffice",
     to: `/post/`,
+    roles: [UserRole.Editor],
     subs: [
       {
         icon: "iconsminds-post-mail-2",
@@ -113,6 +116,7 @@ const data = [
     icon: "iconsminds-the-white-house",
     label: "menu.divisional-office-form",
     to: `/division/`,
+    roles: [UserRole.Editor],
     subs: [
       {
         id: "divisional-office-form",
@@ -208,6 +212,7 @@ const data = [
     icon: "iconsminds-city-hall",
     label: "menu.gramaniladai-division-form",
     to: `/grama/`,
+    roles: [UserRole.Editor],
     subs: [
       {
         id: "gramaniladai-officer",
