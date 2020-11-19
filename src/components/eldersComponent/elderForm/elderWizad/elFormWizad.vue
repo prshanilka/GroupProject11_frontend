@@ -142,6 +142,7 @@ export default {
 		},
 		finishedBusiness() {
 			this.done();
+			console.log("all");
 			console.log(this.elderdetails);
 
 			// console.log(this.nameNow);

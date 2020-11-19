@@ -21,7 +21,7 @@ const data = [
     icon: "simple-icon-user-following",
     label: "menu.agentform",
     to: `/elder`,
-    roles: [UserRole.Editor],
+    //roles: [UserRole.Editor],
     subs: [
       {
         icon: "simple-icon-user-following",

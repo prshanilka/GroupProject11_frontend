@@ -43,11 +43,11 @@
 </template>
 
 <script>
-import FormWizard from "../../components/elders component/elder form/elder wizad/elFormWizad";
-import Tab from "../../components/elders component/elder form/elder wizad/elTab";
-import elderformcon1 from "./elder forrms/elderform-con-1.vue";
-import elderformcon2 from "./elder forrms/elderform-con-2.vue";
-import elderformcon3 from "./elder forrms/elderform-con-3.vue";
+import FormWizard from "../../components/eldersComponent/elderForm/elderWizad/elFormWizad";
+import Tab from "../../components/eldersComponent/elderForm/elderWizad/elTab";
+import elderformcon1 from "./elderForrms/elderform-con-1.vue";
+import elderformcon2 from "./elderForrms/elderform-con-2.vue";
+import elderformcon3 from "./elderForrms/elderform-con-3.vue";
 
 export default {
 	components: {
@@ -71,7 +71,8 @@ export default {
 		},
 		changexx(el) {
 			this.elder = el;
-			console.log(this.elder.name);
+			console.log("ssss");
+			console.log(this.elder);
 		}
 	}
 };
