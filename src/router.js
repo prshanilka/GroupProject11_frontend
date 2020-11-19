@@ -36,35 +36,70 @@ const routes = [
               )
             // meta: { roles: [UserRole.Admin] },
           },
-          {
-            path: "analytics",
-
-            component: () =>
-              import(
-                /* webpackChunkName: "dashboards" */ "./views/elder/dashboards/Analytics"
-              )
-            // meta: { roles: [UserRole.Admin] },
-          },
-          {
-            path: "ecommerce",
-            component: () =>
-              import(
-                /* webpackChunkName: "dashboards" */ "./views/elder/dashboards/Ecommerce"
-              )
-            // meta: { roles: [UserRole.Editor] },
-          },
-          {
-            path: "content",
-            component: () =>
-              import(
-                /* webpackChunkName: "dashboards" */ "./views/elder/dashboards/Content"
-              )
-            // meta: { roles: [UserRole.Editor] },
-          }
         ]
       },
        
-
+      {
+        path: "/elderlayout/elder",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/Layout-check/Elder-layout"
+          )
+      },
+      {
+        path: "/elderlogin",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
+          )
+      },
+    
+      {
+        path: "/elder/elder-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
+          )
+      },
+      {
+        path: "/elder/agent-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
+          )
+      },
+    
+      {
+        path: "/elder/elder-dashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_dashboard"
+          )
+      },
+    
+      {
+        path: "/elder/elder-pament-details",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_pament_details"
+          )
+      },
+    
+      {
+        path: "/elder/reason-about-payments",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/submit_reason_about_payments"
+          )
+      },
+    
+      {
+        path: "/elder/elder-list",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
+          )
+      },
 
       ]
 
