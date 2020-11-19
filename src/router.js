@@ -74,7 +74,61 @@ const routes = [
       },
 
 
+/*
 
+ {
+          path: "/elderlayout/elder",
+          component: () =>import(  "./views/elde-allowance-view/Layout-check/Elder-layout"),
+          meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] },
+        },
+        {
+          path: "/elderlogin",
+          component: () =>
+            import(
+               "./views/elde-allowance-view/user/login"
+            )
+        },
+      
+        {
+          path: "/elder/elder-form",
+          component: () =>
+            import(
+             "./views/elde-allowance-view/user/elderfrom"
+            )
+        },
+        {
+          path: "/elder/agent-form",
+          component: () =>
+            import(
+               "./views/elde-allowance-view/user/agent_form"
+            )
+        },
+        {
+          path: "/elder/elder-pament-details",
+          component: () =>
+            import(
+              "./views/elde-allowance-view/user/elder_pament_details"
+            )
+        },
+      
+        {
+          path: "/elder/reason-about-payments",
+          component: () =>
+            import(
+               "./views/elde-allowance-view/user/submit_reason_about_payments"
+            )
+        },
+      
+        {
+          path: "/elder/elder-list",
+          component: () =>
+            import(
+              "./views/elde-allowance-view/user/elderlis"
+            )
+        },
+
+
+*/
 
 
 
