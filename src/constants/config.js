@@ -2,6 +2,7 @@ import { UserRole } from "../utils/auth.roles";
 
 export const defaultMenuType = "menu-default"; // 'menu-default', 'menu-sub-hidden', 'menu-hidden';
 export const adminRoot = "/app";
+export const elderRoot = "/elder";
 export const searchPath = `${adminRoot}/pages/miscellaneous/search`;
 export const buyUrl = "https://1.envato.market/nEyZa";
 export const apiUrl = "https://api.coloredstrategies.com";
@@ -34,6 +35,7 @@ export const firebaseConfig = {
   appId: "1:557576321564:web:bc2ce73477aff5c2197dd9"
 };
 
+
 export const currentUser = {
   id: 1,
   title: "Sarah Kortney",
@@ -42,7 +44,7 @@ export const currentUser = {
   role: UserRole.Admin
 };
 
-export const isAuthGuardActive = false;
+export const isAuthGuardActive = true;
 export const themeRadiusStorageKey = "theme_radius";
 export const themeSelectedColorStorageKey = "theme_selected_color";
 export const defaultColor = "light.blueolympic";
