@@ -1,6 +1,6 @@
 <template>
 	<AppLayout>
-		<Grmaniladari_officers />
+		<Grmaniladari-officers />
 	</AppLayout>
 </template>
 
@@ -12,7 +12,7 @@ export default {
 	name: "elform",
 	components: {
 		AppLayout: AppLayout,
-		Grmaniladari_officers: grmaniladari_officers
+		"Grmaniladari-officers": grmaniladari_officers
 	}
 };
 </script>

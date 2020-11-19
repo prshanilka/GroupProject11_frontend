@@ -28,11 +28,77 @@ import VueScrollTo from "vue-scrollto";
 import firebase from "firebase/app";
 import "firebase/auth";
 import { getCurrentLanguage } from "./utils";
+import axios from 'axios';
+axios.defaults.baseURL='http://localhost:3000/api/';
+ let isRefreshing = false;
+ 
+axios.interceptors.response.use(
+  async response => {
+     return response;
+   },
+   async err => {
+     const {
+       config,
+       response: { status, data }
+     } = err;
+ 
+     const originalRequest = config;
+     
+     if (data.message === "Missing token") {
+       router.push({ name: "login" });
+       return Promise.reject(false);
+     }
+     if (data.message === "Invalid Refresh Token") {
+       router.push({ name: "login" });
+       return Promise.reject(false);
+     }
+  
+     if (originalRequest.url.includes("login_check")) {
+       return Promise.reject(err);
+     }
+ 
+     if (status === 401 && data.trefresh === 1) {
+       if (!isRefreshing) {
+         isRefreshing = true;
+        await store
+           .dispatch("REFRESH_TOKEN")
+           .then(({ status , data }) => {
+             if (status === 200 || status == 204) {
+               localStorage.jwt=data.token;
+               isRefreshing = false;
+             }
+           })
+           .catch(error => {
+            router.push({ name: "login" });
+             console.error(error);
+             return Promise.reject(false);
+           });
+       }
+      return  new Promise(resolve => {
+           resolve(axios(originalRequest));
 
-//import interceptorsSetup from './interceptor/interceptor'
+       });
+     }
+   }
+ );
+ 
 
-// and running it somewhere here
-//interceptorsSetup()
+
+axios.interceptors.request.use(function(config) {
+    if(config.url == "/users/refresh"){
+      config.headers.Authorization = `Bearer ${localStorage.jwtr}`;
+      return config;
+    }
+    if(localStorage.jwt){
+      config.headers.Authorization = `Bearer ${localStorage.jwt}`;
+      return config;
+    }
+    
+    
+  }, function(err) {
+    return Promise.reject(err);
+  });
+  
 
 Vue.use(BootstrapVue);
 Vue.use(VueI18n);

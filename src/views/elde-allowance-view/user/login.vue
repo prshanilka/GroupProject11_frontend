@@ -135,8 +135,8 @@ export default {
 		currentUser(val) {
 			if (val && val.uid && val.uid.length > 0) {
 				setTimeout(() => {
-					this.$router.push(adminRoot);
-				}, 200);
+					this.$router.push("/elder/agent-form");
+				}, 20);
 			}
 		},
 		loginError(val) {

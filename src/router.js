@@ -1,47 +1,236 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import AuthGuard from "./utils/auth.guard";
-import { adminRoot } from "./constants/config";
+import { adminRoot ,elderRoot } from "./constants/config";
 import { UserRole } from "./utils/auth.roles";
 
 Vue.use(VueRouter);
 
 const routes = [
+  ///////////////////////////////////////////////////
+  // elder Routes
+
+
   {
-    path: "/elderlayout/elder",
+    path: elderRoot,
+    component: () => import(/* webpackChunkName: "app" */ "./views/elder"),
+    redirect: `${elderRoot}/dashboards`,
+    meta: { loginRequired: true },
+    /*
+    define with Authorization :
+    meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] },
+    */
+    children: [
+      {
+        path: "dashboards",
+        component: () =>
+          import(/* webpackChunkName: "dashboards" */ "./views/elder/dashboards"),
+        redirect: `${elderRoot}/dashboards/default`,
+        // meta: { roles: [UserRole.Admin, UserRole.Editor] },
+        children: [
+          {
+            path: "default",
+            component: () =>
+              import(
+                /* webpackChunkName: "dashboards" */ "./views/elder/dashboards/Default"
+              )
+            // meta: { roles: [UserRole.Admin] },
+          },
+        ]
+      },
+       
+      {
+        path: "/elderlayout/elder",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/Layout-check/Elder-layout"
+          )
+      },
+      {
+        path: "/elderlogin",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
+          )
+      },
+    
+      {
+        path: "/elder/elder-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
+          )
+      },
+      {
+        path: "/elder/agent-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
+          )
+      },
+    
+      {
+        path: "/elder/elder-dashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_dashboard"
+          )
+      },
+    
+      {
+        path: "/elder/elder-pament-details",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_pament_details"
+          )
+      },
+    
+      {
+        path: "/elder/reason-about-payments",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/submit_reason_about_payments"
+          )
+      },
+    
+      {
+        path: "/elder/elder-list",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
+          )
+      },
+
+      ]
+
+
+
+
+      },
+
+
+/*
+
+ {
+          path: "/elderlayout/elder",
+          component: () =>import(  "./views/elde-allowance-view/Layout-check/Elder-layout"),
+          meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] },
+        },
+        {
+          path: "/elderlogin",
+          component: () =>
+            import(
+               "./views/elde-allowance-view/user/login"
+            )
+        },
+      
+        {
+          path: "/elder/elder-form",
+          component: () =>
+            import(
+             "./views/elde-allowance-view/user/elderfrom"
+            )
+        },
+        {
+          path: "/elder/agent-form",
+          component: () =>
+            import(
+               "./views/elde-allowance-view/user/agent_form"
+            )
+        },
+        {
+          path: "/elder/elder-pament-details",
+          component: () =>
+            import(
+              "./views/elde-allowance-view/user/elder_pament_details"
+            )
+        },
+      
+        {
+          path: "/elder/reason-about-payments",
+          component: () =>
+            import(
+               "./views/elde-allowance-view/user/submit_reason_about_payments"
+            )
+        },
+      
+        {
+          path: "/elder/elder-list",
+          component: () =>
+            import(
+              "./views/elde-allowance-view/user/elderlis"
+            )
+        },
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+  //////////////////////
+  // post office
+
+  {
+    path: "/post/post-officer-dashboard",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/Layout-check/Elder-layout"
-      )
-  },
-  {
-    path: "/elderlogin",
-    component: () =>
-      import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/post_officer_dashboard"
       )
   },
 
   {
-    path: "/elder/elder-form",
+    path: "/post/lsit-of-elder-pyament",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/lsit_of_elder_pyament"
       )
   },
   {
-    path: "/elder/agent-form",
+    path: "/post/get-elder-detail-verification",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/get_elder_detail_verification"
       )
   },
-
   {
-    path: "/elder/elder-list",
+    path: "/post/elders-related-to-post-off",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/elders_related_to_post_off"
+      )
+  },
+  {
+    path: "/post/assign-post-officers",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/assign_officers"
+      )
+  },
+  {
+    path: "/post/send-reports",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/send_reports"
       )
   },
 
@@ -54,10 +243,20 @@ const routes = [
   },
 
   {
-    path: "/post/post-office-officer",
+    path: "/post/officer-post",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_officer_form"
+      )
+  },
+
+  ////////////////////////////////////////////////////
+  // divisional rotes
+  {
+    path: "/division/district-office-form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/district_office_form"
       )
   },
 
@@ -76,7 +275,154 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_office_officer_form"
       )
   },
+  ////
 
+  {
+    path: "/division/advance-serch-elders",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/advance_serch_elders"
+      )
+  },
+  {
+    path: "/division/assign-grama-niladari",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/assign_grama_niladari"
+      )
+  },
+  {
+    path: "/division/divisional-secretary-officer-dashboard",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_secretary_officer_dashboard"
+      )
+  },
+  {
+    path: "/division/evaluate-elder-application",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/evaluate_elder_application"
+      )
+  },
+  {
+    path: "/division/get-reports",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/get_reports"
+      )
+  },
+  {
+    path: "/division/list-of-elders",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/list_of_elders"
+      )
+  },
+  {
+    path: "/division/list-of-grama-divisions",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/list_of_grama_divisions"
+      )
+  },
+  {
+    path: "/division/list-of-gramaniladari",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/list_of_gramaniladari"
+      )
+  },
+  {
+    path: "/division/list-of-post-office",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/list_of_post_office"
+      )
+  },
+  {
+    path: "/division/view-priority-list",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/view_priority_list"
+      )
+  },
+  {
+    path: "/division/view-benifisher-list",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/view_benifisher_list"
+      )
+  },
+
+  //////////////////////////////////////////////
+  //gramadivision routes
+
+  {
+    path: "/grama/gramaniladari-dashboard",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/gramaniladari_dashboard"
+      )
+  },
+  {
+    path: "/grama/inform-death-of-elder",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/inform_death_of_elder"
+      )
+  },
+  {
+    path: "/grama/list-of-applicans",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/list_of_applicans"
+      )
+  },
+  {
+    path: "/grama/list-of-benifishers",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/list_of_benifishers"
+      )
+  },
+  {
+    path: "/grama/send-complains",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/send_complains"
+      )
+  },
+  {
+    path: "/grama/view-elder-application-verify",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/view_elder_application_verify"
+      )
+  },
+  {
+    path: "/grama/view-elder-details",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/view_elder_details"
+      )
+  },
+  {
+    path: "/grama/send-reports",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/send_reports"
+      )
+  },
+  {
+    path: "/grama/aprove-agents",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/aprove_ajents"
+      )
+  },
+
+  ////
   {
     path: "/grama/gramaniladai-division-form",
     component: () =>
@@ -92,7 +438,10 @@ const routes = [
       )
   },
 
+  //end of routes
   /////////////////////////////////////////////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////////////////////
+  ///////////////////////////////////////////////////////////////////////////////////////////////////
   {
     path: "/",
     component: () => import(/* webpackChunkName: "home" */ "./views/home")
@@ -612,6 +961,7 @@ const routes = [
       import(/* webpackChunkName: "error" */ "./views/Unauthorized")
   },
   {
+    name: "login",
     path: "/user",
     component: () => import(/* webpackChunkName: "user" */ "./views/user"),
     redirect: "/user/login",

@@ -1,4 +1,8 @@
 export const UserRole = {
   Admin: 0,
-  Editor: 1
+  Elders: 10,
+  DivisionalOfficers: 20,
+  PostOfficers: 30,
+  GramaNiladariOffices: 40,
+  Editor: 60
 };
