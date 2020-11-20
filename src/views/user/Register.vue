@@ -1,8 +1,6 @@
 <template>
-  <b-row class="h-100">
-    <b-colxx xxs="12" md=10  class="mx-auto my-auto">
-      <b-card class="auth-card" no-body>
-          <div class="position-relative image-side ">
+	<b-colxx xxs="12" class="mx-auto my-auto">
+		<!-- <div class="position-relative image-side ">
             <p class=" text-white h2">{{ $t('dashboards.magic-is-in-the-details') }}</p>
               <p class="white mb-0">  Please use this form to register. <br />If you are a member, please
                 <router-link tag="a" to="/user/login" class="white">login</router-link>.
@@ -28,26 +26,35 @@
                   <b-button type="submit" variant="primary" size="lg" class="btn-shadow">{{ $t('user.register-button')}}</b-button>
               </div>
           </b-form>
-        </div>
-      </b-card>
-    </b-colxx>
-  </b-row>
+		</div>-->
+		<div style="margin-bottom:100px;margin-top:100px;">
+			<div class="text-center">
+				<h1>Elders Regisreation</h1>
+			</div>
+			<eLelderwizad />
+		</div>
+	</b-colxx>
 </template>
 <script>
-import { adminRoot } from '../../constants/config'
+import { adminRoot } from "../../constants/config";
+
+import eLelderwizad from "../../containers/elder-alowance/elder-wizad";
 export default {
-  data () {
-    return {
-      fullname: '',
-      email: '',
-      password: ''
-    }
-  },
-  methods: {
-    formSubmit () {
-      console.log('register')
-      this.$router.push(adminRoot)
-    }
-  }
-}
+	components: {
+		eLelderwizad: eLelderwizad
+	},
+	data() {
+		return {
+			fullname: "",
+			email: "",
+			password: ""
+		};
+	},
+	methods: {
+		formSubmit() {
+			console.log("register");
+			this.$router.push(adminRoot);
+		}
+	}
+};
 </script>
