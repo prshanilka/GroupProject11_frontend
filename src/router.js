@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import AuthGuard from "./utils/auth.guard";
-import { adminRoot ,elderRoot } from "./constants/config";
+import { adminRoot, elderRoot } from "./constants/config";
 import { UserRole } from "./utils/auth.roles";
 
 Vue.use(VueRouter);
@@ -9,7 +9,6 @@ Vue.use(VueRouter);
 const routes = [
   ///////////////////////////////////////////////////
   // elder Routes
-
 
   {
     path: elderRoot,
@@ -24,7 +23,9 @@ const routes = [
       {
         path: "dashboards",
         component: () =>
-          import(/* webpackChunkName: "dashboards" */ "./views/elder/dashboards"),
+          import(
+            /* webpackChunkName: "dashboards" */ "./views/elder/dashboards"
+          ),
         redirect: `${elderRoot}/dashboards/default`,
         // meta: { roles: [UserRole.Admin, UserRole.Editor] },
         children: [
@@ -35,10 +36,15 @@ const routes = [
                 /* webpackChunkName: "dashboards" */ "./views/elder/dashboards/Default"
               )
             // meta: { roles: [UserRole.Admin] },
-          },
+          }
         ]
+<<<<<<< HEAD
       }, 
        
+=======
+      },
+
+>>>>>>> 577c0d94e60cab5108a553c27a41a4243ac1a88e
       {
         path: "/elderlayout/elder",
         component: () =>
@@ -53,7 +59,7 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
           )
       },
-    
+
       {
         path: "/elder/elder-form",
         component: () =>
@@ -68,7 +74,7 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
           )
       },
-    
+
       {
         path: "/elder/elder-dashboard",
         component: () =>
@@ -76,7 +82,7 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_dashboard"
           )
       },
-    
+
       {
         path: "/elder/elder-pament-details",
         component: () =>
@@ -84,7 +90,7 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_pament_details"
           )
       },
-    
+
       {
         path: "/elder/reason-about-payments",
         component: () =>
@@ -92,24 +98,18 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/submit_reason_about_payments"
           )
       },
-    
+
       {
         path: "/elder/elder-list",
         component: () =>
           import(
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
           )
-      },
+      }
+    ]
+  },
 
-      ]
-
-
-
-
-      },
-
-
-/*
+  /*
 
  {
           path: "/elderlayout/elder",
@@ -164,28 +164,6 @@ const routes = [
 
 
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
 
   //////////////////////
   // post office

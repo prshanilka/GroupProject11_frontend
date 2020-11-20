@@ -1,4 +1,4 @@
-import { adminRoot,elderRoot } from "./config";
+import { adminRoot, elderRoot } from "./config";
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
@@ -6,8 +6,9 @@ const data = [
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
     to: `${elderRoot}/dashboards/`,
-    roles: [UserRole.Admin, UserRole.Elders],
+    roles: [UserRole.Admin, UserRole.Elders, UserRole.Editor]
   },
+
   {
     id: "elder",
     icon: "iconsminds-tumblr",
@@ -283,6 +284,12 @@ const data = [
         to: `/grama/aprove-agents`
       }
     ]
+  },
+  {
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `/app/dashboards/`,
+    roles: [UserRole.Editor]
   }
 ];
 export default data;
