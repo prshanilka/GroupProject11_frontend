@@ -25,7 +25,7 @@
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import ListWithUserItem from "../../../components/elders component/ElderListItem";
+import ListWithUserItem from "../../../components/elders_component/ElderListItem";
 import LogList from "../../../components/Listing/LogList";
 
 export default {
@@ -98,6 +98,7 @@ export default {
 			]
 		};
 	},
+
 	computed: {
 		filteredList() {
 			return this.comments.filter(comm => {
