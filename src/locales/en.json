@@ -164,15 +164,18 @@
     "dashboards": "Dashboards",
     "dashboard": "Dashboard",
     "default": "Default",
-    "analytics": "Analytics",
-    "ecommerce": "Ecommerce",
+    "details": "Details",
+    "search": "Search",
     "content": "Content",
     "pages": "Pages",
+    
+    "analytics": "Analytics",
+    "ecommerce": "Ecommerce",
+    
     "data-list": "Data List",
     "thumb-list": "Thumb List",
     "image-list": "Image List",
-    "details": "Details",
-    "search": "Search",
+    
     "invoice": "Invoice",
     "mailing": "Mailing",
     "login": "Login",

@@ -102,11 +102,11 @@ axios.interceptors.request.use(function(config) {
 
 Vue.use(BootstrapVue);
 Vue.use(VueI18n);
-const messages = { en: en, සිංහල: sinhala, தமிழ்: tamil };
+const messages = { English: en, සිංහල: sinhala, தமிழ்: tamil };
 const locale = getCurrentLanguage();
 const i18n = new VueI18n({
   locale: locale,
-  fallbackLocale: "en",
+  fallbackLocale: "English",
   messages
 });
 Vue.use(Notifications);
