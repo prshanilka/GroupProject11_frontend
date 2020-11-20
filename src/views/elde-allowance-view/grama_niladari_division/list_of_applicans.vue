@@ -19,7 +19,7 @@
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import ListWithUserItem from "../../../components/elders component/applicantListItem";
+import ListWithUserItem from "../../../components/elders_component/applicantListItem";
 import LogList from "../../../components/Listing/LogList";
 import { comments } from "../../../data/comments";
 

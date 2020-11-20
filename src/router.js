@@ -167,7 +167,7 @@ const routes = [
     path: "/post/post-officer-dashboard",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/post_officer_dashboard"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/post_officer_dashboard"
       )
   },
 
@@ -175,35 +175,35 @@ const routes = [
     path: "/post/lsit-of-elder-pyament",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/lsit_of_elder_pyament"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/lsit_of_elder_pyament"
       )
   },
   {
     path: "/post/get-elder-detail-verification",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/get_elder_detail_verification"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/get_elder_detail_verification"
       )
   },
   {
     path: "/post/elders-related-to-post-off",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/elders_related_to_post_off"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/elders_related_to_post_off"
       )
   },
   {
     path: "/post/assign-post-officers",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/assign_officers"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/assign_officers"
       )
   },
   {
     path: "/post/send-reports",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/send_reports"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/send_reports"
       )
   },
 
@@ -211,7 +211,7 @@ const routes = [
     path: "/post/post-office",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_form"
       )
   },
 
@@ -219,7 +219,7 @@ const routes = [
     path: "/post/officer-post",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post office/postoffice_officer_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_officer_form"
       )
   },
 
@@ -229,7 +229,7 @@ const routes = [
     path: "/division/district-office-form",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/district_office_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/district_office_form"
       )
   },
 
@@ -237,7 +237,7 @@ const routes = [
     path: "/division/divisional-office-form",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_office_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_form"
       )
   },
 
@@ -245,7 +245,7 @@ const routes = [
     path: "/division/divisional-office-officer",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_office_officer_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_officer_form"
       )
   },
   ////
@@ -254,77 +254,77 @@ const routes = [
     path: "/division/advance-serch-elders",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/advance_serch_elders"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/advance_serch_elders"
       )
   },
   {
     path: "/division/assign-grama-niladari",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/assign_grama_niladari"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/assign_grama_niladari"
       )
   },
   {
     path: "/division/divisional-secretary-officer-dashboard",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/divisional_secretary_officer_dashboard"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_secretary_officer_dashboard"
       )
   },
   {
     path: "/division/evaluate-elder-application",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/evaluate_elder_application"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/evaluate_elder_application"
       )
   },
   {
     path: "/division/get-reports",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/get_reports"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/get_reports"
       )
   },
   {
     path: "/division/list-of-elders",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/list_of_elders"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_elders"
       )
   },
   {
     path: "/division/list-of-grama-divisions",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/list_of_grama_divisions"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_grama_divisions"
       )
   },
   {
     path: "/division/list-of-gramaniladari",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/list_of_gramaniladari"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_gramaniladari"
       )
   },
   {
     path: "/division/list-of-post-office",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/list_of_post_office"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_office"
       )
   },
   {
     path: "/division/view-priority-list",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/view_priority_list"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/view_priority_list"
       )
   },
   {
     path: "/division/view-benifisher-list",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional secretary/view_benifisher_list"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/view_benifisher_list"
       )
   },
 
@@ -335,63 +335,63 @@ const routes = [
     path: "/grama/gramaniladari-dashboard",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/gramaniladari_dashboard"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/gramaniladari_dashboard"
       )
   },
   {
     path: "/grama/inform-death-of-elder",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/inform_death_of_elder"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/inform_death_of_elder"
       )
   },
   {
     path: "/grama/list-of-applicans",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/list_of_applicans"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/list_of_applicans"
       )
   },
   {
     path: "/grama/list-of-benifishers",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/list_of_benifishers"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/list_of_benifishers"
       )
   },
   {
     path: "/grama/send-complains",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/send_complains"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/send_complains"
       )
   },
   {
     path: "/grama/view-elder-application-verify",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/view_elder_application_verify"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_elder_application_verify"
       )
   },
   {
     path: "/grama/view-elder-details",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/view_elder_details"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_elder_details"
       )
   },
   {
     path: "/grama/send-reports",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/send_reports"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/send_reports"
       )
   },
   {
     path: "/grama/aprove-agents",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/aprove_ajents"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/aprove_ajents"
       )
   },
 
@@ -400,14 +400,14 @@ const routes = [
     path: "/grama/gramaniladai-division-form",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_ division"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_ division"
       )
   },
   {
     path: "/grama/gramaniladai-officer",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_officer_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_officer_form"
       )
   },
 
