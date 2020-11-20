@@ -10,19 +10,19 @@ export const bUrl ="http://localhost:3000/api";
 export const subHiddenBreakpoint = 1440;
 export const menuHiddenBreakpoint = 768;
 
-export const defaultLocale = "en";
+export const defaultLocale = "English";
 export const defaultDirection = "ltr";
 export const localeOptions = [
   { id: "සිංහල", name: "සිංහල", direction: "ltr" },
   { id: "தமிழ்", name: "தமிழ்", direction: "ltr" },
-  { id: "en", name: "English LTR", direction: "ltr" },
+  { id: "en", name: "English", direction: "ltr" },
   { id: "enrtl", name: "English RTL", direction: "rtl" }
 ];
 
 export const ElderAllowancelocaleOptions = [
   { id: "සිංහල", name: "සිංහල" },
   { id: "தமிழ்", name: "தமிழ்" },
-  { id: "en", name: "English " }
+  { id: "English", name: "English" }
 ];
 
 export const firebaseConfig = {
