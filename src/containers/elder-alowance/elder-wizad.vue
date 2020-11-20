@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import FormWizard from "../../components/elders component/elder form/elder wizad/elFormWizad";
-import Tab from "../../components/elders component/elder form/elder wizad/elTab";
+import FormWizard from "../../components/elders_component/elder_form/elder_wizad/elFormWizad";
+import Tab from "../../components/elders_component/elder_form/elder_wizad/elTab";
 import elderformcon1 from "./elder forrms/elderform-con-1.vue";
 import elderformcon2 from "./elder forrms/elderform-con-2.vue";
 import elderformcon3 from "./elder forrms/elderform-con-3.vue";

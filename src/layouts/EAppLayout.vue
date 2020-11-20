@@ -12,9 +12,9 @@
 </template>
 
 <script>
-import ESidebar from "../containers/navs/Elder allowance/ESidebar";
-import ETopnav from "../containers/navs/Elder allowance/ETopnav";
-import EFooter from "../containers/navs/Elder allowance/EFooter";
+import ESidebar from "../containers/navs/Elder_allowance/ESidebar";
+import ETopnav from "../containers/navs/Elder_allowance/ETopnav";
+import EFooter from "../containers/navs/Elder_allowance/EFooter";
 import { mapGetters } from "vuex";
 
 export default {

@@ -3,6 +3,7 @@ import { UserRole } from "../utils/auth.roles";
 
 const data = [
   {
+    id: "dashboards",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
     to: `${elderRoot}/dashboards/`,
@@ -286,6 +287,7 @@ const data = [
     ]
   },
   {
+    id: "dashboard",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
     to: `/app/dashboards/`,
