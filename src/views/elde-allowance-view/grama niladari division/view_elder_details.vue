@@ -3,10 +3,12 @@
 
 <template>
 	<AppLayout>
-		<h1>View Elder details in the particular division</h1>
-		<b-colxx xxs="12" md="10" class="col-left">
+		<b-colxx xl="10" lg="12" style="margin:auto ">
 			<b-card no-body class="mb-4">
 				<b-row>
+					<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
+						<h1>Elder details View</h1>
+					</b-colxx>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
@@ -18,6 +20,7 @@
 					</b-colxx>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="m-4">
+							<h2>Elder Details</h2>
 							<p class="text-muted text-small mb-2">Elder Full Name</p>
 							<p class="mb-3">Sahan Lakshitha</p>
 
@@ -52,7 +55,8 @@
 						<b-colxx lg="6" md="12" class="mb-4">
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Local Elders Commity Name:</span> Swarna Hanse Elders Commity
-								<br />
+							</p>
+							<p>
 								<span class="text-muted text-small mb-2">Local Elders Commity Membership No:</span> 21
 							</p>
 							<p class="text-muted text-small mb-2">Nearest Post Office</p>
@@ -79,10 +83,25 @@
 							<p class="mb-3">3000</p>
 						</b-colxx>
 						<b-colxx lg="6" md="12" class="mb-4">
-							<h3>Agent Information</h3>
+							<h2>Agent Information</h2>
 
 							<p class="text-muted text-small mb-2">Agent Name</p>
 							<p class="mb-3">Sada probooooo</p>
+
+							<p class="text-muted text-small mb-2">Agent NIC</p>
+							<p class="mb-3">834356355V</p>
+
+							<p class="text-muted text-small mb-2">Agent Address</p>
+							<p class="mb-3">49A /149 ,hansgiri Road ,5th Lane Gampaha</p>
+
+							<p class="text-muted text-small mb-2">Agent Phone Number</p>
+							<p class="mb-3">0332227443</p>
+
+							<p class="text-muted text-small mb-2">Email</p>
+							<p class="mb-3">sada@gmail.com</p>
+
+							<p class="text-muted text-small mb-2">Relationship With Elder</p>
+							<p class="mb-3">Sister</p>
 						</b-colxx>
 					</b-row>
 				</b-card-body>
@@ -105,4 +124,7 @@ export default {
 };
 </script>
 <style>
+p {
+	font: 1.4em sans-serif;
+}
 </style>

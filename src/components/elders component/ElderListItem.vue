@@ -19,12 +19,7 @@
 				</div>
 			</b-colxx>
 			<b-colxx lg="3" md="12" class="mb-1">
-				<b-button
-					class="mb-2"
-					size="xs"
-					style="margin-top:20px;"
-					variant="primary"
-				>View Elders and verify</b-button>
+				<b-button class="mb-2" size="xs" style="margin-top:20px;" variant="primary">Inform About Death</b-button>
 			</b-colxx>
 		</b-row>
 	</div>

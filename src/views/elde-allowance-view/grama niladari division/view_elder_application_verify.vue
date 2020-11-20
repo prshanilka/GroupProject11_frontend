@@ -1,9 +1,11 @@
 <template>
 	<AppLayout>
-		<h1>View Elder application and check the validity and confime about t</h1>
-		<b-colxx xxs="12" md="10" class="col-left">
+		<b-colxx xl="10" lg="12" style="margin:auto ">
 			<b-card no-body class="mb-4">
 				<b-row>
+					<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
+						<h1>Verify Elder details</h1>
+					</b-colxx>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
@@ -49,7 +51,8 @@
 						<b-colxx lg="6" md="12" class="mb-4">
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Local Elders Commity Name:</span> Swarna Hanse Elders Commity
-								<br />
+							</p>
+							<p>
 								<span class="text-muted text-small mb-2">Local Elders Commity Membership No:</span> 21
 							</p>
 							<p class="text-muted text-small mb-2">Nearest Post Office</p>
@@ -165,4 +168,7 @@ export default {
 };
 </script>
 <style>
+p {
+	font-size: 1.4em;
+}
 </style>
