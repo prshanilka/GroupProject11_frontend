@@ -3,7 +3,7 @@
 		<b-colxx xl="8" lg="10" md="12" style="margin:auto ">
 			<b-card>
 				<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-					<h1>List Of the Grama Divisions</h1>
+					<h1>List Of the Grama Divisions Bentha</h1>
 				</b-colxx>
 				<div class="m--5 p-5">
 					<b-form-group label="Serch by Grama Division Name">
