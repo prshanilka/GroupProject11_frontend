@@ -287,6 +287,7 @@ const data = [
     ]
   },
   {
+    id: "dashboard",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
     to: `/app/dashboards/`,

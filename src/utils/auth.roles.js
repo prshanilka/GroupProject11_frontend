@@ -4,5 +4,5 @@ export const UserRole = {
   DivisionalOfficers: 20,
   PostOfficers: 30,
   GramaNiladariOffices: 40,
-  Editor: 60
+  Editor: 1
 };

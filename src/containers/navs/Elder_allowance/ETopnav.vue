@@ -21,7 +21,7 @@
 				@mouseenter="isSearchOver=true"
 				@mouseleave="isSearchOver=false"
 			>
-				<b-input placeholder="E Top Serch" @keypress.native.enter="search" v-model="searchKeyword" />
+				<b-input :placeholder="$t('menu.search')" @keypress.native.enter="search" v-model="searchKeyword" />
 				<span class="search-icon" @click="searchClick">
 					<i class="simple-icon-magnifier"></i>
 				</span>
@@ -30,7 +30,7 @@
 			<div class="d-inline-block">
 				<b-dropdown id="langddm" class="ml-2" variant="light" size="xs" toggle-class="language-button">
 					<template slot="button-content">
-						<span class="name">{{$i18n.locale.toUpperCase()}}</span>
+						<span class="name">{{$i18n.locale}}</span>
 					</template>
 					<b-dropdown-item
 						v-for="(l,index) in ElderAllowancelocaleOptions"
