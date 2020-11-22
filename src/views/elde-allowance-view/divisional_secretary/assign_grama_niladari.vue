@@ -1,6 +1,6 @@
 <template>
 	<AppLayout>
-		<h1>This is for Assign grama Niladari for the grama niladari Divisionas When the change the divisions</h1>
+		<h1>This is for Assign grama Niladari for the grama_niladari_divisionas When the change the divisions</h1>
 	</AppLayout>
 </template>
 

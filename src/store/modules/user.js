@@ -160,6 +160,32 @@ export default {
     },
 
     signOut({ commit }) {
+
+        axios
+        .delete("/token")
+        .then(response => {
+          console.log(response)
+          setCurrentUser(null);
+          commit("setLogout");
+        })
+        .catch(error => {
+          console.log(error);
+        });    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      /*
       firebase
         .auth()
         .signOut()
@@ -169,7 +195,7 @@ export default {
             commit("setLogout");
           },
           _error => {}
-        );
+        ); */
     },
     REFRESH_TOKEN: () => {
       return new Promise((resolve, reject) => {
