@@ -3,7 +3,7 @@ import { UserRole } from "../utils/auth.roles";
 
 const data = [
   {
-    id: "dashboards",
+    id: "dashboard",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
     to: `${elderRoot}/dashboards/`,
@@ -23,7 +23,7 @@ const data = [
     icon: "simple-icon-user-following",
     label: "menu.agentform",
     to: `/elder`,
-    roles: [UserRole.Editor],
+    //roles: [UserRole.Editor],
     subs: [
       {
         icon: "simple-icon-user-following",
@@ -99,13 +99,13 @@ const data = [
       ////
 
       {
-        id: "post-office",
+
         icon: "iconsminds-post-mail-2",
         label: "menu.postoffice",
         to: `/post/post-office`
       },
       {
-        id: "officer-post",
+
         icon: "iconsminds-add-user",
         label: "menu.postoffice-officer",
         to: `/post/officer-post`
@@ -121,87 +121,87 @@ const data = [
     roles: [UserRole.Editor],
     subs: [
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.divisional-secretary-officer-dashboard",
         to: `/division/divisional-secretary-officer-dashboard`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.divisional-office-form",
         to: `/division/divisional-office-form`
       },
       {
-        id: "divisional-office-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.divisional-office-officer",
         to: `/division/divisional-office-officer`
       },
       {
-        id: "divisional-office-officer",
+
         icon: "iconsminds-the-white-house",
         label: "menu.district-office",
         to: `/division/district-office-form`
       },
       ///
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.advance-serch-elders",
         to: `/division/advance-serch-elders`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.assign-grama-niladari",
         to: `/division/assign-grama-niladari`
       },
 
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.evaluate-elder-application",
         to: `/division/evaluate-elder-application`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.get-reports",
         to: `/division/get-reports`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-elders",
         to: `/division/list-of-elders`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-grama-divisions",
         to: `/division/list-of-grama-divisions`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-gramaniladari",
         to: `/division/list-of-gramaniladari`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-post-office",
         to: `/division/list-of-post-office`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.view-priority-list",
         to: `/division/view-priority-list`
       },
       {
-        id: "divisional-office-form",
+
         icon: "iconsminds-the-white-house",
         label: "menu.view-benifisher-list",
         to: `/division/view-benifisher-list`
@@ -210,26 +210,26 @@ const data = [
   },
 
   {
-    id: "gramaniladai-division-form",
+    id: "gramaniladai-division-forma",
     icon: "iconsminds-city-hall",
     label: "menu.gramaniladai-division-form",
     to: `/grama/`,
     roles: [UserRole.Editor],
     subs: [
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.gramaniladari-dashboard",
         to: `/grama/gramaniladari-dashboard`
       },
       {
-        id: "gramaniladai-division-form",
+
         icon: "iconsminds-city-hall",
         label: "menu.gramaniladai-division-form",
         to: `/grama/gramaniladai-division-form`
       },
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.gramaniladai-officer",
         to: `/grama/gramaniladai-officer`
@@ -237,49 +237,49 @@ const data = [
       ///
 
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.inform-death-of-elder",
         to: `/grama/inform-death-of-elder`
       },
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.list-of-applicans",
         to: `/grama/list-of-applicans`
       },
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.list-of-benifishers",
         to: `/grama/list-of-benifishers`
       },
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.send-complains",
         to: `/grama/send-complains`
       },
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.view-elder-application-verify",
         to: `/grama/view-elder-application-verify`
       },
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.view-elder-details",
         to: `/grama/view-elder-details`
       },
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.send-reports-d",
         to: `/grama/send-reports`
       },
       {
-        id: "gramaniladai-officer",
+
         icon: "iconsminds-add-user",
         label: "menu.aprove-agents",
         to: `/grama/aprove-agents`
