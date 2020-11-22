@@ -172,6 +172,8 @@ export const setCurrentUser = user => {
       localStorage.setItem("user", JSON.stringify(user));
     } else {
       localStorage.removeItem("user");
+      localStorage.removeItem("jwt");
+      localStorage.removeItem("jwtr");
     }
   } catch (error) {
     console.log(">>>> src/utils/index.js : setCurrentUser -> error", error);
