@@ -1,11 +1,9 @@
 <template>
 	<b-row>
 		<b-colxx xxs="12" class="align-self-center">
-			<b-card>
-				<div class="text-center">
-					<h1>{{$t('elder.form')}}</h1>
-				</div>
-			</b-card>
+			<div class="text-center">
+				<h1>{{$t('elder.form')}}</h1>
+			</div>
 
 			<b-card class="mb-4">
 				<b-form class="av-tooltip tooltip-label-right">
@@ -44,23 +42,6 @@
 							v-if="!$v.elder.comm_membership_no.minLength || !$v.elder.comm_membership_no.maxLength"
 						>
 							Your committe Membership No must be between 3 and 16
-							characters
-						</b-form-invalid-feedback>
-					</b-form-group>
-
-					<b-form-group :label="$t('form.post')" class="error-l-100">
-						<b-form-input
-							type="text"
-							v-model="$v.elder.nearest_post_office.$model"
-							:state="!$v.elder.nearest_post_office.$error"
-						/>
-						<b-form-invalid-feedback
-							v-if="!$v.elder.nearest_post_office.required"
-						>Please enter a Your Source of Income</b-form-invalid-feedback>
-						<b-form-invalid-feedback
-							v-if="!$v.elder.nearest_post_office.minLength || !$v.elder.nearest_post_office.maxLength"
-						>
-							Your Nearest Post Office No must be between 3 and 16
 							characters
 						</b-form-invalid-feedback>
 					</b-form-group>
@@ -128,6 +109,46 @@
 						>Please enter your Monthly Income</b-form-invalid-feedback>
 						<b-form-invalid-feedback v-else-if="!$v.elder.monthly_income.numeric">{{$t('form.n-number')}}</b-form-invalid-feedback>
 					</b-form-group>
+
+					<b-form-group :label="$t('elder.smurdi')">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.samurdi_no.$model"
+							:state="!$v.elder.samurdi_no.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.samurdi_no.minLength || !$v.elder.samurdi_no.maxLength"
+						>
+							Your Samurdi no must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
+					</b-form-group>
+
+					<b-form-group :label="$t('elder.aid')">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.people_aid_no.$model"
+							:state="!$v.elder.people_aid_no.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.people_aid_no.minLength || !$v.elder.people_aid_no.maxLength"
+						>
+							Your People Aid no must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
+					</b-form-group>
+
+					<b-form-group :label="$t('elder.other')" class="error-l-100">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.other_no.$model"
+							:state="!$v.elder.other_no.$error"
+						/>
+						<b-form-invalid-feedback v-if="!$v.elder.other_no.minLength || !$v.elder.other_no.maxLength">
+							Your Other No must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
+					</b-form-group>
 				</b-form>
 			</b-card>
 		</b-colxx>
@@ -170,12 +191,14 @@ export default {
 				elder_id: "",
 				elder_committe_name: "",
 				comm_membership_no: "",
-				nearest_post_office: "",
 				lives_with: "",
 				other_elder_nic: "",
 				other_names_and_details: "",
 				source_of_income: "",
-				monthly_income: ""
+				monthly_income: "",
+				samurdi_no: "",
+				people_aid_no: "",
+				other_no: ""
 			}
 		};
 	},
@@ -194,11 +217,7 @@ export default {
 				maxLength: maxLength(16),
 				minLength: minLength(2)
 			},
-			nearest_post_office: {
-				required,
-				maxLength: maxLength(16),
-				minLength: minLength(3)
-			},
+
 			lives_with: {
 				required
 			},
@@ -217,6 +236,18 @@ export default {
 			monthly_income: {
 				required,
 				numeric
+			},
+			samurdi_no: {
+				minLength: minLength(3),
+				maxLength: maxLength(16)
+			},
+			people_aid_no: {
+				minLength: minLength(3),
+				maxLength: maxLength(16)
+			},
+			other_no: {
+				minLength: minLength(3),
+				maxLength: maxLength(16)
 			}
 		}
 		// name: {
