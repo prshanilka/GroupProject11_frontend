@@ -40,6 +40,7 @@ export default {
 		};
 	},
 	async beforeCreate() {
+		
 		axios.get("http://localhost:3000/api/gramadivision/").then(result => {
 			console.log(result.data.data[0]);
 			this.grama_divsions = result.data.data;
