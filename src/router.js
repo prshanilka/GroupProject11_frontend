@@ -38,13 +38,8 @@ const routes = [
             // meta: { roles: [UserRole.Admin] },
           }
         ]
-<<<<<<< HEAD
-      }, 
-       
-=======
       },
 
->>>>>>> 577c0d94e60cab5108a553c27a41a4243ac1a88e
       {
         path: "/elderlayout/elder",
         component: () =>
@@ -340,63 +335,63 @@ const routes = [
     path: "/grama/gramaniladari-dashboard",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/gramaniladari_dashboard"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/gramaniladari_dashboard"
       )
   },
   {
     path: "/grama/inform-death-of-elder",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/inform_death_of_elder"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/inform_death_of_elder"
       )
   },
   {
     path: "/grama/list-of-applicans",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/list_of_applicans"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/list_of_applicans"
       )
   },
   {
     path: "/grama/list-of-benifishers",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/list_of_benifishers"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/list_of_benifishers"
       )
   },
   {
     path: "/grama/send-complains",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/send_complains"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/send_complains"
       )
   },
   {
     path: "/grama/view-elder-application-verify",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/view_elder_application_verify"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_elder_application_verify"
       )
   },
   {
     path: "/grama/view-elder-details",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/view_elder_details"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_elder_details"
       )
   },
   {
     path: "/grama/send-reports",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/send_reports"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/send_reports"
       )
   },
   {
     path: "/grama/aprove-agents",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/aprove_ajents"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/aprove_ajents"
       )
   },
 
@@ -405,14 +400,14 @@ const routes = [
     path: "/grama/gramaniladai-division-form",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_ division"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_ division"
       )
   },
   {
     path: "/grama/gramaniladai-officer",
     component: () =>
       import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama niladari division/grama_niladari_officer_form"
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_officer_form"
       )
   },
 
