@@ -1,5 +1,7 @@
 <template>
 	<AppLayout>
+
+		<h1>List ot the post officers in a perticular division</h1>
 		<b-colxx class="mb-4 text-center" lg="12" xxs="12">
 			<h1>Post Offices</h1>
 	    </b-colxx>
@@ -12,8 +14,10 @@
 				/>
         </b-row>
 
+
 	</AppLayout>
 </template>
+
 
 
 
@@ -24,6 +28,7 @@ import ListWithUserItem from "../../../components/elders_component/PostOfficeLis
 import axios from "axios";
 export default {
 	components: {
+
 		AppLayout: AppLayout,
 		"list-with-user-item": ListWithUserItem
 	},
@@ -46,6 +51,7 @@ export default {
 			});
 		}
 	}
+
 
 };
 </script>
