@@ -8,202 +8,136 @@ Vue.use(VueRouter);
 
 const routes = [
   ///////////////////////////////////////////////////
-  // elder Routes
+ // elder Routes
 
-  // {
-  //   path: elderRoot,
-  //   component: () => import(/* webpackChunkName: "app" */ "./views/elder"),
-  //   redirect: `${elderRoot}/dashboards`,
-  //   meta: { loginRequired: true },
-  //   /*
-  //   define with Authorization :
-  //   meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] },
-  //   */
-  //   children: [
-  //     {
-  //       path: "dashboards",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "dashboards" */ "./views/elder/dashboards"
-  //         ),
-  //       redirect: `${elderRoot}/dashboards/default`,
-  //       // meta: { roles: [UserRole.Admin, UserRole.Editor] },
-  //       children: [
-  //         {
-  //           path: "default",
-  //           component: () =>
-  //             import(
-  //               /* webpackChunkName: "dashboards" */ "./views/elder/dashboards/Default"
-  //             )
-  //           // meta: { roles: [UserRole.Admin] },
-  //         }
-  //       ]
-  //     },
+  {
+    path: elderRoot,
+    component: () => import(/* webpackChunkName: "app" */ "./views/elder"),
+    redirect: `${elderRoot}/dashboards`,
+    meta: { loginRequired: true },
+    /*
+    define with Authorization :
+    meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] },
+    */
+    children: [
+      {
+        path: "dashboards",
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboards" */ "./views/elder/dashboards"
+          ),
+        redirect: `${elderRoot}/dashboards/default`,
+        // meta: { roles: [UserRole.Admin, UserRole.Editor] },
+        children: [
+          {
+            path: "default",
+            component: () =>
+              import(
+                /* webpackChunkName: "dashboards" */ "./views/elder/dashboards/Default"
+              )
+            // meta: { roles: [UserRole.Admin] },
+          }
+        ]
+      },
 
-  //     {
-  //       path: "/elderlayout/elder",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "home" */ "./views/elde-allowance-view/Layout-check/Elder-layout"
-  //         )
-  //     },
-  //     {
-  //       path: "/elderlogin",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
-  //         )
-  //     },
+      {
+        path: "/elderlayout/elder",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/Layout-check/Elder-layout"
+          )
+      },
+      {
+        path: "/elderlogin",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
+          )
+      },
 
-  //     {
-  //       path: "/elder/elder-form",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
-  //         )
-  //     },
-  //     {
-  //       path: "/elder/agent-form",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
-  //         )
-  //     },
+      {
+        path: "/elder/elder-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
+          )
+      },
+      {
+        path: "/elder/agent-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
+          )
+      },
 
-  //     {
-  //       path: "/elder/elder-dashboard",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_dashboard"
-  //         )
-  //     },
+      {
+        path: "/elder/elder-dashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_dashboard"
+          )
+      },
 
-  //     {
-  //       path: "/elder/elder-pament-details",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_pament_details"
-  //         )
-  //     },
+      {
+        path: "/elder/elder-pament-details",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elder_pament_details"
+          )
+      },
 
-  //     {
-  //       path: "/elder/reason-about-payments",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/submit_reason_about_payments"
-  //         )
-  //     },
-
-<<<<<<< HEAD
+      {
+        path: "/elder/reason-about-payments",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/submit_reason_about_payments"
+          )
+      },
       {
         path: "/elder/elder-list",
         component: () =>
           import(
-            /* webpackChunkName: "home" */ "./views/elder/test/elderlis"
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
           )
       }
     ]
   },
 
-  /*
- {
-          path: "/elderlayout/elder",
-          component: () =>import(  "./views/elde-allowance-view/Layout-check/Elder-layout"),
-          meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] },
-        },
-        {
-          path: "/elderlogin",
-          component: () =>
-            import(
-               "./views/elde-allowance-view/user/login"
-            )
-        },
-      
-        {
-          path: "/elder/elder-form",
-          component: () =>
-            import(
-             "./views/elde-allowance-view/user/elderfrom"
-            )
-        },
-        {
-          path: "/elder/agent-form",
-          component: () =>
-            import(
-               "./views/elde-allowance-view/user/agent_form"
-            )
-        },
-        {
-          path: "/elder/elder-pament-details",
-          component: () =>
-            import(
-              "./views/elde-allowance-view/user/elder_pament_details"
-            )
-        },
-      
-        {
-          path: "/elder/reason-about-payments",
-          component: () =>
-            import(
-               "./views/elde-allowance-view/user/submit_reason_about_payments"
-            )
-        },
-      
-        {
-          path: "/elder/elder-list",
-          component: () =>
-            import(
-              "./views/elde-allowance-view/user/elderlis"
-            )
-        },
-*/
-=======
-  //     {
-  //       path: "/elder/elder-list",
-  //       component: () =>
-  //         import(
-  //           /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
-  //         )
-  //     }
-  //   ]
+  // {
+  //   path: "/elderlayout/elder",
+  //   component: () =>
+  //     import("./views/elde-allowance-view/Layout-check/Elder-layout"),
+  //   meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] }
+  // },
+  // {
+  //   path: "/elderlogin",
+  //   component: () => import("./views/elde-allowance-view/user/login")
   // },
 
-  {
-    path: "/elderlayout/elder",
-    component: () =>
-      import("./views/elde-allowance-view/Layout-check/Elder-layout"),
-    meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] }
-  },
-  {
-    path: "/elderlogin",
-    component: () => import("./views/elde-allowance-view/user/login")
-  },
+  // {
+  //   path: "/elder/elder-form",
+  //   component: () => import("./views/elde-allowance-view/user/elderfrom")
+  // },
+  // {
+  //   path: "/elder/agent-form",
+  //   component: () => import("./views/elde-allowance-view/user/agent_form")
+  // },
+  // {
+  //   path: "/elder/elder-pament-details",
+  //   component: () =>
+  //     import("./views/elde-allowance-view/user/elder_pament_details")
+  // },
 
-  {
-    path: "/elder/elder-form",
-    component: () => import("./views/elde-allowance-view/user/elderfrom")
-  },
-  {
-    path: "/elder/agent-form",
-    component: () => import("./views/elde-allowance-view/user/agent_form")
-  },
-  {
-    path: "/elder/elder-pament-details",
-    component: () =>
-      import("./views/elde-allowance-view/user/elder_pament_details")
-  },
+  // {
+  //   path: "/elder/reason-about-payments",
+  //   component: () =>
+  //     import("./views/elde-allowance-view/user/submit_reason_about_payments")
+  // },
 
-  {
-    path: "/elder/reason-about-payments",
-    component: () =>
-      import("./views/elde-allowance-view/user/submit_reason_about_payments")
-  },
-
-  {
-    path: "/elder/elder-list",
-    component: () => import("./views/elde-allowance-view/user/elderlis")
-  },
->>>>>>> ae3dceb3226863d303a4241f29dc5d28d07b99ee
+  // {
+  //   path: "/elder/elder-list",
+  //   component: () => import("./views/elde-allowance-view/user/elderlis")
+  // },
 
   //////////////////////
   // post office
