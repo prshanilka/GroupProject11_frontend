@@ -3,7 +3,7 @@ import { UserRole } from "../utils/auth.roles";
 
 const data = [
   {
-    id: "dashboard",
+    id: "dashboards",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
     to: `${elderRoot}/dashboards/`,
@@ -99,13 +99,11 @@ const data = [
       ////
 
       {
-
         icon: "iconsminds-post-mail-2",
         label: "menu.postoffice",
         to: `/post/post-office`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.postoffice-officer",
         to: `/post/officer-post`
@@ -121,87 +119,73 @@ const data = [
     roles: [UserRole.Editor],
     subs: [
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.divisional-secretary-officer-dashboard",
         to: `/division/divisional-secretary-officer-dashboard`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.divisional-office-form",
         to: `/division/divisional-office-form`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.divisional-office-officer",
         to: `/division/divisional-office-officer`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.district-office",
         to: `/division/district-office-form`
       },
       ///
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.advance-serch-elders",
         to: `/division/advance-serch-elders`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.assign-grama-niladari",
         to: `/division/assign-grama-niladari`
       },
 
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.evaluate-elder-application",
         to: `/division/evaluate-elder-application`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.get-reports",
         to: `/division/get-reports`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-elders",
         to: `/division/list-of-elders`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-grama-divisions",
         to: `/division/list-of-grama-divisions`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-gramaniladari",
         to: `/division/list-of-gramaniladari`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-post-office",
         to: `/division/list-of-post-office`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.view-priority-list",
         to: `/division/view-priority-list`
       },
       {
-
         icon: "iconsminds-the-white-house",
         label: "menu.view-benifisher-list",
         to: `/division/view-benifisher-list`
@@ -217,19 +201,16 @@ const data = [
     roles: [UserRole.Editor],
     subs: [
       {
-
         icon: "iconsminds-add-user",
         label: "menu.gramaniladari-dashboard",
         to: `/grama/gramaniladari-dashboard`
       },
       {
-
         icon: "iconsminds-city-hall",
         label: "menu.gramaniladai-division-form",
         to: `/grama/gramaniladai-division-form`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.gramaniladai-officer",
         to: `/grama/gramaniladai-officer`
@@ -237,49 +218,41 @@ const data = [
       ///
 
       {
-
         icon: "iconsminds-add-user",
         label: "menu.inform-death-of-elder",
         to: `/grama/inform-death-of-elder`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.list-of-applicans",
         to: `/grama/list-of-applicans`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.list-of-benifishers",
         to: `/grama/list-of-benifishers`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.send-complains",
         to: `/grama/send-complains`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.view-elder-application-verify",
         to: `/grama/view-elder-application-verify`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.view-elder-details",
         to: `/grama/view-elder-details`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.send-reports-d",
         to: `/grama/send-reports`
       },
       {
-
         icon: "iconsminds-add-user",
         label: "menu.aprove-agents",
         to: `/grama/aprove-agents`

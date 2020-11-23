@@ -52,7 +52,7 @@
     "e-post": "Please Select Nearest Post Office"
   },
   "elder": {
-    "form": "elder_form",
+    "form": "Elder Registration",
     "name": "Elder Full Name",
     "id": "Adult Identity Card No",
     "r-name": "Name of Rural Elders Committee (if only one member)",
@@ -168,14 +168,14 @@
     "search": "Search",
     "content": "Content",
     "pages": "Pages",
-    
+
     "analytics": "Analytics",
     "ecommerce": "Ecommerce",
-    
+
     "data-list": "Data List",
     "thumb-list": "Thumb List",
     "image-list": "Image List",
-    
+
     "invoice": "Invoice",
     "mailing": "Mailing",
     "login": "Login",
@@ -252,7 +252,9 @@
     "form-validations": "Form Validations",
     "form-wizard": "Form Wizard",
     "datatables": "Datatables",
-    "divided-table": "Divided Table",
+    "divided-table": "Dirived Table",
+    "benifisher": "Benifisher List In Division",
+    "priority": "Priority List In Division",
     "scrollable": "Scrollable",
     "responsive": "Responsive",
     "piaf": "Piaf",
