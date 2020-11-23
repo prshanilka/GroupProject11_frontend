@@ -256,6 +256,18 @@ export default {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
 			if (!this.$v.$invalid) {
+				const body = {
+					officer_id: "",
+					name: "",
+					nic: "",
+					phone: "",
+					email: "",
+					district_id: null,
+					divisional_id: null,
+					post_office_id: "",
+					type: "",
+					designation: ""
+				};
 				this.submit_ag = !this.submit_ag;
 				console.log(
 					JSON.stringify({

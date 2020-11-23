@@ -104,6 +104,7 @@
 
 <script>
 import { validationMixin } from "vuelidate";
+import axios from "axios";
 const {
 	required,
 	maxLength,
@@ -218,13 +219,36 @@ export default {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
+
 			if (!this.$v.$invalid) {
-				this.submit_ag = !this.submit_ag;
+				const body = {
+					officer_id: this.div_sec_off_officer.officer_id,
+					name: this.div_sec_off_officer.name,
+					nic: this.div_sec_off_officer.nic,
+					phone: this.div_sec_off_officer.phone,
+					email: this.div_sec_off_officer.email,
+					district_id: this.div_sec_off_officer.district_id,
+					divisional_id: this.div_sec_off_officer.divisional_id
+				};
+				axios({
+					method: "post",
+					url: "http://localhost:3000/api/divisionalofficers",
+					data: body
+				})
+					.then( res => {
+						this.offersData = res.data;
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					})
+
 				console.log(
 					JSON.stringify({
 						div_sec_off_officer: this.div_sec_off_officer
 					})
 				);
+				this.submit_ag = !this.submit_ag;
 			}
 		}
 	}

@@ -11,9 +11,7 @@
 				</b-card>
 				<b-card class="mb-4" v-show="submit_ag">
 					<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-						<b-form-invalid-feedback
-							v-if="!$v.postoffice.num_of_officers.required"
-						>Please enter number of Officers within numeric value</b-form-invalid-feedback>
+						
 
 						<b-form-group label="Postal Code">
 							<b-form-input
@@ -88,6 +86,7 @@
 								v-model="$v.postoffice.num_of_officers.$model"
 								:state="!$v.postoffice.num_of_officers.$error"
 							/>
+							
 							<b-form-invalid-feedback
 								v-if="!$v.postoffice.num_of_officers.required"
 							>Please enter number of Officers</b-form-invalid-feedback>
@@ -106,6 +105,8 @@
 
 <script>
 import { validationMixin } from "vuelidate";
+import axios from "axios";
+
 const {
 	required,
 	maxLength,
@@ -229,12 +230,35 @@ export default {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
 			if (!this.$v.$invalid) {
-				this.submit_ag = !this.submit_ag;
+				const body = {
+					post_office_id: this.postoffice.post_office_id,
+					district: this.postoffice.district,
+					divisional_off: this.postoffice.divisional_off,
+					name: this.postoffice.name,
+					address: this.postoffice.address,
+					phone: this.postoffice.phone,
+					bank_account_no: this.postoffice.bank_account_no,
+					email: this.postoffice.email,
+					num_of_officers: this.postoffice.num_of_officers
+				};
+				axios({
+					method: "post",
+					url: "",
+					data: body
+				})
+					.then(res => {
+						this.offersData = res.data;
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					})
 				console.log(
 					JSON.stringify({
 						postoffice: this.postoffice
 					})
 				);
+				this.submit_ag = !this.submit_ag;
 			}
 		}
 	}
