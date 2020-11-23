@@ -124,7 +124,7 @@ export default {
 			].$children[0].$children[0].onValitadeFormSubmit();
 			valid = reply.valid;
 			var el = reply.elder;
-			// console.log(el);
+			console.log("reply came");
 
 			this.elderdetails[this.currentActive] = el;
 			console.log(valid + "  pear");
@@ -142,11 +142,11 @@ export default {
 				} else this.tabs[this.currentActive].isActive = true;
 			}
 		},
-		async finishedBusiness() {
+		finishedBusiness() {
 			console.log(this.elderdetails);
-			console.log("Pleace");
+			console.log("sahan");
 
-			const body = {
+			const elder = {
 				district_id: this.elderdetails[0].district,
 				divisional_secratory_id: this.elderdetails[0].divisional_off,
 				gramaniladari_division_id: this.elderdetails[0].grama_niladari_div,
@@ -173,7 +173,8 @@ export default {
 				people_adi_no: this.elderdetails[1].people_aid_no
 			};
 
-			const ajent = {
+			const agent = {
+				available: this.elderdetails[2].available,
 				elder_id: "11",
 				name: this.elderdetails[2].agent_name,
 				nic: this.elderdetails[2].agent_nic,
@@ -183,26 +184,23 @@ export default {
 				relation_with_elder: this.elderdetails[2].agent_relationship_with_elder
 			};
 
+			const verify = {
+				elder_id: "11",
+				gramaniladari_id: this.elderdetails[0].grama_niladari_div
+			};
+
+			const body = {
+				elder,
+				verify,
+				agent
+			};
+
 			axios({
 				method: "post",
-				url: "http://localhost:3000/api/elders/",
+				url: "http://localhost:3000/api/elders/elder-registration",
 				data: body
 			})
 				.then(res => {
-					if (this.elderdetails[2].available) {
-						axios({
-							method: "post",
-							url: "http://localhost:3000/api/agent",
-							data: ajent
-						})
-							.then(result => {
-								console.log(result);
-							})
-							.catch(err => {
-								console.log(err);
-							});
-					}
-
 					this.offersData = res.data;
 					console.log(res);
 					this.done();
