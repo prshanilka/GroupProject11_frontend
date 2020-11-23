@@ -1,90 +1,53 @@
 <template>
 	<AppLayout>
-		<h1>This is the list of the grama niladari related to the division</h1>
-		<b-row>
-    <b-colxx xxs="12">
+  
+				<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
+					<h1>Grama Niladari</h1>
+				</b-colxx>
       
-      <b-row>
-        <b-colxx xxs="12">
-          <b-card class="d-flex flex-row mb-3" no-body>
-            <router-link to="?" class="d-flex">
-              <img
-                alt="Thumbnail"
-                src="/assets/img/products/chocolate-cake-thumb.jpg"
-                class="list-thumbnail responsive border-0"
-              />
-            </router-link>
-            <div class="pl-2 d-flex flex-grow-1 min-width-zero">
-              <div
-                class="card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center"
-              >
-                <router-link to="?" class="w-40 w-sm-100">
-                  <p class="list-item-heading mb-1 truncate">Chocolate Cake</p>
-                </router-link>
-                <p class="mb-1 text-muted text-small w-15 w-sm-100">Cakes</p>
-                <p class="mb-1 text-muted text-small w-15 w-sm-100">09.04.2018</p>
-                
-              </div>
-              <div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
-                <div class="custom-control custom-checkbox mb-0">
-                  <b-form-checkbox-group id="checkboxes2" name="flavour2" stacked>
-                    <b-form-checkbox value="orange" />
-                  </b-form-checkbox-group>
-                </div>
-              </div>
-            </div>
-          </b-card>
-        </b-colxx>
-        <b-colxx xxs="12" class="mb-3">
-          <b-card class="d-flex flex-row mb-4" no-body>
-            <router-link to="?" class="d-flex">
-              <img
-                alt="Thumbnail"
-                src="/assets/img/products/cheesecake-thumb.jpg"
-                class="list-thumbnail responsive border-0"
-              />
-            </router-link>
-            <div class="pl-2 d-flex flex-grow-1 min-width-zero">
-              <div
-                class="card-body align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero align-items-lg-center"
-              >
-                <router-link to="?" class="w-40 w-sm-100">
-                  <p class="list-item-heading mb-1 truncate">Cheesecake</p>
-                </router-link>
-                <p class="mb-1 text-muted text-small w-15 w-sm-100">Cupcakes</p>
-                <p class="mb-1 text-muted text-small w-15 w-sm-100">09.04.2018</p>
-                <div class="w-15 w-sm-100">
-                  <b-badge variant="secondary" pill>ON HOLD</b-badge>
-                </div>
-              </div>
-              <div class="custom-control custom-checkbox pl-1 align-self-center pr-4">
-                <div class="custom-control custom-checkbox mb-0">
-                  <b-form-checkbox-group id="checkboxes2" name="flavour2" stacked>
-                    <b-form-checkbox value="orange" />
-                  </b-form-checkbox-group>
-                </div>
-              </div>
-            </div>
-          </b-card>
-        </b-colxx>
-      </b-row>
-    </b-colxx>
-  </b-row>
+        <b-row>
+				<list-with-user-item
+					v-for="(item, index) in filteredList"
+					:data="item"
+					detail-path="#"
+					:key="index"
+				/>
+        </b-row>
+		
 	</AppLayout>
 </template>
 
-
-
-
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
+import ListWithUserItem from "../../../components/elders_component/GramaNiladariList";
+import axios from "axios";
+
 
 export default {
+	name: "list-elders",
 	components: {
-		AppLayout: AppLayout
+		AppLayout: AppLayout,
+		"list-with-user-item": ListWithUserItem,
+		
+	},
+	data() {
+		return {
+			grama_niladari: []
+		};
+	},
+	async beforeCreate() {
+		
+		axios.get("http://localhost:3000/api/gramaniladariofficer/").then(result => {
+			console.log(result.data.data[0]);
+			this.grama_niladari = result.data.data;
+		});
+  },
+  computed: {
+		filteredList() {
+			return this.grama_niladari.filter(gramDiv => {
+				return gramDiv.grmaniladari_officer_id.toLowerCase();
+			});
+		}
 	}
 };
 </script>
-
-<style>
-</style>
