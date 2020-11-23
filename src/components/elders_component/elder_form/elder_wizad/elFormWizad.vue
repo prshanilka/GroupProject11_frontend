@@ -142,8 +142,10 @@ export default {
 				} else this.tabs[this.currentActive].isActive = true;
 			}
 		},
-		finishedBusiness() {
+		async finishedBusiness() {
 			console.log(this.elderdetails);
+			console.log("Pleace");
+
 			const body = {
 				district_id: this.elderdetails[0].district,
 				divisional_secratory_id: this.elderdetails[0].divisional_off,
