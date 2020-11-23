@@ -97,19 +97,6 @@
 							>Please enter valid email address</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group label="No of priority listed elders  from Grama Niladari Divisional">
-							<b-form-input
-								type="text"
-								v-model="$v.grmaniladari_div.count_of_priority_listed_elders.$model"
-								:state="!$v.grmaniladari_div.count_of_priority_listed_elders.$error"
-							/>
-							<b-form-invalid-feedback
-								v-if="!$v.grmaniladari_div.count_of_priority_listed_elders.required"
-							>Please enterNo of priority listed elders from Grama Niladari Divisional</b-form-invalid-feedback>
-							<b-form-invalid-feedback
-								v-else-if="!$v.grmaniladari_div.count_of_priority_listed_elders.numeric"
-							>Please enter Numeric Value</b-form-invalid-feedback>
-						</b-form-group>
 						<b-form-group label="No Of Benifishers elders From Grama Niladari Divisional">
 							<b-form-input
 								type="text"
@@ -161,7 +148,6 @@ export default {
 				office_address: "",
 				phone_no: "",
 				email: "",
-				count_of_priority_listed_elders: "",
 				count_of_benifishers_elders: ""
 			},
 			district_option: [
@@ -251,10 +237,6 @@ export default {
 				email
 			},
 
-			count_of_priority_listed_elders: {
-				required,
-				numeric
-			},
 			count_of_benifishers_elders: {
 				required
 			}
@@ -310,8 +292,6 @@ export default {
 					address: this.grmaniladari_div.office_address,
 					number: this.grmaniladari_div.phone_no,
 					email: this.grmaniladari_div.email,
-					count_of_prority_elders: this.grmaniladari_div
-						.count_of_priority_listed_elders,
 					count_of_benifishers: this.grmaniladari_div
 						.count_of_benifishers_elders
 				};

@@ -1,11 +1,10 @@
 <template>
 	<b-row>
 		<b-colxx xxs="12">
-			<b-card>
-				<div class="text-center">
-					<h1>{{$t('elder.form')}}</h1>
-				</div>
-			</b-card>
+			<div class="text-center">
+				<h1>{{$t('elder.form')}}</h1>
+			</div>
+
 			<b-card class="mb-4">
 				<!-- //there was an emit click method ss -->
 
@@ -97,8 +96,25 @@
 						<b-form-invalid-feedback v-if="!$v.elder.grama_niladari_div.required">{{$t('form.e-grama')}}</b-form-invalid-feedback>
 					</b-form-group>
 
+					<b-form-group :label="$t('form.post')" class="error-l-100">
+						<b-form-input
+							type="text"
+							v-model="$v.elder.nearest_post_office.$model"
+							:state="!$v.elder.nearest_post_office.$error"
+						/>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.nearest_post_office.required"
+						>Please enter a Your Source of Income</b-form-invalid-feedback>
+						<b-form-invalid-feedback
+							v-if="!$v.elder.nearest_post_office.minLength || !$v.elder.nearest_post_office.maxLength"
+						>
+							Your Nearest Post Office No must be between 3 and 16
+							characters
+						</b-form-invalid-feedback>
+					</b-form-group>
+
 					<b-form-group :label="$t('form.birth')" class="error-l-125">
-						<b-colxx xxs="12" xl="4" class="mb-4">
+						<b-colxx xxs="12" xl="6" class="mb-4">
 							<b-card>
 								<b-form>
 									<b-row class="mb-0">
@@ -158,6 +174,7 @@ export default {
 				district: null,
 				divisional_off: null,
 				grama_niladari_div: null,
+				nearest_post_office: "",
 				birth_day: "1997-11-07T16:41:00.000Z"
 			},
 			district_option: [
@@ -275,6 +292,11 @@ export default {
 			},
 			grama_niladari_div: {
 				required
+			},
+			nearest_post_office: {
+				required,
+				maxLength: maxLength(16),
+				minLength: minLength(3)
 			},
 			birth_day: {
 				required

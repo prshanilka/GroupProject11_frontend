@@ -194,7 +194,8 @@ export default {
 					nic: this.agent.nic,
 					address: this.agent.address,
 					phone: this.agent.phone,
-					email: this.agent.email
+					email: this.agent.email,
+					relation_with_elder: this.agent.relationship_with_elder
 				};
 				axios({
 					method: "post",

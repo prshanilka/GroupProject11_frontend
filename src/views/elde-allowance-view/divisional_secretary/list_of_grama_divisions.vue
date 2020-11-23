@@ -26,7 +26,6 @@
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
 import ListWithUserItem from "../../../components/elders_component/GramaDivisionalListItem";
-
 import { comments } from "../../../data/comments";
 import axios from "axios";
 export default {
@@ -41,8 +40,9 @@ export default {
 		};
 	},
 	async beforeCreate() {
+		
 		axios.get("http://localhost:3000/api/gramadivision/").then(result => {
-			console.log(result.data.data[0]);
+			console.log(result.data);
 			this.grama_divsions = result.data.data;
 		});
 	},
