@@ -98,14 +98,13 @@ const routes = [
         path: "/elder/elder-list",
         component: () =>
           import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
+            /* webpackChunkName: "home" */ "./views/elder/test/elderlis"
           )
       }
     ]
   },
 
   /*
-
  {
           path: "/elderlayout/elder",
           component: () =>import(  "./views/elde-allowance-view/Layout-check/Elder-layout"),
@@ -156,8 +155,6 @@ const routes = [
               "./views/elde-allowance-view/user/elderlis"
             )
         },
-
-
 */
 
   //////////////////////
