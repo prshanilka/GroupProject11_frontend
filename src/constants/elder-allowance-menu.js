@@ -240,7 +240,7 @@ const data = [
       {
         icon: "iconsminds-add-user",
         label: "menu.view-elder-application-verify",
-        to: `/grama/view-elder-application-verify`
+        to: `/grama/view-elder-application-verify/2`
       },
       {
         icon: "iconsminds-add-user",
