@@ -1,7 +1,7 @@
 <template>
-	<AppLayout>
+	 
 		<h1>This is for Elder Dashoboard View</h1>
-	</AppLayout>
+	 
 </template>
 
 

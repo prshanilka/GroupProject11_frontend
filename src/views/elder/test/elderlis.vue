@@ -1,70 +1,70 @@
 <template>
-	<div>
-		<datatable-heading
-			:title="$t('menu.divided-table')"
-			:selectAll="selectAll"
-			:isSelectedAll="isSelectedAll"
-			:isAnyItemSelected="isAnyItemSelected"
-			:keymap="keymap"
-			:changePageSize="changePageSize"
-			:searchChange="searchChange"
-			:from="from"
-			:to="to"
-			:total="total"
-			:perPage="perPage"
-		></datatable-heading>
-		<b-row>
-			<b-colxx xxs="12">
-				<vuetable
-					ref="vuetable"
-					class="table-divided order-with-arrow"
-					:api-url="apiBase"
-					:query-params="makeQueryParams"
-					:per-page="perPage"
-					:reactive-api-url="true"
-					:fields="fields"
-					pagination-path
-					:row-class="onRowClass"
-					@vuetable:pagination-data="onPaginationData"
-					@vuetable:row-clicked="rowClicked"
-					@vuetable:cell-rightclicked="rightClicked"
-				>
-					<template slot="actions" slot-scope="props">
-						<b-form-checkbox :checked="selectedItems.includes(props.rowData.id)" class="itemCheck mb-0"></b-form-checkbox>
-					</template>
-				</vuetable>
-				<vuetable-pagination-bootstrap
-					class="mt-4"
-					ref="pagination"
-					@vuetable-pagination:change-page="onChangePage"
-				/>
-			</b-colxx>
-		</b-row>
+		<div>
+			<datatable-heading
+				:title="$t('menu.divided-table')"
+				:selectAll="selectAll"
+				:isSelectedAll="isSelectedAll"
+				:isAnyItemSelected="isAnyItemSelected"
+				:keymap="keymap"
+				:changePageSize="changePageSize"
+				:searchChange="searchChange"
+				:from="from"
+				:to="to"
+				:total="total"
+				:perPage="perPage"
+			></datatable-heading>
+			<b-row>
+				<b-colxx xxs="12">
+					<vuetable
+						ref="vuetable"
+						class="table-divided order-with-arrow"
+						:http-fetch="getData"
+						:api-url="apiBase"
+						:query-params="makeQueryParams"
+						:per-page="perPage"
+						:reactive-api-url="true"
+						:fields="fields"
+						pagination-path
+						:row-class="onRowClass"
+						@vuetable:pagination-data="onPaginationData"
+						@vuetable:row-clicked="rowClicked"
+						@vuetable:cell-rightclicked="rightClicked"
+					>
+						<template slot="actions" slot-scope="props">
+							<b-form-checkbox :checked="selectedItems.includes(props.rowData.id)" class="itemCheck mb-0"></b-form-checkbox>
+						</template>
+					</vuetable>
+					<vuetable-pagination-bootstrap
+						class="mt-4"
+						ref="pagination"
+						@vuetable-pagination:change-page="onChangePage"
+					/>
+				</b-colxx>
+			</b-row>
 
-		<v-contextmenu ref="contextmenu">
-			<v-contextmenu-item @click="onContextMenuAction('copy')">
-				<i class="simple-icon-docs" />
-				<span>Copy</span>
-			</v-contextmenu-item>
-			<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-				<i class="simple-icon-drawer" />
-				<span>Move to archive</span>
-			</v-contextmenu-item>
-			<v-contextmenu-item @click="onContextMenuAction('delete')">
-				<i class="simple-icon-trash" />
-				<span>Delete</span>
-			</v-contextmenu-item>
-		</v-contextmenu>
-	</div>
+			<v-contextmenu ref="contextmenu">
+				<v-contextmenu-item @click="onContextMenuAction('copy')">
+					<i class="simple-icon-docs" />
+					<span>Copy</span>
+				</v-contextmenu-item>
+				<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
+					<i class="simple-icon-drawer" />
+					<span>Move to archive</span>
+				</v-contextmenu-item>
+				<v-contextmenu-item @click="onContextMenuAction('delete')">
+					<i class="simple-icon-trash" />
+					<span>Delete</span>
+				</v-contextmenu-item>
+			</v-contextmenu>
+		</div>
 </template>
 
 <script>
+import axios from "axios";
 import Vuetable from "vuetable-2/src/components/Vuetable";
-import VuetablePaginationBootstrap from "../../../../components/Common/VuetablePaginationBootstrap";
-import { apiUrl } from "../../../../constants/config";
-import DatatableHeading from "../../../../containers/datatable/DatatableHeading";
-//import axios from 'axios';
-import { myF } from "../../../../api/auth"
+import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
+import { bUrl } from "../../../constants/config";
+import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 export default {
 	props: ["title"],
 	components: {
@@ -74,8 +74,8 @@ export default {
 	},
 	data() {
 		return {
+			apiBase: bUrl + "/elders",
 			isLoad: false,
-			apiBase: apiUrl + "/cakes/fordatatable",
 			sort: "",
 			page: 1,
 			perPage: 8,
@@ -89,33 +89,33 @@ export default {
 
 			fields: [
 				{
-					name: "title",
-					sortField: "title",
+					name: "name",
+					sortField: "name",
 					title: "Name",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "50%"
 				},
 				{
-					name: "sales",
-					sortField: "sales",
-					title: "Sales",
+					name: "address",
+					sortField: "address",
+					title: "address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
 				},
 				{
-					name: "stock",
-					sortField: "stock",
-					title: "Stock",
+					name: "birth_day",
+					sortField: "birth_day",
+					title: "birth_day",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
 				},
 				{
-					name: "category",
-					sortField: "category",
-					title: "Category",
+					name: "number",
+					sortField: "number",
+					title: "number",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "25%"
@@ -130,9 +130,10 @@ export default {
 			]
 		};
 	},
+
 	methods: {
-		myFetch(){
-			return myF();
+		getData() {
+			return axios.get("http://localhost:3000/api/elders");
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
@@ -259,3 +260,9 @@ export default {
 	}
 };
 </script>
+
+
+
+ 
+
+
