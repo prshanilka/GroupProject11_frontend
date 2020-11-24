@@ -1,7 +1,5 @@
 <template>
-	<AppLayout>
-		<h1>This is for Elder to submit the reson of the not taking the payments</h1>
-	</AppLayout>
+	<h1>This is for Elder to submit the reson of the not taking the payments</h1>
 </template>
 
 

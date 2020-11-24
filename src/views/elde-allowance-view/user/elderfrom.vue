@@ -1,7 +1,5 @@
 <template>
-	<AppLayout>
-		<eLelderwizad />
-	</AppLayout>
+	<eLelderwizad />
 </template>
 
 <script>
