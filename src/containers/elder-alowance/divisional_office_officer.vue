@@ -71,17 +71,6 @@
 							>{{$t('form.v-mail')}}</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group :label="$t('form.district')">
-							<b-form-select
-								v-model="$v.div_sec_off_officer.district_id.$model"
-								:options="district_option"
-								:state="!$v.div_sec_off_officer.district_id.$error"
-							></b-form-select>
-							<b-form-invalid-feedback
-								v-if="!$v.div_sec_off_officer.district_id.required"
-							>{{$t('form.e-district')}}</b-form-invalid-feedback>
-						</b-form-group>
-
 						<b-form-group :label="$t('form.divisional')">
 							<b-form-select
 								type="text"
@@ -92,6 +81,50 @@
 							<b-form-invalid-feedback
 								v-if="!$v.div_sec_off_officer.divisional_id.required"
 							>{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group :label="$t('officer.designation')">
+							<b-form-input
+								type="text"
+								v-model="$v.div_sec_off_officer.designation.$model"
+								:state="!$v.div_sec_off_officer.designation.$error"
+							></b-form-input>
+							<b-form-invalid-feedback
+								v-if="!$v.div_sec_off_officer.designation.required"
+							>{{$t('officer.e-designation')}}</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group :label="$t('officer.role')">
+							<b-form-input
+								type="text"
+								v-model="$v.div_sec_off_officer.role.$model"
+								:state="!$v.div_sec_off_officer.role.$error"
+							></b-form-input>
+							<b-form-invalid-feedback
+								v-if="!$v.div_sec_off_officer.role.required"
+							>{{$t('officer.e-role')}}</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group :label="$t('officer.type')">
+							<b-form-input
+								type="text"
+								v-model="$v.div_sec_off_officer.type.$model"
+								:state="!$v.div_sec_off_officer.type.$error"
+							></b-form-input>
+							<b-form-invalid-feedback
+								v-if="!$v.div_sec_off_officer.type.required"
+							>{{$t('officer.e-type')}}</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group :label="$t('officer.area')">
+							<b-form-input
+								type="text"
+								v-model="$v.div_sec_off_officer.area.$model"
+								:state="!$v.div_sec_off_officer.area.$error"
+							></b-form-input>
+							<b-form-invalid-feedback
+								v-if="!$v.div_sec_off_officer.area.required"
+							>{{$t('officer.e-area')}}</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
@@ -130,33 +163,12 @@ export default {
 				nic: "",
 				phone: "",
 				email: "",
-				district_id: null,
-				divisional_id: null
+				divisional_id: null,
+				designation: "",
+            	role: "",
+           		type: "",
+            	area: ""
 			},
-			district_option: [
-				{
-					value: null,
-					text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Colombo"
-				},
-				{
-					value: "1",
-					text: "Gampaha"
-				},
-				{
-					value: "2",
-					text: "Kaluthara"
-				},
-				{
-					value: "3",
-					text: "Rathnapura",
-					disabled: true
-				}
-			],
 			divisional_off_option: [
 				{
 					value: null,
@@ -207,10 +219,19 @@ export default {
 				required,
 				email
 			},
-			district_id: {
+			divisional_id: {
 				required
 			},
-			divisional_id: {
+			designation: {
+				required
+			},
+            role: {
+				required
+			},
+           	type: {
+				required
+			},
+            area: {
 				required
 			}
 		}
@@ -221,14 +242,24 @@ export default {
 			console.log(this.$v.$invalid + " Checking ");
 
 			if (!this.$v.$invalid) {
-				const body = {
+				const DivOfficer = {
 					officer_id: this.div_sec_off_officer.officer_id,
-					name: this.div_sec_off_officer.name,
-					nic: this.div_sec_off_officer.nic,
-					phone: this.div_sec_off_officer.phone,
-					email: this.div_sec_off_officer.email,
-					district_id: this.div_sec_off_officer.district_id,
-					divisional_id: this.div_sec_off_officer.divisional_id
+            		divisional_secratary_id: this.div_sec_off_officer.divisional_id,
+            		designation: this.div_sec_off_officer.designation,
+            		role: this.div_sec_off_officer.role,
+           			type: this.div_sec_off_officer.type,
+            		area: this.div_sec_off_officer.area
+				};
+				const Officer = {
+					officer_id: this.div_sec_off_officer.officer_id,
+            		nic_no: this.div_sec_off_officer.nic,
+            		name: this.div_sec_off_officer.name,
+            		email: this.div_sec_off_officer.email,
+            		phone: this.div_sec_off_officer.phone
+				};
+				const body = {
+					DivOfficer,
+					Officer
 				};
 				axios({
 					method: "post",
