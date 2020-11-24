@@ -6,9 +6,9 @@
 					<h1>Applicant List For verification</h1>
 				</b-colxx>
 				<list-with-user-item
-					v-for="(item, index) in comments"
+					v-for="(item, index) in applications"
 					:data="item"
-					detail-path="#"
+					:detail-path="'/grama/view-elder-application-verify/'+item.elder_id "
 					:key="index"
 				/>
 				<LogList />
@@ -21,8 +21,8 @@
 import AppLayout from "../../../layouts/EAppLayout";
 import ListWithUserItem from "../../../components/elders_component/applicantListItem";
 import LogList from "../../../components/Listing/LogList";
-import { comments } from "../../../data/comments";
 
+import axios from "axios";
 export default {
 	name: "list-elders",
 	components: {
@@ -32,8 +32,19 @@ export default {
 	},
 	data() {
 		return {
-			comments
+			applications: []
 		};
+	},
+	async beforeCreate() {
+		const body = { gramaniladari_id: "2" };
+		axios({
+			method: "get",
+			url: "http://localhost:3000/api/gramadivision/verifylist/2"
+		}).then(result => {
+			this.applications = result.data.data;
+			console.log(result);
+			// this.aplications = result.data.data;
+		});
 	}
 };
 </script>

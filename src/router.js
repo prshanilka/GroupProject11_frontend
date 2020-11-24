@@ -346,11 +346,12 @@ const routes = [
       )
   },
   {
-    path: "/grama/view-elder-application-verify",
+    path: "/grama/view-elder-application-verify/:id",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_elder_application_verify"
-      )
+      ),
+    props:true
   },
   {
     path: "/grama/view-elder-details",
