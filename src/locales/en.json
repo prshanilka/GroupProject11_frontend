@@ -85,7 +85,11 @@
     "type": "Officer Type",
     "designation": "Designation",
     "e-type": "Please Enter Officer Type",
-    "e-designation": "Please Enter Officer Designation"
+    "e-designation": "Please Enter Officer Designation",
+    "role": "Role",
+    "area": "Area",
+    "e-role": "Please Enter Officer's Role",
+    "e-area": "Please Enter Area Related to the Officer"
   },
   "office": {
     "d-form": "Divisional Secratary Office Details Form",

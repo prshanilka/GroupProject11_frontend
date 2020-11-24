@@ -6,7 +6,7 @@
 					<h1>{{$t('office.d-form')}}</h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_div">
-					<h2 class="mb-2">{{$t('office.d-succsess')}}</h2>
+					<h2 class="mb-2">{{$t('office.d-success')}}</h2>
 					<p>{{$t('office.d-register')}}</p>
 				</b-card>
 				<b-card class="mb-4" v-show="submit_div">
@@ -140,6 +140,7 @@
 
 <script>
 import { validationMixin } from "vuelidate";
+import axios from "axios";
 const {
 	required,
 	maxLength,
@@ -195,13 +196,6 @@ export default {
 					disabled: true
 				}
 			]
-			// name: "",
-			// email: "",
-			// emailAgain: "",
-			// number: "",
-			// max: "",
-			// min: "",
-			// withRegex: ""
 		};
 	},
 	mixins: [validationMixin],
@@ -245,52 +239,44 @@ export default {
 				required
 			}
 		}
-
-		// name: {
-		// 	required,
-		// 	maxLength: maxLength(16),
-		// 	minLength: minLength(2),
-		// 	alpha
-		// },
-		// email: {
-		// 	required,
-		// 	email
-		// },
-		// emailAgain: {
-		// 	required,
-		// 	email,
-		// 	sameAsEmail: sameAs("email")
-		// },
-		// number: {
-		// 	required,
-		// 	numeric
-		// },
-		// max: {
-		// 	required,
-		// 	numeric,
-		// 	maxValue: maxValue(5)
-		// },
-		// min: {
-		// 	required,
-		// 	numeric,
-		// 	minValue: minValue(5)
-		// },
-		// withRegex: {
-		// 	required,
-		// 	upperCase
-		// }
 	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
+
 			if (!this.$v.$invalid) {
-				this.submit_div = !this.submit_div;
+				const body = {
+					divisional_secratary_id: this.div_sec_off.divisional_id,
+            		district_id: this.div_sec_off.district_id,
+            		name: this.div_sec_off.divisional_name,
+            		address: this.div_sec_off.office_address,
+            		number: this.div_sec_off.phone_no,
+            		email: this.div_sec_off.email,
+            		bank_account: this.div_sec_off.bank_account,
+            		no_of_officers: this.div_sec_off.no_of_officers,
+            		count_of_priority_listed_elders: this.div_sec_off.count_of_priority_listed_elders,
+            		count_of_benifishers_elders: this.div_sec_off.count_of_benifishers_elders
+				};
+				axios({
+					method: "post",
+					url: "http://localhost:3000/api/divisionaloffice",
+					data: body
+				})
+					.then(res => {
+						this.offersData = res.data;
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+
 				console.log(
 					JSON.stringify({
-						"div-office": this.div_sec_off
+						div_sec_off: this.div_sec_off
 					})
 				);
+				this.submit_div = !this.submit_div;
 			}
 		}
 	}

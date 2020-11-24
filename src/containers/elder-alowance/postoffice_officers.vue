@@ -257,6 +257,7 @@ export default {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
 			if (!this.$v.$invalid) {
+				
 				this.submit_ag = !this.submit_ag;
 				const officer = {
 					officer_id: this.postoffice_officer.officer_id,

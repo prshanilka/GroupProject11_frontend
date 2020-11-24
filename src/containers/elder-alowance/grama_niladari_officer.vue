@@ -116,6 +116,7 @@
 
 <script>
 import { validationMixin } from "vuelidate";
+import axios from "axios";
 const {
 	required,
 	maxLength,
@@ -143,7 +144,7 @@ export default {
 				email: "",
 				district_id: null,
 				divisional_id: null,
-				gramaniladari_division_id: null
+				gramaniladari_division_id: null,
 			},
 			district_option: [
 				{
@@ -260,12 +261,44 @@ export default {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
 			if (!this.$v.$invalid) {
-				this.submit_ag = !this.submit_ag;
+				const Officer = {
+					officer_id: this.gramaniladari_officer.officer_id,
+					nic_no: this.gramaniladari_officer.nic,
+					name: this.gramaniladari_officer.name,					
+					phone: this.gramaniladari_officer.phone,
+					email: this.gramaniladari_officer.email
+					
+				};
+				const GramaOfficer = {
+					gramaniladari_division_id: this.gramaniladari_officer.gramaniladari_division_id,
+					grmaniladari_officer_id: this.gramaniladari_officer.officer_id,
+					district_id: this.gramaniladari_officer.district_id,
+					divisional_secratary_id: this.gramaniladari_officer.divisional_id
+				};
+				const body = {
+					Officer,
+					GramaOfficer
+				}
+				axios({
+					method: "post",
+					url: "http://localhost:3000/api/gramaniladariofficer/gramaofficer",
+					data: body
+				})
+					.then(res => {
+						this.offersData = res.data;
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+				
 				console.log(
 					JSON.stringify({
 						gramaniladari_officer: this.gramaniladari_officer
 					})
 				);
+
+				this.submit_ag = !this.submit_ag;
 			}
 		}
 	}
