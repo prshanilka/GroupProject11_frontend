@@ -195,7 +195,7 @@ export default {
 					address: this.agent.address,
 					phone: this.agent.phone,
 					email: this.agent.email,
-					relationship_with_elder: this.agent.relationship_with_elder
+					relation_with_elder: this.agent.relationship_with_elder
 				};
 				axios({
 					method: "post",

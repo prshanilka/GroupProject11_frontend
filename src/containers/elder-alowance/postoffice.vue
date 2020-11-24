@@ -11,7 +11,7 @@
 				</b-card>
 				<b-card class="mb-4" v-show="submit_ag">
 					<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-						
+					
 
 						<b-form-group label="Postal Code">
 							<b-form-input
@@ -94,6 +94,7 @@
 								v-if="!$v.postoffice.num_of_officers.numeric"
 							>Please enter number of Officers should be numeric value</b-form-invalid-feedback>
 						</b-form-group>
+						
 
 						<b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
 					</b-form>

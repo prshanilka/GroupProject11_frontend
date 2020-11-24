@@ -116,6 +116,7 @@
 
 <script>
 import { validationMixin } from "vuelidate";
+import axios from "axios";
 const {
 	required,
 	maxLength,
@@ -260,12 +261,35 @@ export default {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
 			if (!this.$v.$invalid) {
-				this.submit_ag = !this.submit_ag;
+				const body = {
+					grmaniladari_officer_id: this.gramaniladari_officer.officer_id,
+					name: this.gramaniladari_officer.name,
+					nic: this.gramaniladari_officer.nic,
+					phone: this.gramaniladari_officer.phone,
+					email: this.gramaniladari_officer.email,
+					district_id: this.gramaniladari_officer.district_id,
+					divisional_secratary_id: this.gramaniladari_officer.divisional_id,
+					gramaniladari_division_id: this.gramaniladari_officer.gramaniladari_division_id
+				};
+				axios({
+					method: "post",
+					url: "http://localhost:3000/api/gramaniladariofficer/"
+				})
+					.then(res => {
+						this.offersData = res.data;
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+				
 				console.log(
 					JSON.stringify({
 						gramaniladari_officer: this.gramaniladari_officer
 					})
 				);
+
+				this.submit_ag = !this.submit_ag;
 			}
 		}
 	}
