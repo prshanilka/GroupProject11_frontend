@@ -90,9 +90,9 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladari Rewiwe About the Elder">
+						<b-card class="mb-4" title="Officer Rewiwe About the Elder">
 							<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-								<b-form-group label="Grama Niladari Comment">
+								<b-form-group label="Officer Comment">
 									<b-form-textarea
 										type="text"
 										v-model="$v.div_comment.$model"
@@ -101,14 +101,14 @@
 
 									<b-form-invalid-feedback
 										v-if="!$v.div_comment.required"
-									>Grama Niladari Comment Is reqiured</b-form-invalid-feedback>
+									>Officer Comment Is reqiured</b-form-invalid-feedback>
 									<b-form-invalid-feedback
 										v-else-if="!$v.div_comment.minLength || !$v.div_comment.maxLength"
 									>The Comment Should be between 10 and 256</b-form-invalid-feedback>
 								</b-form-group>
 								<b-row>
 									<b-colxx lg="6" md="12" class="mb-4 text-center">
-										<b-button type="button" variant="primary" @click.prevent="sssss">Aprove</b-button>
+										<b-button type="button" variant="primary" @click.prevent="accept">Aprove</b-button>
 									</b-colxx>
 									<b-colxx lg="6" md="12" class="mb-4 text-center">
 										<b-button type="submit" variant="primary">Disqualify</b-button>
@@ -168,6 +168,24 @@ export default {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " dis king ");
 			if (!this.$v.$invalid) {
+				const body = {
+					divisional_officer_id: "2", 
+					divisional_officers_comment: this.div_comment,
+					correction: this.div_comment,
+        			elder_id: this.id
+				};
+				axios({
+					method: "patch",
+					url: "http://localhost:3000/api/verifyelder/divofffdisqulify",
+					data: body
+				})
+					.then(res => {
+						console.log("Disqualified res");
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
 				console.log(
 					JSON.stringify({
 						messsage: this.div_comment
@@ -175,10 +193,27 @@ export default {
 				);
 			}
 		},
-		sssss() {
+		accept() {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + "  ase cking ");
 			if (!this.$v.$invalid) {
+				const body = {
+					divisional_officer_id: "2",
+        			divisional_officers_comment: this.div_comment,
+        			elder_id: this.id
+				};
+				axios({
+					method: "patch",
+					url: "http://localhost:3000/api/verifyelder/divoffaccept",
+					data: body
+				})
+					.then(res => {
+						console.log("Accept res");
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
 				console.log(
 					JSON.stringify({
 						messsage: this.div_comment
