@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 
 const routes = [
   ///////////////////////////////////////////////////
- // elder Routes
+  // elder Routes
 
   {
     path: elderRoot,
@@ -308,11 +308,19 @@ const routes = [
   },
   {
     path: "/division/view-elder-application-verify/:id",
-    component: () => 
+    component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/view_elder_application_verify"
       ),
-    props:true
+    props: true
+  },
+  {
+    path: "/division/elder-application-list",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_applicans_to_div.vue"
+      ),
+    props: true
   },
   //////////////////////////////////////////////
   //gramadivision routes
@@ -358,7 +366,7 @@ const routes = [
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_elder_application_verify"
       ),
-    props:true
+    props: true
   },
   {
     path: "/grama/view-elder-details",
