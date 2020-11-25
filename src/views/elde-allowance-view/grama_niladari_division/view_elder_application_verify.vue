@@ -108,7 +108,7 @@
 								</b-form-group>
 								<b-row>
 									<b-colxx lg="6" md="12" class="mb-4 text-right">
-										<b-button type="button" variant="primary" @click.prevent="sssss">Aprove</b-button>
+										<b-button type="button" variant="primary" @click.prevent="accept">Aprove</b-button>
 									</b-colxx>
 									<b-colxx lg="6" md="12" class="mb-4">
 										<b-button type="submit" variant="primary">Disqualify</b-button>
@@ -140,8 +140,7 @@ export default {
 	data() {
 		return {
 			elder: {},
-			grama_comment: "",
-			eee: 2
+			grama_comment: ""
 		};
 	},
 	props: ["id"],
@@ -168,6 +167,23 @@ export default {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " dis king ");
 			if (!this.$v.$invalid) {
+				const body = {
+					gramaniladari_id: "2",
+					gramaniladari_comment: this.grama_comment,
+					elder_id: this.id
+				};
+				axios({
+					method: "patch",
+					url: "http://localhost:3000/api/verifyelder/gramadisqualify",
+					data: body
+				})
+					.then(res => {
+						console.log("Disqualified res");
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
 				console.log(
 					JSON.stringify({
 						messsage: this.grama_comment
@@ -175,10 +191,28 @@ export default {
 				);
 			}
 		},
-		sssss() {
+		accept() {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + "  ase cking ");
 			if (!this.$v.$invalid) {
+				const body = {
+					gramaniladari_id: "2",
+					gramaniladari_comment: this.grama_comment,
+					correction: this.grama_comment,
+					elder_id: this.id
+				};
+				axios({
+					method: "patch",
+					url: "http://localhost:3000/api/verifyelder/gramaaccept",
+					data: body
+				})
+					.then(res => {
+						console.log("Accept res");
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
 				console.log(
 					JSON.stringify({
 						messsage: this.grama_comment
