@@ -1,7 +1,5 @@
 <template>
-	<AppLayout>
-		<ajentForm />
-	</AppLayout>
+	<ajentForm />
 </template>
 
 

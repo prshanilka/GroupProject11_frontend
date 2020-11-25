@@ -129,6 +129,7 @@
 
 <script>
 import { validationMixin } from "vuelidate";
+import axios from "axios";
 const {
 	required,
 	maxLength,
@@ -256,12 +257,38 @@ export default {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
 			if (!this.$v.$invalid) {
+				
 				this.submit_ag = !this.submit_ag;
-				console.log(
-					JSON.stringify({
-						postoffice_officer: this.postoffice_officer
-					})
-				);
+				const officer = {
+					officer_id: this.postoffice_officer.officer_id,
+					nic_no: this.postoffice_officer.nic,
+					name: this.postoffice_officer.name,
+					email: this.postoffice_officer.email,
+					phone: this.postoffice_officer.phone
+				};
+				const postofficer = {
+					post_office_id: this.postoffice_officer.officer_id,
+					district_id: this.postoffice_officer.district_id,
+					division: this.postoffice_officer.divisional_id,
+					type: this.postoffice_officer.type,
+					designation: this.postoffice_officer.designation
+				};
+				const body = {
+					officer,
+					postofficer
+				};
+				axios({
+					method: "post",
+					url: "http://localhost:3000/api/postofficers/addpostofficer",
+					data: body
+				}).then(res => {
+					console.log(res);
+					console.log(
+						JSON.stringify({
+							postoffice_officer: this.postoffice_officer
+						})
+					);
+				});
 			}
 		}
 	}

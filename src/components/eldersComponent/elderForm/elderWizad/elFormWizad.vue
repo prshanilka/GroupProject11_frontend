@@ -40,6 +40,8 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
 	name: "form-wizard",
 	props: {
@@ -114,15 +116,15 @@ export default {
 				if (valid) this.tabs[this.currentActive].submit();
 			}
 
-			console.log(
-				this.tabs[this.currentActive].$children[0].$children[0].elder.name
-			);
+			// console.log(
+			// 	this.tabs[this.currentActive].$children[0].$children[0].elder.name
+			// );
 			var reply = this.tabs[
 				this.currentActive
 			].$children[0].$children[0].onValitadeFormSubmit();
 			valid = reply.valid;
 			var el = reply.elder;
-			// console.log(el);
+			console.log("reply came");
 
 			this.elderdetails[this.currentActive] = el;
 			console.log(valid + "  pear");
@@ -141,9 +143,73 @@ export default {
 			}
 		},
 		finishedBusiness() {
-			this.done();
-			console.log("all");
 			console.log(this.elderdetails);
+			console.log("sahan");
+
+			const body = {
+				district_id: this.elderdetails[0].district,
+				divisional_secratory_id: this.elderdetails[0].divisional_off,
+				gramaniladari_division_id: this.elderdetails[0].grama_niladari_div,
+				near_post_office_id: this.elderdetails[0].nearest_post_office,
+				name: this.elderdetails[0].name,
+				sex: this.elderdetails[0].sex,
+				email: this.elderdetails[0].email,
+				address: this.elderdetails[0].address,
+				birth_day: this.elderdetails[0].birth_day,
+				number: this.elderdetails[0].phone_no,
+				nic_id: this.elderdetails[0].nic_no,
+				elders_reg_id: this.elderdetails[1].elder_id,
+				local_commity_elder_name: this.elderdetails[1].elder_committe_name,
+				local_commity_elder_id: this.elderdetails[1].comm_membership_no,
+				lives_with_whome: this.elderdetails[1].lives_with,
+				other_elders_name: this.elderdetails[1].other_names_and_details,
+				other_elders_nic: this.elderdetails[1].other_elder_nic,
+				elders_member_no: this.elderdetails[1].elder_id,
+				other_name_and_description: this.elderdetails[1]
+					.other_names_and_details,
+				source_of_income: this.elderdetails[1].source_of_income,
+				income: this.elderdetails[1].monthly_income,
+				samurdi_no: this.elderdetails[1].samurdi_no,
+				people_adi_no: this.elderdetails[1].people_aid_no
+			};
+
+			const ajent = {
+				elder_id: "11",
+				name: this.elderdetails[2].agent_name,
+				nic: this.elderdetails[2].agent_nic,
+				address: this.elderdetails[2].agent_address,
+				phone: this.elderdetails[2].agent_phone_no,
+				email: this.elderdetails[2].agent_email,
+				relation_with_elder: this.elderdetails[2].agent_relationship_with_elder
+			};
+
+			axios({
+				method: "post",
+				url: "http://localhost:3000/api/elders/",
+				data: body
+			})
+				.then(res => {
+					if (this.elderdetails[2].available) {
+						axios({
+							method: "post",
+							url: "http://localhost:3000/api/agent",
+							data: ajent
+						})
+							.then(result => {
+								console.log(result);
+							})
+							.catch(err => {
+								console.log(err);
+							});
+					}
+
+					this.offersData = res.data;
+					console.log(res);
+					this.done();
+				})
+				.catch(err => {
+					console.log(err);
+				});
 
 			// console.log(this.nameNow);
 		}
