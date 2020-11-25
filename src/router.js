@@ -306,7 +306,14 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/view_benifisher_list"
       )
   },
-
+  {
+    path: "/division/view-elder-application-verify/:id",
+    component: () => 
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/view_elder_application_verify"
+      ),
+    props:true
+  },
   //////////////////////////////////////////////
   //gramadivision routes
 
