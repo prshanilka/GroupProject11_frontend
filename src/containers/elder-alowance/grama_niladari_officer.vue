@@ -144,7 +144,7 @@ export default {
 				email: "",
 				district_id: null,
 				divisional_id: null,
-				gramaniladari_division_id: null,
+				gramaniladari_division_id: null
 			},
 			district_option: [
 				{
@@ -256,6 +256,17 @@ export default {
 			}
 		}
 	},
+	created() {
+		axios
+			.get("http://localhost:3000/api/district/selectbox")
+			.then(res => {
+				console.log(res);
+				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
@@ -264,13 +275,13 @@ export default {
 				const Officer = {
 					officer_id: this.gramaniladari_officer.officer_id,
 					nic_no: this.gramaniladari_officer.nic,
-					name: this.gramaniladari_officer.name,					
+					name: this.gramaniladari_officer.name,
 					phone: this.gramaniladari_officer.phone,
 					email: this.gramaniladari_officer.email
-					
 				};
 				const GramaOfficer = {
-					gramaniladari_division_id: this.gramaniladari_officer.gramaniladari_division_id,
+					gramaniladari_division_id: this.gramaniladari_officer
+						.gramaniladari_division_id,
 					grmaniladari_officer_id: this.gramaniladari_officer.officer_id,
 					district_id: this.gramaniladari_officer.district_id,
 					divisional_secratary_id: this.gramaniladari_officer.divisional_id
@@ -278,7 +289,7 @@ export default {
 				const body = {
 					Officer,
 					GramaOfficer
-				}
+				};
 				axios({
 					method: "post",
 					url: "http://localhost:3000/api/gramaniladariofficer/gramaofficer",
@@ -291,7 +302,7 @@ export default {
 					.catch(err => {
 						console.log(err);
 					});
-				
+
 				console.log(
 					JSON.stringify({
 						gramaniladari_officer: this.gramaniladari_officer
