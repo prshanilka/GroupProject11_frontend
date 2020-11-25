@@ -170,6 +170,7 @@ export default {
 				const body = {
 					gramaniladari_id: "2",
 					gramaniladari_comment: this.grama_comment,
+					correction: this.grama_comment,
 					elder_id: this.id
 				};
 				axios({
@@ -198,7 +199,6 @@ export default {
 				const body = {
 					gramaniladari_id: "2",
 					gramaniladari_comment: this.grama_comment,
-					correction: this.grama_comment,
 					elder_id: this.id
 				};
 				axios({

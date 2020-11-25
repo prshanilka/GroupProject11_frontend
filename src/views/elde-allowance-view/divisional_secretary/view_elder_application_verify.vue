@@ -90,9 +90,9 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladari Rewiwe About the Elder">
+						<b-card class="mb-4" title="Divisional Officer Rewiwe About the Elder">
 							<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-								<b-form-group label="Grama Niladari Comment">
+								<b-form-group label="Divisional Officer Comment">
 									<b-form-textarea
 										type="text"
 										v-model="$v.div_comment.$model"
@@ -101,7 +101,7 @@
 
 									<b-form-invalid-feedback
 										v-if="!$v.div_comment.required"
-									>Grama Niladari Comment Is reqiured</b-form-invalid-feedback>
+									>Divisional Officer Comment Is reqiured</b-form-invalid-feedback>
 									<b-form-invalid-feedback
 										v-else-if="!$v.div_comment.minLength || !$v.div_comment.maxLength"
 									>The Comment Should be between 10 and 256</b-form-invalid-feedback>
