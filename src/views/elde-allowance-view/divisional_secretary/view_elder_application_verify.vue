@@ -99,9 +99,9 @@
 										:state="!$v.div_comment.$error"
 									/>
 
-									<b-form-invalid-feedback
-										v-if="!$v.div_comment.required"
-									>Officer Comment Is reqiured</b-form-invalid-feedback>
+
+									<b-form-invalid-feedback v-if="!$v.div_comment.required">Officer Comment Is reqiured</b-form-invalid-feedback>
+
 									<b-form-invalid-feedback
 										v-else-if="!$v.div_comment.minLength || !$v.div_comment.maxLength"
 									>The Comment Should be between 10 and 256</b-form-invalid-feedback>
@@ -169,10 +169,10 @@ export default {
 			console.log(this.$v.$invalid + " dis king ");
 			if (!this.$v.$invalid) {
 				const body = {
-					divisional_officer_id: "2", 
+					divisional_officer_id: "2",
 					divisional_officers_comment: this.div_comment,
 					correction: this.div_comment,
-        			elder_id: this.id
+					elder_id: this.id
 				};
 				axios({
 					method: "patch",
@@ -199,8 +199,8 @@ export default {
 			if (!this.$v.$invalid) {
 				const body = {
 					divisional_officer_id: "2",
-        			divisional_officers_comment: this.div_comment,
-        			elder_id: this.id
+					divisional_officers_comment: this.div_comment,
+					elder_id: this.id
 				};
 				axios({
 					method: "patch",
