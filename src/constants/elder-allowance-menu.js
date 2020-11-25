@@ -189,6 +189,11 @@ const data = [
         icon: "iconsminds-the-white-house",
         label: "menu.view-benifisher-list",
         to: `/division/view-benifisher-list`
+      },
+      {
+        icon: "iconsminds-add-user",
+        label: "menu.view-elder-application-verify",
+        to: `/division/view-elder-application-verify/2`
       }
     ]
   },
