@@ -35,12 +35,12 @@ export default {
       commit("clearError");
       commit("setProcessing", true);
       let response = await axios.get('/application/status');
-      let videos = response.data.data;
+      let data = response.data;
       // videos.forEach(v => {
       //   v.attributes.tag_ids = v.relationships.tags.data.map(t => t.id);
       // });
 
-      commit('setEApplicationStatus', videos);
+      commit('setEApplicationStatus', data);
     },
     // login({ commit }, payload) {
     //   commit("clearError");

@@ -63,7 +63,12 @@
     "m-income": "Monthly Income",
     "smurdi": "Samurdhi Number",
     "aid": "Public Aid Number",
-    "other": "Other"
+    "other": "Other",
+    "waiting-for-approval" :"Waiting for approval",
+    "gramaniladhari":"Gramaniladhari",
+    "waiting-for-resubmit":"Waiting for resubmit",
+    "divisional_officer":"Divisional officer",
+    "divisional_head":"Divisional Head"
   },
   "agent": {
     "form": "Agent Form",
