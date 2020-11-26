@@ -99,7 +99,9 @@
 										:state="!$v.div_comment.$error"
 									/>
 
+
 									<b-form-invalid-feedback v-if="!$v.div_comment.required">Officer Comment Is reqiured</b-form-invalid-feedback>
+
 									<b-form-invalid-feedback
 										v-else-if="!$v.div_comment.minLength || !$v.div_comment.maxLength"
 									>The Comment Should be between 10 and 256</b-form-invalid-feedback>
