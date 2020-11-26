@@ -151,23 +151,6 @@ export default {
 					value: null,
 					text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
 					disabled: true
-				},
-				{
-					value: "0",
-					text: "Colombo"
-				},
-				{
-					value: "1",
-					text: "Gampaha"
-				},
-				{
-					value: "2",
-					text: "Kaluthara"
-				},
-				{
-					value: "3",
-					text: "Rathnapura",
-					disabled: true
 				}
 			],
 			divisional_off_option: [

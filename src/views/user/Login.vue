@@ -138,15 +138,15 @@ export default {
 	},
 	watch: {
 		currentUser(val) {
-			if (val && val.role  && val.uid.length > 0) {
+			if (val && val.role && val.uid.length > 0) {
 				setTimeout(() => {
 					this.$router.push(elderRoot);
 				}, 20);
 			}
 			if (val && val.uid && val.uid.length > 0) {
 				setTimeout(() => {
-					this.$router.push(adminRoot);
-				}, 20);
+					this.$router.push("/elder/dashboards/default");
+				}, 2);
 			}
 		},
 		loginError(val) {
