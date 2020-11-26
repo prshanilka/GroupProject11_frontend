@@ -158,6 +158,7 @@ const {
 
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
 import Datepicker from "vuejs-datepicker";
+import axios from "axios";
 export default {
 	components: {
 		datepicker: Datepicker
@@ -181,23 +182,6 @@ export default {
 				{
 					value: null,
 					text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Colombo"
-				},
-				{
-					value: "1",
-					text: "Gampaha"
-				},
-				{
-					value: "2",
-					text: "Kaluthara"
-				},
-				{
-					value: "3",
-					text: "Rathnapura",
 					disabled: true
 				}
 			],
@@ -302,6 +286,17 @@ export default {
 				required
 			}
 		}
+	},
+	created() {
+		axios
+			.get("http://localhost:3000/api/district/selectbox")
+			.then(res => {
+				console.log(res);
+				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	},
 	methods: {
 		onValitadeFormSubmit() {
