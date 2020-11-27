@@ -97,20 +97,14 @@
 					</b-form-group>
 
 					<b-form-group :label="$t('form.post')" class="error-l-100">
-						<b-form-input
-							type="text"
+						<b-form-select
 							v-model="$v.elder.nearest_post_office.$model"
+							:options="post_off_option"
 							:state="!$v.elder.nearest_post_office.$error"
-						/>
+						></b-form-select>
 						<b-form-invalid-feedback
 							v-if="!$v.elder.nearest_post_office.required"
-						>Please enter a Your Source of Income</b-form-invalid-feedback>
-						<b-form-invalid-feedback
-							v-if="!$v.elder.nearest_post_office.minLength || !$v.elder.nearest_post_office.maxLength"
-						>
-							Your Nearest Post Office No must be between 3 and 16
-							characters
-						</b-form-invalid-feedback>
+						>{{$t('form.e-post')}}</b-form-invalid-feedback>
 					</b-form-group>
 
 					<b-form-group :label="$t('form.birth')" class="error-l-125">
@@ -175,7 +169,7 @@ export default {
 				district: null,
 				divisional_off: null,
 				grama_niladari_div: null,
-				nearest_post_office: "",
+				nearest_post_office: null,
 				birth_day: "1997-11-07T16:41:00.000Z"
 			},
 			district_option: [
@@ -198,6 +192,13 @@ export default {
 					value: null,
 					text:
 						"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
+					disabled: true
+				}
+			],
+			post_off_option: [
+				{
+					value: null,
+					text:"Select Nearest Post Office/කරුණාකර ළඟම ඇති තැපැල් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -244,9 +245,7 @@ export default {
 				required
 			},
 			nearest_post_office: {
-				required,
-				maxLength: maxLength(16),
-				minLength: minLength(3)
+				required
 			},
 			birth_day: {
 				required
@@ -282,6 +281,18 @@ export default {
 				console.log(res);
 				this.grama_niladari_div_option = [
 					...this.grama_niladari_div_option,
+					...res.data.data
+				];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		axios
+			.get("http://localhost:3000/api/postoffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.post_off_option = [
+					...this.post_off_option,
 					...res.data.data
 				];
 			})

@@ -88,9 +88,9 @@
 						</b-form-group>
 
 						<b-form-group :label="$t('form.post')">
-							<b-form-input
-								type="text"
+							<b-form-select
 								v-model="$v.postoffice_officer.post_office_id.$model"
+								:options="post_off_option"
 								:state="!$v.postoffice_officer.post_office_id.$error"
 							/>
 							<b-form-invalid-feedback
@@ -156,7 +156,7 @@ export default {
 				email: "",
 				district_id: null,
 				divisional_id: null,
-				post_office_id: "",
+				post_office_id: null,
 				type: "",
 				designation: ""
 			},
@@ -171,6 +171,13 @@ export default {
 				{
 					value: null,
 					text: "Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
+					disabled: true
+				}
+			],
+			post_off_option: [
+				{
+					value: null,
+					text:"Select Nearest Post Office/කරුණාකර ළඟම ඇති තැපැල් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -236,6 +243,19 @@ export default {
 			.catch(err => {
 				console.log(err);
 			});
+		
+		axios
+			.get("http://localhost:3000/api/postoffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.post_off_option = [
+					...this.post_off_option,
+					...res.data.data
+				];
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	},
 	methods: {
 		onValitadeFormSubmit() {
@@ -251,7 +271,8 @@ export default {
 					phone: this.postoffice_officer.phone
 				};
 				const postofficer = {
-					post_office_id: this.postoffice_officer.officer_id,
+					officer_id: this.postoffice_officer.officer_id,
+					post_office_id: this.postoffice_officer.post_office_id,
 					district_id: this.postoffice_officer.district_id,
 					division: this.postoffice_officer.divisional_id,
 					type: this.postoffice_officer.type,
