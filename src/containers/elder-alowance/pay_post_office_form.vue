@@ -12,22 +12,22 @@
 				<b-card class="mb-4" v-show="submit_pay">
 					<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
 						<b-form-group label="District Id">
-							<b-form-input
-								type="text"
+							<b-form-select
 								v-model="$v.pay_details.district_id.$model"
+								:options="district_option"
 								:state="!$v.pay_details.district_id.$error"
-							/>
+							></b-form-select>
 							<b-form-invalid-feedback
 								v-if="!$v.pay_details.district_id.required"
 							>{{$t('form.e-divisional')}}</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Divisional Id" class="error-l-100">
-							<b-form-input
-								type="text"
+							<b-form-select
 								v-model="$v.pay_details.divisional_id.$model"
+								:options="divisional_off_option"
 								:state="!$v.pay_details.divisional_id.$error"
-							/>
+							></b-form-select>
 							<b-form-invalid-feedback
 								v-if="!$v.pay_details.divisional_id.required"
 							>{{$t('office.d-e-name')}}</b-form-invalid-feedback>
@@ -41,7 +41,7 @@
 							/>
 							<b-form-invalid-feedback
 								v-if="!$v.pay_details.post_office_id.required"
-							>{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							>Please Enter Post Office Id</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Check Number">
@@ -50,7 +50,7 @@
 								v-model="$v.pay_details.check_no.$model"
 								:state="!$v.pay_details.check_no.$error"
 							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.check_no.required">{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-if="!$v.pay_details.check_no.required">Please Enter Check Number</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Date">
@@ -59,7 +59,7 @@
 								v-model="$v.pay_details.date.$model"
 								:state="!$v.pay_details.date.$error"
 							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.date.required">{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-if="!$v.pay_details.date.required">Please Enter Date</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Total Amount">
@@ -70,7 +70,7 @@
 							/>
 							<b-form-invalid-feedback
 								v-if="!$v.pay_details.total_money_amount.required"
-							>{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							>Please Enter Total Amount of Money</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Credited Accont Number">
@@ -81,7 +81,7 @@
 							/>
 							<b-form-invalid-feedback
 								v-if="!$v.pay_details.credite_account_no.required"
-							>{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							>Please Enter Credited Account Number</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Debited Accont Number">
@@ -92,7 +92,7 @@
 							/>
 							<b-form-invalid-feedback
 								v-if="!$v.pay_details.debited_account_no.required"
-							>{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							>Please Enter Debited Accont Number</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Year">
@@ -101,16 +101,16 @@
 								v-model="$v.pay_details.year.$model"
 								:state="!$v.pay_details.year.$error"
 							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.year.required">{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-if="!$v.pay_details.year.required">Please Enter Year</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Month">
-							<b-form-input
-								type="text"
+							<b-form-select
+								:options="month_option"
 								v-model="$v.pay_details.month.$model"
 								:state="!$v.pay_details.month.$error"
 							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.month.required">{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-if="!$v.pay_details.month.required">Please Enter Month</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
@@ -144,17 +144,55 @@ export default {
 		return {
 			submit_pay: true,
 			pay_details: {
-				district_id: "",
-				divisional_id: "",
+				district_id: null,
+				divisional_id: null,
 				post_office_id: "",
 				check_no: "",
 				date: "",
 				total_money_amount: "",
 				credite_account_no: "",
 				debited_account_no: "",
+				sent_date: new Date(),
 				year: "",
-				month: ""
-			}
+				month: null
+			},
+			district_option: [
+				{
+					value: null,
+					text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
+					disabled: true
+				}
+			],
+			divisional_off_option: [
+				{
+					value: null,
+					text: "Please select an Division",
+					disabled: true
+				}
+			],
+			month_option: [
+				{
+					value: null,
+					text: "Please select an Month",
+					disabled: true
+				},
+				{
+					value: 1,
+					text: "January"
+				},
+				{
+					value: 2,
+					text: "February"
+				},
+				{
+					value: 3,
+					text: "March"
+				},
+				{
+					value: 4,
+					text: "April"
+				}
+			]
 		};
 	},
 	mixins: [validationMixin],
@@ -173,8 +211,7 @@ export default {
 				required
 			},
 			date: {
-				required,
-				email
+				required
 			},
 			total_money_amount: {
 				required
@@ -193,13 +230,37 @@ export default {
 			}
 		}
 	},
+	created() {
+		axios
+			.get("http://localhost:3000/api/district/selectbox")
+			.then(res => {
+				console.log(res);
+				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+		axios
+			.get("http://localhost:3000/api/divisionaloffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.divisional_off_option = [
+					...this.divisional_off_option,
+					...res.data.data
+				];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
 			console.log(this.pay_details);
 
 			console.log(this.$v.$invalid + " Checking ");
-			if (true) {
+			if (!this.$v.$invalid) {
 				const body = {
 					// district_id: this.pay_details.district_id,
 					// divisional_id: this.pay_details.divisional_id,
@@ -211,10 +272,29 @@ export default {
 					// debited_account_no: this.pay_details.debited_account_no,
 					// year: this.pay_details.year,
 					// month: this.pay_details.month
+					district_id: this.pay_details.district_id,
+					divisional_id: this.pay_details.divisional_id,
+					post_office_id: this.pay_details.post_office_id,
+					check_no: this.pay_details.check_no,
+					date: this.pay_details.date,
+
+					total_money_amount: this.pay_details.total_money_amount,
+					credite_account_no: this.pay_details.credite_account_no,
+					debited_account_no: this.pay_details.debited_account_no,
+					amount_of_money_debited_to_centrel_bank:
+						this.pay_details.total_money_amount * 0.05,
+					sent_amount_to_post_office:
+						this.pay_details.total_money_amount * 0.95,
+
+					centrel_bank_acount_no: "121121",
+					year: this.pay_details.year,
+					month: this.pay_details.year,
+					send_date: this.pay_details.sent_date,
+					divisional_payment_id: ""
 				};
 				axios({
 					method: "post",
-					url: "",
+					url: "http://localhost:3000/api/paymentdivoff",
 					data: body
 				})
 					.then(res => {
