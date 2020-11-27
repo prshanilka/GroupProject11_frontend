@@ -188,50 +188,14 @@ export default {
 			divisional_off_option: [
 				{
 					value: null,
-					text:
-						"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Gampaha Town"
-				},
-				{
-					value: "1",
-					text: "Henagama"
-				},
-				{
-					value: "2",
-					text: "Kiridiwala"
-				},
-				{
-					value: "3",
-					text: "kadawatha",
+					text:"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			],
 			grama_niladari_div_option: [
 				{
 					value: null,
-					text:
-						"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Gampaha South"
-				},
-				{
-					value: "1",
-					text: "Gampaha North"
-				},
-				{
-					value: "2",
-					text: "Gampaha west"
-				},
-				{
-					value: "3",
-					text: "gampaha East",
+					text:"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -293,6 +257,25 @@ export default {
 			.then(res => {
 				console.log(res);
 				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+		axios
+			.get("http://localhost:3000/api/divisionaloffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		axios
+			.get("http://localhost:3000/api/gramadivision/selectbox")
+			.then(res => {
+				console.log(res);
+				this.grama_niladari_div_option = [...this.grama_niladari_div_option, ...res.data.data];
 			})
 			.catch(err => {
 				console.log(err);
