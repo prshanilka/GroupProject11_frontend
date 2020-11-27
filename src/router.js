@@ -158,11 +158,12 @@ const routes = [
       )
   },
   {
-    path: "/post/get-elder-detail-verification",
+    path: "/post/get-elder-detail-verification/:id",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/get_elder_detail_verification"
-      )
+      ),
+    props: true
   },
   {
     path: "/post/elders-related-to-post-off",
