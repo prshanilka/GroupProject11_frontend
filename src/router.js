@@ -221,6 +221,14 @@ const routes = [
   },
 
   {
+    path: "/division/pay_post_office_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/pay_post_office_form"
+      )
+  },
+  
+  {
     path: "/division/divisional-office-officer",
     component: () =>
       import(
