@@ -138,6 +138,11 @@ const data = [
         label: "menu.district-office",
         to: `/division/district-office-form`
       },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.paymenttopostoffice",
+        to: `/division/pay_post_office_form`
+      },
       ///
       {
         icon: "iconsminds-the-white-house",

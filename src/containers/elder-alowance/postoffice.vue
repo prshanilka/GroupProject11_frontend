@@ -166,23 +166,6 @@ export default {
 					value: null,
 					text: "Please select an Division",
 					disabled: true
-				},
-				{
-					value: "0",
-					text: "Gampaha Town"
-				},
-				{
-					value: "1",
-					text: "Henagama"
-				},
-				{
-					value: "2",
-					text: "Kiridiwala"
-				},
-				{
-					value: "3",
-					text: "kadawatha",
-					disabled: true
 				}
 			]
 		};
@@ -231,6 +214,16 @@ export default {
 			.then(res => {
 				console.log(res);
 				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+		axios
+			.get("http://localhost:3000/api/divisionaloffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
 			})
 			.catch(err => {
 				console.log(err);
