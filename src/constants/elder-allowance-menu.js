@@ -78,7 +78,7 @@ const data = [
       {
         icon: "iconsminds-post-mail-2",
         label: "menu.get-elder-detail-verification",
-        to: `/post/get-elder-detail-verification`
+        to: `/post/get-elder-detail-verification/2`
       },
       {
         icon: "iconsminds-post-mail-2",
