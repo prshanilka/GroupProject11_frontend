@@ -36,7 +36,7 @@ export default {
 		};
 	},
 	async beforeCreate() {
-		const body = { gramaniladari_id: "22" };
+		const body = { gramaniladari_id: "2" };
 		axios({
 			method: "get",
 			url: "http://localhost:3000/api/gramadivision/verifylist/2"

@@ -43,7 +43,7 @@
 
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Date of Birth:</span>
-								{{elder.birth_day}}
+								{{elder.birth_day }}
 							</p>
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Age:</span>
@@ -158,6 +158,7 @@ export default {
 			url: "http://localhost:3000/api/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
+			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
 			console.log(result.data.data);
 			// this.aplications = result.data.data;
 		});

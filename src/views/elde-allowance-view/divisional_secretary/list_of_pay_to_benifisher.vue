@@ -140,7 +140,7 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/paymentposttoben/post/222/4");
+			return axios.get("http://localhost:3000/api/paymentposttoben/div/G1/4");
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];

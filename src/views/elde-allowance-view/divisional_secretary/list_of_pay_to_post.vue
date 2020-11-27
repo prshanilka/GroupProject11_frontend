@@ -95,36 +95,44 @@ export default {
 
 			fields: [
 				{
-					name: "elder_id",
-					sortField: "elder_id",
-					title: "elder_id",
+					name: "name",
+					sortField: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "20%"
 				},
 				{
-					name: "grmaniladari_officer_id",
-					sortField: "grmaniladari_officer_id",
-					title: "grmaniladari_officer_id",
+					name: "address",
+					sortField: "Address",
+					title: "address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
 				},
 				{
-					name: "gramaniladari_division_id",
-					sortField: "gramaniladari_division_id",
-					title: "added_officer_id",
+					name: "bank_account_no",
+					sortField: "bank_account_no",
+					title: "bank_account_no",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
 				},
 				{
-					name: "marks",
-					sortField: "marks",
-					title: "marks",
+					name: "month",
+					sortField: "month",
+					title: "Month",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "10%"
+				},
+				{
+					name: "total_money_amount",
+					sortField: "total_money_amount",
+					title: "Money Amount",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "20%"
 				},
 				{
 					name: "__slot:actions",
@@ -139,7 +147,12 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/paymentposttoben/post/222/4");
+			return axios
+				.get("http://localhost:3000/api/paymentdivoff/topost")
+				.then(res => {
+					console.log(res);
+					return res;
+				});
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
