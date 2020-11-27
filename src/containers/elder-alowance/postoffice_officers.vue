@@ -78,11 +78,10 @@
 
 						<b-form-group :label="$t('form.divisional')">
 							<b-form-select
-								type="text"
 								v-model="$v.postoffice_officer.divisional_id.$model"
 								:options="divisional_off_option"
 								:state="!$v.postoffice_officer.divisional_id.$error"
-							/>
+							></b-form-select>
 							<b-form-invalid-feedback
 								v-if="!$v.postoffice_officer.divisional_id.required"
 							>{{$t('form.e-divisional')}}</b-form-invalid-feedback>
@@ -171,25 +170,7 @@ export default {
 			divisional_off_option: [
 				{
 					value: null,
-					text:
-						"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Gampaha Town"
-				},
-				{
-					value: "1",
-					text: "Henagama"
-				},
-				{
-					value: "2",
-					text: "Kiridiwala"
-				},
-				{
-					value: "3",
-					text: "kadawatha",
+					text: "Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -244,7 +225,17 @@ export default {
 			})
 			.catch(err => {
 				console.log(err);
-			});y
+			});
+
+		axios
+			.get("http://localhost:3000/api/divisionaloffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	},
 	methods: {
 		onValitadeFormSubmit() {
