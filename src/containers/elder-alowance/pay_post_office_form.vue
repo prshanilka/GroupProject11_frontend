@@ -33,15 +33,15 @@
 							>{{$t('office.d-e-name')}}</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group label="Post Office Id">
-							<b-form-input
-								type="text"
+						<b-form-group label="Post Office">
+							<b-form-select
 								v-model="$v.pay_details.post_office_id.$model"
+                                :options="post_off_option"
 								:state="!$v.pay_details.post_office_id.$error"
 							/>
 							<b-form-invalid-feedback
 								v-if="!$v.pay_details.post_office_id.required"
-							>Please Enter Post Office Id</b-form-invalid-feedback>
+							>{{$t('form.e-post')}}</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Check Number">
@@ -146,7 +146,7 @@ export default {
 			pay_details: {
 				district_id: null,
 				divisional_id: null,
-				post_office_id: "",
+				post_office_id: null,
 				check_no: "",
 				date: "",
 				total_money_amount: "",
@@ -191,6 +191,13 @@ export default {
 				{
 					value: 4,
 					text: "April"
+				}
+            ],
+            post_off_option: [
+				{
+					value: null,
+					text:"Select Nearest Post Office/කරුණාකර ළඟම ඇති තැපැල් කාර්යාලය තෝරන්න",
+					disabled: true
 				}
 			]
 		};
@@ -247,6 +254,18 @@ export default {
 				console.log(res);
 				this.divisional_off_option = [
 					...this.divisional_off_option,
+					...res.data.data
+				];
+			})
+			.catch(err => {
+				console.log(err);
+            });
+        axios
+			.get("http://localhost:3000/api/postoffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.post_off_option = [
+					...this.post_off_option,
 					...res.data.data
 				];
 			})
