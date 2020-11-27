@@ -4,7 +4,7 @@
 	<AppLayout>
 		<div>
 			<datatable-heading
-				title="This is Post Officer List Of elder Payments To the Month"
+				title="This is Divisional List Of elder Payments To the Post Officer"
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
@@ -73,7 +73,6 @@ import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 export default {
 	props: ["title"],
 	components: {
-		name: "post-officer-eldesr-payment",
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,

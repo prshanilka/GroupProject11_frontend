@@ -288,7 +288,7 @@ export default {
 
 					centrel_bank_acount_no: "121121",
 					year: this.pay_details.year,
-					month: this.pay_details.year,
+					month: this.pay_details.month,
 					send_date: this.pay_details.sent_date,
 					divisional_payment_id: ""
 				};

@@ -64,11 +64,11 @@
     "smurdi": "Samurdhi Number",
     "aid": "Public Aid Number",
     "other": "Other",
-    "waiting-for-approval" :"approved",
-    "gramaniladhari":"Gramaniladhari",
-    "waiting-for-resubmit":"Waiting for resubmit",
-    "divisional_officer":"Divisional officer",
-    "divisional_head":"Divisional Head"
+    "waiting-for-approval": "approved",
+    "gramaniladhari": "Gramaniladhari",
+    "waiting-for-resubmit": "Waiting for resubmit",
+    "divisional_officer": "Divisional officer",
+    "divisional_head": "Divisional Head"
   },
   "agent": {
     "form": "Agent Form",
@@ -130,6 +130,8 @@
     "elder-pament-details": "Pyment List",
     "reason-about-payments": "Reason Not Payment",
     "elder-application-list": "Divisional Allcication List",
+    "paytopost": "Payment To PostOff",
+    "paytoben": "Payments To Benifisher",
 
     "postoffice": "Post Office",
     "postoffice-officer": "Post Officer",

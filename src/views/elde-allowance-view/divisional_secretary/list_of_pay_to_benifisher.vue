@@ -4,7 +4,7 @@
 	<AppLayout>
 		<div>
 			<datatable-heading
-				title="This is Post Officer List Of elder Payments To the Month"
+				title="This is Divisional office List Of elder Payments To the Benifisher"
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
