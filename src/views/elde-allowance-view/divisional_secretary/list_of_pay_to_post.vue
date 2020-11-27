@@ -1,8 +1,10 @@
-<template>
+ 
+ 
+ <template>
 	<AppLayout>
 		<div>
 			<datatable-heading
-				title="This page for the list of the Elders"
+				title="This is Divisional List Of elder Payments To the Post Officer"
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
@@ -98,38 +100,46 @@ export default {
 					title: "Name",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "50%"
+					width: "20%"
 				},
 				{
 					name: "address",
-					sortField: "address",
+					sortField: "Address",
 					title: "address",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "20%"
 				},
 				{
-					name: "birth_day",
-					sortField: "birth_day",
-					title: "birth_day",
+					name: "bank_account_no",
+					sortField: "bank_account_no",
+					title: "bank_account_no",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "20%"
+				},
+				{
+					name: "month",
+					sortField: "month",
+					title: "Month",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
 				},
 				{
-					name: "number",
-					sortField: "number",
-					title: "number",
+					name: "total_money_amount",
+					sortField: "total_money_amount",
+					title: "Money Amount",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "20%"
 				},
 				{
 					name: "__slot:actions",
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "5%"
+					width: "20%"
 				}
 			]
 		};
@@ -137,7 +147,12 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/elders");
+			return axios
+				.get("http://localhost:3000/api/paymentdivoff/topost")
+				.then(res => {
+					console.log(res);
+					return res;
+				});
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
@@ -270,3 +285,4 @@ export default {
  
 
 
+ 

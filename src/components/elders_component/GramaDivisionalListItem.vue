@@ -9,11 +9,11 @@
 			<b-colxx lg="8" md="12" class="mb-1 text-center">
 				<div class="pl-3 pr-2" style="margin-top:20px;">
 					<router-link tag="a" :to="detailPath">
-						<p class="font-weight-medium mb-0">View The Grama Division details</p>
+						<h1>{{data.name}}</h1>
+
 						<b-row>
 							<b-colxx lg="6" md="12" class="mb-2 text-center">
-								<p>Gamapaha | adress - {{data.address}}</p>
-								<p>name : {{data.name}}</p>
+								<p class>adress - {{data.address}}</p>
 							</b-colxx>
 							<b-colxx lg="6" md="12" class="mb-2 text-center">
 								<p>email: {{data.email}}</p>

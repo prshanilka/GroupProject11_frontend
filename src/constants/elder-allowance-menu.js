@@ -78,7 +78,7 @@ const data = [
       {
         icon: "iconsminds-post-mail-2",
         label: "menu.get-elder-detail-verification",
-        to: `/post/get-elder-detail-verification`
+        to: `/post/get-elder-detail-verification/2`
       },
       {
         icon: "iconsminds-post-mail-2",
@@ -142,6 +142,16 @@ const data = [
         icon: "iconsminds-dollar-sign-2",
         label: "menu.paymenttopostoffice",
         to: `/division/pay_post_office_form`
+      },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.paytopost",
+        to: `/division/div_to_post`
+      },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.paytoben",
+        to: `/division/div_to_ben`
       },
       ///
       {

@@ -1,8 +1,10 @@
-<template>
+ 
+ 
+ <template>
 	<AppLayout>
 		<div>
 			<datatable-heading
-				title="This page for the list of the Elders"
+				title="This is Divisional office List Of elder Payments To the Benifisher"
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
@@ -71,6 +73,7 @@ import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 export default {
 	props: ["title"],
 	components: {
+		name: "post-officer-eldesr-payment",
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
@@ -93,33 +96,33 @@ export default {
 
 			fields: [
 				{
-					name: "name",
-					sortField: "name",
-					title: "Name",
+					name: "elder_id",
+					sortField: "elder_id",
+					title: "elder_id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "50%"
+					width: "20%"
 				},
 				{
-					name: "address",
-					sortField: "address",
-					title: "address",
+					name: "grmaniladari_officer_id",
+					sortField: "grmaniladari_officer_id",
+					title: "grmaniladari_officer_id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "20%"
 				},
 				{
-					name: "birth_day",
-					sortField: "birth_day",
-					title: "birth_day",
+					name: "gramaniladari_division_id",
+					sortField: "gramaniladari_division_id",
+					title: "added_officer_id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "20%"
 				},
 				{
-					name: "number",
-					sortField: "number",
-					title: "number",
+					name: "marks",
+					sortField: "marks",
+					title: "marks",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "25%"
@@ -129,7 +132,7 @@ export default {
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "5%"
+					width: "20%"
 				}
 			]
 		};
@@ -137,7 +140,7 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/elders");
+			return axios.get("http://localhost:3000/api/paymentposttoben/div/G1/4");
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
@@ -270,3 +273,4 @@ export default {
  
 
 
+ 
