@@ -1,6 +1,6 @@
 <template>
 	<AppLayout>
-		<Pay_post_office/>
+		<Pay_post_office />
 	</AppLayout>
 </template>
 

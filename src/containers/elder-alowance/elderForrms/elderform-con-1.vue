@@ -188,14 +188,16 @@ export default {
 			divisional_off_option: [
 				{
 					value: null,
-					text:"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
+					text:
+						"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			],
 			grama_niladari_div_option: [
 				{
 					value: null,
-					text:"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
+					text:
+						"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -266,7 +268,10 @@ export default {
 			.get("http://localhost:3000/api/divisionaloffice/selectbox")
 			.then(res => {
 				console.log(res);
-				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+				this.divisional_off_option = [
+					...this.divisional_off_option,
+					...res.data.data
+				];
 			})
 			.catch(err => {
 				console.log(err);
@@ -275,7 +280,10 @@ export default {
 			.get("http://localhost:3000/api/gramadivision/selectbox")
 			.then(res => {
 				console.log(res);
-				this.grama_niladari_div_option = [...this.grama_niladari_div_option, ...res.data.data];
+				this.grama_niladari_div_option = [
+					...this.grama_niladari_div_option,
+					...res.data.data
+				];
 			})
 			.catch(err => {
 				console.log(err);

@@ -17,7 +17,9 @@
 								:options="district_option"
 								:state="!$v.pay_details.district_id.$error"
 							></b-form-select>
-							<b-form-invalid-feedback v-if="!$v.pay_details.district_id.required">{{$t('form.e-divisional')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.district_id.required"
+							>{{$t('form.e-divisional')}}</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Divisional Id" class="error-l-100">
@@ -26,7 +28,9 @@
 								:options="divisional_off_option"
 								:state="!$v.pay_details.divisional_id.$error"
 							></b-form-select>
-							<b-form-invalid-feedback v-if="!$v.pay_details.divisional_id.required">{{$t('office.d-e-name')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.divisional_id.required"
+							>{{$t('office.d-e-name')}}</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Post Office Id">
@@ -35,7 +39,9 @@
 								v-model="$v.pay_details.post_office_id.$model"
 								:state="!$v.pay_details.post_office_id.$error"
 							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.post_office_id.required">Please Enter Post Office Id</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.post_office_id.required"
+							>Please Enter Post Office Id</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Check Number">
@@ -62,7 +68,9 @@
 								v-model="$v.pay_details.total_money_amount.$model"
 								:state="!$v.pay_details.total_money_amount.$error"
 							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.total_money_amount.required">Please Enter Total Amount of Money</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.total_money_amount.required"
+							>Please Enter Total Amount of Money</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Credited Accont Number">
@@ -71,19 +79,23 @@
 								v-model="$v.pay_details.credite_account_no.$model"
 								:state="!$v.pay_details.credite_account_no.$error"
 							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.credite_account_no.required">Please Enter Credited Account Number</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.credite_account_no.required"
+							>Please Enter Credited Account Number</b-form-invalid-feedback>
 						</b-form-group>
 
-                        <b-form-group label="Debited Accont Number">
+						<b-form-group label="Debited Accont Number">
 							<b-form-input
 								type="text"
 								v-model="$v.pay_details.debited_account_no.$model"
 								:state="!$v.pay_details.debited_account_no.$error"
 							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.debited_account_no.required">Please Enter Debited Accont Number</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.debited_account_no.required"
+							>Please Enter Debited Accont Number</b-form-invalid-feedback>
 						</b-form-group>
 
-                        <b-form-group label="Year">
+						<b-form-group label="Year">
 							<b-form-input
 								type="text"
 								v-model="$v.pay_details.year.$model"
@@ -92,9 +104,9 @@
 							<b-form-invalid-feedback v-if="!$v.pay_details.year.required">Please Enter Year</b-form-invalid-feedback>
 						</b-form-group>
 
-                        <b-form-group label="Month">
-							<b-form-input
-								type="text"
+						<b-form-group label="Month">
+							<b-form-select
+								:options="month_option"
 								v-model="$v.pay_details.month.$model"
 								:state="!$v.pay_details.month.$error"
 							/>
@@ -132,16 +144,17 @@ export default {
 		return {
 			submit_pay: true,
 			pay_details: {
-                district_id: null,
-                divisional_id: null,
-                post_office_id: "",
-                check_no: "",
-                date: "",
-                total_money_amount: "",
-                credite_account_no: "",
-                debited_account_no: "",
-                year: "",
-                month: "" 
+				district_id: null,
+				divisional_id: null,
+				post_office_id: "",
+				check_no: "",
+				date: "",
+				total_money_amount: "",
+				credite_account_no: "",
+				debited_account_no: "",
+				sent_date: new Date(),
+				year: "",
+				month: null
 			},
 			district_option: [
 				{
@@ -155,6 +168,29 @@ export default {
 					value: null,
 					text: "Please select an Division",
 					disabled: true
+				}
+			],
+			month_option: [
+				{
+					value: null,
+					text: "Please select an Month",
+					disabled: true
+				},
+				{
+					value: 1,
+					text: "January"
+				},
+				{
+					value: 2,
+					text: "February"
+				},
+				{
+					value: 3,
+					text: "March"
+				},
+				{
+					value: 4,
+					text: "April"
 				}
 			]
 		};
@@ -175,8 +211,7 @@ export default {
 				required
 			},
 			date: {
-				required,
-				email
+				required
 			},
 			total_money_amount: {
 				required
@@ -194,10 +229,9 @@ export default {
 				required
 			}
 		}
-		
-    },
-    created() {
-        axios
+	},
+	created() {
+		axios
 			.get("http://localhost:3000/api/district/selectbox")
 			.then(res => {
 				console.log(res);
@@ -211,32 +245,56 @@ export default {
 			.get("http://localhost:3000/api/divisionaloffice/selectbox")
 			.then(res => {
 				console.log(res);
-				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+				this.divisional_off_option = [
+					...this.divisional_off_option,
+					...res.data.data
+				];
 			})
 			.catch(err => {
 				console.log(err);
 			});
-    },
+	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
+			console.log(this.pay_details);
+
 			console.log(this.$v.$invalid + " Checking ");
 			if (!this.$v.$invalid) {
 				const body = {
+					// district_id: this.pay_details.district_id,
+					// divisional_id: this.pay_details.divisional_id,
+					// post_office_id: this.pay_details.post_office_id,
+					// check_no: this.pay_details.check_no,
+					// date: this.pay_details.date,
+					// total_money_amount: this.pay_details.total_money_amount,
+					// credite_account_no: this.pay_details.credite_account_no,
+					// debited_account_no: this.pay_details.debited_account_no,
+					// year: this.pay_details.year,
+					// month: this.pay_details.month
 					district_id: this.pay_details.district_id,
-                    divisional_id: this.pay_details.divisional_id,
-                    post_office_id: this.pay_details.post_office_id,
-                    check_no: this.pay_details.check_no,
-                    date: this.pay_details.date,
-                    total_money_amount: this.pay_details.total_money_amount,
-                    credite_account_no: this.pay_details.credite_account_no,
-                    debited_account_no: this.pay_details.debited_account_no,
-                    year: this.pay_details.year,
-                    month: this.pay_details.month
+					divisional_id: this.pay_details.divisional_id,
+					post_office_id: this.pay_details.post_office_id,
+					check_no: this.pay_details.check_no,
+					date: this.pay_details.date,
+
+					total_money_amount: this.pay_details.total_money_amount,
+					credite_account_no: this.pay_details.credite_account_no,
+					debited_account_no: this.pay_details.debited_account_no,
+					amount_of_money_debited_to_centrel_bank:
+						this.pay_details.total_money_amount * 0.05,
+					sent_amount_to_post_office:
+						this.pay_details.total_money_amount * 0.95,
+
+					centrel_bank_acount_no: "121121",
+					year: this.pay_details.year,
+					month: this.pay_details.year,
+					send_date: this.pay_details.sent_date,
+					divisional_payment_id: ""
 				};
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/district/",
+					url: "http://localhost:3000/api/paymentdivoff",
 					data: body
 				})
 					.then(res => {
@@ -247,14 +305,13 @@ export default {
 						console.log(err);
 					});
 
-				
 				console.log(
 					JSON.stringify({
-						"pay_details": this.pay_details
+						pay_details: this.pay_details
 					})
-                );
-                
-                this.submit_pay = !this.submit_pay;
+				);
+
+				this.submit_pay = !this.submit_pay;
 			}
 		}
 	}
