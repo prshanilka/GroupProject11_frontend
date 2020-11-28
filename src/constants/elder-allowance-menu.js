@@ -9,58 +9,56 @@ const data = [
     to: `${elderRoot}/dashboards/`,
     roles: [UserRole.Admin, UserRole.Elders, UserRole.Editor]
   },
-  //////Admin//////
 
-  
+  //////Admin//////
   {
     id: "admin-divisional-office-form",
     icon: "iconsminds-the-white-house",
     label: "menu.divisional-office-form",
-    to: `/elderlayout/admin/divisional-office-form`,
+    to: `/admin/divisional-office-form`,
     roles: [UserRole.SystemAdmin],
   },
   {
     id: "admin-divisional-office-officer",
     icon: "iconsminds-add-user",
     label: "menu.divisional-office-officer",
-    to: `/elderlayout/admin/divisional-office-officer`,
+    to: `/admin/divisional-office-officer`,
     roles: [UserRole.SystemAdmin]
   },
   {
     id: "admin-post-office",
     icon: "iconsminds-post-mail-2",
     label: "menu.postoffice",
-    to: `/elderlayout/admin/post-office`
+    to: `/admin/post-office`
   },
   {
     id: "admin-officer-post",
     icon: "iconsminds-add-user",
     label: "menu.postoffice-officer",
-    to: `/elderlayout/admin/officer-post`,
+    to: `/admin/officer-post`,
     roles: [UserRole.SystemAdmin],
   },
   {
     id: "admin-district-office-form",
     icon: "iconsminds-the-white-house",
     label: "menu.district-office",
-    to: `/elderlayout/admin/district-office-form`,
+    to: `/admin/district-office-form`,
     roles: [UserRole.SystemAdmin],
   },
   {
     id: "admin-gramaniladai-division-form",
     icon: "iconsminds-city-hall",
     label: "menu.gramaniladai-division-form",
-    to: `/elderlayout/admin/gramaniladai-division-form`,
+    to: `/admin/gramaniladai-division-form`,
     roles: [UserRole.SystemAdmin],
   },
   {
     id: "admin-gramaniladai-officer",
     icon: "iconsminds-add-user",
     label: "menu.gramaniladai-officer",
-    to: `/elderlayout/admin/gramaniladai-officer`,
+    to: `/admin/gramaniladai-officer`,
     roles: [UserRole.SystemAdmin],
   },
-
  ///End Admin////////////
 
   // {
