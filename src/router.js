@@ -437,7 +437,7 @@ const routes = [
   ///////////////////////////////////////////////////////////////////////////////////////////////////
   {
     path: "/",
-    component: () => import(/* webpackChunkName: "home" */ "./views/home")
+    component: () => import(/* webpackChunkName: "home" */ "./views/user/Login")
   },
   {
     path: adminRoot,
