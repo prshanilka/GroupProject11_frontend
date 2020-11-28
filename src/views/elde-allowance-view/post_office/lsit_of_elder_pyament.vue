@@ -96,43 +96,61 @@ export default {
 
 			fields: [
 				{
-					name: "elder_id",
-					sortField: "elder_id",
-					title: "elder_id",
+					name: "payment_id",
+					sortField: "payment_id",
+					title: "payment_id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "20%"
+					width: "5%"
 				},
 				{
-					name: "grmaniladari_officer_id",
-					sortField: "grmaniladari_officer_id",
-					title: "grmaniladari_officer_id",
+					name: "name",
+					sortField: "name",
+					title: "name",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "12%"
 				},
 				{
-					name: "gramaniladari_division_id",
-					sortField: "gramaniladari_division_id",
-					title: "added_officer_id",
+					name: "money_amount",
+					sortField: "money_amount",
+					title: "money_amount",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "15%"
 				},
 				{
-					name: "marks",
-					sortField: "marks",
-					title: "marks",
+					name: "ajent_available",
+					sortField: "ajent_available",
+					title: "ajent_available",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "10%"
+				},
+
+				{
+					name: "nic_id",
+					sortField: "nic_id",
+					title: "nic_id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "15%"
+				},
+
+				{
+					name: "number",
+					sortField: "number",
+					title: "number",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "15%"
 				},
 				{
 					name: "__slot:actions",
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "20%"
+					width: "10%"
 				}
 			]
 		};
@@ -140,7 +158,9 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/paymentposttoben/post/11000/4");
+			return axios.get(
+				"http://localhost:3000/api/paymentposttoben/post/11000/4"
+			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
