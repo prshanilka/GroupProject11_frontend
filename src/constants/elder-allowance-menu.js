@@ -11,6 +11,50 @@ const data = [
   },
 
   {
+    id: "admin",
+    icon: "iconsminds-administrator",
+    label: "menu.admin",
+    to: `/elderlayout/admin`,
+    subs: [
+      {
+        icon: "iconsminds-post-mail-2",
+        label: "menu.postoffice",
+        to: `/admin/post-office`
+      },
+      {
+        icon: "iconsminds-add-user",
+        label: "menu.postoffice-officer",
+        to: `/admin/officer-post`
+      },
+      {
+        icon: "iconsminds-the-white-house",
+        label: "menu.divisional-office-form",
+        to: `/admin/divisional-office-form`
+      },
+      {
+        icon: "iconsminds-add-user",
+        label: "menu.divisional-office-officer",
+        to: `/admin/divisional-office-officer`
+      },
+      {
+        icon: "iconsminds-the-white-house",
+        label: "menu.district-office",
+        to: `/admin/district-office-form`
+      },
+      {
+        icon: "iconsminds-city-hall",
+        label: "menu.gramaniladai-division-form",
+        to: `/admin/gramaniladai-division-form`
+      },
+      {
+        icon: "iconsminds-add-user",
+        label: "menu.gramaniladai-officer",
+        to: `/admin/gramaniladai-officer`
+      },
+    ]
+  },
+
+  {
     id: "elder",
     icon: "iconsminds-tumblr",
     label: "menu.elderlang",
@@ -98,16 +142,7 @@ const data = [
 
       ////
 
-      {
-        icon: "iconsminds-post-mail-2",
-        label: "menu.postoffice",
-        to: `/post/post-office`
-      },
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.postoffice-officer",
-        to: `/post/officer-post`
-      }
+      
     ]
   },
 
@@ -118,26 +153,7 @@ const data = [
     to: `/division/`,
     roles: [UserRole.Editor],
     subs: [
-      {
-        icon: "iconsminds-the-white-house",
-        label: "menu.divisional-secretary-officer-dashboard",
-        to: `/division/divisional-secretary-officer-dashboard`
-      },
-      {
-        icon: "iconsminds-the-white-house",
-        label: "menu.divisional-office-form",
-        to: `/division/divisional-office-form`
-      },
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.divisional-office-officer",
-        to: `/division/divisional-office-officer`
-      },
-      {
-        icon: "iconsminds-the-white-house",
-        label: "menu.district-office",
-        to: `/division/district-office-form`
-      },
+      
       {
         icon: "iconsminds-dollar-sign-2",
         label: "menu.paymenttopostoffice",
@@ -230,16 +246,7 @@ const data = [
         label: "menu.gramaniladari-dashboard",
         to: `/grama/gramaniladari-dashboard`
       },
-      {
-        icon: "iconsminds-city-hall",
-        label: "menu.gramaniladai-division-form",
-        to: `/grama/gramaniladai-division-form`
-      },
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.gramaniladai-officer",
-        to: `/grama/gramaniladai-officer`
-      },
+      
       ///
 
       {
