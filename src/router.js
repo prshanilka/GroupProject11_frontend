@@ -430,6 +430,14 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_officer_form"
       )
   },
+  {
+    path: "/grama/gramaniladai-officer-details/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_grama_details"
+      ),
+    props: true
+  },
 
   //end of routes
   /////////////////////////////////////////////////////////////////////////////////////////////////////

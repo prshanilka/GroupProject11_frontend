@@ -9,57 +9,105 @@ const data = [
     to: `${elderRoot}/dashboards/`,
     roles: [UserRole.Admin, UserRole.Elders, UserRole.Editor]
   },
-
   //////Admin//////
+
+  //   {
+  //g
+  //     id: "admin",
+  //     icon: "iconsminds-administrator",
+  //     label: "menu.admin",
+  //     to: `/elderlayout/admin`,
+  //     roles: [UserRole.Admin, UserRole.Editor, UserRole.SystemAdmin],
+  //     subs: [
+  //       {
+  //         icon: "iconsminds-post-mail-2",
+  //         label: "menu.postoffice",
+  //         to: `/admin/post-office`
+  //       },
+  //       {
+  //         icon: "iconsminds-add-user",
+  //         label: "menu.postoffice-officer",
+  //         to: `/admin/officer-post`
+  //       },
+  //       {
+  //         icon: "iconsminds-the-white-house",
+  //         label: "menu.divisional-office-form",
+  //         to: `/admin/divisional-office-form`
+  //       },
+  //       {
+  //         icon: "iconsminds-add-user",
+  //         label: "menu.divisional-office-officer",
+  //         to: `/admin/divisional-office-officer`
+  //       },
+  //       {
+  //         icon: "iconsminds-the-white-house",
+  //         label: "menu.district-office",
+  //         to: `/admin/district-office-form`
+  //       },
+  //       {
+  //         icon: "iconsminds-city-hall",
+  //         label: "menu.gramaniladai-division-form",
+  //         to: `/admin/gramaniladai-division-form`
+  //       },
+  //       {
+  //         icon: "iconsminds-add-user",
+  //         label: "menu.gramaniladai-officer",
+  //         to: `/admin/gramaniladai-officer`
+  //       }
+  //     ]
+  // }
+
   {
     id: "admin-divisional-office-form",
     icon: "iconsminds-the-white-house",
     label: "menu.divisional-office-form",
     to: `/admin/divisional-office-form`,
-    roles: [UserRole.SystemAdmin],
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
   {
     id: "admin-divisional-office-officer",
     icon: "iconsminds-add-user",
     label: "menu.divisional-office-officer",
     to: `/admin/divisional-office-officer`,
-    roles: [UserRole.SystemAdmin]
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
   {
     id: "admin-post-office",
     icon: "iconsminds-post-mail-2",
     label: "menu.postoffice",
-    to: `/admin/post-office`
+    to: `/admin/post-office`,
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
   {
     id: "admin-officer-post",
     icon: "iconsminds-add-user",
     label: "menu.postoffice-officer",
     to: `/admin/officer-post`,
-    roles: [UserRole.SystemAdmin],
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
   {
     id: "admin-district-office-form",
     icon: "iconsminds-the-white-house",
     label: "menu.district-office",
     to: `/admin/district-office-form`,
-    roles: [UserRole.SystemAdmin],
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
   {
     id: "admin-gramaniladai-division-form",
     icon: "iconsminds-city-hall",
     label: "menu.gramaniladai-division-form",
     to: `/admin/gramaniladai-division-form`,
-    roles: [UserRole.SystemAdmin],
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
   {
     id: "admin-gramaniladai-officer",
     icon: "iconsminds-add-user",
     label: "menu.gramaniladai-officer",
     to: `/admin/gramaniladai-officer`,
-    roles: [UserRole.SystemAdmin],
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
- ///End Admin////////////
+
+  ///End Admin////////////
 
   // {
   //   id: "elder",
@@ -109,48 +157,92 @@ const data = [
     ]
   },
 
-  {
-    id: "post-office",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.postoffice",
-    to: `/post/`,
-    roles: [UserRole.Editor, UserRole.PostOfficers],
-    subs: [
-      {
-        icon: "iconsminds-post-mail-2",
-        label: "menu.post-officer-dashboard",
-        to: `/post/post-officer-dashboard`
-      },
-      {
-        icon: "iconsminds-post-mail-2",
-        label: "menu.lsit-of-elder-pyament",
-        to: `/post/lsit-of-elder-pyament`
-      },
-      {
-        icon: "iconsminds-post-mail-2",
-        label: "menu.get-elder-detail-verification",
-        to: `/post/get-elder-detail-verification/2`
-      },
-      {
-        icon: "iconsminds-post-mail-2",
-        label: "menu.elders-related-to-post-off",
-        to: `/post/elders-related-to-post-off`
-      },
-      {
-        icon: "iconsminds-post-mail-2",
-        label: "menu.assign-post-officers",
-        to: `/post/assign-post-officers`
-      },
-      {
-        icon: "iconsminds-post-mail-2",
-        label: "menu.send-reports",
-        to: `/post/send-reports`
-      }
+  // {
+  //   id: "post-office",
+  //   icon: "iconsminds-post-mail-2",
+  //   label: "menu.postoffice",
+  //   to: `/post/`,
+  //   roles: [UserRole.Editor, UserRole.PostOfficers],
+  //   subs: [
+  //     {
+  //       icon: "iconsminds-post-mail-2",
+  //       label: "menu.post-officer-dashboard",
+  //       to: `/post/post-officer-dashboard`
+  //     },
+  //     {
+  //       icon: "iconsminds-post-mail-2",
+  //       label: "menu.lsit-of-elder-pyament",
+  //       to: `/post/lsit-of-elder-pyament`
+  //     },
+  //     {
+  //       icon: "iconsminds-post-mail-2",
+  //       label: "menu.get-elder-detail-verification",
+  //       to: `/post/get-elder-detail-verification/2`
+  //     },
+  //     {
+  //       icon: "iconsminds-post-mail-2",
+  //       label: "menu.elders-related-to-post-off",
+  //       to: `/post/elders-related-to-post-off`
+  //     },
+  //     {
+  //       icon: "iconsminds-post-mail-2",
+  //       label: "menu.assign-post-officers",
+  //       to: `/post/assign-post-officers`
+  //     },
+  //     {
+  //       icon: "iconsminds-post-mail-2",
+  //       label: "menu.send-reports",
+  //       to: `/post/send-reports`
+  //     }
 
-      ////
-    ]
+  //     ////
+  //   ]
+  // },
+
+  {
+    id: "post-officer-dashboard",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.post-officer-dashboard",
+    to: `/post/post-officer-dashboard`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
+  {
+    id: "lsit-of-elder-pyament",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.lsit-of-elder-pyament",
+    to: `/post/lsit-of-elder-pyament`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
+  {
+    id: "get-elder-detail-verification",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.get-elder-detail-verification",
+    to: `/post/get-elder-detail-verification/2`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
+  {
+    id: "elders-related-to-post-off",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.elders-related-to-post-off",
+    to: `/post/elders-related-to-post-off`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
+  {
+    id: "assign-post-officers",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.assign-post-officers",
+    to: `/post/assign-post-officers`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
+  {
+    id: "send-reports",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.send-reports",
+    to: `/post/send-reports`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
   },
 
+  ///////////////////////////////////////////////////////////////
   {
     id: "divisional-office-form",
     icon: "iconsminds-the-white-house",
@@ -243,63 +335,142 @@ const data = [
     ]
   },
 
+  // {
+  //   id: "gramaniladai-division-forma",
+  //   icon: "iconsminds-city-hall",
+  //   label: "menu.gramaniladai-division-form",
+  //   to: `/grama/`,
+  //   roles: [UserRole.Editor, UserRole.GramaNiladariOffices],
+  //   subs: [
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.gramaniladari-dashboard",
+  //       to: `/grama/gramaniladari-dashboard`
+  //     },
+
+  //     ///
+
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.inform-death-of-elder",
+  //       to: `/grama/inform-death-of-elder`
+  //     },
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.list-of-applicans",
+  //       to: `/grama/list-of-applicans`
+  //     },
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.list-of-benifishers",
+  //       to: `/grama/list-of-benifishers`
+  //     },
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.send-complains",
+  //       to: `/grama/send-complains`
+  //     },
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.view-elder-application-verify",
+  //       to: `/grama/view-elder-application-verify/2`
+  //     },
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.view-elder-details",
+  //       to: `/grama/view-elder-details`
+  //     },
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.send-reports-d",
+  //       to: `/grama/send-reports`
+  //     },
+  //     {
+  //       icon: "iconsminds-add-user",
+  //       label: "menu.aprove-agents",
+  //       to: `/grama/aprove-agents`
+  //     }
+  //   ]
+  // }
+
   {
-    id: "gramaniladai-division-forma",
-    icon: "iconsminds-city-hall",
-    label: "menu.gramaniladai-division-form",
-    to: `/grama/`,
+    id: "gramaniladari-dashboard",
+    icon: "iconsminds-add-user",
+    label: "menu.gramaniladari-dashboard",
+    to: `/grama/gramaniladari-dashboard`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  },
+
+  ///
+
+  {
+    id: "inform-death-of-elder",
+    icon: "iconsminds-add-user",
+    label: "menu.inform-death-of-elder",
+    to: `/grama/inform-death-of-elder`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  },
+  {
+    id: "list-of-applicans",
+    icon: "iconsminds-add-user",
+    label: "menu.list-of-applicans",
+    to: `/grama/list-of-applicans`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices],
     subs: [
       {
-        icon: "iconsminds-add-user",
-        label: "menu.gramaniladari-dashboard",
-        to: `/grama/gramaniladari-dashboard`
-      },
-
-      ///
-
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.inform-death-of-elder",
-        to: `/grama/inform-death-of-elder`
-      },
-      {
+        id: "list-of-applicans",
         icon: "iconsminds-add-user",
         label: "menu.list-of-applicans",
-        to: `/grama/list-of-applicans`
+        to: `/grama/list-of-applicans`,
+        roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
       },
       {
+        id: "list-of-benifishers",
         icon: "iconsminds-add-user",
         label: "menu.list-of-benifishers",
-        to: `/grama/list-of-benifishers`
-      },
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.send-complains",
-        to: `/grama/send-complains`
-      },
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.view-elder-application-verify",
-        to: `/grama/view-elder-application-verify/2`
-      },
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.view-elder-details",
-        to: `/grama/view-elder-details`
-      },
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.send-reports-d",
-        to: `/grama/send-reports`
-      },
-      {
-        icon: "iconsminds-add-user",
-        label: "menu.aprove-agents",
-        to: `/grama/aprove-agents`
+        to: `/grama/list-of-benifishers`,
+        roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
       }
     ]
+  },
+
+  {
+    id: "send-complains",
+    icon: "iconsminds-add-user",
+    label: "menu.send-complains",
+    to: `/grama/send-complains`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  },
+  {
+    id: "view-elder-application-verify",
+    icon: "iconsminds-add-user",
+    label: "menu.view-elder-application-verify",
+    to: `/grama/view-elder-application-verify/2`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  },
+  {
+    id: "view-elder-details",
+    icon: "iconsminds-add-user",
+    label: "menu.view-elder-details",
+    to: `/grama/view-elder-details`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  },
+  {
+    id: "send-reports",
+    icon: "iconsminds-add-user",
+    label: "menu.send-reports-d",
+    to: `/grama/send-reports`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  },
+  {
+    id: "aprove-agents",
+    icon: "iconsminds-add-user",
+    label: "menu.aprove-agents",
+    to: `/grama/aprove-agents`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
   }
+
+  ///////////////////////////////////
   // {
   //   id: "dashboard",
   //   icon: "simple-icon-equalizer",
