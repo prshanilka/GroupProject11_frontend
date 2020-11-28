@@ -1,4 +1,4 @@
-import { adminRoot, elderRoot } from "./config";
+import { adminRoot, elderRoot, dofficerRoot } from "./config";
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
@@ -23,7 +23,7 @@ const data = [
     icon: "simple-icon-user-following",
     label: "menu.agentform",
     to: `/elder`,
-    //roles: [UserRole.Editor],
+    roles: [UserRole.Editor],
     subs: [
       {
         icon: "simple-icon-user-following",
@@ -275,6 +275,26 @@ const data = [
     label: "menu.dashboard",
     to: `/app/dashboards/`,
     roles: [UserRole.Editor]
-  }
+  },
+
+  ////////////////////////////////////////////////////////
+  //Divisinal Officer
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_do",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${dofficerRoot}/dashboard/`,
+    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
+  },
+  {
+    id: "pendingapplications",
+    icon: "simple-icon-equalizer",
+    label: "menu.pendingapplications",
+    to: `${dofficerRoot}/pendingapplications/`,
+    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
+  },
+  
+
 ];
 export default data;

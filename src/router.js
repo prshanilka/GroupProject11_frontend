@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import AuthGuard from "./utils/auth.guard";
-import { adminRoot, elderRoot } from "./constants/config";
+import { adminRoot, elderRoot, dofficerRoot } from "./constants/config";
 import { UserRole } from "./utils/auth.roles";
 
 Vue.use(VueRouter);
@@ -102,6 +102,34 @@ const routes = [
       }
     ]
   },
+  ////////////////////////////////////////////////////////////////////////
+  //Divisional Officer
+  ////////////////////////////////////////////////////////////////////////
+  {
+    path: dofficerRoot,
+    component: () => import(/* webpackChunkName: "app" */ "./views/dofficer"),
+    redirect: `${dofficerRoot}/dashboard`,
+    meta: { loginRequired: true, roles: [UserRole.Admin,UserRole.DivisionalOfficers] },
+    children: [
+      {
+        path: "dashboard",
+        component: () =>
+        import(/* webpackChunkName: "dashboards" */ "./views/dofficer/dashboard/")
+      },
+      {
+        path: "pendingapplications",
+        component: () =>
+        import(/* webpackChunkName: "dashboards" */ "./views/dofficer/pendingapplications")
+      },
+    ]
+  },
+  ////////////////////////////////////////////////////////////////////////
+  //Divisional Officer
+  ////////////////////////////////////////////////////////////////////////
+
+
+
+
 
   // {
   //   path: "/elderlayout/elder",
