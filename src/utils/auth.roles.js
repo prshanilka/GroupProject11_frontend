@@ -6,5 +6,6 @@ export const UserRole = {
   DivisionalOffHead: 26,
   PostOfficers: 30,
   GramaNiladariOffices: 40,
+  SystemAdmin: 70,
   Editor: 100
 };
