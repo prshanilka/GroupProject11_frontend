@@ -15,6 +15,7 @@ const data = [
     icon: "iconsminds-administrator",
     label: "menu.admin",
     to: `/elderlayout/admin`,
+    roles: [UserRole.Admin, UserRole.Editor],
     subs: [
       {
         icon: "iconsminds-post-mail-2",
@@ -50,24 +51,24 @@ const data = [
         icon: "iconsminds-add-user",
         label: "menu.gramaniladai-officer",
         to: `/admin/gramaniladai-officer`
-      },
+      }
     ]
   },
 
-  {
-    id: "elder",
-    icon: "iconsminds-tumblr",
-    label: "menu.elderlang",
-    to: `/elderlayout/elder`,
-    roles: [UserRole.Editor]
-  },
+  // {
+  //   id: "elder",
+  //   icon: "iconsminds-tumblr",
+  //   label: "menu.elderlang",
+  //   to: `/elderlayout/elder`,
+  //   roles: [UserRole.Editor]
+  // },
 
   {
     id: "agent-form",
     icon: "simple-icon-user-following",
     label: "menu.agentform",
     to: `/elder`,
-    //roles: [UserRole.Editor],
+    roles: [UserRole.Editor, UserRole.Elders],
     subs: [
       {
         icon: "simple-icon-user-following",
@@ -107,7 +108,7 @@ const data = [
     icon: "iconsminds-post-mail-2",
     label: "menu.postoffice",
     to: `/post/`,
-    roles: [UserRole.Editor],
+    roles: [UserRole.Editor, UserRole.PostOfficers],
     subs: [
       {
         icon: "iconsminds-post-mail-2",
@@ -138,11 +139,9 @@ const data = [
         icon: "iconsminds-post-mail-2",
         label: "menu.send-reports",
         to: `/post/send-reports`
-      },
+      }
 
       ////
-
-      
     ]
   },
 
@@ -151,9 +150,13 @@ const data = [
     icon: "iconsminds-the-white-house",
     label: "menu.divisional-office-form",
     to: `/division/`,
-    roles: [UserRole.Editor],
+    roles: [
+      UserRole.Editor,
+      UserRole.DivisionalOffHead,
+      UserRole.DivisionalOffOfficer,
+      UserRole.DivisionalOfficers
+    ],
     subs: [
-      
       {
         icon: "iconsminds-dollar-sign-2",
         label: "menu.paymenttopostoffice",
@@ -239,14 +242,14 @@ const data = [
     icon: "iconsminds-city-hall",
     label: "menu.gramaniladai-division-form",
     to: `/grama/`,
-    roles: [UserRole.Editor],
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices],
     subs: [
       {
         icon: "iconsminds-add-user",
         label: "menu.gramaniladari-dashboard",
         to: `/grama/gramaniladari-dashboard`
       },
-      
+
       ///
 
       {
@@ -290,13 +293,13 @@ const data = [
         to: `/grama/aprove-agents`
       }
     ]
-  },
-  {
-    id: "dashboard",
-    icon: "simple-icon-equalizer",
-    label: "menu.dashboard",
-    to: `/app/dashboards/`,
-    roles: [UserRole.Editor]
   }
+  // {
+  //   id: "dashboard",
+  //   icon: "simple-icon-equalizer",
+  //   label: "menu.dashboard",
+  //   to: `/app/dashboards/`,
+  //   roles: [UserRole.Editor]
+  // }
 ];
 export default data;
