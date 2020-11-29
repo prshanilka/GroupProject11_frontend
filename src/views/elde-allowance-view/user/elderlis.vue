@@ -1,5 +1,4 @@
 <template>
-<AppLayout>
 	<div>
 		<datatable-heading
 			:title="$t('menu.divided-table')"
@@ -58,11 +57,10 @@
 			</v-contextmenu-item>
 		</v-contextmenu>
 	</div>
-	</AppLayout>
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 import AppLayout from "../../../layouts/EAppLayout";
 import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
@@ -78,7 +76,7 @@ export default {
 	},
 	data() {
 		return {
-			apiBase: bUrl+"/elders",
+			apiBase: bUrl + "/elders",
 			isLoad: false,
 			sort: "",
 			page: 1,
@@ -94,7 +92,7 @@ export default {
 			fields: [
 				{
 					name: "name",
-					sortField: "title",
+					sortField: "name",
 					title: "Name",
 					titleClass: "",
 					dataClass: "list-item-heading",
@@ -102,24 +100,24 @@ export default {
 				},
 				{
 					name: "address",
-					sortField: "sales",
-					title: "Sales",
+					sortField: "address",
+					title: "address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
 				},
 				{
 					name: "birth_day",
-					sortField: "stock",
-					title: "Stock",
+					sortField: "birth_day",
+					title: "birth_day",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
 				},
 				{
 					name: "number",
-					sortField: "category",
-					title: "Category",
+					sortField: "number",
+					title: "number",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "25%"
@@ -136,8 +134,8 @@ export default {
 	},
 
 	methods: {
-		getData(){
-			return axios.get('http://localhost:3000/api/elders')
+		getData() {
+			return axios.get("http://localhost:3000/api/elders");
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];

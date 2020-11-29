@@ -2,6 +2,7 @@ import { UserRole } from "../utils/auth.roles";
 
 export const defaultMenuType = "menu-default"; // 'menu-default', 'menu-sub-hidden', 'menu-hidden';
 export const adminRoot = "/app";
+export const elderRoot = "/elder";
 export const searchPath = `${adminRoot}/pages/miscellaneous/search`;
 export const buyUrl = "https://1.envato.market/nEyZa";
 export const apiUrl = "https://api.coloredstrategies.com";
@@ -9,13 +10,19 @@ export const bUrl ="http://localhost:3000/api";
 export const subHiddenBreakpoint = 1440;
 export const menuHiddenBreakpoint = 768;
 
-export const defaultLocale = "en";
+export const defaultLocale = "English";
 export const defaultDirection = "ltr";
 export const localeOptions = [
   { id: "සිංහල", name: "සිංහල", direction: "ltr" },
   { id: "தமிழ்", name: "தமிழ்", direction: "ltr" },
-  { id: "en", name: "English LTR", direction: "ltr" },
+  { id: "en", name: "English", direction: "ltr" },
   { id: "enrtl", name: "English RTL", direction: "rtl" }
+];
+
+export const ElderAllowancelocaleOptions = [
+  { id: "සිංහල", name: "සිංහල" },
+  { id: "தமிழ்", name: "தமிழ்" },
+  { id: "English", name: "English" }
 ];
 
 export const firebaseConfig = {
@@ -28,6 +35,7 @@ export const firebaseConfig = {
   appId: "1:557576321564:web:bc2ce73477aff5c2197dd9"
 };
 
+
 export const currentUser = {
   id: 1,
   title: "Sarah Kortney",
@@ -36,7 +44,7 @@ export const currentUser = {
   role: UserRole.Admin
 };
 
-export const isAuthGuardActive = false;
+export const isAuthGuardActive = true;
 export const themeRadiusStorageKey = "theme_radius";
 export const themeSelectedColorStorageKey = "theme_selected_color";
 export const defaultColor = "light.blueolympic";

@@ -19,7 +19,6 @@
 					ref="vuetable"
 					class="table-divided order-with-arrow"
 					:api-url="apiBase"
-					:http-fetch="myFetch"
 					:query-params="makeQueryParams"
 					:per-page="perPage"
 					:reactive-api-url="true"

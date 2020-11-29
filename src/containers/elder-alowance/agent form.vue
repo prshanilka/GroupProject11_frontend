@@ -7,7 +7,7 @@
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_ag">
 					<h2 class="mb-2">{{$t('agent.form-success')}}</h2>
-					<p></p>
+					<p>{{$t('agent.form-register')}}</p>
 				</b-card>
 
 				<b-card class="mb-4" v-show="submit_ag">
@@ -77,6 +77,7 @@ v-else-if="!$v.agent.relationship_with_elder.minLength || !$v.agent.relationship
 
 <script>
 import { validationMixin } from "vuelidate";
+import axios from "axios";
 const {
 	required,
 	maxLength,
@@ -185,13 +186,36 @@ export default {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
+
 			if (!this.$v.$invalid) {
-				this.submit_ag = !this.submit_ag;
+				const body = {
+					elder_id: "11",
+					name: this.agent.name,
+					nic: this.agent.nic,
+					address: this.agent.address,
+					phone: this.agent.phone,
+					email: this.agent.email,
+					relation_with_elder: this.agent.relationship_with_elder
+				};
+				axios({
+					method: "post",
+					url: "http://localhost:3000/api/agent",
+					data: body
+				})
+					.then(res => {
+						this.offersData = res.data;
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+
 				console.log(
 					JSON.stringify({
 						agent: this.agent
 					})
 				);
+				this.submit_ag = !this.submit_ag;
 			}
 		}
 	}
