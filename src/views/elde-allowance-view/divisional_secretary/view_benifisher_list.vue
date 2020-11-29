@@ -103,7 +103,7 @@ export default {
 					title: "benifisher Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "20%"
+					width: "5%"
 				},
 				{
 					name: "elder_id",
@@ -111,8 +111,49 @@ export default {
 					title: "elder_id",
 					titleClass: "",
 					dataClass: "text-muted",
+					width: "5%"
+				},
+				{
+					name: "elder_id",
+					sortField: "elder_id",
+					title: "elder_id",
+					titleClass: "",
+					dataClass: "list-item-heading",
 					width: "20%"
 				},
+				{
+					name: "name",
+					sortField: "name",
+					title: "name",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "20%"
+				},
+				{
+					name: "address",
+					sortField: "address",
+					title: "address",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "20%"
+				},
+				{
+					name: "number",
+					sortField: "number",
+					title: "Phone number",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "25%"
+				},
+				{
+					name: "email",
+					sortField: "email",
+					title: "email",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "25%"
+				},
+
 				{
 					name: "added_officer_id",
 					sortField: "added_officer_id",
@@ -134,7 +175,7 @@ export default {
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "20%"
+					width: "5%"
 				}
 			]
 		};
@@ -142,7 +183,9 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/benifisher");
+			return axios.get(
+				"http://localhost:3000/api/divisionaloffice//benifisherlist/G1"
+			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];

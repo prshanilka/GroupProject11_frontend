@@ -54,7 +54,15 @@ export default {
 	},
 	methods: {
 		formSubmit() {
-			console.log("register");
+			console.log("register sasa");
+			const user = {
+				fullname: this.fullname,
+				email: this.email,
+				password: this.password,
+				role: "1"
+			};
+			console.log(user);
+
 			this.$router.push(adminRoot);
 		}
 	}

@@ -97,20 +97,14 @@
 					</b-form-group>
 
 					<b-form-group :label="$t('form.post')" class="error-l-100">
-						<b-form-input
-							type="text"
+						<b-form-select
 							v-model="$v.elder.nearest_post_office.$model"
+							:options="post_off_option"
 							:state="!$v.elder.nearest_post_office.$error"
-						/>
+						></b-form-select>
 						<b-form-invalid-feedback
 							v-if="!$v.elder.nearest_post_office.required"
-						>Please enter a Your Source of Income</b-form-invalid-feedback>
-						<b-form-invalid-feedback
-							v-if="!$v.elder.nearest_post_office.minLength || !$v.elder.nearest_post_office.maxLength"
-						>
-							Your Nearest Post Office No must be between 3 and 16
-							characters
-						</b-form-invalid-feedback>
+						>{{$t('form.e-post')}}</b-form-invalid-feedback>
 					</b-form-group>
 
 					<b-form-group :label="$t('form.birth')" class="error-l-125">
@@ -158,6 +152,7 @@ const {
 
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
 import Datepicker from "vuejs-datepicker";
+import axios from "axios";
 export default {
 	components: {
 		datepicker: Datepicker
@@ -174,30 +169,13 @@ export default {
 				district: null,
 				divisional_off: null,
 				grama_niladari_div: null,
-				nearest_post_office: "",
+				nearest_post_office: null,
 				birth_day: "1997-11-07T16:41:00.000Z"
 			},
 			district_option: [
 				{
 					value: null,
 					text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Colombo"
-				},
-				{
-					value: "1",
-					text: "Gampaha"
-				},
-				{
-					value: "2",
-					text: "Kaluthara"
-				},
-				{
-					value: "3",
-					text: "Rathnapura",
 					disabled: true
 				}
 			],
@@ -207,23 +185,6 @@ export default {
 					text:
 						"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
 					disabled: true
-				},
-				{
-					value: "0",
-					text: "Gampaha Town"
-				},
-				{
-					value: "1",
-					text: "Henagama"
-				},
-				{
-					value: "2",
-					text: "Kiridiwala"
-				},
-				{
-					value: "3",
-					text: "kadawatha",
-					disabled: true
 				}
 			],
 			grama_niladari_div_option: [
@@ -232,22 +193,12 @@ export default {
 					text:
 						"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
 					disabled: true
-				},
+				}
+			],
+			post_off_option: [
 				{
-					value: "0",
-					text: "Gampaha South"
-				},
-				{
-					value: "1",
-					text: "Gampaha North"
-				},
-				{
-					value: "2",
-					text: "Gampaha west"
-				},
-				{
-					value: "3",
-					text: "gampaha East",
+					value: null,
+					text:"Select Nearest Post Office/කරුණාකර ළඟම ඇති තැපැල් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -294,14 +245,60 @@ export default {
 				required
 			},
 			nearest_post_office: {
-				required,
-				maxLength: maxLength(16),
-				minLength: minLength(3)
+				required
 			},
 			birth_day: {
 				required
 			}
 		}
+	},
+	created() {
+		axios
+			.get("http://localhost:3000/api/district/selectbox")
+			.then(res => {
+				console.log(res);
+				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+		axios
+			.get("http://localhost:3000/api/divisionaloffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.divisional_off_option = [
+					...this.divisional_off_option,
+					...res.data.data
+				];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		axios
+			.get("http://localhost:3000/api/gramadivision/selectbox")
+			.then(res => {
+				console.log(res);
+				this.grama_niladari_div_option = [
+					...this.grama_niladari_div_option,
+					...res.data.data
+				];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		axios
+			.get("http://localhost:3000/api/postoffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.post_off_option = [
+					...this.post_off_option,
+					...res.data.data
+				];
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	},
 	methods: {
 		onValitadeFormSubmit() {

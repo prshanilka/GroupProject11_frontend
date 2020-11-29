@@ -9,7 +9,7 @@
 				<list-with-user-item
 					v-for="(item, index) in filteredList"
 					:data="item"
-					detail-path="#"
+					:detail-path="'/grama/gramaniladai-officer-details/'+item.gramaniladari_division_id"
 					:key="index"
 				/>
         </b-row>
@@ -37,7 +37,7 @@ export default {
 	},
 	async beforeCreate() {
 		
-		axios.get("http://localhost:3000/api/gramaniladariofficer/").then(result => {
+		axios.get("http://localhost:3000/api/gramaniladariofficer/topost/").then(result => {
 			console.log(result.data.data[0]);
 			this.grama_niladari = result.data.data;
 		});

@@ -1,11 +1,17 @@
 <template>
 	<AppLayout>
 		<b-colxx xl="10" lg="12" style="margin:auto ">
-			<b-card no-body class="mb-4">
+			<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
+				<h1>Elder Details for Verification</h1>
+			</b-colxx>
+			<b-card class="mb-4 text-center" v-show="!submit_div">
+					<h2 class="mb-2">You SuccecFully Verified The Payment Details</h2>
+					<p>Verified Details are Submitted Now</p>
+			</b-card>
+			<b-card no-body class="mb-4" v-show="submit_div">
 				<b-row>
-					<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-						<h1>Elder Details for Verification {{id}}</h1>
-					</b-colxx>
+					
+					
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
@@ -43,7 +49,7 @@
 
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Date of Birth:</span>
-								{{elder.birth_day}}
+								{{elder.birth_day }}
 							</p>
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Age:</span>
@@ -139,6 +145,7 @@ export default {
 	},
 	data() {
 		return {
+			submit_div: true,
 			elder: {},
 			grama_comment: ""
 		};
@@ -158,6 +165,7 @@ export default {
 			url: "http://localhost:3000/api/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
+			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
 			console.log(result.data.data);
 			// this.aplications = result.data.data;
 		});
@@ -170,6 +178,7 @@ export default {
 				const body = {
 					gramaniladari_id: "2",
 					gramaniladari_comment: this.grama_comment,
+					correction: this.grama_comment,
 					elder_id: this.id
 				};
 				axios({
@@ -189,6 +198,7 @@ export default {
 						messsage: this.grama_comment
 					})
 				);
+				this.submit_div = !this.submit_div;
 			}
 		},
 		accept() {
@@ -198,7 +208,6 @@ export default {
 				const body = {
 					gramaniladari_id: "2",
 					gramaniladari_comment: this.grama_comment,
-					correction: this.grama_comment,
 					elder_id: this.id
 				};
 				axios({
@@ -218,6 +227,7 @@ export default {
 						messsage: this.grama_comment
 					})
 				);
+				this.submit_div = !this.submit_div;
 			}
 		}
 	}

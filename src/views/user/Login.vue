@@ -140,13 +140,14 @@ export default {
 	},
 	watch: {
 		currentUser(val) {
+
 			if (val && val.role == UserRole.DivisionalOfficers ) {
 					this.$router.push(dofficerRoot);
 			}
 			else if (val && val.uid) {
 				setTimeout(() => {
-					this.$router.push(adminRoot);
-				}, 20);
+					this.$router.push("/elder/dashboards/default");
+				}, 2);
 			}
 		},
 		loginError(val) {

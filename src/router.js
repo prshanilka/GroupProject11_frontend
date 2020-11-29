@@ -186,11 +186,20 @@ const routes = [
       )
   },
   {
-    path: "/post/get-elder-detail-verification",
+    path: "/post/get-elder-detail-verification/:id",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/get_elder_detail_verification"
-      )
+      ),
+    props: true
+  },
+  {
+    path: "/post/get_details_postoffice/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/get_details_postoffice"
+      ),
+    props: true
   },
   {
     path: "/post/elders-related-to-post-off",
@@ -215,7 +224,7 @@ const routes = [
   },
 
   {
-    path: "/post/post-office",
+    path: "/admin/post-office",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_form"
@@ -223,7 +232,7 @@ const routes = [
   },
 
   {
-    path: "/post/officer-post",
+    path: "/admin/officer-post",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_officer_form"
@@ -233,7 +242,7 @@ const routes = [
   ////////////////////////////////////////////////////
   // divisional rotes
   {
-    path: "/division/district-office-form",
+    path: "/admin/district-office-form",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/district_office_form"
@@ -241,7 +250,7 @@ const routes = [
   },
 
   {
-    path: "/division/divisional-office-form",
+    path: "/admin/divisional-office-form",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_form"
@@ -249,7 +258,31 @@ const routes = [
   },
 
   {
-    path: "/division/divisional-office-officer",
+    path: "/division/pay_post_office_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/pay_post_office_form"
+      )
+  },
+
+  {
+    path: "/division/div_to_ben",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_pay_to_benifisher"
+      )
+  },
+
+  {
+    path: "/division/div_to_post",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_pay_to_post"
+      )
+  },
+
+  {
+    path: "/admin/divisional-office-officer",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_officer_form"
@@ -420,28 +453,41 @@ const routes = [
 
   ////
   {
-    path: "/grama/gramaniladai-division-form",
+    path: "/admin/gramaniladai-division-form",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_ division"
       )
   },
   {
-    path: "/grama/gramaniladai-officer",
+    path: "/admin/gramaniladai-officer",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_officer_form"
       )
+  },
+  {
+    path: "/grama/gramaniladai-officer-details/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_grama_details"
+      ),
+    props: true
   },
 
   //end of routes
   /////////////////////////////////////////////////////////////////////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////////////////////////
   ///////////////////////////////////////////////////////////////////////////////////////////////////
+  // {
+  //   path: "/",
+  //   component: () => import(/* webpackChunkName: "home" */ "./views/home")
+  // },
   {
     path: "/",
-    component: () => import(/* webpackChunkName: "home" */ "./views/home")
+    component: () => import(/* webpackChunkName: "home" */ "./views/user/Login")
   },
+
   {
     path: adminRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/app"),

@@ -8,7 +8,7 @@
 				<list-with-user-item
 					v-for="(item, index) in applications"
 					:data="item"
-					:detail-path="'/grama/view-elder-application-verify/'+item.elder_id "
+					:detail-path="'/division/view-elder-application-verify/'+item.elder_id "
 					:key="index"
 				/>
 				<LogList />
@@ -39,7 +39,7 @@ export default {
 		const body = { gramaniladari_id: "2" };
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/gramadivision/verifylist/2"
+			url: "http://localhost:3000/api/divisionaloffice/list/G1"
 		}).then(result => {
 			this.applications = result.data.data;
 			console.log(result);

@@ -144,79 +144,26 @@ export default {
 				email: "",
 				district_id: null,
 				divisional_id: null,
-				gramaniladari_division_id: null,
+				gramaniladari_division_id: null
 			},
 			district_option: [
 				{
 					value: null,
 					text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
 					disabled: true
-				},
-				{
-					value: "0",
-					text: "Colombo"
-				},
-				{
-					value: "1",
-					text: "Gampaha"
-				},
-				{
-					value: "2",
-					text: "Kaluthara"
-				},
-				{
-					value: "3",
-					text: "Rathnapura",
-					disabled: true
 				}
 			],
 			divisional_off_option: [
 				{
 					value: null,
-					text:
-						"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Gampaha Town"
-				},
-				{
-					value: "1",
-					text: "Henagama"
-				},
-				{
-					value: "2",
-					text: "Kiridiwala"
-				},
-				{
-					value: "3",
-					text: "kadawatha",
+					text: "Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			],
 			gramaniladari_division_option: [
 				{
 					value: null,
-					text:
-						"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "222B"
-				},
-				{
-					value: "1",
-					text: "127A"
-				},
-				{
-					value: "2",
-					text: "305B"
-				},
-				{
-					value: "3",
-					text: "856D",
+					text: "Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -256,6 +203,35 @@ export default {
 			}
 		}
 	},
+	created() {
+		axios
+			.get("http://localhost:3000/api/district/selectbox")
+			.then(res => {
+				console.log(res);
+				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		axios
+			.get("http://localhost:3000/api/divisionaloffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+		axios
+			.get("http://localhost:3000/api/gramadivision/selectbox")
+			.then(res => {
+				console.log(res);
+				this.gramaniladari_division_option = [...this.gramaniladari_division_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
@@ -264,13 +240,13 @@ export default {
 				const Officer = {
 					officer_id: this.gramaniladari_officer.officer_id,
 					nic_no: this.gramaniladari_officer.nic,
-					name: this.gramaniladari_officer.name,					
+					name: this.gramaniladari_officer.name,
 					phone: this.gramaniladari_officer.phone,
 					email: this.gramaniladari_officer.email
-					
 				};
 				const GramaOfficer = {
-					gramaniladari_division_id: this.gramaniladari_officer.gramaniladari_division_id,
+					gramaniladari_division_id: this.gramaniladari_officer
+						.gramaniladari_division_id,
 					grmaniladari_officer_id: this.gramaniladari_officer.officer_id,
 					district_id: this.gramaniladari_officer.district_id,
 					divisional_secratary_id: this.gramaniladari_officer.divisional_id
@@ -278,7 +254,7 @@ export default {
 				const body = {
 					Officer,
 					GramaOfficer
-				}
+				};
 				axios({
 					method: "post",
 					url: "http://localhost:3000/api/gramaniladariofficer/gramaofficer",
@@ -291,7 +267,7 @@ export default {
 					.catch(err => {
 						console.log(err);
 					});
-				
+
 				console.log(
 					JSON.stringify({
 						gramaniladari_officer: this.gramaniladari_officer

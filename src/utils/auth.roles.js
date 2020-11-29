@@ -2,7 +2,10 @@ export const UserRole = {
   Admin: 0,
   Elders: 10,
   DivisionalOfficers: 20,
+  DivisionalOffOfficer: 24,
+  DivisionalOffHead: 26,
   PostOfficers: 30,
   GramaNiladariOffices: 40,
-  Editor: 1
+  Editor: 100,
+  SystemAdmin: 70
 };
