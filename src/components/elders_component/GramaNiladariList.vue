@@ -6,9 +6,10 @@
               <img src="/assets/img/profiles/4.jpg" class="card-img-top" />
             </div>
             <b-card-body>
-              <h6 class="lead text-large text-center">{{ data.name }}</h6>
+              <h6 class="lead text-large text-center">{{ data.oname }}</h6>
               <p class="card-text text-center  mb-0 font-weight-semibold">{{ data.phone }}</p>
               <p class="card-text text-center  mb-0 font-weight-semibold">{{ data.email }}</p>
+              <p class="card-text text-center  text-md">{{ data.dname }}</p>
             </b-card-body>
           </b-card>
         </router-link>

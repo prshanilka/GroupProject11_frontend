@@ -24,7 +24,7 @@
 				</div>
 			</b-colxx>
 			<b-colxx lg="3" md="12" class="mb-3 text-center">
-				<b-button class="mb-2" size="xs" style="margin-top:20px;" variant="primary">View Details</b-button>
+				<b-button class="mb-2" size="xs" style="margin-top:20px;" variant="primary" :to="detailPath">View Details</b-button>
 			</b-colxx>
 		</b-row>
 	</div>

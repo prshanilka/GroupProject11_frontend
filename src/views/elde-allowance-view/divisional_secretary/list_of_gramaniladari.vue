@@ -9,7 +9,7 @@
 				<list-with-user-item
 					v-for="(item, index) in filteredList"
 					:data="item"
-					detail-path="#"
+					:detail-path="'/grama/gramaniladai-officer-details/'+item.gramaniladari_division_id"
 					:key="index"
 				/>
         </b-row>
