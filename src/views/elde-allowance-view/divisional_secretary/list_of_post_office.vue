@@ -9,7 +9,7 @@
 				<list-with-user-item
 					v-for="(item, index) in filteredList"
 					:data="item"
-					detail-path="#"
+					:detail-path="'/post/get_details_postoffice/'+item.post_office_id"
 					:key="index"
 				/>
         </b-row>
