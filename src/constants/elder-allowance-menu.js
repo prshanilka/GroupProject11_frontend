@@ -700,7 +700,7 @@ const data = [
     label: "menu.aprove-agents",
     to: `/grama/aprove-agents`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
-  }
+  },
 
   ///////////////////////////////////
   // {
@@ -710,7 +710,7 @@ const data = [
   //   to: `/app/dashboards/`,
   //   roles: [UserRole.Editor]
   // }
-=======
+  {
     id: "dashboard",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
