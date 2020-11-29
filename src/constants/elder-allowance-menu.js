@@ -1,4 +1,4 @@
-import { adminRoot, elderRoot } from "./config";
+import { adminRoot, elderRoot, dofficerRoot } from "./config";
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
@@ -28,8 +28,42 @@ const data = [
     id: "agent-form",
     icon: "simple-icon-user-following",
     label: "menu.agentform",
-    to: `/elder/agent-form`,
-    roles: [UserRole.Editor, UserRole.Elders]
+
+    to: `/elder`,
+    roles: [UserRole.Editor],
+    subs: [
+      {
+        icon: "simple-icon-user-following",
+        label: "menu.elder-dashboard",
+        to: `/elder/elder-dashboard`
+      },
+      {
+        icon: "simple-icon-user-following",
+        label: "menu.elder-pament-details",
+        to: `/elder/elder-pament-details`
+      },
+      {
+        icon: "simple-icon-user-following",
+        label: "menu.reason-about-payments",
+        to: `/elder/reason-about-payments`
+      },
+      {
+        icon: "simple-icon-user-following",
+        label: "menu.agentform",
+        to: `/elder/agent-form`
+      },
+      {
+        icon: "iconsminds-male-female",
+        label: "menu.elderform",
+        to: `/elder/elder-form`
+      },
+      {
+        icon: "iconsminds-network",
+        label: "menu.elderlist",
+        to: `/elder/elder-list`
+      }
+    ]
+    
   },
   {
     id: "elder-form",
@@ -632,6 +666,7 @@ const data = [
   },
 
   {
+
     id: "send-complains",
     icon: "iconsminds-add-user",
     label: "menu.send-complains",
@@ -675,5 +710,33 @@ const data = [
   //   to: `/app/dashboards/`,
   //   roles: [UserRole.Editor]
   // }
+=======
+    id: "dashboard",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `/app/dashboards/`,
+    roles: [UserRole.Editor]
+  },
+
+  ////////////////////////////////////////////////////////
+  //Divisinal Officer
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_do",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${dofficerRoot}/dashboard/`,
+    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
+  },
+  {
+    id: "pendingapplications",
+    icon: "simple-icon-equalizer",
+    label: "menu.pendingapplications",
+    to: `${dofficerRoot}/pendingapplications/`,
+    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
+  },
+  
+
+
 ];
 export default data;
