@@ -104,6 +104,14 @@ export default {
 					width: "5%"
 				},
 				{
+					name: "elder_id",
+					sortField: "elder_id",
+					title: "elder_id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "12%"
+				},
+				{
 					name: "name",
 					sortField: "name",
 					title: "name",
@@ -159,7 +167,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/paymentposttoben/post/11000/4"
+				"http://localhost:3000/api/paymentposttoben/post/11000/2020/1"
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
