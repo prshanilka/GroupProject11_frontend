@@ -19,7 +19,6 @@ export default {
 			document.body.classList.add("ltr");
 			document.dir = "ltr";
 			document.body.classList.remove("rtl");
-		
 	}
 };
 </script>

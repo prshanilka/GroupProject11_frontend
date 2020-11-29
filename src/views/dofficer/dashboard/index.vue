@@ -7,7 +7,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-import UserCardElder from "../../../containers/elder/UserCardElder";
+import UserCardElder from "../../../containers/elder-alowance/dofficer/UserCard";
 export default {
 
   components: {

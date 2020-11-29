@@ -27,13 +27,7 @@
 				</b-button-group>
 			</div>
 			<b-form>
-          <b-row>
-            <b-colxx xxs="12" md="4">
-								 <b-form-select v-model="filter.grama_division" :options="selectData"  @change="filterChange(filter)" ></b-form-select>
 
-            </b-colxx>
-
-          </b-row>
       </b-form>
 			<!-- <piaf-breadcrumb /> -->
 			<div class="mb-2 mt-2">
@@ -42,12 +36,11 @@
 					<i class="simple-icon-arrow-down align-middle" />
 				</b-button>
 				<b-collapse id="displayOptions" class="d-md-block">
-					<div class="d-block d-md-inline-block pt-1">
-						<div class="search-sm d-inline-block float-md-left mr-1 align-top">
-							<b-input :placeholder="$t('menu.search')" @input="(val) => searchChange(val)" /> 
-						</div>
-
-					</div>
+					  <b-colxx xxs="8" md="2">
+              <b-form-group :label="$t('application.gramaniladharidivision')">
+                <v-select v-model="filter.grama_division" :options="garamaDivision" @input="filterChange(filter)" />
+              </b-form-group>
+            </b-colxx>
 					<div class="float-md-right pt-1">
 						<span class="text-muted text-small mr-1 mb-2">{{from}}-{{to}} of {{ total }}</span>
 						<b-dropdown
@@ -74,6 +67,8 @@
 <script>
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
+import { bUrl } from '../../../constants/config'
+
 export default {
 	components: {
     "v-select": vSelect
@@ -91,17 +86,11 @@ export default {
 		"to",
 		"total",
 		"perPage",
+		"garamaDivision",
 	],
 	data() {
 		return {
-      selectData: [
-        "Chocolate",
-        "Vanilla",
-        "Strawberry",
-        "Caramel",
-        "Cookies and Cream",
-        "Peppermint"
-      ],
+
 			filter:{},
 			categories: [
 				{
@@ -143,6 +132,13 @@ export default {
 			],
 			pageSizes: [4, 8, 12]
 		};
-	}
+
+	},
+	watch: {
+  selectData: function (newVal) {
+    this.filterChange(filter)
+	},
+
+}
 };
 </script>
