@@ -166,6 +166,14 @@ const routes = [
     props: true
   },
   {
+    path: "/post/get_details_postoffice/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/get_details_postoffice"
+      ),
+    props: true
+  },
+  {
     path: "/post/elders-related-to-post-off",
     component: () =>
       import(
