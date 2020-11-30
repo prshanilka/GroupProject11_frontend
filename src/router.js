@@ -222,10 +222,15 @@ const routes = [
       {
         path: "pendingapplications",
         component: () =>
-          import(
-            /* webpackChunkName: "dashboards" */ "./views/dofficer/pendingapplications"
-          )
-      }
+
+        import(/* webpackChunkName: "dashboards" */ "./views/dofficer/pendingapplications")
+      },
+      {
+        path: "selectedapplications",
+        component: () =>
+        import(/* webpackChunkName: "dashboards" */ "./views/dofficer/selectedapplications")
+      },
+
     ]
   },
   ////////////////////////////////////////////////////////////////////////
