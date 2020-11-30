@@ -1,4 +1,5 @@
 <template>
+  <app-layout>
   <b-row>
     <b-colxx md="6" sm="6" lg="4" xxs="12">
       <b-card class="mb-4 text-center">
@@ -41,16 +42,18 @@
   <user-card-elder></user-card-elder>
   </b-colxx>
   </b-row>
-  
+  </app-layout>
 </template>
 
 <script>
 
 import UserCardElder from "../../../containers/elder/UserCardElder";
-
+import AppLayout from "../../../layouts/EAppLayout";
 export default {
   components: {
-   "user-card-elder": UserCardElder
+   "user-card-elder": UserCardElder,
+   "app-layout": AppLayout
   },
 };
+
 </script>

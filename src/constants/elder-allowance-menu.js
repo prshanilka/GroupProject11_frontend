@@ -138,14 +138,14 @@ const data = [
     id: "admin-dashboard",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
-    to: "/sysadmin/",
+    to: `${sysAdminRoot}/dashboards/`,
     roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
   {
     id: "admin-add-officer",
     icon: "iconsminds-add-user",
     label: "menu.add-officer",
-    to: "/sysadmin/",
+    to: `/sysadmin`,
     roles: [UserRole.SystemAdmin, UserRole.Editor],
     subs: [
       {
@@ -169,7 +169,7 @@ const data = [
     id: "admin-add-offices",
     icon: "iconsminds-home",
     label: "menu.add-offices",
-    to: "/sysadmin/",
+    to: `/sysadmin`,
     roles: [UserRole.SystemAdmin, UserRole.Editor],
     subs: [
       {
@@ -198,7 +198,7 @@ const data = [
     id: "admin-list",
     icon: "iconsminds-notepad",
     label: "menu.list",
-    to: `/sysadmin/`,
+    to: `/sysadmin`,
     roles: [UserRole.Editor, UserRole.SystemAdmin],
     subs: [
       {

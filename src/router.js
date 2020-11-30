@@ -112,28 +112,19 @@ const routes = [
   ////////////System Admin//////////////////////
   {
     path: sysAdminRoot,
-    component: () => import(/* webpackChunkName: "app" */ "./views/sysadmin"),
-    redirect: `${sysAdminRoot}/dashboards`,
-
+    component: () => import(/* webpackChunkName: "app" */ "./views/sysadmin/dashboards/Default"),
+    redirect: `${sysAdminRoot}/dashboards/Default`,
+    meta: {
+      loginRequired: true,
+      roles: [UserRole.Admin, UserRole.SystemAdmin]
+    },
     children: [
       {
         path: "dashboards",
         component: () =>
           import(
-            /* webpackChunkName: "dashboards" */ "./views/sysadmin/dashboards"
-          ),
-        redirect: `${sysAdminRoot}/dashboards/default`,
-        // meta: { roles: [UserRole.Admin, UserRole.Editor] },
-        children: [
-          {
-            path: "default",
-            component: () =>
-              import(
-                /* webpackChunkName: "dashboards" */ "./views/sysadmin/dashboards/Default"
-              )
-            // meta: { roles: [UserRole.Admin] },
-          }
-        ]
+            /* webpackChunkName: "dashboards" */ "./views/sysadmin/dashboards/Default"
+          )  
       },
       {
         path: "/sysadmin/gramaniladai-division-form",
@@ -177,6 +168,13 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_form"
           )
       },
+      {
+    path: "/sysadmin/officer-post",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_officer_form"
+      )
+    },
       {
         path: "/sysadmin/district-office-form",
         component: () =>
