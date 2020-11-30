@@ -158,7 +158,7 @@ const routes = [
       )
   },
   {
-    path: "/post/get-elder-detail-verification/:id",
+    path: "/post/get-elder-detail-verification/:id/:pay_id",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/get_elder_detail_verification"
@@ -170,6 +170,14 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/get_details_postoffice"
+      ),
+    props: true
+  },
+  {
+    path: "/post/list_of_histrory_elders.vue/:post_off/:year/:month",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/list_of_histrory_elders"
       ),
     props: true
   },
@@ -194,7 +202,15 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/send_reports"
       )
   },
+  {
+    path: "/post/paynemt-histroy",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/paynemt_histroy"
+      )
+  },
 
+  ////////////////////////////////////////////////////////////////////////////////
   {
     path: "/admin/post-office",
     component: () =>

@@ -253,7 +253,7 @@ const data = [
     id: "get-elder-detail-verification",
     icon: "iconsminds-post-mail-2",
     label: "menu.get-elder-detail-verification",
-    to: `/post/get-elder-detail-verification/2`,
+    to: `/post/get-elder-detail-verification/13/117`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
   {
@@ -263,6 +263,14 @@ const data = [
     to: `/post/elders-related-to-post-off`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
+  {
+    id: "paynemt-histroy",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.elders-related-to-post-off",
+    to: `/post/paynemt-histroy`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
+
   // {
   //   id: "assign-post-officers",
   //   icon: "iconsminds-post-mail-2",

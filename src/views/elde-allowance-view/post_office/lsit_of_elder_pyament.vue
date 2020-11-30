@@ -154,6 +154,14 @@ export default {
 					width: "15%"
 				},
 				{
+					name: "is_taken_money",
+					sortField: "is_taken_money",
+					title: "revive",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "5%"
+				},
+				{
 					name: "__slot:actions",
 					title: "",
 					titleClass: "center aligned text-right",

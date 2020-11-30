@@ -1,8 +1,11 @@
-<template>
+ 
+ 
+ <template>
 	<AppLayout>
 		<div>
+			<h1 class="center">The Year{{this.year}} Month {{this.month}}</h1>
 			<datatable-heading
-				title="List Of the benifishers to the perticular grama Division"
+				title="This Previous elder Payments To the Month is Post Office List Of     "
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
@@ -25,7 +28,6 @@
 						:per-page="perPage"
 						:reactive-api-url="true"
 						:fields="fields"
-						q
 						pagination-path
 						:row-class="onRowClass"
 						@vuetable:pagination-data="onPaginationData"
@@ -72,7 +74,7 @@ import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 export default {
 	props: ["title"],
 	components: {
-		name: "list-benfishers",
+		name: "post-officer-eldesr-payment",
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
@@ -95,9 +97,9 @@ export default {
 
 			fields: [
 				{
-					name: "benifesher_id",
-					sortField: "benifesher_id",
-					title: "BenFisher Id",
+					name: "payment_id",
+					sortField: "payment_id",
+					title: "payment_id",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "5%"
@@ -105,76 +107,81 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "Elder Id",
+					title: "elder_id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "5%"
+					width: "12%"
 				},
-
 				{
 					name: "name",
 					sortField: "name",
-					title: "Name",
+					title: "name",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "12%"
+				},
+				{
+					name: "money_amount",
+					sortField: "money_amount",
+					title: "money_amount",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "15%"
 				},
 				{
-					name: "address",
-					sortField: "address",
-					title: "address",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "20%"
-				},
-				{
-					name: "number",
-					sortField: "number",
-					title: "Phone number",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "10%"
-				},
-				{
-					name: "email",
-					sortField: "email",
-					title: "email",
+					name: "ajent_available",
+					sortField: "ajent_available",
+					title: "ajent_available",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
 				},
 
 				{
-					name: "added_officer_id",
-					sortField: "added_officer_id",
-					title: "Added Off Id",
+					name: "nic_id",
+					sortField: "nic_id",
+					title: "nic_id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "15%"
+				},
+
+				{
+					name: "number",
+					sortField: "number",
+					title: "number",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "15%"
+				},
+				{
+					name: "is_taken_money",
+					sortField: "is_taken_money",
+					title: "revive",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "5%"
-				},
-				{
-					name: "added_date",
-					sortField: "added_date",
-					title: "Added Date",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "20%"
 				},
 				{
 					name: "__slot:actions",
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "5%"
+					width: "10%"
 				}
 			]
 		};
 	},
-
+	props: ["post_off", "year", "month"],
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/gramadivision/benifisherlist/280"
+				"http://localhost:3000/api/paymentposttoben/post/" +
+					this.post_off +
+					"/" +
+					this.year +
+					"/" +
+					this.month
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
@@ -308,3 +315,4 @@ export default {
  
 
 
+ 
