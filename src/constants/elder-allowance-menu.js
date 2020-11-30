@@ -1,6 +1,4 @@
-
-import { adminRoot, elderRoot, sysAdminRoot } from "./config"
-import { adminRoot, elderRoot, dofficerRoot } from "./config";
+import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot } from "./config";
 
 import { UserRole } from "../utils/auth.roles";
 
@@ -66,7 +64,6 @@ const data = [
         to: `/elder/elder-list`
       }
     ]
-    
   },
   {
     id: "elder-form",
@@ -169,13 +166,13 @@ const data = [
   //       }
   //     ]
   // }
-/////////////System Admin/////////////////////
+  /////////////System Admin/////////////////////
   {
     id: "admin-dashboard",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
     to: "/sysadmin/",
-    roles: [UserRole.SystemAdmin, UserRole.Editor],
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
   {
     id: "admin-add-officer",
@@ -211,17 +208,17 @@ const data = [
       {
         icon: "iconsminds-the-white-house",
         label: "menu.district-office",
-        to: `/sysadmin/district-office-form`,
+        to: `/sysadmin/district-office-form`
       },
       {
         icon: "iconsminds-the-white-house",
         label: "menu.divisional-office-form",
-        to: `/sysadmin/divisional-office-form`,
+        to: `/sysadmin/divisional-office-form`
       },
       {
         icon: "iconsminds-city-hall",
         label: "menu.gramaniladai-division-form",
-        to: `/sysadmin/gramaniladai-division-form`,
+        to: `/sysadmin/gramaniladai-division-form`
       },
       {
         icon: "iconsminds-post-mail-2",
@@ -235,10 +232,7 @@ const data = [
     icon: "iconsminds-notepad",
     label: "menu.list",
     to: `/sysadmin/`,
-    roles: [
-      UserRole.Editor,
-      UserRole.SystemAdmin
-    ],
+    roles: [UserRole.Editor, UserRole.SystemAdmin],
     subs: [
       {
         icon: "iconsminds-column",
@@ -328,7 +322,7 @@ const data = [
     id: "get-elder-detail-verification",
     icon: "iconsminds-post-mail-2",
     label: "menu.get-elder-detail-verification",
-    to: `/post/get-elder-detail-verification/2`,
+    to: `/post/get-elder-detail-verification/13/117`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
   {
@@ -338,6 +332,14 @@ const data = [
     to: `/post/elders-related-to-post-off`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
+  {
+    id: "paynemt-histroy",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.elders-related-to-post-off",
+    to: `/post/paynemt-histroy`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
+
   // {
   //   id: "assign-post-officers",
   //   icon: "iconsminds-post-mail-2",
@@ -707,7 +709,6 @@ const data = [
   },
 
   {
-
     id: "send-complains",
     icon: "iconsminds-add-user",
     label: "menu.send-complains",
@@ -741,8 +742,7 @@ const data = [
     label: "menu.aprove-agents",
     to: `/grama/aprove-agents`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
-  }
-
+  },
   ///////////////////////////////////
   // {
   //   id: "dashboard",
@@ -751,7 +751,7 @@ const data = [
   //   to: `/app/dashboards/`,
   //   roles: [UserRole.Editor]
   // }
-=======
+  {
     id: "dashboard",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
@@ -775,9 +775,6 @@ const data = [
     label: "menu.pendingapplications",
     to: `${dofficerRoot}/pendingapplications/`,
     roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
-  },
-  
-
-
+  }
 ];
 export default data;

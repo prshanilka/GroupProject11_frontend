@@ -95,6 +95,14 @@ export default {
 
 			fields: [
 				{
+					name: "post_office_id",
+					sortField: "post_office_id",
+					title: "Post Code",
+					titleClass: "",
+					dataClass: "list-item-heading",
+					width: "5%"
+				},
+				{
 					name: "name",
 					sortField: "name",
 					title: "Name",
@@ -117,6 +125,15 @@ export default {
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
+				},
+
+				{
+					name: "year",
+					sortField: "year",
+					title: "Year",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
 				},
 				{
 					name: "month",

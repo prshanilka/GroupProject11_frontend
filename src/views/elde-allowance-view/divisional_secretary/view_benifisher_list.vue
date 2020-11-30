@@ -1,10 +1,5 @@
- 
-
- 
-
  <template>
 	<AppLayout>
-		<h1>View The benifisher list i the division</h1>
 		<div>
 			<datatable-heading
 				:title="$t('menu.benifisher')"
@@ -30,6 +25,7 @@
 						:per-page="perPage"
 						:reactive-api-url="true"
 						:fields="fields"
+						q
 						pagination-path
 						:row-class="onRowClass"
 						@vuetable:pagination-data="onPaginationData"
@@ -100,7 +96,7 @@ export default {
 				{
 					name: "benifesher_id",
 					sortField: "benifesher_id",
-					title: "benifisher Id",
+					title: "BenFisher Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "5%"
@@ -108,26 +104,19 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "5%"
 				},
-				{
-					name: "elder_id",
-					sortField: "elder_id",
-					title: "elder_id",
-					titleClass: "",
-					dataClass: "list-item-heading",
-					width: "20%"
-				},
+
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "15%"
 				},
 				{
 					name: "address",
@@ -143,7 +132,7 @@ export default {
 					title: "Phone number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "10%"
 				},
 				{
 					name: "email",
@@ -151,24 +140,24 @@ export default {
 					title: "email",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "10%"
 				},
 
 				{
 					name: "added_officer_id",
 					sortField: "added_officer_id",
-					title: "added_officer_id",
+					title: "Added Off Id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "5%"
 				},
 				{
 					name: "added_date",
 					sortField: "added_date",
-					title: "added_date",
+					title: "Added Date",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "20%"
 				},
 				{
 					name: "__slot:actions",
