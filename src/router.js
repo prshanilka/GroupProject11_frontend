@@ -20,7 +20,7 @@ const routes = [
     path: elderRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/elder"),
     redirect: `${elderRoot}/dashboards`,
-    meta: { loginRequired: true },
+    meta: {  },
     /*
     define with Authorization :
     meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] },
@@ -114,10 +114,7 @@ const routes = [
     path: sysAdminRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/sysadmin/dashboards/Default"),
     redirect: `${sysAdminRoot}/dashboards/Default`,
-    meta: {
-      loginRequired: true,
-      roles: [UserRole.Admin, UserRole.SystemAdmin]
-    },
+   
     children: [
       {
         path: "dashboards",
