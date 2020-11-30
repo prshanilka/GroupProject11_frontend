@@ -98,23 +98,55 @@ export default {
 					title: "elder_id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "20%"
+					width: "5%"
 				},
 				{
-					name: "grmaniladari_officer_id",
-					sortField: "grmaniladari_officer_id",
-					title: "grmaniladari_officer_id",
+					name: "name",
+					sortField: "name",
+					title: "Name",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
+				},
+				{
+					name: "nic_id",
+					sortField: "nic_id",
+					title: "Nic Id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
+				},
+				{
+					name: "email",
+					sortField: "email",
+					title: "email",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
+				},
+				{
+					name: "address",
+					sortField: "address",
+					title: "address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
+				},
+				{
+					name: "divname",
+					sortField: "divname",
+					title: "Gama Div NAme",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "15%"
 				},
 				{
 					name: "gramaniladari_division_id",
 					sortField: "gramaniladari_division_id",
-					title: "added_officer_id",
+					title: "Grama  Id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "10%"
 				},
 				{
 					name: "marks",
@@ -137,7 +169,12 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/prioritylist/");
+			return axios
+				.get("http://localhost:3000/api/prioritylist/div/G1")
+				.then(res => {
+					console.log(res);
+					return res;
+				});
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];

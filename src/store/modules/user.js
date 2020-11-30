@@ -6,8 +6,7 @@ import bapi from "../../api/auth";
 import axios from "axios";
 export default {
   state: {
-    currentUser:
-    localStorage.getItem("user") != null ? getCurrentUser() : currentUser,
+    currentUser:localStorage.getItem("user") != null ? getCurrentUser() : currentUser,
     loginError: null,
     processing: false,
     forgotMailSuccess: null,

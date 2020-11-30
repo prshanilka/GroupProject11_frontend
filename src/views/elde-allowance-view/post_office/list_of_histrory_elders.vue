@@ -1,7 +1,11 @@
-<template>
+ 
+ 
+ <template>
+	<AppLayout>
 		<div>
+			<h1 class="center">The Year{{this.year}} Month {{this.month}}</h1>
 			<datatable-heading
-				:title="$t('menu.divided-table')"
+				title="This Previous elder Payments To the Month is Post Office List Of     "
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
@@ -57,10 +61,12 @@
 				</v-contextmenu-item>
 			</v-contextmenu>
 		</div>
+	</AppLayout>
 </template>
 
 <script>
 import axios from "axios";
+import AppLayout from "../../../layouts/EAppLayout";
 import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
 import { bUrl } from "../../../constants/config";
@@ -68,6 +74,8 @@ import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 export default {
 	props: ["title"],
 	components: {
+		name: "post-officer-eldesr-payment",
+		AppLayout: AppLayout,
 		vuetable: Vuetable,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
 		"datatable-heading": DatatableHeading
@@ -89,51 +97,92 @@ export default {
 
 			fields: [
 				{
-					name: "name",
-					sortField: "name",
-					title: "Name",
+					name: "payment_id",
+					sortField: "payment_id",
+					title: "payment_id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "50%"
+					width: "5%"
 				},
 				{
-					name: "address",
-					sortField: "address",
-					title: "address",
+					name: "elder_id",
+					sortField: "elder_id",
+					title: "elder_id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "12%"
+				},
+				{
+					name: "name",
+					sortField: "name",
+					title: "name",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "12%"
+				},
+				{
+					name: "money_amount",
+					sortField: "money_amount",
+					title: "money_amount",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "15%"
+				},
+				{
+					name: "ajent_available",
+					sortField: "ajent_available",
+					title: "ajent_available",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
 				},
+
 				{
-					name: "birth_day",
-					sortField: "birth_day",
-					title: "birth_day",
+					name: "nic_id",
+					sortField: "nic_id",
+					title: "nic_id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
+
 				{
 					name: "number",
 					sortField: "number",
 					title: "number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "15%"
+				},
+				{
+					name: "is_taken_money",
+					sortField: "is_taken_money",
+					title: "revive",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "5%"
 				},
 				{
 					name: "__slot:actions",
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "5%"
+					width: "10%"
 				}
 			]
 		};
 	},
-
+	props: ["post_off", "year", "month"],
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/elders");
+			return axios.get(
+				"http://localhost:3000/api/paymentposttoben/post/" +
+					this.post_off +
+					"/" +
+					this.year +
+					"/" +
+					this.month
+			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
@@ -266,3 +315,4 @@ export default {
  
 
 
+ 

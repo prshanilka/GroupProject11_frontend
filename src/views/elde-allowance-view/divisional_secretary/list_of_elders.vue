@@ -93,12 +93,20 @@ export default {
 
 			fields: [
 				{
+					name: "elder_id",
+					sortField: "elder_id",
+					title: "Elder Id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "5%"
+				},
+				{
 					name: "name",
 					sortField: "name",
 					title: "Name",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "50%"
+					width: "10%"
 				},
 				{
 					name: "address",
@@ -106,7 +114,7 @@ export default {
 					title: "address",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "birth_day",
@@ -122,7 +130,15 @@ export default {
 					title: "number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "10%"
+				},
+				{
+					name: "email",
+					sortField: "email",
+					title: "Email",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
 				},
 				{
 					name: "__slot:actions",

@@ -104,6 +104,14 @@ export default {
 					width: "5%"
 				},
 				{
+					name: "elder_id",
+					sortField: "elder_id",
+					title: "elder_id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "12%"
+				},
+				{
 					name: "name",
 					sortField: "name",
 					title: "name",
@@ -146,6 +154,14 @@ export default {
 					width: "15%"
 				},
 				{
+					name: "is_taken_money",
+					sortField: "is_taken_money",
+					title: "revive",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "5%"
+				},
+				{
 					name: "__slot:actions",
 					title: "",
 					titleClass: "center aligned text-right",
@@ -159,7 +175,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/paymentposttoben/post/11000/4"
+				"http://localhost:3000/api/paymentposttoben/post/11000/2020/1"
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {

@@ -3,18 +3,22 @@
 		<b-colxx xxs="12" md="10" class="mx-auto my-auto">
 			<b-card class="auth-card" no-body>
 				<div class="position-relative image-side">
-					<p class="text-white h2">{{ $t("dashboards.magic-is-in-the-details") }}</p>
-					<p class="white mb-0">
+					<p class="h2 mb-5">Welcome To National Secretariat for Elders</p>
+					<h3 class="white mt-5 font-weight-bolder">
 						Please use your credentials to login.
-						<br />If you are not a member, please
-						<router-link tag="a" to="/user/register" class="white">register</router-link>.
-					</p>
+						<br />If you are not a member,
+						<router-link tag="a" to="/user/register" class="white">
+							<br />
+							<br />
+							<I>please register click Here</I>
+						</router-link>.
+					</h3>
 				</div>
 				<div class="form-side">
 					<router-link tag="a" to="/">
 						<span class="logo-single" />
 					</router-link>
-					<h6 class="mb-4">{{ $t("user.login-title") }}</h6>
+					<h6 class="mb-4">{{ $t('user.login-title')}}</h6>
 
 					<b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-bottom">
 						<b-form-group :label="$t('user.username')" class="has-float-label mb-4">
@@ -85,7 +89,9 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import { validationMixin } from "vuelidate";
-import { adminRoot, elderRoot } from "../../constants/config";
+import { adminRoot, elderRoot, dofficerRoot } from "../../constants/config";
+import { UserRole } from "../../utils/auth.roles";
+
 const {
 	required,
 	maxLength,
@@ -138,12 +144,11 @@ export default {
 	},
 	watch: {
 		currentUser(val) {
-			if (val && val.role && val.uid.length > 0) {
-				setTimeout(() => {
-					this.$router.push(elderRoot);
-				}, 20);
+
+			if (val && val.role == UserRole.DivisionalOfficers ) {
+					this.$router.push(dofficerRoot);
 			}
-			if (val && val.uid && val.uid.length > 0) {
+			else if (val && val.uid) {
 				setTimeout(() => {
 					this.$router.push("/elder/dashboards/default");
 				}, 2);
