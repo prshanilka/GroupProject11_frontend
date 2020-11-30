@@ -29,41 +29,8 @@ const data = [
     id: "agent-form",
     icon: "simple-icon-user-following",
     label: "menu.agentform",
-
-    to: `/elder`,
-    roles: [UserRole.Editor],
-    subs: [
-      {
-        icon: "simple-icon-user-following",
-        label: "menu.elder-dashboard",
-        to: `/elder/elder-dashboard`
-      },
-      {
-        icon: "simple-icon-user-following",
-        label: "menu.elder-pament-details",
-        to: `/elder/elder-pament-details`
-      },
-      {
-        icon: "simple-icon-user-following",
-        label: "menu.reason-about-payments",
-        to: `/elder/reason-about-payments`
-      },
-      {
-        icon: "simple-icon-user-following",
-        label: "menu.agentform",
-        to: `/elder/agent-form`
-      },
-      {
-        icon: "iconsminds-male-female",
-        label: "menu.elderform",
-        to: `/elder/elder-form`
-      },
-      {
-        icon: "iconsminds-network",
-        label: "menu.elderlist",
-        to: `/elder/elder-list`
-      }
-    ]
+    to: "/elder/agent-form",
+    roles: [UserRole.Editor, UserRole.Elders]
   },
   {
     id: "elder-form",
