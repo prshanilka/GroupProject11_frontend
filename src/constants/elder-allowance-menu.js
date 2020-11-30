@@ -1,4 +1,5 @@
-import { adminRoot, elderRoot, dofficerRoot } from "./config";
+import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot } from "./config";
+
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
@@ -28,42 +29,8 @@ const data = [
     id: "agent-form",
     icon: "simple-icon-user-following",
     label: "menu.agentform",
-
-    to: `/elder`,
-    roles: [UserRole.Editor],
-    subs: [
-      {
-        icon: "simple-icon-user-following",
-        label: "menu.elder-dashboard",
-        to: `/elder/elder-dashboard`
-      },
-      {
-        icon: "simple-icon-user-following",
-        label: "menu.elder-pament-details",
-        to: `/elder/elder-pament-details`
-      },
-      {
-        icon: "simple-icon-user-following",
-        label: "menu.reason-about-payments",
-        to: `/elder/reason-about-payments`
-      },
-      {
-        icon: "simple-icon-user-following",
-        label: "menu.agentform",
-        to: `/elder/agent-form`
-      },
-      {
-        icon: "iconsminds-male-female",
-        label: "menu.elderform",
-        to: `/elder/elder-form`
-      },
-      {
-        icon: "iconsminds-network",
-        label: "menu.elderlist",
-        to: `/elder/elder-list`
-      }
-    ]
-    
+    to: "/elder/agent-form",
+    roles: [UserRole.Editor, UserRole.Elders]
   },
   {
     id: "elder-form",
@@ -166,58 +133,93 @@ const data = [
   //       }
   //     ]
   // }
+  /////////////System Admin/////////////////////
+  {
+    id: "admin-dashboard",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${sysAdminRoot}/dashboards/`,
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
+  },
+  {
+    id: "admin-add-officer",
+    icon: "iconsminds-add-user",
+    label: "menu.add-officer",
+    to: `/sysadmin`,
+    roles: [UserRole.SystemAdmin, UserRole.Editor],
+    subs: [
+      {
+        icon: "iconsminds-add-user",
+        label: "menu.divisional-office-officer",
+        to: `/sysadmin/divisional-office-officer`
+      },
+      {
+        icon: "iconsminds-add-user",
+        label: "menu.postoffice-officer",
+        to: `/sysadmin/officer-post`
+      },
+      {
+        icon: "iconsminds-add-user",
+        label: "menu.gramaniladai-officer",
+        to: `/sysadmin/gramaniladai-officer`
+      }
+    ]
+  },
+  {
+    id: "admin-add-offices",
+    icon: "iconsminds-home",
+    label: "menu.add-offices",
+    to: `/sysadmin`,
+    roles: [UserRole.SystemAdmin, UserRole.Editor],
+    subs: [
+      {
+        icon: "iconsminds-the-white-house",
+        label: "menu.district-office",
+        to: `/sysadmin/district-office-form`
+      },
+      {
+        icon: "iconsminds-the-white-house",
+        label: "menu.divisional-office-form",
+        to: `/sysadmin/divisional-office-form`
+      },
+      {
+        icon: "iconsminds-city-hall",
+        label: "menu.gramaniladai-division-form",
+        to: `/sysadmin/gramaniladai-division-form`
+      },
+      {
+        icon: "iconsminds-post-mail-2",
+        label: "menu.postoffice",
+        to: `/sysadmin/post-office`
+      }
+    ]
+  },
+  {
+    id: "admin-list",
+    icon: "iconsminds-notepad",
+    label: "menu.list",
+    to: `/sysadmin`,
+    roles: [UserRole.Editor, UserRole.SystemAdmin],
+    subs: [
+      {
+        icon: "iconsminds-column",
+        label: "menu.list-of-grama-divisions",
+        to: `/sysadmin/list-of-grama-divisions`
+      },
+      {
+        icon: "iconsminds-business-man-woman",
+        label: "menu.list-of-gramaniladari",
+        to: `/sysadmin/list-of-gramaniladari`
+      },
+      {
+        icon: "iconsminds-post-office",
+        label: "menu.list-of-post-office",
+        to: `/sysadmin/list-of-post-office`
+      }
+    ]
+  },
 
-  {
-    id: "admin-divisional-office-form",
-    icon: "iconsminds-the-white-house",
-    label: "menu.divisional-office-form",
-    to: `/admin/divisional-office-form`,
-    roles: [UserRole.SystemAdmin, UserRole.Editor]
-  },
-  {
-    id: "admin-divisional-office-officer",
-    icon: "iconsminds-add-user",
-    label: "menu.divisional-office-officer",
-    to: `/admin/divisional-office-officer`,
-    roles: [UserRole.SystemAdmin, UserRole.Editor]
-  },
-  {
-    id: "admin-post-office",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.postoffice",
-    to: `/admin/post-office`,
-    roles: [UserRole.SystemAdmin, UserRole.Editor]
-  },
-  {
-    id: "admin-officer-post",
-    icon: "iconsminds-add-user",
-    label: "menu.postoffice-officer",
-    to: `/admin/officer-post`,
-    roles: [UserRole.SystemAdmin, UserRole.Editor]
-  },
-  {
-    id: "admin-district-office-form",
-    icon: "iconsminds-the-white-house",
-    label: "menu.district-office",
-    to: `/admin/district-office-form`,
-    roles: [UserRole.SystemAdmin, UserRole.Editor]
-  },
-  {
-    id: "admin-gramaniladai-division-form",
-    icon: "iconsminds-city-hall",
-    label: "menu.gramaniladai-division-form",
-    to: `/admin/gramaniladai-division-form`,
-    roles: [UserRole.SystemAdmin, UserRole.Editor]
-  },
-  {
-    id: "admin-gramaniladai-officer",
-    icon: "iconsminds-add-user",
-    label: "menu.gramaniladai-officer",
-    to: `/admin/gramaniladai-officer`,
-    roles: [UserRole.SystemAdmin, UserRole.Editor]
-  },
-
-  ///End Admin////////////
+  ///End System Admin////////////
 
   // {
   //   id: "elder",
@@ -287,7 +289,7 @@ const data = [
     id: "get-elder-detail-verification",
     icon: "iconsminds-post-mail-2",
     label: "menu.get-elder-detail-verification",
-    to: `/post/get-elder-detail-verification/2`,
+    to: `/post/get-elder-detail-verification/13/117`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
   {
@@ -297,6 +299,14 @@ const data = [
     to: `/post/elders-related-to-post-off`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
+  {
+    id: "paynemt-histroy",
+    icon: "iconsminds-post-mail-2",
+    label: "menu.elders-related-to-post-off",
+    to: `/post/paynemt-histroy`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
+
   // {
   //   id: "assign-post-officers",
   //   icon: "iconsminds-post-mail-2",
@@ -666,7 +676,6 @@ const data = [
   },
 
   {
-
     id: "send-complains",
     icon: "iconsminds-add-user",
     label: "menu.send-complains",
@@ -701,7 +710,6 @@ const data = [
     to: `/grama/aprove-agents`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
   },
-
   ///////////////////////////////////
   // {
   //   id: "dashboard",
@@ -729,6 +737,7 @@ const data = [
     roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
   },
   {
+
     id: "applications",
     icon: "iconsminds-digital-drawing",
     label: "menu.applications",

@@ -1,7 +1,8 @@
 <template>
-	<div>
+	<AppLayout>
+		<h1>List ot the post office Payment History</h1>
 		<b-colxx class="mb-4 text-center" lg="12" xxs="12">
-			<h1>This is for Elder Payment History detail List</h1>
+			<h1>Post Offices</h1>
 		</b-colxx>
 		<b-row>
 			<list-with-user-item
@@ -11,7 +12,7 @@
 				:key="index"
 			/>
 		</b-row>
-	</div>
+	</AppLayout>
 </template>
 
 
@@ -19,12 +20,11 @@
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import ListWithUserItem from "../../../components/elders_component/ElderhistoryPayItem.vue";
+import ListWithUserItem from "../../../components/elders_component/PostPaymentItem";
 
 import axios from "axios";
 export default {
 	components: {
-		name: "elder-payment-details",
 		AppLayout: AppLayout,
 		"list-with-user-item": ListWithUserItem
 	},
@@ -35,7 +35,7 @@ export default {
 	},
 	async beforeCreate() {
 		axios
-			.get("http://localhost:3000/api/paymentposttoben//elderhistory/11")
+			.get("http://localhost:3000/api/postoffice/paymenthistory/11000")
 			.then(result => {
 				console.log(result.data.data[0]);
 				this.postpayhistory = result.data.data;

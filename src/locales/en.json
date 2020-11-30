@@ -136,9 +136,16 @@
     "paytopost": "Payment To PostOff",
     "paytoben": "Payments To Benifisher",
     "admin": "Admin",
+
+    "add-offices": "Add Offices",
+    "add-officer": "Add Officer",
+    "list": "List Of",
+
+    "paynemt-histroy": "Payment History ",
+
     "pendingapplications":"Pending Applications",
     "selectedapplications":"Selected Applications",
-    
+
     "postoffice": "Post Office",
     "postoffice-officer": "Post Officer",
     "send-reports": "Send Reports",

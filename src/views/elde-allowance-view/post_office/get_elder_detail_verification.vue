@@ -2,56 +2,65 @@
 	<AppLayout>
 		<b-colxx xl="10" lg="12" style="margin:auto ">
 			<b-card no-body class="mb-4">
-				<b-row>
-					<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-						<h1>Elder Benifisher for Verification {{id}}</h1>
-					</b-colxx>
-					<b-colxx lg="6" md="12" class="mb-4">
-						
-						<single-lightbox
-							thumb="/assets/img/profiles/1.jpg"
-							large="/assets/img/profiles/1.jpg"
-							class-name="card-img-top "
-							class="m-4"
-						/>
-						<p class="mb-3 text-xlarge text-primary text-center " >{{elder.name}}</p>
-						<p class="mb-3 text-center text-danger text-large">{{elder.nic_id}}</p>
-					</b-colxx>
-					<b-colxx lg="6" md="12" class="mb-4">
-						<div class="m-4">
-							
+				<div class="mb-4 mt-4 text-center" v-show="is_submited">
+					<h2 class="mb-2">Succes Fully Updated Payments</h2>
+					<p>Update Complete</p>
+				</div>
+				<div v-show="!is_submited">
+					<b-row>
+						<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
+							<h1>Elder Benifisher for Verification {{id}}</h1>
+						</b-colxx>
+						<b-colxx lg="6" md="12" class="mb-4">
+							<single-lightbox
+								thumb="/assets/img/profiles/1.jpg"
+								large="/assets/img/profiles/1.jpg"
+								class-name="card-img-top "
+								class="m-4"
+							/>
+							<p class="mb-3 text-xlarge text-primary text-center">{{elder.name}}</p>
+							<p class="mb-3 text-center text-danger text-large">{{elder.nic_id}}</p>
+						</b-colxx>
+						<b-colxx lg="6" md="12" class="mb-4">
+							<div class="m-4">
+								<p class="mb-2">Elder Address:</p>
+								<p class="mb-2">{{elder.address}}</p>
 
-							<p class="mb-2">Elder Address:</p>
-							<p class="mb-2">{{elder.address}}</p>
+								<p class="mb-2">Sex:</p>
+								<p class="mb-2">{{elder.sex}}</p>
 
-							<p class="mb-2">Sex:</p>
-							<p class="mb-2 ">{{elder.sex}}</p>
+								<p class="mb-2">Phone No:</p>
+								<p class="mb-2">{{elder.number}}</p>
 
-							<p class="mb-2">Phone No:</p>
-							<p class="mb-2 ">{{elder.number}}</p>
+								<p class="mb-2">Email:</p>
+								<p class="mb-2">{{elder.email}}</p>
 
-							<p class="mb-2">Email:</p>
-							<p class="mb-2 ">{{elder.email}}</p>
+								<p class="mb-2">Date of Birth:</p>
+								<p class="mb-2">{{elder.birth_day}}</p>
 
-							<p class="mb-2">Date of Birth:</p>
-							<p class="mb-2 ">{{elder.birth_day}}</p>
+								<p class="mb-2">Age:</p>
+								<p class="mb-2">{{elder.birth_day}}</p>
+							</div>
+						</b-colxx>
+					</b-row>
 
-							<p class="mb-2">Age:</p>
-							<p class="mb-2 ">{{elder.birth_day}}</p>
-
-						</div>
-					</b-colxx>
-				</b-row>
-				
-					
-									
-				<b-row>
-					<b-colxx  md="12" class="mb-4 text-center" >
-						<b-button type="submit" class="mb-1" variant="outline-primary">Paid</b-button>
-					</b-colxx>
-				</b-row>
-
-				
+					<b-row>
+						<b-colxx md="12" class="mb-4 text-center">
+							<b-button
+								type="submit"
+								variant="primary"
+								@click.prevent="onSubmit"
+								class="mt-4"
+							>Allowance Paid To Elder</b-button>
+							<b-button
+								type="submit"
+								variant="primary"
+								@click.prevent="onPress"
+								class="mt-4"
+							>Allowance Paid To Gradian</b-button>
+						</b-colxx>
+					</b-row>
+				</div>
 			</b-card>
 		</b-colxx>
 	</AppLayout>
@@ -73,14 +82,13 @@ export default {
 	},
 	data() {
 		return {
+			is_submited: false,
 			elder: {}
 		};
 	},
-	props: ["id"],
+	props: ["id", "pay_id"],
 	mixins: [validationMixin],
-	validations: {
-		
-	},
+	validations: {},
 	async created() {
 		axios({
 			method: "get",
@@ -92,34 +100,42 @@ export default {
 		});
 	},
 	methods: {
-		onValitadeFormSubmit() {
-			this.$v.$touch();
-			console.log(this.$v.$invalid + " dis king ");
-			if (!this.$v.$invalid) {
-				const body = {
-					gramaniladari_id: "222",
-					elder_id: this.id
-				};
-				axios({
-					method: "patch",
-					url: "http://localhost:3000/api/verifyelder/gramadisqualify",
-					data: body
-				})
-					.then(res => {
-						console.log("Disqualified res");
-						console.log(res);
-					})
-					.catch(err => {
-						console.log(err);
-					});
-				console.log(
-					JSON.stringify({
-						messsage: "paid"
-					})
-				);
-			}
+		onSubmit() {
+			const data = {
+				payment_id: this.pay_id
+			};
+			console.log(data);
+
+			console.log(this.pay_id);
+			axios({
+				method: "post",
+				url: "http://localhost:3000/api/paymentposttoben/paytoelder",
+				data: data
+			}).then(result => {
+				this.elder = result.data.data;
+				console.log(result);
+				this.is_submited = !this.is_submited;
+				// this.aplications = result.data.data;
+			});
+		},
+		onPress() {
+			const data = {
+				payment_id: this.pay_id
+			};
+			console.log(data);
+
+			console.log(this.pay_id);
+			axios({
+				method: "post",
+				url: "http://localhost:3000/api/paymentposttoben/paytoagent",
+				data: data
+			}).then(result => {
+				this.elder = result.data.data;
+				console.log(result);
+				this.is_submited = !this.is_submited;
+				// this.aplications = result.data.data;
+			});
 		}
-		
 	}
 };
 </script>

@@ -25,7 +25,6 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-
 import UserCardElder from "../../../containers/elder/UserCardElder";
 import GradientWithRadialProgressCard from "../../../components/Cards/GradientWithRadialProgressCard";
 export default {
@@ -37,7 +36,6 @@ export default {
   components: {
    "user-card-elder": UserCardElder,
    "gradient-with-radial-progress-card": GradientWithRadialProgressCard
-
   },
   computed: {
     ...mapGetters(["EApplicationStatus"]),
