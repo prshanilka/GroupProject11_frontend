@@ -106,7 +106,7 @@ const routes = [
   {
     path: sysAdminRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/sysadmin"),
-    redirect: `${sysAdminRoot}/dashboards`,
+    redirect: `/dashboards/`,
 
 
     children: [
@@ -116,7 +116,7 @@ const routes = [
           import(
             /* webpackChunkName: "dashboards" */ "./views/sysadmin/dashboards"
           ),
-        redirect: `${sysAdminRoot}/dashboards/default`,
+        redirect: `/dashboards/default`,
         // meta: { roles: [UserRole.Admin, UserRole.Editor] },
         children: [
           {
@@ -171,6 +171,13 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_form"
           )
       },
+      {
+    path: "/sysadmin/officer-post",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_officer_form"
+      )
+    },
       {
         path: "/sysadmin/district-office-form",
         component: () =>

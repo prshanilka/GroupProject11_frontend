@@ -4,7 +4,6 @@ import Vuex from "vuex";
 import app from "../main";
 import menu from "./modules/menu";
 import user from "./modules/user";
-import application from "./modules/application";
 import chat from "./modules/chat";
 import todo from "./modules/todo";
 import survey from "./modules/survey";
@@ -30,7 +29,6 @@ export default new Vuex.Store({
     user,
     chat,
     todo,
-    survey,
-    application
+    survey
   }
 });

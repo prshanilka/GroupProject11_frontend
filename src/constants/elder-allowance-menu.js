@@ -137,7 +137,7 @@ const data = [
     id: "admin-dashboard",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
-    to: "/sysadmin/",
+    to: `/dashboards/`,
     roles: [UserRole.SystemAdmin, UserRole.Editor],
   },
   {

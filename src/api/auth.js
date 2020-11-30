@@ -16,14 +16,17 @@ export function myF () {
 
 
 export default {
+  getSomeData () {
+    return bapi.get('/endpoint')
+  },
   auth: (req,callBack) => {
     bodyParameters.username=req.username;
     bodyParameters.password=req.password;
   bapi.post('/users/login',bodyParameters
   ).then(
     user => {
-      //console.log("ds");
-      //console.log(user.data);
+      console.log("ds");
+      console.log(user.data);
         if(user.data.success == 0){
           console.log(user.data);
           return callBack(user.data);
