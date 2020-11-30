@@ -1,5 +1,7 @@
 <template>
 	<b-row>
+
+
 		<b-colxx xxs="12">
 			<h1>{{ title }}</h1>
 
@@ -63,12 +65,12 @@
 			<div class="separator mb-5" />
 		</b-colxx>
 	</b-row>
+
 </template>
 <script>
 import vSelect from "vue-select";
 import "vue-select/dist/vue-select.css";
 import { bUrl } from '../../../constants/config'
-
 export default {
 	components: {
     "v-select": vSelect
@@ -92,30 +94,6 @@ export default {
 		return {
 
 			filter:{},
-			categories: [
-				{
-					label: "Cakes",
-					value: "Cakes"
-				},
-				{
-					label: "Cupcakes",
-					value: "Cupcakes"
-				},
-				{
-					label: "Desserts",
-					value: "Desserts"
-				}
-			],
-			statuses: [
-				{
-					text: "ON HOLD",
-					value: "ON HOLD"
-				},
-				{
-					text: "PROCESSED",
-					value: "PROCESSED"
-				}
-			],
 			sortOptions: [
 				{
 					column: "title",
@@ -130,7 +108,7 @@ export default {
 					label: "Status"
 				}
 			],
-			pageSizes: [4, 8, 12]
+			pageSizes: [1,4, 8, 12]
 		};
 
 	},

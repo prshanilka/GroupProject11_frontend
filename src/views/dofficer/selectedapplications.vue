@@ -4,7 +4,7 @@
                 <elder-details :id="clickedVid" />
     </b-modal>
 		<datatable-heading
-			:title="$t('menu.pendingapplications')"
+			:title="$t('menu.selectedapplications')"
 			:selectAll="selectAll"
 			:isSelectedAll="isSelectedAll"
 			:isAnyItemSelected="isAnyItemSelected"
@@ -40,7 +40,7 @@
 				</template>
 				<template slot="actions1" slot-scope="props">
 						<b-button class="mb-1" v-b-modal.modallg @click="clickedVid = props.rowData.vid" variant="outline-primary" >{{ $t('elder.view') }}</b-button>
-						<b-button class="mb-1"  @click="selectApplication(props.rowData.vid)" variant="outline-success" >{{ $t('button.review') }}</b-button>
+						<b-button class="mb-1"  @click="selectApplication(props.rowData.vid)" variant="outline-danger" >{{ $t('button.remove') }}</b-button>
 
 				</template>
 				</vuetable>
@@ -90,7 +90,7 @@ export default {
 	},
 	data() {
 		return {
-			apiBase: "http://localhost:3000/api/application/dappdetails",
+			apiBase: bUrl+"/application/dsappdetails",
 			isLoad: false,
 			sort: "",
 			page: 1,
@@ -301,7 +301,7 @@ export default {
 
 			// eslint-disable-next-line promise/param-names
 			// 	let req = axios.get( bUrl + '/application/selectapplicaton/'+this.clickedVid)
-			let req = axios.patch( bUrl + '/application/selectapplicaton/'+val)
+			let req = axios.patch( bUrl + '/application/removeapplicaton/'+val)
 			req.then(result => result.data)
         .then((data) => {
 					console.log(data)

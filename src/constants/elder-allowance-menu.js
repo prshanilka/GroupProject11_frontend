@@ -729,13 +729,25 @@ const data = [
     roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
   },
   {
-    id: "pendingapplications",
-    icon: "simple-icon-equalizer",
-    label: "menu.pendingapplications",
-    to: `${dofficerRoot}/pendingapplications/`,
-    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
+    id: "applications",
+    icon: "iconsminds-digital-drawing",
+    label: "menu.applications",
+    roles: [UserRole.DivisionalOfficers],
+    subs: [
+      {
+        id: "pages-authorization",
+        label: "menu.pendingapplications",
+        to: `${dofficerRoot}/pendingapplications/`,
+        
+      },
+      {
+        id: "pages-authorization",
+        label: "menu.selectedapplications",
+        to: `${dofficerRoot}/selectedapplications`,
+        
+      },
+    ]
   },
-  
 
 
 ];

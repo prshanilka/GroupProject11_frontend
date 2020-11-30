@@ -19,7 +19,8 @@
     "register-button": "REGISTER",
     "reset-password-button": "RESET",
     "buy": "BUY",
-    "username": "Username"
+    "username": "Username",
+    "review":"Review"
   },
   "form": {
     "address": "Address",
@@ -68,7 +69,9 @@
     "gramaniladhari": "Gramaniladhari",
     "waiting-for-resubmit": "Waiting for resubmit",
     "divisional_officer": "Divisional officer",
-    "divisional_head": "Divisional Head"
+    "divisional_head": "Divisional Head",
+    "details":"Details",
+    "view":"View"
   },
   "agent": {
     "form": "Agent Form",
@@ -133,7 +136,9 @@
     "paytopost": "Payment To PostOff",
     "paytoben": "Payments To Benifisher",
     "admin": "Admin",
-
+    "pendingapplications":"Pending Applications",
+    "selectedapplications":"Selected Applications",
+    
     "postoffice": "Post Office",
     "postoffice-officer": "Post Officer",
     "send-reports": "Send Reports",
