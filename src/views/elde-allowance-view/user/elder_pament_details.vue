@@ -7,7 +7,7 @@
 			<list-with-user-item
 				v-for="(item, index) in postpayhistory"
 				:data="item"
-				:detail-path="'/post/list_of_histrory_elders.vue/'+item.post_office_id+'/'+item.year+'/'+item.month"
+				:detail-path="'/elder/reason-about-payments/'+item.payment_id"
 				:key="index"
 			/>
 		</b-row>
@@ -35,7 +35,7 @@ export default {
 	},
 	async beforeCreate() {
 		axios
-			.get("http://localhost:3000/api/paymentposttoben//elderhistory/11")
+			.get("http://localhost:3000/api/paymentposttoben/elderhistory/11")
 			.then(result => {
 				console.log(result.data.data[0]);
 				this.postpayhistory = result.data.data;

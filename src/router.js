@@ -93,11 +93,12 @@ const routes = [
       },
 
       {
-        path: "/elder/reason-about-payments",
+        path: "/elder/reason-about-payments/:pay_id",
         component: () =>
           import(
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/submit_reason_about_payments"
-          )
+          ),
+          props: true
       },
       {
         path: "/elder/elder-list",

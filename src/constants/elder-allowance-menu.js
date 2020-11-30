@@ -22,7 +22,7 @@ const data = [
     id: "reason-about-payments",
     icon: "simple-icon-user-following",
     label: "menu.reason-about-payments",
-    to: `/elder/reason-about-payments`,
+    to: `/elder/reason-about-payments/114`,
     roles: [UserRole.Editor, UserRole.Elders]
   },
   {
