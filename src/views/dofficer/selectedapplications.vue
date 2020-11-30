@@ -298,7 +298,7 @@ export default {
    selectApplication(val) {
 		 //console.log("ssss")
 		// console.log(val)
-
+			
 			// eslint-disable-next-line promise/param-names
 			// 	let req = axios.get( bUrl + '/application/selectapplicaton/'+this.clickedVid)
 			let req = axios.patch( bUrl + '/application/removeapplicaton/'+val)
