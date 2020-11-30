@@ -133,6 +133,9 @@
     "paytopost": "Payment To PostOff",
     "paytoben": "Payments To Benifisher",
     "admin": "Admin",
+    "add-offices": "Add Offices",
+    "add-officer": "Add Officer",
+    "list": "List Of",
 
     "paynemt-histroy": "Payment History ",
     "postoffice": "Post Office",
@@ -782,5 +785,8 @@
     "prev": "Back",
     "registered": "Your registration completed successfully!",
     "async": "Async save for 3 seconds!"
+  },
+  "application": {
+    "gramaniladharidivision":"Grama Niladhari Division"
   }
 }

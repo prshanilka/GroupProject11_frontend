@@ -89,7 +89,9 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import { validationMixin } from "vuelidate";
-import { adminRoot, elderRoot } from "../../constants/config";
+import { adminRoot, elderRoot, dofficerRoot } from "../../constants/config";
+import { UserRole } from "../../utils/auth.roles";
+
 const {
 	required,
 	maxLength,
@@ -142,12 +144,11 @@ export default {
 	},
 	watch: {
 		currentUser(val) {
-			if (val && val.role && val.uid.length > 0) {
-				setTimeout(() => {
-					this.$router.push(elderRoot);
-				}, 20);
+
+			if (val && val.role == UserRole.DivisionalOfficers ) {
+					this.$router.push(dofficerRoot);
 			}
-			if (val && val.uid && val.uid.length > 0) {
+			else if (val && val.uid) {
 				setTimeout(() => {
 					this.$router.push("/elder/dashboards/default");
 				}, 2);
