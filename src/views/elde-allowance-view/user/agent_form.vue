@@ -1,5 +1,7 @@
 <template>
-	<ajentForm />
+	<div>
+		<ajentForm />
+	</div>
 </template>
 
 
@@ -7,7 +9,7 @@
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import ajentForm from "../../../containers/elder-alowance/agent form";
+import ajentForm from "../../../containers/elder-alowance/agent_form";
 
 export default {
 	name: "elform",
