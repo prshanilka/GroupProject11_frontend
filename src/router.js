@@ -98,7 +98,7 @@ const routes = [
           import(
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/submit_reason_about_payments"
           ),
-          props: true
+        props: true
       },
       {
         path: "/elder/elder-list",
@@ -113,7 +113,10 @@ const routes = [
   ////////////System Admin//////////////////////
   {
     path: sysAdminRoot,
-    component: () => import(/* webpackChunkName: "app" */ "./views/sysadmin/dashboards/Default"),
+    component: () =>
+      import(
+        /* webpackChunkName: "app" */ "./views/sysadmin/dashboards/Default"
+      ),
     redirect: `${sysAdminRoot}/dashboards/Default`,
     meta: {
       loginRequired: true,
@@ -125,8 +128,8 @@ const routes = [
         component: () =>
           import(
             /* webpackChunkName: "dashboards" */ "./views/sysadmin/dashboards/Default"
-          )  
-      } 
+          )
+      }
     ]
   },
   {
@@ -176,7 +179,7 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_officer_form"
-     )
+      )
   },
   {
     path: "/sysadmin/district-office-form",
@@ -192,7 +195,7 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_form"
       )
   },
-  
+
   {
     path: "/sysadmin/divisional-office-officer",
     component: () =>
@@ -223,15 +226,17 @@ const routes = [
       {
         path: "pendingapplications",
         component: () =>
-
-        import(/* webpackChunkName: "dashboards" */ "./views/dofficer/pendingapplications")
+          import(
+            /* webpackChunkName: "dashboards" */ "./views/dofficer/pendingapplications"
+          )
       },
       {
         path: "selectedapplications",
         component: () =>
-        import(/* webpackChunkName: "dashboards" */ "./views/dofficer/selectedapplications")
-      },
-
+          import(
+            /* webpackChunkName: "dashboards" */ "./views/dofficer/selectedapplications"
+          )
+      }
     ]
   },
   ////////////////////////////////////////////////////////////////////////
@@ -522,6 +527,16 @@ const routes = [
       ),
     props: true
   },
+  {
+    path: "/division/all-payment-report",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/all_payment_report"
+      )
+  },
+
+  //////////////////////////////
+  //////////////////////////
   //////////////////////////////////////////////
   //gramadivision routes
 
