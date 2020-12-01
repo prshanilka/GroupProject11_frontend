@@ -20,7 +20,7 @@ const routes = [
     path: elderRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/elder"),
     redirect: `${elderRoot}/dashboards`,
-    meta: {  },
+    meta: { loginRequired: true },
     /*
     define with Authorization :
     meta: { loginRequired: true, roles: [UserRole.Admin, UserRole.Editor] },
@@ -114,7 +114,10 @@ const routes = [
     path: sysAdminRoot,
     component: () => import(/* webpackChunkName: "app" */ "./views/sysadmin/dashboards/Default"),
     redirect: `${sysAdminRoot}/dashboards/Default`,
-   
+    meta: {
+      loginRequired: true,
+      roles: [UserRole.SystemAdmin, UserRole.Editor]
+    },
     children: [
       {
         path: "dashboards",
@@ -122,78 +125,79 @@ const routes = [
           import(
             /* webpackChunkName: "dashboards" */ "./views/sysadmin/dashboards/Default"
           )  
-      },
-      {
-        path: "/sysadmin/gramaniladai-division-form",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_ division"
-          )
-      },
-      {
-        path: "/sysadmin/gramaniladai-officer",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_officer_form"
-          )
-      },
-      {
-        path: "/sysadmin/list-of-grama-divisions",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_grama_divisions"
-          )
-      },
-      {
-        path: "/sysadmin/list-of-gramaniladari",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_gramaniladari"
-          )
-      },
-      {
-        path: "/sysadmin/list-of-post-office",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_office"
-          )
-      },
-      {
-        path: "/sysadmin/post-office",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_form"
-          )
-      },
-      {
+      } 
+    ]
+  },
+  {
+    path: "/sysadmin/gramaniladai-division-form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_ division"
+      )
+  },
+  {
+    path: "/sysadmin/gramaniladai-officer",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/grama_niladari_officer_form"
+      )
+  },
+  {
+    path: "/sysadmin/list-of-grama-divisions",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_grama_divisions"
+      )
+  },
+  {
+    path: "/sysadmin/list-of-gramaniladari",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_gramaniladari"
+      )
+  },
+  {
+    path: "/sysadmin/list-of-post-office",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_office"
+      )
+  },
+  {
+    path: "/sysadmin/post-office",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_form"
+      )
+  },
+  {
     path: "/sysadmin/officer-post",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/postoffice_officer_form"
+     )
+  },
+  {
+    path: "/sysadmin/district-office-form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/district_office_form"
       )
-    },
-      {
-        path: "/sysadmin/district-office-form",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/district_office_form"
-          )
-      },
-      {
-        path: "/sysadmin/divisional-office-form",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_form"
-          )
-      },
-      {
-        path: "/sysadmin/divisional-office-officer",
-        component: () =>
-          import(
-            /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_officer_form"
-          )
-      }
-    ]
+  },
+  {
+    path: "/sysadmin/divisional-office-form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_form"
+      )
+  },
+  
+  {
+    path: "/sysadmin/divisional-office-officer",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_officer_form"
+      )
   },
   /////////////////End System Admin////////////////////
   ////////////////////////////////////////////////////////////////////////
@@ -375,6 +379,14 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/pay_post_office_form"
+      )
+  },
+
+  {
+    path: "/division/payhistory",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/payment_history"
       )
   },
 
