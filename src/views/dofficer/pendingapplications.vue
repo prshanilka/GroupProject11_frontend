@@ -1,5 +1,13 @@
 <template>
 	<div>
+				<b-overlay 
+		:show="show" 
+		spinner-variant="primary"
+    spinner-type="grow"
+    spinner-small
+    rounded="sm"
+
+		>
 		<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
                 <elder-details :id="clickedVid" />
     </b-modal>
@@ -34,6 +42,8 @@
 					@vuetable:pagination-data="onPaginationData"
 					@vuetable:row-clicked="rowClicked"
 					@vuetable:cell-rightclicked="rightClicked"
+					@vuetable:loading="show=true"
+					@vuetable:load-success="show=false"
 				>
 				<template slot="actions" slot-scope="props">
 						<b-form-checkbox :checked="selectedItems.includes(props.rowData.vid)" class="itemCheck mb-0"></b-form-checkbox>
@@ -66,6 +76,7 @@
 				<span>Delete</span>
 			</v-contextmenu-item>
 		</v-contextmenu>
+	</b-overlay>
 	</div>
 </template>
 
@@ -90,7 +101,8 @@ export default {
 	},
 	data() {
 		return {
-			apiBase: "http://localhost:3000/api/application/dappdetails",
+			show: true,
+			apiBase: bUrl+"/application/dappdetails",
 			isLoad: false,
 			sort: "",
 			page: 1,
