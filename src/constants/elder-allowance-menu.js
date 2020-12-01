@@ -448,6 +448,11 @@ const data = [
         icon: "iconsminds-dollar-sign-2",
         label: "menu.payhistory",
         to: `/division/payhistory`
+      },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.allpay",
+        to: `/division/all-payment-report`
       }
     ]
   },
@@ -728,7 +733,6 @@ const data = [
     roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
   },
   {
-
     id: "applications",
     icon: "iconsminds-digital-drawing",
     label: "menu.applications",
@@ -737,18 +741,14 @@ const data = [
       {
         id: "pages-authorization",
         label: "menu.pendingapplications",
-        to: `${dofficerRoot}/pendingapplications/`,
-        
+        to: `${dofficerRoot}/pendingapplications/`
       },
       {
         id: "pages-authorization",
         label: "menu.selectedapplications",
-        to: `${dofficerRoot}/selectedapplications`,
-        
-      },
+        to: `${dofficerRoot}/selectedapplications`
+      }
     ]
-  },
-
-
+  }
 ];
 export default data;
