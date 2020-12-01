@@ -7,7 +7,7 @@ const data = [
     id: "dashboards",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
-    to: `${elderRoot}/dashboards/`,
+    to: `${elderRoot}/dashboards`,
     roles: [UserRole.Admin, UserRole.Elders, UserRole.Editor]
   },
 
@@ -443,6 +443,11 @@ const data = [
         icon: "iconsminds-dollar-sign-2",
         label: "menu.paytoben",
         to: `/division/div_to_ben`
+      },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.payhistory",
+        to: `/division/payhistory`
       }
     ]
   },
@@ -505,21 +510,7 @@ const data = [
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-gramaniladari",
         to: `/division/list-of-gramaniladari`
-      }
-    ]
-  },
-  {
-    id: "list-of-post-office",
-    icon: "iconsminds-the-white-house",
-    label: "menu.divisional-office-form",
-    to: `/division/`,
-    roles: [
-      UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
-    ],
-    subs: [
+      },
       {
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-post-office",
