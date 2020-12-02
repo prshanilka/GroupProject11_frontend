@@ -6,6 +6,9 @@
 					<h1>Payment Details</h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_pay">
+					<div class="icon-row-item">
+						<i class="simple-icon-like text-xlarge" />				
+					</div>
 					<h2 class="mb-2">You SuccecFully Added The Payment Details</h2>
 					<p>Payment Details are Submitted Now</p>
 				</b-card>

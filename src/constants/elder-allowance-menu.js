@@ -316,7 +316,7 @@ const data = [
   // },
   {
     id: "send-reports",
-    icon: "iconsminds-post-mail-2",
+    icon: "iconsminds-monitor-analytics",
     label: "menu.send-reports",
     to: `/post/send-reports`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
@@ -483,7 +483,7 @@ const data = [
   // },
   {
     id: "get-reports",
-    icon: "iconsminds-the-white-house",
+    icon: "iconsminds-monitor-analytics",
     label: "menu.get-reports",
     to: `/division/get-reports`,
     roles: [
@@ -520,6 +520,31 @@ const data = [
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-post-office",
         to: `/division/list-of-post-office`
+      }
+    ]
+  },
+
+  {
+    id: "complains",
+    icon: "simple-icon-ban",
+    label: "menu.complain-death",
+    to: `/division/`,
+    roles: [
+      UserRole.Editor,
+      UserRole.DivisionalOffHead,
+      UserRole.DivisionalOffOfficer,
+      UserRole.DivisionalOfficers
+    ],
+    subs: [
+      {
+        icon: "iconsminds-target",
+        label: "menu.list-of-complains",
+        to: `/division/list-of-complains`
+      },
+      {
+        icon: "iconsminds-target-market",
+        label: "menu.list-of-deaths",
+        to: `/division/list-of-deaths`
       }
     ]
   },
@@ -673,7 +698,7 @@ const data = [
 
   {
     id: "send-complains",
-    icon: "iconsminds-add-user",
+    icon: "simple-icon-ban",
     label: "menu.send-complains",
     to: `/grama/send-complains`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
@@ -694,7 +719,7 @@ const data = [
   },
   {
     id: "send-reports",
-    icon: "iconsminds-add-user",
+    icon: "iconsminds-monitor-analytics",
     label: "menu.send-reports-d",
     to: `/grama/send-reports`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
