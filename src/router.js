@@ -562,6 +562,22 @@ const routes = [
       )
   },
   {
+    path: "/grama/inform_death_form/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/inform_death_form"
+      ),
+    props: true
+  },
+  {
+    path: "/grama/send_complains/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/send_complains_form"
+      ),
+    props: true
+  },
+  {
     path: "/grama/list-of-applicans",
     component: () =>
       import(
