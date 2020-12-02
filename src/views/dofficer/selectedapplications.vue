@@ -1,7 +1,14 @@
 <template>
 	<div>
+		<b-overlay 
+		:show="show" 
+		spinner-variant="primary"
+    spinner-type="grow"
+    spinner-small
+    rounded="sm"
+		>
 		<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
-                <elder-details :id="clickedVid" />
+      <elder-details :id="clickedVid" />
     </b-modal>
 		<datatable-heading
 			:title="$t('menu.selectedapplications')"
@@ -34,6 +41,8 @@
 					@vuetable:pagination-data="onPaginationData"
 					@vuetable:row-clicked="rowClicked"
 					@vuetable:cell-rightclicked="rightClicked"
+					@vuetable:loading="show=true"
+					@vuetable:load-success="show=false"
 				>
 				<template slot="actions" slot-scope="props">
 						<b-form-checkbox :checked="selectedItems.includes(props.rowData.vid)" class="itemCheck mb-0"></b-form-checkbox>
@@ -66,6 +75,7 @@
 				<span>Delete</span>
 			</v-contextmenu-item>
 		</v-contextmenu>
+		</b-overlay>
 	</div>
 </template>
 
@@ -90,6 +100,7 @@ export default {
 	},
 	data() {
 		return {
+			show: true,
 			apiBase: bUrl+"/application/dsappdetails",
 			isLoad: false,
 			sort: "",
@@ -105,55 +116,8 @@ export default {
 			clickedVid:null,
 			selectedItems: [],
 			garamaDivision:[],
-			
-
-
-			fields: [
-				{
-					name: "vid",
-					title: "Apllication ID",
-					titleClass: "",
-					dataClass: "list-item-heading",
-					width: "10%"
-				},
-				{
-					name: "elder_id",
-					title: "Elder ID",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "10%"
-				},
-				{
-					name: "name",
-					title: "Elder Name",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "10%"
-				},
-				{
-					name: "gramaniladari_division_id",
-					title: "Grama Nildhari Division",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "10%"
-				},
-				{
-					name: "__slot:actions1",
-					title: "",
-					titleClass: "center aligned text-right",
-					dataClass: "center aligned text-right",
-					width: "20%"
-				},
-
-				{
-					name: "__slot:actions",
-					title: "",
-					titleClass: "center aligned text-right",
-					dataClass: "center aligned text-right",
-					width: "5%"
-				}
-				
-			]
+	
+  
 		};
 	},
 
@@ -299,8 +263,8 @@ export default {
 		 //console.log("ssss")
 		// console.log(val)
 			
-			// eslint-disable-next-line promise/param-names
-			// 	let req = axios.get( bUrl + '/application/selectapplicaton/'+this.clickedVid)
+		// eslint-disable-next-line promise/param-names
+		//let req = axios.get( bUrl + '/application/selectapplicaton/'+this.clickedVid)
 			let req = axios.patch( bUrl + '/application/removeapplicaton/'+val)
 			req.then(result => result.data)
         .then((data) => {
@@ -320,7 +284,8 @@ export default {
           fail("Something is wrong!");
         }, 2000);
       });
-    }
+    },
+
 
 	},
 	computed: {
