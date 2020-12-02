@@ -36,12 +36,11 @@
 						<b-form-group label="Post Office">
 							<b-form-select
 								v-model="$v.pay_details.post_office_id.$model"
-                                :options="post_off_option"
+								:options="post_off_option"
 								:state="!$v.pay_details.post_office_id.$error"
+								@change="changepost"
 							/>
-							<b-form-invalid-feedback
-								v-if="!$v.pay_details.post_office_id.required"
-							>{{$t('form.e-post')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-if="!$v.pay_details.post_office_id.required">{{$t('form.e-post')}}</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Check Number">
@@ -53,13 +52,27 @@
 							<b-form-invalid-feedback v-if="!$v.pay_details.check_no.required">Please Enter Check Number</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group label="Date">
-							<b-form-input
-								type="text"
-								v-model="$v.pay_details.date.$model"
-								:state="!$v.pay_details.date.$error"
-							/>
-							<b-form-invalid-feedback v-if="!$v.pay_details.date.required">Please Enter Date</b-form-invalid-feedback>
+						<b-form-group label="Date of The Check  " class="error-l-125">
+							<b-colxx xxs="12" xl="6" class="mb-4">
+								<b-card>
+									<b-form>
+										<b-row class="mb-0">
+											<b-colxx xxs="12">
+												<b-form-group>
+													<datepicker
+														v-model="$v.pay_details.date.$model"
+														:state="!$v.pay_details.date.$error"
+														:inline="true"
+														:bootstrap-styling="true"
+														class="embeded"
+													></datepicker>
+													<b-form-invalid-feedback v-if="!$v.pay_details.date.required">Please Enter Date</b-form-invalid-feedback>
+												</b-form-group>
+											</b-colxx>
+										</b-row>
+									</b-form>
+								</b-card>
+							</b-colxx>
 						</b-form-group>
 
 						<b-form-group label="Total Amount">
@@ -71,6 +84,36 @@
 							<b-form-invalid-feedback
 								v-if="!$v.pay_details.total_money_amount.required"
 							>Please Enter Total Amount of Money</b-form-invalid-feedback>
+						</b-form-group>
+						<b-form-group label="Debited Amount To Post Office">
+							<b-form-input
+								type="text"
+								v-model="$v.pay_details.sent_amount_to_post_office.$model"
+								:state="!$v.pay_details.sent_amount_to_post_office.$error"
+							/>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.sent_amount_to_post_office.required"
+							>Please Enter Debited Amount To Post Office</b-form-invalid-feedback>
+						</b-form-group>
+						<b-form-group label="Debited Amount To National Elders Fund ">
+							<b-form-input
+								type="text"
+								v-model="$v.pay_details.amount_of_money_debited_to_centrel_bank.$model"
+								:state="!$v.pay_details.amount_of_money_debited_to_centrel_bank.$error"
+							/>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.amount_of_money_debited_to_centrel_bank.required"
+							>Please Enter Debited Amount To National Elders Fund</b-form-invalid-feedback>
+						</b-form-group>
+						<b-form-group label="National Elders Fund Acount No">
+							<b-form-input
+								type="text"
+								v-model="$v.pay_details.centrel_bank_acount_no.$model"
+								:state="!$v.pay_details.centrel_bank_acount_no.$error"
+							/>
+							<b-form-invalid-feedback
+								v-if="!$v.pay_details.centrel_bank_acount_no.required"
+							>Please Enter National Elders Fund Acount No</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group label="Credited Accont Number">
@@ -123,6 +166,7 @@
 
 <script>
 import { validationMixin } from "vuelidate";
+import Datepicker from "vuejs-datepicker";
 import axios from "axios";
 const {
 	required,
@@ -140,6 +184,9 @@ const {
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
 
 export default {
+	components: {
+		datepicker: Datepicker
+	},
 	data() {
 		return {
 			submit_pay: true,
@@ -148,8 +195,11 @@ export default {
 				divisional_id: null,
 				post_office_id: null,
 				check_no: "",
-				date: "",
+				date: "08 Dec 2020",
 				total_money_amount: "",
+				sent_amount_to_post_office: "",
+				amount_of_money_debited_to_centrel_bank: "",
+				centrel_bank_acount_no: "",
 				credite_account_no: "",
 				debited_account_no: "",
 				sent_date: new Date(),
@@ -191,12 +241,45 @@ export default {
 				{
 					value: 4,
 					text: "April"
+				},
+				{
+					value: 5,
+					text: "May"
+				},
+				{
+					value: 6,
+					text: "June"
+				},
+				{
+					value: 7,
+					text: "July"
+				},
+				{
+					value: 8,
+					text: "August"
+				},
+				{
+					value: 9,
+					text: "September"
+				},
+				{
+					value: 10,
+					text: "October "
+				},
+				{
+					value: 11,
+					text: "November "
+				},
+				{
+					value: 12,
+					text: "December "
 				}
-            ],
-            post_off_option: [
+			],
+			post_off_option: [
 				{
 					value: null,
-					text:"Select Nearest Post Office/කරුණාකර ළඟම ඇති තැපැල් කාර්යාලය තෝරන්න",
+					text:
+						"Select Nearest Post Office/කරුණාකර ළඟම ඇති තැපැල් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -221,6 +304,15 @@ export default {
 				required
 			},
 			total_money_amount: {
+				required
+			},
+			sent_amount_to_post_office: {
+				required
+			},
+			amount_of_money_debited_to_centrel_bank: {
+				required
+			},
+			centrel_bank_acount_no: {
 				required
 			},
 			credite_account_no: {
@@ -259,21 +351,42 @@ export default {
 			})
 			.catch(err => {
 				console.log(err);
-            });
-        axios
+			});
+		axios
 			.get("http://localhost:3000/api/postoffice/selectbox")
 			.then(res => {
 				console.log(res);
-				this.post_off_option = [
-					...this.post_off_option,
-					...res.data.data
-				];
+				this.post_off_option = [...this.post_off_option, ...res.data.data];
 			})
 			.catch(err => {
 				console.log(err);
 			});
 	},
 	methods: {
+		changepost() {
+			console.log(this.pay_details.post_office_id);
+			axios({
+				method: "get",
+				url:
+					"http://localhost:3000/api/postoffice/patmentinfo/" +
+					this.pay_details.post_office_id
+			})
+				.then(res => {
+					console.log(res);
+					this.pay_details.total_money_amount = res.data.data[0].fulltotal;
+					this.pay_details.credite_account_no = res.data.data[0].bank_account;
+					this.pay_details.debited_account_no =
+						res.data.data[0].bank_account_no;
+
+					this.pay_details.sent_amount_to_post_office = res.data.data[0].total;
+					this.pay_details.amount_of_money_debited_to_centrel_bank =
+						res.data.data[0].fundtotal;
+					this.pay_details.centrel_bank_acount_no = res.data.data[0].fund_ac;
+				})
+				.catch(err => {
+					console.log(err);
+				});
+		},
 		onValitadeFormSubmit() {
 			this.$v.$touch();
 			console.log(this.pay_details);
@@ -300,12 +413,12 @@ export default {
 					total_money_amount: this.pay_details.total_money_amount,
 					credite_account_no: this.pay_details.credite_account_no,
 					debited_account_no: this.pay_details.debited_account_no,
-					amount_of_money_debited_to_centrel_bank:
-						this.pay_details.total_money_amount * 0.05,
-					sent_amount_to_post_office:
-						this.pay_details.total_money_amount * 0.95,
+					amount_of_money_debited_to_centrel_bank: this.pay_details
+						.amount_of_money_debited_to_centrel_bank,
+					sent_amount_to_post_office: this.pay_details
+						.sent_amount_to_post_office,
 
-					centrel_bank_acount_no: "121121",
+					centrel_bank_acount_no: this.pay_details.centrel_bank_acount_no,
 					year: this.pay_details.year,
 					month: this.pay_details.month,
 					send_date: this.pay_details.sent_date,

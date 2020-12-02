@@ -106,6 +106,13 @@ const routes = [
           import(
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderlis"
           )
+      },
+      {
+        path: "/elder/map",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/map.vue"
+          )
       }
     ]
   },
