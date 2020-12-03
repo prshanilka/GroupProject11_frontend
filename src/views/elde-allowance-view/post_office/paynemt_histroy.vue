@@ -1,8 +1,7 @@
 <template>
 	<AppLayout>
-		<h1>List ot the post office Payment History</h1>
 		<b-colxx class="mb-4 text-center" lg="12" xxs="12">
-			<h1>Post Offices</h1>
+			<h1>List ot the post office Payment History</h1>
 		</b-colxx>
 		<b-row>
 			<list-with-user-item
