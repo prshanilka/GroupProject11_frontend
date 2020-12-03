@@ -43,7 +43,7 @@
 							<b-button
 								class="mb-1"
 								v-b-modal.modallg
-								@click="() =>showw(props) "
+								@click="() =>showw(props)"
 								variant="outline-primary"
 							>Pay</b-button>
 						</template>

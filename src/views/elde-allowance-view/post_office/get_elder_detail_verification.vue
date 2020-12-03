@@ -79,7 +79,8 @@ export default {
 	data() {
 		return {
 			is_submited: false,
-			elder: {}
+			elder: {},
+			agent: {}
 		};
 	},
 	props: ["id", "pay_id"],
@@ -91,6 +92,15 @@ export default {
 			url: "http://localhost:3000/api/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
+			console.log(result.data.data);
+			// this.aplications = result.data.data;
+		});
+
+		axios({
+			method: "get",
+			url: "http://localhost:3000/api/agent/elder/" + this.id
+		}).then(result => {
+			this.agent = result.data.data;
 			console.log(result.data.data);
 			// this.aplications = result.data.data;
 		});

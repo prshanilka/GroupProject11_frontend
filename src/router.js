@@ -350,6 +350,13 @@ const routes = [
       )
   },
   {
+    path: "/post/complain",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/send_complain"
+      )
+  },
+  {
     path: "/post/paynemt-histroy",
     component: () =>
       import(
@@ -574,22 +581,6 @@ const routes = [
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/inform_death_of_elder"
       )
-  },
-  {
-    path: "/grama/inform_death_form/:id",
-    component: () =>
-      import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/inform_death_form"
-      ),
-    props: true
-  },
-  {
-    path: "/grama/send_complains/:id",
-    component: () =>
-      import(
-        /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/send_complains_form"
-      ),
-    props: true
   },
   {
     path: "/grama/list-of-applicans",
