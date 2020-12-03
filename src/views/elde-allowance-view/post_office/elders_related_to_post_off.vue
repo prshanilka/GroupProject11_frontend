@@ -1,9 +1,4 @@
- 
- 
- 
- 
- 
- <template>
+<template>
 	<AppLayout>
 		<div>
 			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">

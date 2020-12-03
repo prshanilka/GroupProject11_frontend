@@ -37,14 +37,13 @@
 							@vuetable:loading="show=true"
 							@vuetable:load-success="show=false"
 						>
-							<template slot="actions1" slot-scope="props">								
-			    				<b-button 
-								class="mb-2" 
-								v-b-modal.modallg 
-								@click="clickedid = props.rowData.elder_id" 
-								variant="outline-danger">
-								Send Compalin
-								</b-button>
+							<template slot="actions1" slot-scope="props">
+								<b-button
+									class="mb-1"
+									v-b-modal.modallg
+									@click="clickedid = props.rowData.elder_id"
+									variant="outline-primary"
+								>Send Complain</b-button>
 							</template>
 						</vuetable>
 						<vuetable-pagination-bootstrap
@@ -82,7 +81,7 @@ import VuetablePaginationBootstrap from "../../../components/Common/VuetablePagi
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 
-import ElderDetails from "./send_complains_form";
+import ElderDetails from "../../../views/elde-allowance-view/divisional_secretary/view_elder_application_verify";
 
 export default {
 	props: ["title"],
@@ -142,7 +141,7 @@ export default {
 					title: "Phone number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "25%"
 				},
 				{
 					name: "email",
@@ -150,14 +149,14 @@ export default {
 					title: "email",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "25%"
 				},
 				{
 					name: "__slot:actions1",
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "25%"
+					width: "20%"
 				}
 			]
 		};
@@ -166,7 +165,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/gramadivision/benifisherlist/280"
+				"http://localhost:3000/api/postoffice/benfisherslist/11000"
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
