@@ -18,7 +18,7 @@
 								class-name="card-img-top "
 								class="m-4"
 							/>
-							<p class="mb-3 text-xlarge text-primary text-center">{{elder.name}}</p>
+							<h2 class="mb-3 text-xlarge text-primary text-center">{{elder.name}}</h2>
 							<p class="mb-3 text-center text-danger text-large">{{elder.nic_id}}</p>
 						</b-colxx>
 						<b-colxx lg="6" md="12" class="mb-4">
@@ -43,6 +43,23 @@
 							</div>
 						</b-colxx>
 					</b-row>
+
+					<div class="border-bottom border-top">
+						<b-row>
+							<b-colxx lg="2" md="12" class="mb-1">
+								<img
+									src="/assets/img/profiles/3.jpg"
+									class="img-thumbnail border-0 rounded list-thumbnail align-self-center m-2 medium"
+								/>
+							</b-colxx>
+							<b-colxx lg="7" md="12" class="mb-1">
+								<div class="pl-3 pr-2" style="margin-top:20px;">
+									<p class="text-center text-secondary mb-4 text-large">{{agent.name}}</p>
+									<p class="text-center text-secondary mb-4 text-large">{{agent.nic}}</p>
+								</div>
+							</b-colxx>
+						</b-row>
+					</div>
 
 					<b-row>
 						<b-colxx md="12" class="mb-4 text-center">
@@ -83,7 +100,8 @@ export default {
 	data() {
 		return {
 			is_submited: false,
-			elder: {}
+			elder: {},
+			agent: {}
 		};
 	},
 	props: ["id", "pay_id"],
@@ -95,6 +113,15 @@ export default {
 			url: "http://localhost:3000/api/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
+			console.log(result.data.data);
+			// this.aplications = result.data.data;
+		});
+
+		axios({
+			method: "get",
+			url: "http://localhost:3000/api/agent/elder/" + this.id
+		}).then(result => {
+			this.agent = result.data.data;
 			console.log(result.data.data);
 			// this.aplications = result.data.data;
 		});

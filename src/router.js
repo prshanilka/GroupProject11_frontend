@@ -350,6 +350,13 @@ const routes = [
       )
   },
   {
+    path: "/post/complain",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/send_complain"
+      )
+  },
+  {
     path: "/post/paynemt-histroy",
     component: () =>
       import(

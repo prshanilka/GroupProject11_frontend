@@ -306,6 +306,13 @@ const data = [
     to: `/post/paynemt-histroy`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
+  {
+    id: "send-complain",
+    icon: "simple-icon-dislike",
+    label: "menu.complain",
+    to: `/post/complain`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
 
   // {
   //   id: "assign-post-officers",
