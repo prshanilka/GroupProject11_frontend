@@ -1,7 +1,6 @@
 <template>
-<AppLayout>
 	<b-row>
-		<b-colxx xl="8" lg="12" style="margin:auto ">
+		<b-colxx xl="10" lg="12" style="margin:auto ">
 			<b-card>
 				<div class="text-center">
 					<h1>Inform the Death</h1>
@@ -96,7 +95,6 @@
 			</b-card>
 		</b-colxx>
 	</b-row>
-</AppLayout>
 </template>
 
 <script>

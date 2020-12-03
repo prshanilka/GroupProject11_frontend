@@ -533,7 +533,7 @@ const data = [
 
   {
     id: "complains",
-    icon: "simple-icon-ban",
+    icon: "simple-icon-dislike",
     label: "menu.complain-death",
     to: `/division/`,
     roles: [
@@ -671,14 +671,28 @@ const data = [
   },
 
   ///
-
   {
-    id: "inform-death-of-elder",
-    icon: "iconsminds-add-user",
-    label: "menu.inform-death-of-elder",
-    to: `/grama/inform-death-of-elder`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+    id: "grama-complains",
+    icon: "simple-icon-dislike",
+    label: "menu.complain-death",
+    roles: [
+      UserRole.Editor,
+      UserRole.GramaNiladariOffices
+    ],
+    subs: [
+      {
+        icon: "iconsminds-target-market",
+        label: "menu.inform-death-of-elder",
+        to: `/grama/inform-death-of-elder`
+      },
+      {
+        icon: "iconsminds-target",
+        label: "menu.send-complains",
+        to: `/grama/send-complains`
+      }
+    ]
   },
+
   {
     id: "list-of-applicans",
     icon: "iconsminds-add-user",
@@ -701,14 +715,6 @@ const data = [
         roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
       }
     ]
-  },
-
-  {
-    id: "send-complains",
-    icon: "simple-icon-ban",
-    label: "menu.send-complains",
-    to: `/grama/send-complains`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
   },
   {
     id: "view-elder-application-verify",

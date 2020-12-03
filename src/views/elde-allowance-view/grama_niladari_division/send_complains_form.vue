@@ -1,5 +1,5 @@
 <template>
-<AppLayout>
+
 	<b-row>
 		<b-colxx xl="8" lg="12" style="margin:auto ">
 			<b-card>
@@ -63,7 +63,7 @@
 			</b-card>
 		</b-colxx>
 	</b-row>
-</AppLayout>
+
 </template>
 
 <script>
