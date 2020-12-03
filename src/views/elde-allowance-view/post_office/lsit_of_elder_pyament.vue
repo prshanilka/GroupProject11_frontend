@@ -96,7 +96,7 @@ export default {
 
 			fields: [
 				{
-					name: "payment_id",
+					name: "id",
 					sortField: "payment_id",
 					title: "payment_id",
 					titleClass: "",

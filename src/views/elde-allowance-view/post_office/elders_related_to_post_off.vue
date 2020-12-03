@@ -81,7 +81,7 @@ import VuetablePaginationBootstrap from "../../../components/Common/VuetablePagi
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 
-import ElderDetails from "../../../views/elde-allowance-view/divisional_secretary/view_elder_application_verify";
+import ElderDetails from "./view_elder_detail";
 
 export default {
 	props: ["title"],
