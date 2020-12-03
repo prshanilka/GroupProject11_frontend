@@ -85,15 +85,18 @@ axios.interceptors.response.use(
 
 
 axios.interceptors.request.use(function(config) {
+
     if(config.url == "/users/refresh"){
       config.headers.Authorization = `Bearer ${localStorage.jwtr}`;
       return config;
     }
+
     if(localStorage.jwt){
       config.headers.Authorization = `Bearer ${localStorage.jwt}`;
       return config;
-    }
     
+  }
+
     
   }, function(err) {
     return Promise.reject(err);

@@ -9,7 +9,7 @@
 
 		>
 		<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
-                <elder-details :id="clickedVid" />
+                <elder-details :dat="clickedVid" />
     </b-modal>
 		<datatable-heading
 			:title="$t('menu.pendingapplications')"
@@ -49,7 +49,7 @@
 						<b-form-checkbox :checked="selectedItems.includes(props.rowData.vid)" class="itemCheck mb-0"></b-form-checkbox>
 				</template>
 				<template slot="actions1" slot-scope="props">
-						<b-button class="mb-1" v-b-modal.modallg @click="clickedVid = props.rowData.vid" variant="outline-primary" >{{ $t('elder.view') }}</b-button>
+						<b-button class="mb-1" v-b-modal.modallg @click="clickedVid = props.rowData" variant="outline-primary" >{{ $t('elder.view') }}</b-button>
 						<b-button class="mb-1"  @click="selectApplication(props.rowData.vid)" variant="outline-success" >{{ $t('button.review') }}</b-button>
 
 				</template>
