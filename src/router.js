@@ -455,6 +455,20 @@ const routes = [
       )
   },
   {
+    path: "/division/list-of-deaths",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_deaths"
+      )
+  },
+  {
+    path: "/division/list-of-complains",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_complains"
+      )
+  },
+  {
     path: "/division/evaluate-elder-application",
     component: () =>
       import(

@@ -6,6 +6,9 @@
 					<h1>Submit the reson for the not taking the payments</h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_ag">
+					<div class="icon-row-item">
+						<i class="simple-icon-like text-xlarge" />				
+					</div>
 					<h2 class="mb-2">Succesfully Submited the Reason</h2>
 					<p>payment details updated</p>
 				</b-card>

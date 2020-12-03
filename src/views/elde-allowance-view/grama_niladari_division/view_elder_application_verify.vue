@@ -5,6 +5,9 @@
 				<h1>Elder Details for Verification</h1>
 			</b-colxx>
 			<b-card class="mb-4 text-center" v-show="!submit_div">
+					<div class="icon-row-item">
+						<i class="simple-icon-like text-xlarge" />				
+					</div>
 					<h2 class="mb-2">You SuccecFully Verified The Payment Details</h2>
 					<p>Verified Details are Submitted Now</p>
 			</b-card>

@@ -7,6 +7,9 @@
 					<h1>Complain Details</h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_ag">
+					<div class="icon-row-item">
+						<i class="simple-icon-like text-xlarge" />				
+					</div>
 					<h2 class="mb-2">Succesfully Informed the Complains</h2>
 					<p>Complains Deatails are Submitted Now</p>
 				</b-card>
@@ -148,7 +151,7 @@ export default {
 				}; 
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/gramadivision/sendcomplain",
+					url: "http://localhost:3000/api/deadcomplain/sendcomplain",
 					data: body
 				})
 					.then(res => {
