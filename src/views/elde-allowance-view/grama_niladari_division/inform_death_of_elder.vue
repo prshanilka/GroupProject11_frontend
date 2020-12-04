@@ -166,7 +166,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/gramadivision/benifisherlist"
+				"/gramadivision/benifisherlist"
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {

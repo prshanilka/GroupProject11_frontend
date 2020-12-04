@@ -164,7 +164,7 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/postoffice/benfisherslist/");
+			return axios.get("/postoffice/benfisherslist/");
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];

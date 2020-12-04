@@ -186,7 +186,7 @@ export default {
 	methods: {
 		getData() {
 			return axios
-				.get("http://localhost:3000/api/prioritylist/div/G1")
+				.get("/prioritylist/div/G1")
 				.then(res => {
 					console.log(res);
 					// this.show = false;

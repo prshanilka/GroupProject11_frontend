@@ -206,7 +206,7 @@ export default {
 	},
 	created() {
 		axios
-			.get("http://localhost:3000/api/district/selectbox")
+			.get("/district/selectbox")
 			.then(res => {
 				console.log(res);
 				this.district_option = [...this.district_option, ...res.data.data];
@@ -216,7 +216,7 @@ export default {
 			});
 
 		axios
-			.get("http://localhost:3000/api/divisionaloffice/selectbox")
+			.get("/divisionaloffice/selectbox")
 			.then(res => {
 				console.log(res);
 				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
@@ -246,7 +246,7 @@ export default {
 				};
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/gramadivision/",
+					url: "/gramadivision/",
 					data: body
 				})
 					.then(res => {

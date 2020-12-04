@@ -64,8 +64,8 @@
 			</b-row>
 
 
-		>
-		<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
+		
+		<!-- <b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
                 <elder-details :dat="clickedVid" />
     </b-modal>
 		<datatable-heading
@@ -117,7 +117,7 @@
 					@vuetable-pagination:change-page="onChangePage"
 				/>
 			</b-colxx>
-		</b-row>
+		</b-row> -->
 
 		<v-contextmenu ref="contextmenu">
 			<v-contextmenu-item @click="onContextMenuAction('copy')">

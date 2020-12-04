@@ -142,7 +142,7 @@ export default {
 	async created() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/elders/" + this.id
+			url: "/elders/" + this.id
 		}).then(result => {
 			this.deadElder = result.data.data,
 			this.dead_elder.name = result.data.data.name;
@@ -196,7 +196,7 @@ export default {
 				}; 
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/deadcomplain/informdeath",
+					url: "/deadcomplain/informdeath",
 					data: body
 				})
 					.then(res => {

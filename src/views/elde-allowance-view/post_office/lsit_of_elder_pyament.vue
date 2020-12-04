@@ -175,7 +175,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/paymentposttoben/post/11000/2020/1"
+				"/paymentposttoben/post/11000/2020/1"
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {

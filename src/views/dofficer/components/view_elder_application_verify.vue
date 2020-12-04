@@ -123,7 +123,7 @@ export default {
 	},
 	async created() {
 		console.log(this.id)
-		axios.get("http://localhost:3000/api/elders/" + this.dat.elder_id
+		axios.get("/elders/" + this.dat.elder_id
 		).then(result => {
 			this.elder = result.data.data;
 			//console.log(result.data.data);

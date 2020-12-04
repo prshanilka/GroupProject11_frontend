@@ -31,8 +31,9 @@ import { getCurrentLanguage } from "./utils";
 import axios from "axios";
 import VueGeolocation from "vue-browser-geolocation";
 import * as VueGoogleMaps from "vue2-google-maps";
+import { bUrl } from './constants/config'
 
-axios.defaults.baseURL = "http://localhost:3000/api/";
+axios.defaults.baseURL = bUrl;
 let isRefreshing = false;
 
 axios.interceptors.response.use(

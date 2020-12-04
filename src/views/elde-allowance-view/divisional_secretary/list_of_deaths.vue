@@ -37,7 +37,7 @@ export default {
 	},
 	async beforeCreate() {
 		
-		axios.get("http://localhost:3000/api/deadcomplain/deaths/").then(result => {
+		axios.get("/deadcomplain/deaths/").then(result => {
 			console.log(result.data.data[0]);
 			this.dead_elder = result.data.data;
 		});

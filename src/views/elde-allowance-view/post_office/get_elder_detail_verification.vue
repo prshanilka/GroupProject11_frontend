@@ -89,7 +89,7 @@ export default {
 	async created() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/elders/" + this.id
+			url: "/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
 			console.log(result.data.data);
@@ -98,7 +98,7 @@ export default {
 
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/agent/elder/" + this.id
+			url: "/agent/elder/" + this.id
 		}).then(result => {
 			this.agent = result.data.data;
 			console.log(result.data.data);
@@ -115,7 +115,7 @@ export default {
 			console.log(this.pay_id);
 			axios({
 				method: "post",
-				url: "http://localhost:3000/api/paymentposttoben/paytoelder",
+				url: "/paymentposttoben/paytoelder",
 				data: data
 			}).then(result => {
 				this.elder = result.data.data;
@@ -133,7 +133,7 @@ export default {
 			console.log(this.pay_id);
 			axios({
 				method: "post",
-				url: "http://localhost:3000/api/paymentposttoben/paytoagent",
+				url: "/paymentposttoben/paytoagent",
 				data: data
 			}).then(result => {
 				this.elder = result.data.data;

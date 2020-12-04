@@ -27,7 +27,7 @@ export default {
 		};
 	},
 	async beforeCreate() {
-		axios.get("http://localhost:3000/api/paymentdivoff/years").then(result => {
+		axios.get("/paymentdivoff/years").then(result => {
 			console.log(result.data.data[0]);
 			this.history = result.data.data;
 		});

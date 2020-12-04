@@ -79,7 +79,7 @@ export default {
 	async created() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/gramaniladariofficer/topost/" + this.id
+			url: "/gramaniladariofficer/topost/" + this.id
 		}).then(result => {
 			this.details = result.data.data;
 			console.log(result.data);
