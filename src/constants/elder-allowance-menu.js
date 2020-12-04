@@ -18,13 +18,13 @@ const data = [
     to: `/elder/elder-pament-details`,
     roles: [UserRole.Editor, UserRole.Elders]
   },
-  {
-    id: "reason-about-payments",
-    icon: "simple-icon-user-following",
-    label: "menu.reason-about-payments",
-    to: `/elder/reason-about-payments/114`,
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
+  // {
+  //   id: "reason-about-payments",
+  //   icon: "simple-icon-user-following",
+  //   label: "menu.reason-about-payments",
+  //   to: `/elder/reason-about-payments/114`,
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
   {
     id: "agent-form",
     icon: "simple-icon-user-following",
@@ -278,20 +278,20 @@ const data = [
     to: `/post/post-officer-dashboard`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
-  {
-    id: "lsit-of-elder-pyament",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.lsit-of-elder-pyament",
-    to: `/post/lsit-of-elder-pyament`,
-    roles: [UserRole.Editor, UserRole.PostOfficers]
-  },
-  {
-    id: "get-elder-detail-verification",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.get-elder-detail-verification",
-    to: `/post/get-elder-detail-verification/13/117`,
-    roles: [UserRole.Editor, UserRole.PostOfficers]
-  },
+  // {
+  //   id: "lsit-of-elder-pyament",
+  //   icon: "iconsminds-post-mail-2",
+  //   label: "menu.lsit-of-elder-pyament",
+  //   to: `/post/lsit-of-elder-pyament`,
+  //   roles: [UserRole.Editor, UserRole.PostOfficers]
+  // },
+  // {
+  //   id: "get-elder-detail-verification",
+  //   icon: "iconsminds-post-mail-2",
+  //   label: "menu.get-elder-detail-verification",
+  //   to: `/post/get-elder-detail-verification/13/117`,
+  //   roles: [UserRole.Editor, UserRole.PostOfficers]
+  // },
   {
     id: "elders-related-to-post-off",
     icon: "iconsminds-post-mail-2",
@@ -460,6 +460,11 @@ const data = [
         icon: "iconsminds-dollar-sign-2",
         label: "menu.allpay",
         to: `/division/all-payment-report`
+      },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.byyears",
+        to: `/division/get-payment-by-years`
       }
     ]
   },
@@ -675,10 +680,7 @@ const data = [
     id: "grama-complains",
     icon: "simple-icon-dislike",
     label: "menu.complain-death",
-    roles: [
-      UserRole.Editor,
-      UserRole.GramaNiladariOffices
-    ],
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices],
     subs: [
       {
         icon: "iconsminds-target-market",
@@ -716,20 +718,20 @@ const data = [
       }
     ]
   },
-  {
-    id: "view-elder-application-verify",
-    icon: "iconsminds-add-user",
-    label: "menu.view-elder-application-verify",
-    to: `/grama/view-elder-application-verify/2`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
-  },
-  {
-    id: "view-elder-details",
-    icon: "iconsminds-add-user",
-    label: "menu.view-elder-details",
-    to: `/grama/view-elder-details`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
-  },
+  // {
+  //   id: "view-elder-application-verify",
+  //   icon: "iconsminds-add-user",
+  //   label: "menu.view-elder-application-verify",
+  //   to: `/grama/view-elder-application-verify/2`,
+  //   roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  // },
+  // {
+  //   id: "view-elder-details",
+  //   icon: "iconsminds-add-user",
+  //   label: "menu.view-elder-details",
+  //   to: `/grama/view-elder-details`,
+  //   roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  // },
   {
     id: "send-reports",
     icon: "iconsminds-monitor-analytics",

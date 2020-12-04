@@ -164,9 +164,7 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get(
-				"http://localhost:3000/api/postoffice/benfisherslist/11000"
-			);
+			return axios.get("http://localhost:3000/api/postoffice/benfisherslist");
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
