@@ -1,6 +1,7 @@
 import axios from 'axios';
+import { bUrl } from '../constants/config'
 const bapi = axios.create({
-  baseURL: 'http://localhost:3000/api/',
+  baseURL: bUrl,
   //headers: { 'X-API-TOKEN': store.state.token },
 })
 
@@ -11,7 +12,7 @@ const bodyParameters = {
 };
 
 export function myF () {
-  return axios.get('http://localhost:3000/api/elders')
+  return axios.get('/elders')
 }
 
 

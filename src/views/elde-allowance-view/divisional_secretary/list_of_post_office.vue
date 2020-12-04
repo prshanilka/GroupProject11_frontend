@@ -37,7 +37,7 @@ export default {
 	},
 	async beforeCreate() {
 		
-		axios.get("http://localhost:3000/api/postoffice/").then(result => {
+		axios.get("/postoffice/").then(result => {
 			console.log(result.data.data[0]);
 			this.postoffice = result.data.data;
 		});

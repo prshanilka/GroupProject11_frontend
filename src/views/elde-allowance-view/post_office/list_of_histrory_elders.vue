@@ -191,7 +191,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/paymentposttoben/post/" +
+				"/paymentposttoben/post/" +
 					this.post_off +
 					"/" +
 					this.year +

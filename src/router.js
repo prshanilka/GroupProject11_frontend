@@ -55,6 +55,7 @@ const routes = [
       },
       {
         path: "/elderlogin",
+        name:ellogin,
         component: () =>
           import(
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"

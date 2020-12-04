@@ -109,10 +109,10 @@ export default {
 			submit_div: true,
 			elder: {},
 			div_comment: "",
-			eee: 2
+			eee: 2,
 		};
 	},
-	props: ["id"],
+	props: ["dat"],
 	mixins: [validationMixin],
 	validations: {
 		div_comment: {
@@ -122,7 +122,8 @@ export default {
 		}
 	},
 	async created() {
-		axios.get("http://localhost:3000/api/elders/" + this.id
+		console.log(this.id)
+		axios.get("/elders/" + this.dat.elder_id
 		).then(result => {
 			this.elder = result.data.data;
 			//console.log(result.data.data);

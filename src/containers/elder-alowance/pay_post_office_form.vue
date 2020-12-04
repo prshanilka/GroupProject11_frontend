@@ -334,7 +334,7 @@ export default {
 	},
 	created() {
 		axios
-			.get("http://localhost:3000/api/district/selectbox")
+			.get("/district/selectbox")
 			.then(res => {
 				console.log(res);
 				this.district_option = [...this.district_option, ...res.data.data];
@@ -344,7 +344,7 @@ export default {
 			});
 
 		axios
-			.get("http://localhost:3000/api/divisionaloffice/selectbox")
+			.get("/divisionaloffice/selectbox")
 			.then(res => {
 				console.log(res);
 				this.divisional_off_option = [
@@ -356,7 +356,7 @@ export default {
 				console.log(err);
 			});
 		axios
-			.get("http://localhost:3000/api/postoffice/selectbox")
+			.get("/postoffice/selectbox")
 			.then(res => {
 				console.log(res);
 				this.post_off_option = [...this.post_off_option, ...res.data.data];
@@ -371,7 +371,7 @@ export default {
 			axios({
 				method: "get",
 				url:
-					"http://localhost:3000/api/postoffice/patmentinfo/" +
+					"/postoffice/patmentinfo/" +
 					this.pay_details.post_office_id
 			})
 				.then(res => {
@@ -429,7 +429,7 @@ export default {
 				};
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/paymentdivoff",
+					url: "/paymentdivoff",
 					data: body
 				})
 					.then(res => {

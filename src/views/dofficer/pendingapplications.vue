@@ -1,7 +1,7 @@
 <template>
 	<div>
-		<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-			<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
+	<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
+			<!-- <b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
 				<elder-details :id="clickedVid" />
 			</b-modal>
 			<datatable-heading
@@ -61,23 +61,80 @@
 						@vuetable-pagination:change-page="onChangePage"
 					/>
 				</b-colxx>
-			</b-row>
+		</b-row> -->
 
-			<v-contextmenu ref="contextmenu">
-				<v-contextmenu-item @click="onContextMenuAction('copy')">
-					<i class="simple-icon-docs" />
-					<span>Copy</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-					<i class="simple-icon-drawer" />
-					<span>Move to archive</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('delete')">
-					<i class="simple-icon-trash" />
-					<span>Delete</span>
-				</v-contextmenu-item>
-			</v-contextmenu>
-		</b-overlay>
+
+		
+		<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
+                <elder-details :dat="clickedVid" />
+    </b-modal>
+		<datatable-heading
+			:title="$t('menu.pendingapplications')"
+			:selectAll="selectAll"
+			:isSelectedAll="isSelectedAll"
+			:isAnyItemSelected="isAnyItemSelected"
+			:keymap="keymap"
+			:changePageSize="changePageSize"
+			:searchChange="searchChange"
+			:filterChange="filterChange"
+			:from="from"
+			:to="to"
+			:total="total"
+			:perPage="perPage"
+			:garamaDivision="garamaDivision"
+		></datatable-heading>
+		<b-row>
+			<b-colxx xxs="12">
+				<vuetable
+					ref="vuetable"
+					class="table-divided order-with-arrow"
+					:api-url="apiBase"
+					:http-fetch="getData"
+					:per-page="perPage"
+					:reactive-api-url="true"
+					:query-params="makeQueryParams"
+					:fields="fields"
+					pagination-path
+					:row-class="onRowClass"
+					@vuetable:pagination-data="onPaginationData"
+					@vuetable:row-clicked="rowClicked"
+					@vuetable:cell-rightclicked="rightClicked"
+					@vuetable:loading="show=true"
+					@vuetable:load-success="show=false"
+				>
+				<template slot="actions" slot-scope="props">
+						<b-form-checkbox :checked="selectedItems.includes(props.rowData.vid)" class="itemCheck mb-0"></b-form-checkbox>
+				</template>
+				<template slot="actions1" slot-scope="props">
+						<b-button class="mb-1" v-b-modal.modallg @click="clickedVid = props.rowData" variant="outline-primary" >{{ $t('elder.view') }}</b-button>
+						<b-button class="mb-1"  @click="selectApplication(props.rowData.vid)" variant="outline-success" >{{ $t('button.review') }}</b-button>
+
+				</template>
+				</vuetable>
+				<vuetable-pagination-bootstrap
+					class="mt-4"
+					ref="pagination"
+					@vuetable-pagination:change-page="onChangePage"
+				/>
+			</b-colxx>
+		</b-row>
+
+		<v-contextmenu ref="contextmenu">
+			<v-contextmenu-item @click="onContextMenuAction('copy')">
+				<i class="simple-icon-docs" />
+				<span>Copy</span>
+			</v-contextmenu-item>
+			<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
+				<i class="simple-icon-drawer" />
+				<span>Move to archive</span>
+			</v-contextmenu-item>
+			<v-contextmenu-item @click="onContextMenuAction('delete')">
+				<i class="simple-icon-trash" />
+				<span>Delete</span>
+			</v-contextmenu-item>
+		</v-contextmenu>
+	</b-overlay>
+
 	</div>
 </template>
 

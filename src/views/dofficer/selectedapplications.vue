@@ -7,8 +7,9 @@
     spinner-small
     rounded="sm"
 		>
-		<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
-      <elder-details :id="clickedVid" />
+		<b-modal ref="my-modallg" v-model="modalShow" id="modallg" size="lg" title="Elder Details" hide-footer>
+      <elder-details :dat="clickedVid"/>
+			<marks-section :dat="clickedVid" @event="handler"/>
     </b-modal>
 		<datatable-heading
 			:title="$t('menu.selectedapplications')"
@@ -48,7 +49,7 @@
 						<b-form-checkbox :checked="selectedItems.includes(props.rowData.vid)" class="itemCheck mb-0"></b-form-checkbox>
 				</template>
 				<template slot="actions1" slot-scope="props">
-						<b-button class="mb-1" v-b-modal.modallg @click="clickedVid = props.rowData.vid" variant="outline-primary" >{{ $t('elder.view') }}</b-button>
+						<b-button class="mb-1" v-b-modal.modallg @click="clickedVid = props.rowData" variant="outline-primary" >{{ $t('elder.view') }}</b-button>
 						<b-button class="mb-1"  @click="selectApplication(props.rowData.vid)" variant="outline-danger" >{{ $t('button.remove') }}</b-button>
 
 				</template>
@@ -87,6 +88,7 @@ import VuetablePaginationBootstrap from "../../components/Common/VuetablePaginat
 import { bUrl } from "../../constants/config";
 import DatatableHeading from "../../containers/elder-alowance/datatable/DatatableHeading";
 import ElderDetails from "./components/view_elder_application_verify"
+import marksSection from "./components/marks"
 import StateButton from "../../components/Common/StateButton";
 export default {
 	props: ["title"],
@@ -96,10 +98,12 @@ export default {
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
 		"datatable-heading": DatatableHeading,
 		"elder-details": ElderDetails ,
-		"state-button": StateButton
+		"state-button": StateButton,
+		"marks-section":marksSection
 	},
 	data() {
 		return {
+			modalShow:false,
 			show: true,
 			apiBase: bUrl+"/application/dsappdetails",
 			isLoad: false,
@@ -116,7 +120,74 @@ export default {
 			clickedVid:null,
 			selectedItems: [],
 			garamaDivision:[],
-	
+			fields: [
+				{
+					name: "vid",
+					title: "Apllication ID",
+					titleClass: "",
+					dataClass: "list-item-heading",
+					width: "10%"
+				},
+				{
+					name: "elder_id",
+					title: "Elder ID",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
+				},
+				{
+					name: "name",
+					title: "Elder Name",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
+				},
+				{
+					name: "gramaniladari_division_id",
+					title: "Grama Nildhari Division",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
+				},
+				{
+					name: "__slot:actions1",
+					title: "",
+					titleClass: "center aligned text-right",
+					dataClass: "center aligned text-right",
+					width: "20%"
+				},
+
+				{
+					name: "__slot:actions",
+					title: "",
+					titleClass: "center aligned text-right",
+					dataClass: "center aligned text-right",
+					width: "5%"
+				}
+				
+			],
+										it: [
+      { name: 'Apple', qty: 5 },
+      { name: 'Banana', qty: 10 },
+    ],
+    fi: [
+      {
+        key: 'index',
+        label: '#',
+      },
+      {
+        key: 'name',
+        label: 'fruit',
+      },
+      {
+        key: 'qty',
+        label: 'quantity',
+        thClass: 'red',
+      },
+      {
+        key: 'action',
+      },
+    ],
   
 		};
 	},
@@ -268,7 +339,7 @@ export default {
 			let req = axios.patch( bUrl + '/application/removeapplicaton/'+val)
 			req.then(result => result.data)
         .then((data) => {
-					console.log(data)
+					//console.log(data)
 					this.$refs.vuetable.refresh();
         }).catch(_error => {
           return []
@@ -284,8 +355,12 @@ export default {
           fail("Something is wrong!");
         }, 2000);
       });
-    },
-
+		},
+		
+	    handler(params) {
+				this.$refs['my-modallg'].hide()
+        this.$refs.vuetable.refresh();
+    }
 
 	},
 	computed: {

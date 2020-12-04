@@ -39,7 +39,7 @@ export default {
 		const body = { gramaniladari_id: "2" };
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/divisionaloffice/list/G1"
+			url: "/divisionaloffice/list/G1"
 		}).then(result => {
 			this.applications = result.data.data;
 			console.log(result);
