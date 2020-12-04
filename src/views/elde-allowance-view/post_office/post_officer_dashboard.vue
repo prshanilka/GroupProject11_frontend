@@ -82,13 +82,13 @@ export default {
 		};
 	},
 	async beforeCreate() {
-		axios.get("http://localhost:3000/api/paymentdivoff/max").then(result => {
+		axios.get("/paymentdivoff/max").then(result => {
 			console.log(result.data.data[0]);
 			this.details = result.data.data[0];
 
 			axios
 				.get(
-					"http://localhost:3000/api/paymentposttoben/count/" +
+					"/paymentposttoben/count/" +
 						this.details.payment_id
 				)
 				.then(result => {

@@ -63,7 +63,7 @@ export default {
 	async created() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/postoffice/" + this.id
+			url: "/postoffice/" + this.id
 		}).then(result => {
 			this.details = result.data.data;
 			console.log(result.data);

@@ -222,7 +222,7 @@ export default {
 				};
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/district/",
+					url: "/district/",
 					data: body
 				})
 					.then(res => {

@@ -37,7 +37,7 @@ export default {
 	},
 	async beforeCreate() {
 		
-		axios.get("http://localhost:3000/api/deadcomplain/complains/").then(result => {
+		axios.get("/deadcomplain/complains/").then(result => {
 			console.log(result.data.data[0]);
 			this.complains = result.data.data;
 		});

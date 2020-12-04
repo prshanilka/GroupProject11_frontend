@@ -189,7 +189,7 @@ export default {
     },
     getData() {
       return axios
-        .get("http://localhost:3000/api/paymentposttoben/allpayreport/G1")
+        .get("/paymentposttoben/allpayreport/G1")
         .then(res => {
           console.log(res);
           this.info = res.data.data;

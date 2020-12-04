@@ -127,7 +127,7 @@ export default {
 	async created() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/elders/" + this.id
+			url: "/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
 			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
@@ -148,7 +148,7 @@ export default {
 				};
 				axios({
 					method: "patch",
-					url: "http://localhost:3000/api/verifyelder/gramadisqualify",
+					url: "/verifyelder/gramadisqualify",
 					data: body
 				})
 					.then(res => {
@@ -177,7 +177,7 @@ export default {
 				};
 				axios({
 					method: "patch",
-					url: "http://localhost:3000/api/verifyelder/gramaaccept",
+					url: "/verifyelder/gramaaccept",
 					data: body
 				})
 					.then(res => {

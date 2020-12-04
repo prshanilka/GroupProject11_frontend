@@ -168,7 +168,7 @@ export default {
 	async created() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/elders/" + this.id
+			url: "/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
 			console.log(result.data.data);
@@ -188,7 +188,7 @@ export default {
 				};
 				axios({
 					method: "patch",
-					url: "http://localhost:3000/api/verifyelder/divofffdisqulify",
+					url: "/verifyelder/divofffdisqulify",
 					data: body
 				})
 					.then(res => {
@@ -217,7 +217,7 @@ export default {
 				};
 				axios({
 					method: "patch",
-					url: "http://localhost:3000/api/verifyelder/divoffaccept",
+					url: "/verifyelder/divoffaccept",
 					data: body
 				})
 					.then(res => {

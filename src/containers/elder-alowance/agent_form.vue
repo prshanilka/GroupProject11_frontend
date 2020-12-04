@@ -202,7 +202,7 @@ export default {
 				};
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/agent",
+					url: "/agent",
 					data: body
 				})
 					.then(res => {
