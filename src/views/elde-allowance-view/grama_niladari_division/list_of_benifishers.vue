@@ -1,5 +1,8 @@
 <template>
 	<AppLayout>
+		<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+			<elder-details :id="clickedid" />
+		</b-modal>
 		<div>
 			<datatable-heading
 				title="List Of the benifishers to the perticular grama Division"
@@ -33,7 +36,12 @@
 						@vuetable:cell-rightclicked="rightClicked"
 					>
 						<template slot="actions" slot-scope="props">
-							<b-form-checkbox :checked="selectedItems.includes(props.rowData.id)" class="itemCheck mb-0"></b-form-checkbox>
+							<b-button
+								class="mb-1"
+								v-b-modal.modallg
+								@click="clickedid = props.rowData.elder_id;"
+								variant="outline-primary"
+							>View Elder</b-button>
 						</template>
 					</vuetable>
 					<vuetable-pagination-bootstrap
@@ -69,6 +77,7 @@ import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
+import ElderDetails from "./view_elder_detail";
 export default {
 	props: ["title"],
 	components: {
@@ -76,10 +85,12 @@ export default {
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
-		"datatable-heading": DatatableHeading
+		"datatable-heading": DatatableHeading,
+		"elder-details": ElderDetails
 	},
 	data() {
 		return {
+			clickedid: null,
 			apiBase: bUrl + "/elders",
 			isLoad: false,
 			sort: "",
@@ -145,27 +156,11 @@ export default {
 				},
 
 				{
-					name: "added_officer_id",
-					sortField: "added_officer_id",
-					title: "Added Off Id",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "5%"
-				},
-				{
-					name: "added_date",
-					sortField: "added_date",
-					title: "Added Date",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "20%"
-				},
-				{
 					name: "__slot:actions",
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "5%"
+					width: "15%"
 				}
 			]
 		};
@@ -174,7 +169,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/gramadivision/benifisherlist/280"
+				"http://localhost:3000/api/gramadivision/benifisherlist"
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
@@ -195,21 +190,21 @@ export default {
 				  };
 		},
 		onRowClass(dataItem, index) {
-			if (this.selectedItems.includes(dataItem.id)) {
+			if (this.selectedItems.includes(dataItem.elder_id)) {
 				return "selected";
 			}
 			return "";
 		},
 
 		rowClicked(dataItem, event) {
-			const itemId = dataItem.id;
+			const itemId = dataItem.elder_id;
 			if (event.shiftKey && this.selectedItems.length > 0) {
 				let itemsForToggle = this.items;
-				var start = this.getIndex(itemId, itemsForToggle, "id");
+				var start = this.getIndex(itemId, itemsForToggle, "elder_id");
 				var end = this.getIndex(
 					this.selectedItems[this.selectedItems.length - 1],
 					itemsForToggle,
-					"id"
+					"elder_id"
 				);
 				itemsForToggle = itemsForToggle.slice(
 					Math.min(start, end),
@@ -217,7 +212,7 @@ export default {
 				);
 				this.selectedItems.push(
 					...itemsForToggle.map(item => {
-						return item.id;
+						return item.elder_id;
 					})
 				);
 				this.selectedItems = [...new Set(this.selectedItems)];
@@ -229,8 +224,8 @@ export default {
 		},
 		rightClicked(dataItem, field, event) {
 			event.preventDefault();
-			if (!this.selectedItems.includes(dataItem.id)) {
-				this.selectedItems = [dataItem.id];
+			if (!this.selectedItems.includes(dataItem.elder_id)) {
+				this.selectedItems = [dataItem.elder_id];
 			}
 			this.$refs.contextmenu.show({ top: event.pageY, left: event.pageX });
 		},
@@ -260,7 +255,7 @@ export default {
 			if (this.selectedItems.length >= this.items.length) {
 				if (isToggle) this.selectedItems = [];
 			} else {
-				this.selectedItems = this.items.map(x => x.id);
+				this.selectedItems = this.items.map(x => x.elder_id);
 			}
 		},
 		keymap(event) {

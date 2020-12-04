@@ -37,15 +37,14 @@
 							@vuetable:loading="show=true"
 							@vuetable:load-success="show=false"
 						>
-							<template slot="actions1" slot-scope="props">								
-			    				<b-button 
-								class="mb-2" 
-								v-b-modal.modallg 
-								@click="clickedid = props.rowData.elder_id" 
-								size="small" 
-								variant="outline-danger">
-								Inform Death
-								</b-button>
+							<template slot="actions1" slot-scope="props">
+								<b-button
+									class="mb-2"
+									v-b-modal.modallg
+									@click="clickedid = props.rowData.elder_id"
+									size="small"
+									variant="outline-danger"
+								>Inform Death</b-button>
 							</template>
 						</vuetable>
 						<vuetable-pagination-bootstrap
@@ -167,7 +166,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/gramadivision/benifisherlist/280"
+				"http://localhost:3000/api/gramadivision/benifisherlist"
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {

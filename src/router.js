@@ -562,6 +562,13 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/all_payment_report"
       )
   },
+  {
+    path: "/division/get-payment-by-years",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/get_payment_years.vue"
+      )
+  },
 
   //////////////////////////////
   //////////////////////////
