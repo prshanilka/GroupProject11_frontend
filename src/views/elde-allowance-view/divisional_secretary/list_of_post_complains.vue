@@ -2,11 +2,9 @@
 	<AppLayout>
 		<div>
 			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-				<b-modal id="modallg" size="large" title="Elder Details" hide-footer>
-					<elder-details :id="clickedid" />
-				</b-modal>
+				
 				<datatable-heading
-					title="Send Complain"
+					title="The List Of Post Offices Complain"
 					:selectAll="selectAll"
 					:isSelectedAll="isSelectedAll"
 					:isAnyItemSelected="isAnyItemSelected"
@@ -38,13 +36,13 @@
 							@vuetable:load-success="show=false"
 						>
 							<template slot="actions1" slot-scope="props">
-								<b-button
-									class="mb-1"
-									v-b-modal.modallg
-									@click="clickedid = props.rowData.elder_id"
-									variant="outline-danger"
-								>Complain</b-button>
-							</template>
+							<b-button
+								class="mb-1"
+								@click="() =>showw(props)"
+								@click.prevent="accept"								
+								variant="outline-primary"
+							>View</b-button>
+						</template>
 						</vuetable>
 						<vuetable-pagination-bootstrap
 							class="mt-4"
@@ -81,15 +79,12 @@ import VuetablePaginationBootstrap from "../../../components/Common/VuetablePagi
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 
-import ElderDetails from "./send_complains_form";
-
 export default {
 	props: ["title"],
 	components: {
 		name: "post-officer-elder-payment-authenticate-verify",
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
-		"elder-details": ElderDetails,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
 		"datatable-heading": DatatableHeading
 	},
@@ -120,33 +115,25 @@ export default {
 					width: "20%"
 				},
 				{
-					name: "name",
-					sortField: "name",
-					title: "name",
+					name: "ename",
+					sortField: "ename",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
 				},
 				{
-					name: "address",
-					sortField: "address",
-					title: "address",
+					name: "pname",
+					sortField: "pname",
+					title: "Post Office",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
 				},
 				{
-					name: "number",
-					sortField: "number",
-					title: "Phone number",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "25%"
-				},
-				{
-					name: "email",
-					sortField: "email",
-					title: "email",
+					name: "complain",
+					sortField: "complain",
+					title: "Complain",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "25%"
@@ -156,7 +143,7 @@ export default {
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "20%"
+					width: "30%"
 				}
 			]
 		};
@@ -164,7 +151,29 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("/postoffice/benfisherslist/");
+			return axios.get("http://localhost:3000/api/deadcomplain/postcomplains/");
+		},
+		showw(pp) {
+			this.clickedid = pp.rowData.elder_id;
+		},
+		accept() {
+         
+				axios({
+					method: "patch",
+					url: "http://localhost:3000/api/deadcomplain/comp/"+this.clickedid,
+				})
+					.then(res => {
+						console.log("Accept res");
+						console.log(res);
+					})
+					.catch(err => {
+						console.log(err);
+					});
+				console.log(
+					JSON.stringify({
+						messsage: this.clickedid
+					})
+				);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
@@ -291,10 +300,3 @@ export default {
 	}
 };
 </script>
-
-
-
- 
-
-
- 
