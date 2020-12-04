@@ -175,11 +175,7 @@ export default {
 	created() {
 		axios({
 			method: "get",
-			url:
-				"http://localhost:3000/api/paymentdivoff/topostbyyearmaonth/" +
-				this.year +
-				"/" +
-				this.month
+			url: "/paymentdivoff/topostbyyearmaonth/" + this.year + "/" + this.month
 		}).then(res => {
 			this.mm = res.data.data[0].m_name;
 			this.title =
@@ -200,11 +196,7 @@ export default {
 		getData() {
 			return axios({
 				method: "get",
-				url:
-					"http://localhost:3000/api/paymentdivoff/topostbyyearmaonth/" +
-					this.year +
-					"/" +
-					this.month
+				url: "/paymentdivoff/topostbyyearmaonth/" + this.year + "/" + this.month
 			}).then(res => {
 				console.log(res);
 				this.mm = res.data.data[0].m_name;

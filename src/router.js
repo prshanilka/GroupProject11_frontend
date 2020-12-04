@@ -55,7 +55,6 @@ const routes = [
       },
       {
         path: "/elderlogin",
-        name:ellogin,
         component: () =>
           import(
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
@@ -586,8 +585,8 @@ const routes = [
       ),
     props: true
   },
-{
-  path: "/division/list-paybenifisher-by-pay_id/:pay_id",
+  {
+    path: "/division/list-paybenifisher-by-pay_id/:pay_id",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_paybenifisher_by_post_office.vue"

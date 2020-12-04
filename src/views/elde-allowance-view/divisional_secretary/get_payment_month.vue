@@ -35,7 +35,7 @@ export default {
 	created() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/paymentdivoff/month-by-years/2020"
+			url: "/paymentdivoff/month-by-years/2020"
 		}).then(result => {
 			console.log(result.data.data[0]);
 			this.history = result.data.data;

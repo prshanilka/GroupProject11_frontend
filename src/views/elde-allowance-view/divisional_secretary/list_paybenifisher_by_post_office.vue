@@ -2,10 +2,9 @@
  
  <template>
 	<AppLayout>
-		<h1>{{this.pay_id}}</h1>
 		<div>
 			<datatable-heading
-				title="This is Divisional office List Of elder Payments To the Benifisher"
+				:title="title"
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
@@ -78,6 +77,7 @@ export default {
 	},
 	data() {
 		return {
+			title: null,
 			apiBase: bUrl + "/elders",
 			isLoad: false,
 			sort: "",
@@ -93,8 +93,8 @@ export default {
 
 			fields: [
 				{
-					name: "payment_id",
-					sortField: "payment_id",
+					name: "id",
+					sortField: "id",
 					title: "Pay Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
@@ -162,11 +162,30 @@ export default {
 		};
 	},
 	props: ["pay_id"],
+	created() {
+		axios({
+			method: "get",
+			url: "/paymentdivoff/postdetailbyid/" + this.pay_id
+		}).then(res => {
+			console.log(res.data.data[0]);
+			this.title =
+				" Payments To the Benifisher  " +
+				res.data.data[0].year +
+				" " +
+				res.data.data[0].m_name +
+				" " +
+				res.data.data[0].name +
+				"(" +
+				res.data.data[0].post_office_id +
+				") post office";
+			return res;
+		});
+	},
 	methods: {
 		getData() {
 			return axios({
 				method: "get",
-				url: "http://localhost:3000/api/paymentposttoben/payid/" + this.pay_id
+				url: "/paymentposttoben/payid/" + this.pay_id
 			}).then(res => {
 				console.log(res.data.data[0]);
 				return res;
