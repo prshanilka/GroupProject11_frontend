@@ -153,7 +153,7 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("http://localhost:3000/api/elders");
+			return axios.get("/elders");
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];

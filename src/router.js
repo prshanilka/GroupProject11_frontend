@@ -576,7 +576,30 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/get_payment_years.vue"
       )
   },
-
+  {
+    path: "/division/get-payment-by-months/:year",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/get_payment_month.vue"
+      ),
+    props: true
+  },
+  {
+    path: "/division/list_of_pay_to_post_year_months/:year/:month",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_pay_to_post_year_months.vue"
+      ),
+    props: true
+  },
+  {
+    path: "/division/list-paybenifisher-by-pay_id/:pay_id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_paybenifisher_by_post_office.vue"
+      ),
+    props: true
+  },
   //////////////////////////////
   //////////////////////////
   //////////////////////////////////////////////

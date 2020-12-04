@@ -38,7 +38,7 @@ export default {
 	async beforeCreate() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/gramadivision/verifylist"
+			url: "/gramadivision/verifylist"
 		}).then(result => {
 			this.applications = result.data.data;
 			console.log(result);

@@ -45,7 +45,7 @@ export default {
 			};
 			axios({
 				method: "patch",
-				url: "http://localhost:3000/api/postoffice/endpostpayment",
+				url: "/postoffice/endpostpayment",
 				data: data
 			}).then(result => {
 				console.log(result);

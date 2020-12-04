@@ -5,6 +5,7 @@
 </template>
 
 <script>
+
 import AppLayout from "../../layouts/EAppLayout";
 
 export default {

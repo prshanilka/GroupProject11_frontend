@@ -165,7 +165,7 @@ export default {
 	methods: {
 		getData() {
 			return axios
-				.get("http://localhost:3000/api/paymentdivoff/topost")
+				.get("/paymentdivoff/topost")
 				.then(res => {
 					console.log(res);
 					return res;

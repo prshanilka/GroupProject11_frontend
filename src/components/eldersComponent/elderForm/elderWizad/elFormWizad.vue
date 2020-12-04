@@ -185,14 +185,14 @@ export default {
 
 			axios({
 				method: "post",
-				url: "http://localhost:3000/api/elders/",
+				url: "/elders/",
 				data: body
 			})
 				.then(res => {
 					if (this.elderdetails[2].available) {
 						axios({
 							method: "post",
-							url: "http://localhost:3000/api/agent",
+							url: "/agent",
 							data: ajent
 						})
 							.then(result => {

@@ -120,7 +120,7 @@ export default {
 	created() {
 		axios
 			.get(
-				"http://localhost:3000/api/elders/eldertopatid/" + this.$props.pay_id
+				"/elders/eldertopatid/" + this.$props.pay_id
 			)
 			.then(res => {
 				this.reason.name = res.data.data.name;
@@ -171,7 +171,7 @@ export default {
 				};
 				axios({
 					method: "patch",
-					url: "http://localhost:3000/api/paymentposttoben/elderreason",
+					url: "/paymentposttoben/elderreason",
 					data: body
 				})
 					.then(res => {

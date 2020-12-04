@@ -61,7 +61,7 @@
 								<div class="home-text">
 									<div class="display-1">
 										Welcome To National Secretariat for Elders
-										<br />Management system of Gapaha Divisiona.
+										<br />Management system of Gampaha Divisiona.
 									</div>
 									<!-- <p class="white mb-5">
 											<br />
@@ -71,14 +71,14 @@
 											<br />Hope you enjoy it!
 									</p>-->
 									<b-row>
-										<a class="btn btn-light btn-xl mr-2 mb-2" href="/user/login" target="_blank">
+										<router-link tag="a" to="/user/login" class="btn btn-light btn-xl mr-2 mb-2">
 											LOGIN
 											<i class="simple-icon-arrow-right"></i>
-										</a>
-										<a class="btn btn-light btn-xl mr-2 mb-2" href="/user/register" target="_blank">
+										</router-link>
+										<router-link tag="a" to="/user/login" class="btn btn-light btn-xl mr-2 mb-2">
 											REGISTER
 											<i class="simple-icon-arrow-right"></i>
-										</a>
+										</router-link>
 									</b-row>
 								</div>
 							</div>

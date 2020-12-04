@@ -1,74 +1,60 @@
-<template>
+ 
+ 
+ <template>
 	<AppLayout>
 		<div>
-			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-				<b-modal id="modallg" size="large" title="Elder Details" hide-footer>
-					<elder-details :id="clickedid" />
-				</b-modal>
-				<datatable-heading
-					title="Send Complain"
-					:selectAll="selectAll"
-					:isSelectedAll="isSelectedAll"
-					:isAnyItemSelected="isAnyItemSelected"
-					:keymap="keymap"
-					:changePageSize="changePageSize"
-					:searchChange="searchChange"
-					:from="from"
-					:to="to"
-					:total="total"
-					:perPage="perPage"
-				></datatable-heading>
-				<b-row>
-					<b-colxx xxs="12">
-						<vuetable
-							ref="vuetable"
-							class="table-divided order-with-arrow"
-							:http-fetch="getData"
-							:api-url="apiBase"
-							:query-params="makeQueryParams"
-							:per-page="perPage"
-							:reactive-api-url="true"
-							:fields="fields"
-							pagination-path
-							:row-class="onRowClass"
-							@vuetable:pagination-data="onPaginationData"
-							@vuetable:row-clicked="rowClicked"
-							@vuetable:cell-rightclicked="rightClicked"
-							@vuetable:loading="show=true"
-							@vuetable:load-success="show=false"
-						>
-							<template slot="actions1" slot-scope="props">
-								<b-button
-									class="mb-1"
-									v-b-modal.modallg
-									@click="clickedid = props.rowData.elder_id"
-									variant="outline-danger"
-								>Complain</b-button>
-							</template>
-						</vuetable>
-						<vuetable-pagination-bootstrap
-							class="mt-4"
-							ref="pagination"
-							@vuetable-pagination:change-page="onChangePage"
-						/>
-					</b-colxx>
-				</b-row>
+			<datatable-heading
+				:title="title"
+				:selectAll="selectAll"
+				:isSelectedAll="isSelectedAll"
+				:isAnyItemSelected="isAnyItemSelected"
+				:keymap="keymap"
+				:changePageSize="changePageSize"
+				:searchChange="searchChange"
+				:from="from"
+				:to="to"
+				:total="total"
+				:perPage="perPage"
+			></datatable-heading>
+			<b-row>
+				<b-colxx xxs="12">
+					<vuetable
+						ref="vuetable"
+						class="table-divided order-with-arrow"
+						:http-fetch="getData"
+						:api-url="apiBase"
+						:query-params="makeQueryParams"
+						:per-page="perPage"
+						:reactive-api-url="true"
+						:fields="fields"
+						pagination-path
+						:row-class="onRowClass"
+						@vuetable:pagination-data="onPaginationData"
+						@vuetable:row-clicked="rowClicked"
+						@vuetable:cell-rightclicked="rightClicked"
+					></vuetable>
+					<vuetable-pagination-bootstrap
+						class="mt-4"
+						ref="pagination"
+						@vuetable-pagination:change-page="onChangePage"
+					/>
+				</b-colxx>
+			</b-row>
 
-				<v-contextmenu ref="contextmenu">
-					<v-contextmenu-item @click="onContextMenuAction('copy')">
-						<i class="simple-icon-docs" />
-						<span>Copy</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-						<i class="simple-icon-drawer" />
-						<span>Move to archive</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('delete')">
-						<i class="simple-icon-trash" />
-						<span>Delete</span>
-					</v-contextmenu-item>
-				</v-contextmenu>
-			</b-overlay>
+			<v-contextmenu ref="contextmenu">
+				<v-contextmenu-item @click="onContextMenuAction('copy')">
+					<i class="simple-icon-docs" />
+					<span>Copy</span>
+				</v-contextmenu-item>
+				<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
+					<i class="simple-icon-drawer" />
+					<span>Move to archive</span>
+				</v-contextmenu-item>
+				<v-contextmenu-item @click="onContextMenuAction('delete')">
+					<i class="simple-icon-trash" />
+					<span>Delete</span>
+				</v-contextmenu-item>
+			</v-contextmenu>
 		</div>
 	</AppLayout>
 </template>
@@ -80,23 +66,18 @@ import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
-
-import ElderDetails from "./send_complains_form";
-
 export default {
 	props: ["title"],
 	components: {
-		name: "post-officer-elder-payment-authenticate-verify",
+		name: "post-officer-eldesr-payment",
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
-		"elder-details": ElderDetails,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
 		"datatable-heading": DatatableHeading
 	},
 	data() {
 		return {
-			clickedid: null,
-			show: true,
+			title: null,
 			apiBase: bUrl + "/elders",
 			isLoad: false,
 			sort: "",
@@ -112,59 +93,103 @@ export default {
 
 			fields: [
 				{
-					name: "elder_id",
-					sortField: "elder_id",
-					title: "elder_id",
+					name: "id",
+					sortField: "id",
+					title: "Pay Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "20%"
+					width: "5%"
+				},
+
+				{
+					name: "elder_id",
+					sortField: "elder_id",
+					title: "Elder Id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "5%"
 				},
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "10%"
 				},
+
 				{
-					name: "address",
-					sortField: "address",
-					title: "address",
+					name: "nic_id",
+					sortField: "nic_id",
+					title: "Nic Id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "10%"
 				},
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone No",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "10%"
 				},
 				{
-					name: "email",
-					sortField: "email",
-					title: "email",
+					name: "ajent_available",
+					sortField: "ajent_available",
+					title: "Gradian State",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "25%"
+					width: "5%"
 				},
 				{
-					name: "__slot:actions1",
-					title: "",
-					titleClass: "center aligned text-right",
-					dataClass: "center aligned text-right",
-					width: "20%"
+					name: "money_amount",
+					sortField: "money_amount",
+					title: "Money",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "10%"
+				},
+				{
+					name: "is_taken_money",
+					sortField: "is_taken_money",
+					title: "revive",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "5%"
 				}
 			]
 		};
 	},
-
+	props: ["pay_id"],
+	created() {
+		axios({
+			method: "get",
+			url: "/paymentdivoff/postdetailbyid/" + this.pay_id
+		}).then(res => {
+			console.log(res.data.data[0]);
+			this.title =
+				" Payments To the Benifisher  " +
+				res.data.data[0].year +
+				" " +
+				res.data.data[0].m_name +
+				" " +
+				res.data.data[0].name +
+				"(" +
+				res.data.data[0].post_office_id +
+				") post office";
+			return res;
+		});
+	},
 	methods: {
 		getData() {
-			return axios.get("/postoffice/benfisherslist/");
+			return axios({
+				method: "get",
+				url: "/paymentposttoben/payid/" + this.pay_id
+			}).then(res => {
+				console.log(res.data.data[0]);
+				return res;
+			});
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
@@ -184,21 +209,21 @@ export default {
 				  };
 		},
 		onRowClass(dataItem, index) {
-			if (this.selectedItems.includes(dataItem.elder_id)) {
+			if (this.selectedItems.includes(dataItem.id)) {
 				return "selected";
 			}
 			return "";
 		},
 
 		rowClicked(dataItem, event) {
-			const itemId = dataItem.elder_id;
+			const itemId = dataItem.id;
 			if (event.shiftKey && this.selectedItems.length > 0) {
 				let itemsForToggle = this.items;
-				var start = this.getIndex(itemId, itemsForToggle, "elder_id");
+				var start = this.getIndex(itemId, itemsForToggle, "id");
 				var end = this.getIndex(
 					this.selectedItems[this.selectedItems.length - 1],
 					itemsForToggle,
-					"elder_id"
+					"id"
 				);
 				itemsForToggle = itemsForToggle.slice(
 					Math.min(start, end),
@@ -206,7 +231,7 @@ export default {
 				);
 				this.selectedItems.push(
 					...itemsForToggle.map(item => {
-						return item.elder_id;
+						return item.id;
 					})
 				);
 				this.selectedItems = [...new Set(this.selectedItems)];
@@ -218,8 +243,8 @@ export default {
 		},
 		rightClicked(dataItem, field, event) {
 			event.preventDefault();
-			if (!this.selectedItems.includes(dataItem.elder_id)) {
-				this.selectedItems = [dataItem.elder_id];
+			if (!this.selectedItems.includes(dataItem.id)) {
+				this.selectedItems = [dataItem.id];
 			}
 			this.$refs.contextmenu.show({ top: event.pageY, left: event.pageX });
 		},
@@ -249,7 +274,7 @@ export default {
 			if (this.selectedItems.length >= this.items.length) {
 				if (isToggle) this.selectedItems = [];
 			} else {
-				this.selectedItems = this.items.map(x => x.elder_id);
+				this.selectedItems = this.items.map(x => x.id);
 			}
 		},
 		keymap(event) {

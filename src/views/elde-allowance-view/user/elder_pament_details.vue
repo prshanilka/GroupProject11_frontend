@@ -35,7 +35,7 @@ export default {
 	},
 	async beforeCreate() {
 		axios
-			.get("http://localhost:3000/api/paymentposttoben/elderhistory")
+			.get("/paymentposttoben/elderhistory")
 			.then(result => {
 				console.log(result.data.data[0]);
 				this.postpayhistory = result.data.data;

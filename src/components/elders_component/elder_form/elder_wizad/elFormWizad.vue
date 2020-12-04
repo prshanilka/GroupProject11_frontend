@@ -197,7 +197,7 @@ export default {
 
 			axios({
 				method: "post",
-				url: "http://localhost:3000/api/elders/elder-registration",
+				url: "/elders/elder-registration",
 				data: body
 			})
 				.then(res => {

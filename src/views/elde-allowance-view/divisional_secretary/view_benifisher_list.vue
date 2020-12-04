@@ -173,7 +173,7 @@ export default {
 	methods: {
 		getData() {
 			return axios.get(
-				"http://localhost:3000/api/divisionaloffice//benifisherlist/G1"
+				"/divisionaloffice//benifisherlist/G1"
 			);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
