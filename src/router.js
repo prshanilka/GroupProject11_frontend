@@ -476,6 +476,13 @@ const routes = [
       )
   },
   {
+    path: "/division/list-of-post-complains",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_complains"
+      )
+  },
+  {
     path: "/division/evaluate-elder-application",
     component: () =>
       import(

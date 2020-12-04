@@ -554,6 +554,11 @@ const data = [
         to: `/division/list-of-complains`
       },
       {
+        icon: "iconsminds-target",
+        label: "menu.list-of-post-complains",
+        to: `/division/list-of-post-complains`
+      },
+      {
         icon: "iconsminds-target-market",
         label: "menu.list-of-deaths",
         to: `/division/list-of-deaths`
