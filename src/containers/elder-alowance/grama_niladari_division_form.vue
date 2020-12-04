@@ -6,33 +6,35 @@
 					<h1>{{$t('office.g-form')}}</h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_grmaniladari_div">
+					<div class="icon-row-item">
+						<i class="simple-icon-like text-xlarge" />				
+					</div>
 					<h2 class="mb-2">{{$t('office.g-succsess')}}</h2>
 					<p>{{$t('office.g-register')}}</p>
 				</b-card>
 				<b-card class="mb-4" v-show="submit_grmaniladari_div">
-					<b-form-group label="District">
-						<b-form-select
-							v-model="$v.grmaniladari_div.district_id.$model"
-							:options="district_option"
-							:state="!$v.grmaniladari_div.district_id.$error"
-						></b-form-select>
-						<b-form-invalid-feedback
-							v-if="!$v.grmaniladari_div.district_id.required"
-						>Please enter District</b-form-invalid-feedback>
-					</b-form-group>
-
-					<b-form-group label="Divisional Secratary Office">
-						<b-form-select
-							v-model="$v.grmaniladari_div.divisional_id.$model"
-							:options="divisional_off_option"
-							:state="!$v.grmaniladari_div.divisional_id.$error"
-						></b-form-select>
-						<b-form-invalid-feedback
-							v-if="!$v.grmaniladari_div.divisional_id.required"
-						>Please enter Divisional Secratary Office</b-form-invalid-feedback>
-					</b-form-group>
-
 					<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
+						<b-form-group label="District">
+							<b-form-select
+								v-model="$v.grmaniladari_div.district_id.$model"
+								:options="district_option"
+								:state="!$v.grmaniladari_div.district_id.$error"
+							></b-form-select>
+							<b-form-invalid-feedback
+								v-if="!$v.grmaniladari_div.district_id.required"
+							>Please enter District</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group label="Divisional Secratary Office">
+							<b-form-select
+								v-model="$v.grmaniladari_div.divisional_id.$model"
+								:options="divisional_off_option"
+								:state="!$v.grmaniladari_div.divisional_id.$error"
+							></b-form-select>
+							<b-form-invalid-feedback
+								v-if="!$v.grmaniladari_div.divisional_id.required"
+							>Please enter Divisional Secratary Office</b-form-invalid-feedback>
+						</b-form-group>
 						<b-form-group label="Grama Niladari Divisional code">
 							<b-form-input
 								type="text"
@@ -141,8 +143,8 @@ export default {
 		return {
 			submit_grmaniladari_div: true,
 			grmaniladari_div: {
-				district_id: "",
-				divisional_id: "",
+				district_id: null,
+				divisional_id: null,
 				grmaniladari_divisional_id: "",
 				grmaniladari_div_name: "",
 				office_address: "",
@@ -153,24 +155,7 @@ export default {
 			district_option: [
 				{
 					value: null,
-					text: "Please select an District",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Colombo"
-				},
-				{
-					value: "1",
-					text: "Gampaha"
-				},
-				{
-					value: "2",
-					text: "Kaluthara"
-				},
-				{
-					value: "3",
-					text: "Rathnapura",
+					text: "Select an District/කරුණාකර දිස්ත්‍රික්කය තෝරන්න",
 					disabled: true
 				}
 			],
@@ -179,32 +164,8 @@ export default {
 					value: null,
 					text: "Please select an Division",
 					disabled: true
-				},
-				{
-					value: "0",
-					text: "Gampaha Town"
-				},
-				{
-					value: "1",
-					text: "Henagama"
-				},
-				{
-					value: "2",
-					text: "Kiridiwala"
-				},
-				{
-					value: "3",
-					text: "kadawatha",
-					disabled: true
 				}
 			]
-			// name: "",
-			// email: "",
-			// emailAgain: "",
-			// number: "",
-			// max: "",
-			// min: "",
-			// withRegex: ""
 		};
 	},
 	mixins: [validationMixin],
@@ -242,39 +203,27 @@ export default {
 			}
 		}
 
-		// name: {
-		// 	required,
-		// 	maxLength: maxLength(16),
-		// 	minLength: minLength(2),
-		// 	alpha
-		// },
-		// email: {
-		// 	required,
-		// 	email
-		// },
-		// emailAgain: {
-		// 	required,
-		// 	email,
-		// 	sameAsEmail: sameAs("email")
-		// },
-		// number: {
-		// 	required,
-		// 	numeric
-		// },
-		// max: {
-		// 	required,
-		// 	numeric,
-		// 	maxValue: maxValue(5)
-		// },
-		// min: {
-		// 	required,
-		// 	numeric,
-		// 	minValue: minValue(5)
-		// },
-		// withRegex: {
-		// 	required,
-		// 	upperCase
-		// }
+	},
+	created() {
+		axios
+			.get("/district/selectbox")
+			.then(res => {
+				console.log(res);
+				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+
+		axios
+			.get("/divisionaloffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
 	},
 	methods: {
 		onValitadeFormSubmit() {
@@ -297,7 +246,7 @@ export default {
 				};
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/gramadivision/",
+					url: "/gramadivision/",
 					data: body
 				})
 					.then(res => {

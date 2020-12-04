@@ -182,16 +182,16 @@
 
       .white {
         display: inline-block;
-        width: 120px;
-        height: 40px;
-        background: url($lp-logo-path);
+        width: 240px;
+        height: 90px;
+        background: url("/assets/logos/swsw.png");
         background-repeat: no-repeat;
       }
 
       .dark {
-        width: 120px;
-        height: 40px;
-        background: url($lp-logo-path-pinned);
+        width: 240px;
+        height: 100px;
+        background: url("/assets/logos/swsw.png");
         background-repeat: no-repeat;
         display: none;
       }
@@ -357,7 +357,7 @@
       box-shadow: initial;
 
       background: transparent;
-      
+
       .navbar-nav {
         a {
           color: $button-text-color;

@@ -19,7 +19,8 @@
     "register-button": "REGISTER",
     "reset-password-button": "RESET",
     "buy": "BUY",
-    "username": "Username"
+    "username": "Username",
+    "review": "Review"
   },
   "form": {
     "address": "Address",
@@ -63,7 +64,14 @@
     "m-income": "Monthly Income",
     "smurdi": "Samurdhi Number",
     "aid": "Public Aid Number",
-    "other": "Other"
+    "other": "Other",
+    "waiting-for-approval": "approved",
+    "gramaniladhari": "Gramaniladhari",
+    "waiting-for-resubmit": "Waiting for resubmit",
+    "divisional_officer": "Divisional officer",
+    "divisional_head": "Divisional Head",
+    "details": "Details",
+    "view": "View"
   },
   "agent": {
     "form": "Agent Form",
@@ -125,6 +133,24 @@
     "elder-pament-details": "Pyment List",
     "reason-about-payments": "Reason Not Payment",
     "elder-application-list": "Divisional Allcication List",
+    "paytopost": "Payment To PostOff",
+    "paytoben": "Payments To Benifisher",
+    "admin": "Admin",
+    "allpay": "All Pay detail Post",
+    "byyears": "Years",
+    "add-offices": "Add Offices",
+    "add-officer": "Add Officer",
+    "list": "List Of",
+    "payhistory": "Payment History",
+    "complain-death": "Feedback",
+    "list-of-complains": "List of Complains",
+    "list-of-deaths": "List of Deaths",
+    "complain": "Send Complains",
+
+    "paynemt-histroy": "Payment History ",
+
+    "pendingapplications": "Pending Applications",
+    "selectedapplications": "Selected Applications",
 
     "postoffice": "Post Office",
     "postoffice-officer": "Post Officer",
@@ -134,6 +160,7 @@
     "get-elder-detail-verification": "Verify Elders",
     "lsit-of-elder-pyament": "Elder Payment List",
     "post-officer-dashboard": "Postoffice Dashboard",
+    "paymenttopostoffice": "Payment to Post Office",
 
     "divisional-office-form": "Divisional Office",
     "divisional-office-officer": "Divisional Officer",
@@ -518,7 +545,9 @@
     "middle": "Middle",
     "right": "Right",
     "dropdown": "Dropdown",
-    "dropdown-link": "Dropdown Link"
+    "dropdown-link": "Dropdown Link",
+    "review": "Review",
+    "remove": "Remove"
   },
   "cards": {
     "icon-card": "Icon Card",
@@ -772,5 +801,8 @@
     "prev": "Back",
     "registered": "Your registration completed successfully!",
     "async": "Async save for 3 seconds!"
+  },
+  "application": {
+    "gramaniladharidivision": "Grama Niladhari Division"
   }
 }

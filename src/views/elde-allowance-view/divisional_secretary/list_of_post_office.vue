@@ -1,15 +1,13 @@
 <template>
 	<AppLayout>
-
-		<h1>List ot the post officers in a perticular division</h1>
 		<b-colxx class="mb-4 text-center" lg="12" xxs="12">
-			<h1>Post Offices</h1>
+			<h1>List of Post Offices</h1>
 	    </b-colxx>
         <b-row>
 				<list-with-user-item
 					v-for="(item, index) in filteredList"
 					:data="item"
-					detail-path="#"
+					:detail-path="'/division/get_details_postoffice/'+item.post_office_id"
 					:key="index"
 				/>
         </b-row>
@@ -39,7 +37,7 @@ export default {
 	},
 	async beforeCreate() {
 		
-		axios.get("http://localhost:3000/api/postoffice/").then(result => {
+		axios.get("/postoffice/").then(result => {
 			console.log(result.data.data[0]);
 			this.postoffice = result.data.data;
 		});

@@ -6,6 +6,9 @@
 					<h1>{{$t('office.d-form')}}</h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_div">
+					<div class="icon-row-item">
+						<i class="simple-icon-like text-xlarge" />				
+					</div>
 					<h2 class="mb-2">{{$t('office.d-success')}}</h2>
 					<p>{{$t('office.d-register')}}</p>
 				</b-card>
@@ -162,7 +165,7 @@ export default {
 			submit_div: true,
 			div_sec_off: {
 				divisional_id: "",
-				district_id: "",
+				district_id: null,
 				divisional_name: "",
 				office_address: "",
 				phone_no: "",
@@ -176,23 +179,6 @@ export default {
 				{
 					value: null,
 					text: "Please select an District",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Colombo"
-				},
-				{
-					value: "1",
-					text: "Gampaha"
-				},
-				{
-					value: "2",
-					text: "Kaluthara"
-				},
-				{
-					value: "3",
-					text: "Rathnapura",
 					disabled: true
 				}
 			]
@@ -240,6 +226,18 @@ export default {
 			}
 		}
 	},
+	created() {
+		axios
+			.get("/district/selectbox")
+			.then(res => {
+				console.log(res);
+				this.district_option = [...this.district_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	},
+
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
@@ -248,19 +246,21 @@ export default {
 			if (!this.$v.$invalid) {
 				const body = {
 					divisional_secratary_id: this.div_sec_off.divisional_id,
-            		district_id: this.div_sec_off.district_id,
-            		name: this.div_sec_off.divisional_name,
-            		address: this.div_sec_off.office_address,
-            		number: this.div_sec_off.phone_no,
-            		email: this.div_sec_off.email,
-            		bank_account: this.div_sec_off.bank_account,
-            		no_of_officers: this.div_sec_off.no_of_officers,
-            		count_of_priority_listed_elders: this.div_sec_off.count_of_priority_listed_elders,
-            		count_of_benifishers_elders: this.div_sec_off.count_of_benifishers_elders
+					district_id: this.div_sec_off.district_id,
+					name: this.div_sec_off.divisional_name,
+					address: this.div_sec_off.office_address,
+					number: this.div_sec_off.phone_no,
+					email: this.div_sec_off.email,
+					bank_account: this.div_sec_off.bank_account,
+					no_of_officers: this.div_sec_off.no_of_officers,
+					count_of_priority_listed_elders: this.div_sec_off
+						.count_of_priority_listed_elders,
+					count_of_benifishers_elders: this.div_sec_off
+						.count_of_benifishers_elders
 				};
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/divisionaloffice",
+					url: "/divisionaloffice",
 					data: body
 				})
 					.then(res => {

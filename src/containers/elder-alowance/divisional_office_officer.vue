@@ -8,6 +8,9 @@
 				<br />
 				<br />
 				<b-card class="mb-4 text-center" v-show="!submit_ag">
+					<div class="icon-row-item">
+						<i class="simple-icon-like text-xlarge" />				
+					</div>
 					<h2 class="mb-2">{{$t('officer.form-success')}}</h2>
 					<p>{{$t('officer.form-register')}}</p>
 				</b-card>
@@ -172,25 +175,7 @@ export default {
 			divisional_off_option: [
 				{
 					value: null,
-					text:
-						"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
-					disabled: true
-				},
-				{
-					value: "0",
-					text: "Gampaha Town"
-				},
-				{
-					value: "1",
-					text: "Henagama"
-				},
-				{
-					value: "2",
-					text: "Kiridiwala"
-				},
-				{
-					value: "3",
-					text: "kadawatha",
+					text:"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -236,6 +221,17 @@ export default {
 			}
 		}
 	},
+	created() {
+		axios
+			.get("/divisionaloffice/selectbox")
+			.then(res => {
+				console.log(res);
+				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+			})
+			.catch(err => {
+				console.log(err);
+			});
+	},
 	methods: {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
@@ -263,7 +259,7 @@ export default {
 				};
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/divisionalofficers",
+					url: "/divisionalofficers",
 					data: body
 				})
 					.then( res => {
