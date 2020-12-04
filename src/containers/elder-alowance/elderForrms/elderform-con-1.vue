@@ -102,9 +102,7 @@
 							:options="post_off_option"
 							:state="!$v.elder.nearest_post_office.$error"
 						></b-form-select>
-						<b-form-invalid-feedback
-							v-if="!$v.elder.nearest_post_office.required"
-						>{{$t('form.e-post')}}</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-if="!$v.elder.nearest_post_office.required">{{$t('form.e-post')}}</b-form-invalid-feedback>
 					</b-form-group>
 
 					<b-form-group :label="$t('form.birth')" class="error-l-125">
@@ -198,7 +196,8 @@ export default {
 			post_off_option: [
 				{
 					value: null,
-					text:"Select Nearest Post Office/කරුණාකර ළඟම ඇති තැපැල් කාර්යාලය තෝරන්න",
+					text:
+						"Select Nearest Post Office/කරුණාකර ළඟම ඇති තැපැල් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -291,10 +290,7 @@ export default {
 			.get("http://localhost:3000/api/postoffice/selectbox")
 			.then(res => {
 				console.log(res);
-				this.post_off_option = [
-					...this.post_off_option,
-					...res.data.data
-				];
+				this.post_off_option = [...this.post_off_option, ...res.data.data];
 			})
 			.catch(err => {
 				console.log(err);

@@ -20,7 +20,7 @@
     "reset-password-button": "RESET",
     "buy": "BUY",
     "username": "Username",
-    "review":"Review"
+    "review": "Review"
   },
   "form": {
     "address": "Address",
@@ -70,8 +70,8 @@
     "waiting-for-resubmit": "Waiting for resubmit",
     "divisional_officer": "Divisional officer",
     "divisional_head": "Divisional Head",
-    "details":"Details",
-    "view":"View"
+    "details": "Details",
+    "view": "View"
   },
   "agent": {
     "form": "Agent Form",
@@ -136,15 +136,21 @@
     "paytopost": "Payment To PostOff",
     "paytoben": "Payments To Benifisher",
     "admin": "Admin",
-
+    "allpay": "All Pay detail Post",
+    "byyears": "Years",
     "add-offices": "Add Offices",
     "add-officer": "Add Officer",
     "list": "List Of",
+    "payhistory": "Payment History",
+    "complain-death": "Feedback",
+    "list-of-complains": "List of Complains",
+    "list-of-deaths": "List of Deaths",
+    "complain": "Send Complains",
 
     "paynemt-histroy": "Payment History ",
 
-    "pendingapplications":"Pending Applications",
-    "selectedapplications":"Selected Applications",
+    "pendingapplications": "Pending Applications",
+    "selectedapplications": "Selected Applications",
 
     "postoffice": "Post Office",
     "postoffice-officer": "Post Officer",
@@ -540,8 +546,8 @@
     "right": "Right",
     "dropdown": "Dropdown",
     "dropdown-link": "Dropdown Link",
-    "review":"Review",
-    "remove":"Remove"
+    "review": "Review",
+    "remove": "Remove"
   },
   "cards": {
     "icon-card": "Icon Card",
@@ -797,6 +803,6 @@
     "async": "Async save for 3 seconds!"
   },
   "application": {
-    "gramaniladharidivision":"Grama Niladhari Division"
+    "gramaniladharidivision": "Grama Niladhari Division"
   }
 }

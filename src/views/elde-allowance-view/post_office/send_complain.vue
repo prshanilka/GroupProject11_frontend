@@ -1,71 +1,74 @@
 <template>
 	<AppLayout>
-		<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
-			<elder-details :id="clickedid" />
-		</b-modal>
 		<div>
-			<datatable-heading
-				title="List Of the benifishers to the perticular grama Division"
-				:selectAll="selectAll"
-				:isSelectedAll="isSelectedAll"
-				:isAnyItemSelected="isAnyItemSelected"
-				:keymap="keymap"
-				:changePageSize="changePageSize"
-				:searchChange="searchChange"
-				:from="from"
-				:to="to"
-				:total="total"
-				:perPage="perPage"
-			></datatable-heading>
-			<b-row>
-				<b-colxx xxs="12">
-					<vuetable
-						ref="vuetable"
-						class="table-divided order-with-arrow"
-						:http-fetch="getData"
-						:api-url="apiBase"
-						:query-params="makeQueryParams"
-						:per-page="perPage"
-						:reactive-api-url="true"
-						:fields="fields"
-						q
-						pagination-path
-						:row-class="onRowClass"
-						@vuetable:pagination-data="onPaginationData"
-						@vuetable:row-clicked="rowClicked"
-						@vuetable:cell-rightclicked="rightClicked"
-					>
-						<template slot="actions" slot-scope="props">
-							<b-button
-								class="mb-1"
-								v-b-modal.modallg
-								@click="clickedid = props.rowData.elder_id;"
-								variant="outline-primary"
-							>View Elder</b-button>
-						</template>
-					</vuetable>
-					<vuetable-pagination-bootstrap
-						class="mt-4"
-						ref="pagination"
-						@vuetable-pagination:change-page="onChangePage"
-					/>
-				</b-colxx>
-			</b-row>
+			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
+				<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+					<elder-details :id="clickedid" />
+				</b-modal>
+				<datatable-heading
+					title="Send Complain"
+					:selectAll="selectAll"
+					:isSelectedAll="isSelectedAll"
+					:isAnyItemSelected="isAnyItemSelected"
+					:keymap="keymap"
+					:changePageSize="changePageSize"
+					:searchChange="searchChange"
+					:from="from"
+					:to="to"
+					:total="total"
+					:perPage="perPage"
+				></datatable-heading>
+				<b-row>
+					<b-colxx xxs="12">
+						<vuetable
+							ref="vuetable"
+							class="table-divided order-with-arrow"
+							:http-fetch="getData"
+							:api-url="apiBase"
+							:query-params="makeQueryParams"
+							:per-page="perPage"
+							:reactive-api-url="true"
+							:fields="fields"
+							pagination-path
+							:row-class="onRowClass"
+							@vuetable:pagination-data="onPaginationData"
+							@vuetable:row-clicked="rowClicked"
+							@vuetable:cell-rightclicked="rightClicked"
+							@vuetable:loading="show=true"
+							@vuetable:load-success="show=false"
+						>
+							<template slot="actions1" slot-scope="props">
+								<b-button
+									class="mb-1"
+									v-b-modal.modallg
+									@click="clickedid = props.rowData.elder_id"
+									variant="outline-primary"
+								>Send Complain</b-button>
+							</template>
+						</vuetable>
+						<vuetable-pagination-bootstrap
+							class="mt-4"
+							ref="pagination"
+							@vuetable-pagination:change-page="onChangePage"
+						/>
+					</b-colxx>
+				</b-row>
 
-			<v-contextmenu ref="contextmenu">
-				<v-contextmenu-item @click="onContextMenuAction('copy')">
-					<i class="simple-icon-docs" />
-					<span>Copy</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-					<i class="simple-icon-drawer" />
-					<span>Move to archive</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('delete')">
-					<i class="simple-icon-trash" />
-					<span>Delete</span>
-				</v-contextmenu-item>
-			</v-contextmenu>
+				<v-contextmenu ref="contextmenu">
+					<v-contextmenu-item @click="onContextMenuAction('copy')">
+						<i class="simple-icon-docs" />
+						<span>Copy</span>
+					</v-contextmenu-item>
+					<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
+						<i class="simple-icon-drawer" />
+						<span>Move to archive</span>
+					</v-contextmenu-item>
+					<v-contextmenu-item @click="onContextMenuAction('delete')">
+						<i class="simple-icon-trash" />
+						<span>Delete</span>
+					</v-contextmenu-item>
+				</v-contextmenu>
+			</b-overlay>
 		</div>
 	</AppLayout>
 </template>
@@ -77,20 +80,23 @@ import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
-import ElderDetails from "./view_elder_detail";
+
+import ElderDetails from "../../../views/elde-allowance-view/divisional_secretary/view_elder_application_verify";
+
 export default {
 	props: ["title"],
 	components: {
-		name: "list-benfishers",
+		name: "post-officer-elder-payment-authenticate-verify",
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
+		"elder-details": ElderDetails,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
-		"datatable-heading": DatatableHeading,
-		"elder-details": ElderDetails
+		"datatable-heading": DatatableHeading
 	},
 	data() {
 		return {
 			clickedid: null,
+			show: true,
 			apiBase: bUrl + "/elders",
 			isLoad: false,
 			sort: "",
@@ -106,29 +112,20 @@ export default {
 
 			fields: [
 				{
-					name: "benifesher_id",
-					sortField: "benifesher_id",
-					title: "BenFisher Id",
-					titleClass: "",
-					dataClass: "list-item-heading",
-					width: "5%"
-				},
-				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "Elder Id",
+					title: "elder_id",
 					titleClass: "",
-					dataClass: "text-muted",
-					width: "5%"
+					dataClass: "list-item-heading",
+					width: "20%"
 				},
-
 				{
 					name: "name",
 					sortField: "name",
-					title: "Name",
+					title: "name",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "15%"
+					width: "20%"
 				},
 				{
 					name: "address",
@@ -144,7 +141,7 @@ export default {
 					title: "Phone number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "25%"
 				},
 				{
 					name: "email",
@@ -152,15 +149,14 @@ export default {
 					title: "email",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "25%"
 				},
-
 				{
-					name: "__slot:actions",
+					name: "__slot:actions1",
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "15%"
+					width: "20%"
 				}
 			]
 		};
@@ -168,9 +164,7 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get(
-				"http://localhost:3000/api/gramadivision/benifisherlist"
-			);
+			return axios.get("http://localhost:3000/api/postoffice/benfisherslist/");
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
@@ -303,3 +297,4 @@ export default {
  
 
 
+ 

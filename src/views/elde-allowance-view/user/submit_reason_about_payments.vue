@@ -1,5 +1,7 @@
 <template>
-	<h1>This is for Elder to submit the reson of the not taking the payments</h1>
+	<div>
+		<reasonForm :pay_id="pay_id" />
+	</div>
 </template>
 
 
@@ -7,12 +9,15 @@
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
+import reasonForm from "../../../containers/elder-alowance/elder_reason";
 
 export default {
 	name: "elder-payment-reason",
 	components: {
-		AppLayout: AppLayout
-	}
+		AppLayout: AppLayout,
+		reasonForm: reasonForm
+	},
+	props: ["pay_id"]
 };
 </script>
 

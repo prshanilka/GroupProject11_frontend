@@ -2,6 +2,9 @@
  
  <template>
 	<AppLayout>
+		<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+			<elder-details :id="clickedid" :pay_id="pay_id" />
+		</b-modal>
 		<div>
 			<h1 class="center">The Year{{this.year}} Month {{this.month}}</h1>
 			<datatable-heading
@@ -33,9 +36,16 @@
 						@vuetable:pagination-data="onPaginationData"
 						@vuetable:row-clicked="rowClicked"
 						@vuetable:cell-rightclicked="rightClicked"
+						@vuetable:loading="show=true"
+						@vuetable:load-success="show=false"
 					>
-						<template slot="actions" slot-scope="props">
-							<b-form-checkbox :checked="selectedItems.includes(props.rowData.id)" class="itemCheck mb-0"></b-form-checkbox>
+						<template slot="actions1" slot-scope="props">
+							<b-button
+								class="mb-1"
+								v-b-modal.modallg
+								@click="() =>showw(props)"
+								variant="outline-primary"
+							>Pay</b-button>
 						</template>
 					</vuetable>
 					<vuetable-pagination-bootstrap
@@ -71,6 +81,7 @@ import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
+import ElderDetails from "./get_elder_detail_verification";
 export default {
 	props: ["title"],
 	components: {
@@ -78,10 +89,14 @@ export default {
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
-		"datatable-heading": DatatableHeading
+		"datatable-heading": DatatableHeading,
+		"elder-details": ElderDetails
 	},
 	data() {
 		return {
+			clickedid: null,
+			pay_id: null,
+			show: true,
 			apiBase: bUrl + "/elders",
 			isLoad: false,
 			sort: "",
@@ -97,7 +112,7 @@ export default {
 
 			fields: [
 				{
-					name: "payment_id",
+					name: "id",
 					sortField: "payment_id",
 					title: "payment_id",
 					titleClass: "",
@@ -163,11 +178,11 @@ export default {
 					width: "5%"
 				},
 				{
-					name: "__slot:actions",
+					name: "__slot:actions1",
 					title: "",
 					titleClass: "center aligned text-right",
 					dataClass: "center aligned text-right",
-					width: "10%"
+					width: "15%"
 				}
 			]
 		};
@@ -183,6 +198,10 @@ export default {
 					"/" +
 					this.month
 			);
+		},
+		showw(pp) {
+			this.clickedid = pp.rowData.elder_id;
+			this.pay_id = pp.rowData.id;
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];

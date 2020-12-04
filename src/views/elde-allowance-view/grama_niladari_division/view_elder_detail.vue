@@ -1,23 +1,10 @@
 <template>
-	<b-colxx xl="10" lg="12" style="margin:auto ">
+	<div>
 		<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-			<h1>Elder Details for Verification</h1>
+			<h1>View Elder Detail</h1>
 		</b-colxx>
 
-		<b-card class="mb-4 text-center" v-show="!submit_div">
-			<div class="icon-row-item">
-				<i class="simple-icon-like text-xlarge" />
-			</div>
-			<h2 class="mb-2">You SuccecFully Verified The Payment Details</h2>
-			<p>Verified Details are Submitted Now</p>
-		</b-card>
-
-		<b-card class="mb-4 text-center" v-show="!submit_div">
-			<h2 class="mb-2">You SuccecFully Verified The Payment Details</h2>
-			<p>Verified Details are Submitted Now</p>
-		</b-card>
-
-		<b-card no-body class="mb-4" v-show="submit_div">
+		<b-card no-body class="mb-4">
 			<b-row>
 				<b-colxx lg="6" md="12" class="mb-4">
 					<div class="position-absolute card-top-buttons"></div>
@@ -56,7 +43,7 @@
 
 						<p class="mb-3">
 							<span class="text-muted text-small mb-2">Date of Birth:</span>
-							{{elder.birth_day}}
+							{{elder.birth_day }}
 						</p>
 						<p class="mb-3">
 							<span class="text-muted text-small mb-2">Age:</span>
@@ -102,36 +89,9 @@
 						<p class="mb-3">{{elder.income}}</p>
 					</b-colxx>
 				</b-row>
-				<b-colxx xxs="12">
-					<b-card class="mb-4" title="Officer Rewiwe About the Elder">
-						<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-							<b-form-group label="Officer Comment">
-								<b-form-textarea
-									type="text"
-									v-model="$v.div_comment.$model"
-									:state="!$v.div_comment.$error"
-								/>
-
-								<b-form-invalid-feedback v-if="!$v.div_comment.required">Officer Comment Is reqiured</b-form-invalid-feedback>
-
-								<b-form-invalid-feedback
-									v-else-if="!$v.div_comment.minLength || !$v.div_comment.maxLength"
-								>The Comment Should be between 10 and 256</b-form-invalid-feedback>
-							</b-form-group>
-							<b-row>
-								<b-colxx lg="6" md="12" class="mb-4 text-center">
-									<b-button type="button" variant="primary" @click.prevent="accept">Aprove</b-button>
-								</b-colxx>
-								<b-colxx lg="6" md="12" class="mb-4 text-center">
-									<b-button type="submit" variant="primary">Disqualify</b-button>
-								</b-colxx>
-							</b-row>
-						</b-form>
-					</b-card>
-				</b-colxx>
 			</b-card-body>
 		</b-card>
-	</b-colxx>
+	</div>
 </template>
 
 <script>
@@ -152,14 +112,13 @@ export default {
 		return {
 			submit_div: true,
 			elder: {},
-			div_comment: "",
-			eee: 2
+			grama_comment: ""
 		};
 	},
 	props: ["id"],
 	mixins: [validationMixin],
 	validations: {
-		div_comment: {
+		grama_comment: {
 			required,
 			maxLength: maxLength(256),
 			minLength: minLength(10)
@@ -171,6 +130,7 @@ export default {
 			url: "http://localhost:3000/api/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
+			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
 			console.log(result.data.data);
 			// this.aplications = result.data.data;
 		});
@@ -181,14 +141,14 @@ export default {
 			console.log(this.$v.$invalid + " dis king ");
 			if (!this.$v.$invalid) {
 				const body = {
-					divisional_officer_id: "2",
-					divisional_officers_comment: this.div_comment,
-					correction: this.div_comment,
+					gramaniladari_id: "2",
+					gramaniladari_comment: this.grama_comment,
+					correction: this.grama_comment,
 					elder_id: this.id
 				};
 				axios({
 					method: "patch",
-					url: "http://localhost:3000/api/verifyelder/divofffdisqulify",
+					url: "http://localhost:3000/api/verifyelder/gramadisqualify",
 					data: body
 				})
 					.then(res => {
@@ -200,7 +160,7 @@ export default {
 					});
 				console.log(
 					JSON.stringify({
-						messsage: this.div_comment
+						messsage: this.grama_comment
 					})
 				);
 				this.submit_div = !this.submit_div;
@@ -211,13 +171,13 @@ export default {
 			console.log(this.$v.$invalid + "  ase cking ");
 			if (!this.$v.$invalid) {
 				const body = {
-					divisional_officer_id: "2",
-					divisional_officers_comment: this.div_comment,
+					gramaniladari_id: "2",
+					gramaniladari_comment: this.grama_comment,
 					elder_id: this.id
 				};
 				axios({
 					method: "patch",
-					url: "http://localhost:3000/api/verifyelder/divoffaccept",
+					url: "http://localhost:3000/api/verifyelder/gramaaccept",
 					data: body
 				})
 					.then(res => {
@@ -229,7 +189,7 @@ export default {
 					});
 				console.log(
 					JSON.stringify({
-						messsage: this.div_comment
+						messsage: this.grama_comment
 					})
 				);
 				this.submit_div = !this.submit_div;

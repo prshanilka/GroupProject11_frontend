@@ -6,6 +6,9 @@
 					<h1>{{$t('office.p-form')}}</h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_ag">
+					<div class="icon-row-item">
+						<i class="simple-icon-like text-xlarge" />				
+					</div>
 					<h2 class="mb-2">{{$t('office.p-succsess')}}</h2>
 					<p>{{$t('office.p-register')}}</p>
 				</b-card>

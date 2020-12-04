@@ -7,7 +7,7 @@ const data = [
     id: "dashboards",
     icon: "simple-icon-equalizer",
     label: "menu.dashboard",
-    to: `${elderRoot}/dashboards/`,
+    to: `${elderRoot}/dashboards`,
     roles: [UserRole.Admin, UserRole.Elders, UserRole.Editor]
   },
 
@@ -18,13 +18,13 @@ const data = [
     to: `/elder/elder-pament-details`,
     roles: [UserRole.Editor, UserRole.Elders]
   },
-  {
-    id: "reason-about-payments",
-    icon: "simple-icon-user-following",
-    label: "menu.reason-about-payments",
-    to: `/elder/reason-about-payments`,
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
+  // {
+  //   id: "reason-about-payments",
+  //   icon: "simple-icon-user-following",
+  //   label: "menu.reason-about-payments",
+  //   to: `/elder/reason-about-payments/114`,
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
   {
     id: "agent-form",
     icon: "simple-icon-user-following",
@@ -278,20 +278,20 @@ const data = [
     to: `/post/post-officer-dashboard`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
-  {
-    id: "lsit-of-elder-pyament",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.lsit-of-elder-pyament",
-    to: `/post/lsit-of-elder-pyament`,
-    roles: [UserRole.Editor, UserRole.PostOfficers]
-  },
-  {
-    id: "get-elder-detail-verification",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.get-elder-detail-verification",
-    to: `/post/get-elder-detail-verification/13/117`,
-    roles: [UserRole.Editor, UserRole.PostOfficers]
-  },
+  // {
+  //   id: "lsit-of-elder-pyament",
+  //   icon: "iconsminds-post-mail-2",
+  //   label: "menu.lsit-of-elder-pyament",
+  //   to: `/post/lsit-of-elder-pyament`,
+  //   roles: [UserRole.Editor, UserRole.PostOfficers]
+  // },
+  // {
+  //   id: "get-elder-detail-verification",
+  //   icon: "iconsminds-post-mail-2",
+  //   label: "menu.get-elder-detail-verification",
+  //   to: `/post/get-elder-detail-verification/13/117`,
+  //   roles: [UserRole.Editor, UserRole.PostOfficers]
+  // },
   {
     id: "elders-related-to-post-off",
     icon: "iconsminds-post-mail-2",
@@ -306,6 +306,13 @@ const data = [
     to: `/post/paynemt-histroy`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
+  {
+    id: "send-complain",
+    icon: "simple-icon-dislike",
+    label: "menu.complain",
+    to: `/post/complain`,
+    roles: [UserRole.Editor, UserRole.PostOfficers]
+  },
 
   // {
   //   id: "assign-post-officers",
@@ -316,7 +323,7 @@ const data = [
   // },
   {
     id: "send-reports",
-    icon: "iconsminds-post-mail-2",
+    icon: "iconsminds-monitor-analytics",
     label: "menu.send-reports",
     to: `/post/send-reports`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
@@ -443,6 +450,21 @@ const data = [
         icon: "iconsminds-dollar-sign-2",
         label: "menu.paytoben",
         to: `/division/div_to_ben`
+      },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.payhistory",
+        to: `/division/payhistory`
+      },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.allpay",
+        to: `/division/all-payment-report`
+      },
+      {
+        icon: "iconsminds-dollar-sign-2",
+        label: "menu.byyears",
+        to: `/division/get-payment-by-years`
       }
     ]
   },
@@ -473,7 +495,7 @@ const data = [
   // },
   {
     id: "get-reports",
-    icon: "iconsminds-the-white-house",
+    icon: "iconsminds-monitor-analytics",
     label: "menu.get-reports",
     to: `/division/get-reports`,
     roles: [
@@ -505,13 +527,19 @@ const data = [
         icon: "iconsminds-the-white-house",
         label: "menu.list-of-gramaniladari",
         to: `/division/list-of-gramaniladari`
+      },
+      {
+        icon: "iconsminds-the-white-house",
+        label: "menu.list-of-post-office",
+        to: `/division/list-of-post-office`
       }
     ]
   },
+
   {
-    id: "list-of-post-office",
-    icon: "iconsminds-the-white-house",
-    label: "menu.divisional-office-form",
+    id: "complains",
+    icon: "simple-icon-dislike",
+    label: "menu.complain-death",
     to: `/division/`,
     roles: [
       UserRole.Editor,
@@ -521,9 +549,14 @@ const data = [
     ],
     subs: [
       {
-        icon: "iconsminds-the-white-house",
-        label: "menu.list-of-post-office",
-        to: `/division/list-of-post-office`
+        icon: "iconsminds-target",
+        label: "menu.list-of-complains",
+        to: `/division/list-of-complains`
+      },
+      {
+        icon: "iconsminds-target-market",
+        label: "menu.list-of-deaths",
+        to: `/division/list-of-deaths`
       }
     ]
   },
@@ -643,14 +676,25 @@ const data = [
   },
 
   ///
-
   {
-    id: "inform-death-of-elder",
-    icon: "iconsminds-add-user",
-    label: "menu.inform-death-of-elder",
-    to: `/grama/inform-death-of-elder`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+    id: "grama-complains",
+    icon: "simple-icon-dislike",
+    label: "menu.complain-death",
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices],
+    subs: [
+      {
+        icon: "iconsminds-target-market",
+        label: "menu.inform-death-of-elder",
+        to: `/grama/inform-death-of-elder`
+      },
+      {
+        icon: "iconsminds-target",
+        label: "menu.send-complains",
+        to: `/grama/send-complains`
+      }
+    ]
   },
+
   {
     id: "list-of-applicans",
     icon: "iconsminds-add-user",
@@ -674,31 +718,23 @@ const data = [
       }
     ]
   },
-
-  {
-    id: "send-complains",
-    icon: "iconsminds-add-user",
-    label: "menu.send-complains",
-    to: `/grama/send-complains`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
-  },
-  {
-    id: "view-elder-application-verify",
-    icon: "iconsminds-add-user",
-    label: "menu.view-elder-application-verify",
-    to: `/grama/view-elder-application-verify/2`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
-  },
-  {
-    id: "view-elder-details",
-    icon: "iconsminds-add-user",
-    label: "menu.view-elder-details",
-    to: `/grama/view-elder-details`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
-  },
+  // {
+  //   id: "view-elder-application-verify",
+  //   icon: "iconsminds-add-user",
+  //   label: "menu.view-elder-application-verify",
+  //   to: `/grama/view-elder-application-verify/2`,
+  //   roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  // },
+  // {
+  //   id: "view-elder-details",
+  //   icon: "iconsminds-add-user",
+  //   label: "menu.view-elder-details",
+  //   to: `/grama/view-elder-details`,
+  //   roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  // },
   {
     id: "send-reports",
-    icon: "iconsminds-add-user",
+    icon: "iconsminds-monitor-analytics",
     label: "menu.send-reports-d",
     to: `/grama/send-reports`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
@@ -737,7 +773,6 @@ const data = [
     roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
   },
   {
-
     id: "applications",
     icon: "iconsminds-digital-drawing",
     label: "menu.applications",
@@ -746,18 +781,14 @@ const data = [
       {
         id: "pages-authorization",
         label: "menu.pendingapplications",
-        to: `${dofficerRoot}/pendingapplications/`,
-        
+        to: `${dofficerRoot}/pendingapplications/`
       },
       {
         id: "pages-authorization",
         label: "menu.selectedapplications",
-        to: `${dofficerRoot}/selectedapplications`,
-        
-      },
+        to: `${dofficerRoot}/selectedapplications`
+      }
     ]
-  },
-
-
+  }
 ];
 export default data;

@@ -1,11 +1,68 @@
 <template>
 	<div>
-				<b-overlay 
-		:show="show" 
-		spinner-variant="primary"
-    spinner-type="grow"
-    spinner-small
-    rounded="sm"
+		<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
+			<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
+				<elder-details :id="clickedVid" />
+			</b-modal>
+			<datatable-heading
+				:title="$t('menu.pendingapplications')"
+				:selectAll="selectAll"
+				:isSelectedAll="isSelectedAll"
+				:isAnyItemSelected="isAnyItemSelected"
+				:keymap="keymap"
+				:changePageSize="changePageSize"
+				:searchChange="searchChange"
+				:filterChange="filterChange"
+				:from="from"
+				:to="to"
+				:total="total"
+				:perPage="perPage"
+				:garamaDivision="garamaDivision"
+			></datatable-heading>
+			<b-row>
+				<b-colxx xxs="12">
+					<vuetable
+						ref="vuetable"
+						class="table-divided order-with-arrow"
+						:api-url="apiBase"
+						:http-fetch="getData"
+						:per-page="perPage"
+						:reactive-api-url="true"
+						:query-params="makeQueryParams"
+						:fields="fields"
+						pagination-path
+						:row-class="onRowClass"
+						@vuetable:pagination-data="onPaginationData"
+						@vuetable:row-clicked="rowClicked"
+						@vuetable:cell-rightclicked="rightClicked"
+						@vuetable:loading="show=true"
+						@vuetable:load-success="show=false"
+					>
+						<template slot="actions" slot-scope="props">
+							<b-form-checkbox :checked="selectedItems.includes(props.rowData.vid)" class="itemCheck mb-0"></b-form-checkbox>
+						</template>
+						<template slot="actions1" slot-scope="props">
+							<b-button
+								class="mb-1"
+								v-b-modal.modallg
+								@click="clickedVid = props.rowData.vid"
+								variant="outline-primary"
+							>{{ $t('elder.view') }}</b-button>
+							<b-button
+								class="mb-1"
+								@click="selectApplication(props.rowData.vid)"
+								variant="outline-success"
+							>{{ $t('button.review') }}</b-button>
+						</template>
+					</vuetable>
+					<vuetable-pagination-bootstrap
+						class="mt-4"
+						ref="pagination"
+						@vuetable-pagination:change-page="onChangePage"
+					/>
+				</b-colxx>
+			</b-row>
+
 
 		>
 		<b-modal id="modallg" size="lg" title="Elder Details" hide-footer>
@@ -77,6 +134,7 @@
 			</v-contextmenu-item>
 		</v-contextmenu>
 	</b-overlay>
+
 	</div>
 </template>
 
@@ -87,7 +145,7 @@ import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../components/Common/VuetablePaginationBootstrap";
 import { bUrl } from "../../constants/config";
 import DatatableHeading from "../../containers/elder-alowance/datatable/DatatableHeading";
-import ElderDetails from "./components/view_elder_application_verify"
+import ElderDetails from "./components/view_elder_application_verify";
 import StateButton from "../../components/Common/StateButton";
 export default {
 	props: ["title"],
@@ -96,13 +154,13 @@ export default {
 		vuetable: Vuetable,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
 		"datatable-heading": DatatableHeading,
-		"elder-details": ElderDetails ,
+		"elder-details": ElderDetails,
 		"state-button": StateButton
 	},
 	data() {
 		return {
 			show: true,
-			apiBase: bUrl+"/application/dappdetails",
+			apiBase: bUrl + "/application/dappdetails",
 			isLoad: false,
 			sort: "",
 			page: 1,
@@ -114,11 +172,9 @@ export default {
 			total: 0,
 			lastPage: 0,
 			items: [],
-			clickedVid:null,
+			clickedVid: null,
 			selectedItems: [],
-			garamaDivision:[],
-			
-
+			garamaDivision: [],
 
 			fields: [
 				{
@@ -164,14 +220,13 @@ export default {
 					dataClass: "center aligned text-right",
 					width: "5%"
 				}
-				
 			]
 		};
 	},
 
 	methods: {
-		getData(apiUrl,httpOptions) {
-			return axios.get(apiUrl,httpOptions);
+		getData(apiUrl, httpOptions) {
+			return axios.get(apiUrl, httpOptions);
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
@@ -183,13 +238,13 @@ export default {
 						page: currentPage,
 						per_page: this.perPage,
 						search: this.search,
-						grama_division:this.filter.grama_division
+						grama_division: this.filter.grama_division
 				  }
 				: {
 						page: currentPage,
 						per_page: this.perPage,
 						search: this.search,
-						grama_division:this.filter.grama_division
+						grama_division: this.filter.grama_division
 				  };
 		},
 		onRowClass(dataItem, index) {
@@ -200,9 +255,8 @@ export default {
 		},
 
 		rowClicked(dataItem, event) {
-			
 			const itemId = dataItem.vid;
-			this.selectedItem = itemId ;
+			this.selectedItem = itemId;
 			if (event.shiftKey && this.selectedItems.length > 0) {
 				let itemsForToggle = this.items;
 				var start = this.getIndex(itemId, itemsForToggle, "vid");
@@ -292,48 +346,48 @@ export default {
 			);
 		},
 
-
 		//custom
 
 		dataProvider() {
-      let promise = axios.get( bUrl + '/gramadivision/gramandionly')
-			promise.then(result => result.data)
-        .then((data) => {
-					const items = data.data
+			let promise = axios.get(bUrl + "/gramadivision/gramandionly");
+			promise
+				.then(result => result.data)
+				.then(data => {
+					const items = data.data;
 					//console.log(items)
-          this.garamaDivision=items;
-        }).catch(_error => {
-          return []
-        })
+					this.garamaDivision = items;
+				})
+				.catch(_error => {
+					return [];
+				});
 		},
-		//select button 
-   selectApplication(val) {
-		 //console.log("ssss")
-		// console.log(val)
+		//select button
+		selectApplication(val) {
+			//console.log("ssss")
+			// console.log(val)
 
 			// eslint-disable-next-line promise/param-names
 			// 	let req = axios.get( bUrl + '/application/selectapplicaton/'+this.clickedVid)
-			let req = axios.patch( bUrl + '/application/selectapplicaton/'+val)
-			req.then(result => result.data)
-        .then((data) => {
-					console.log(data)
+			let req = axios.patch(bUrl + "/application/selectapplicaton/" + val);
+			req
+				.then(result => result.data)
+				.then(data => {
+					console.log(data);
 					this.$refs.vuetable.refresh();
-        }).catch(_error => {
-          return []
-        })
-
-				
-    },
-    failButtonClick() {
-      // eslint-disable-next-line promise/param-names
-      return new Promise((success, fail) => {
-        setTimeout(() => {
-          // eslint-disable-next-line prefer-promise-reject-errors
-          fail("Something is wrong!");
-        }, 2000);
-      });
-    }
-
+				})
+				.catch(_error => {
+					return [];
+				});
+		},
+		failButtonClick() {
+			// eslint-disable-next-line promise/param-names
+			return new Promise((success, fail) => {
+				setTimeout(() => {
+					// eslint-disable-next-line prefer-promise-reject-errors
+					fail("Something is wrong!");
+				}, 2000);
+			});
+		}
 	},
 	computed: {
 		isSelectedAll() {
@@ -346,14 +400,14 @@ export default {
 			);
 		}
 	},
-	created(){
+	created() {
 		this.dataProvider();
 	}
 };
 </script>
 <style>
 #successButton {
-	margin-bottom:0.25rem !important;
+	margin-bottom: 0.25rem !important;
 }
 </style>
 
