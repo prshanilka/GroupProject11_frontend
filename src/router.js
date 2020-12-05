@@ -77,6 +77,14 @@ const routes = [
       },
 
       {
+        path: "/elder/agent-details",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_details"
+          )
+      },
+
+      {
         path: "/elder/elder-dashboard",
         component: () =>
           import(

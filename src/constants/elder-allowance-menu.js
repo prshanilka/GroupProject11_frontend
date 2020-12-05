@@ -33,6 +33,13 @@ const data = [
     roles: [UserRole.Editor, UserRole.Elders]
   },
   {
+    id: "agent-details",
+    icon: "simple-icon-user-following",
+    label: "menu.agentdetails",
+    to: "/elder/agent-details",
+    roles: [UserRole.Editor, UserRole.Elders]
+  },
+  {
     id: "elder-form",
     icon: "iconsminds-male-female",
     label: "menu.elderform",
