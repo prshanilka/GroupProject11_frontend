@@ -6,9 +6,8 @@
 			<elder-details :id="clickedid" :pay_id="pay_id" />
 		</b-modal>
 		<div>
-			<h1 class="center">The Year{{this.year}} Month {{this.month}}</h1>
+			<h1>{{title}}</h1>
 			<datatable-heading
-				title="This Previous elder Payments To the Month is Post Office List Of     "
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
@@ -39,7 +38,7 @@
 						@vuetable:loading="show=true"
 						@vuetable:load-success="show=false"
 					>
-						<template slot="actions1" slot-scope="props">
+						<template v-if="!bshow" slot="actions1" slot-scope="props">
 							<b-button
 								class="mb-1"
 								v-b-modal.modallg
@@ -71,11 +70,14 @@
 				</v-contextmenu-item>
 			</v-contextmenu>
 		</div>
+		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>
 	</AppLayout>
 </template>
 
 <script>
 import axios from "axios";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 import AppLayout from "../../../layouts/EAppLayout";
 import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
@@ -94,7 +96,11 @@ export default {
 	},
 	data() {
 		return {
+			title: null,
+			bshow: null,
 			clickedid: null,
+			m_name: null,
+			p_name: null,
 			pay_id: null,
 			show: true,
 			apiBase: bUrl + "/elders",
@@ -109,6 +115,7 @@ export default {
 			lastPage: 0,
 			items: [],
 			selectedItems: [],
+			pay_info: [],
 
 			fields: [
 				{
@@ -189,15 +196,81 @@ export default {
 	},
 	props: ["post_off", "year", "month"],
 	methods: {
-		getData() {
-			return axios.get(
-				"/paymentposttoben/post/" +
-					this.post_off +
-					"/" +
-					this.year +
-					"/" +
-					this.month
+		exportPDF() {
+			var vm = this;
+			var columns = [
+				{ title: "Pay Id", dataKey: "id" },
+				{ title: "Elder Reg", dataKey: "elder_id" },
+				{ title: "Elder Name", dataKey: "name" },
+				{ title: "Amount", dataKey: "money_amount" },
+				{ title: "Signature" }
+				// { title: "Signature", dataKey: n }
+				// { title: "Total", dataKey: "total_amount" }
+			];
+			var doc = new jsPDF("p", "pt");
+			doc.setFontSize("15");
+			doc.text("Social Servives Departmant - Gampaha D.S.D ", 150, 70);
+			doc.text(
+				"Over 70 Monthly Allowance " + this.year + "  " + this.m_name,
+				170,
+				90
 			);
+			doc.text("Post Office :", 40, 120);
+			doc.text(" " + this.post_off + " " + this.p_name, 120, 120);
+			doc.text(" Head  ", 120, 160);
+			doc.autoTable(columns, vm.pay_info, {
+				margin: { top: 200 }
+			});
+			doc.setFontSize("12");
+			doc.text(
+				"I certify that above allowance contained on ................. sheat and totalling  ....................................\nonly Rupees are authorized  in Registrer of Allowance and are due for payment",
+				40,
+				600
+			);
+
+			doc.text("Prepared By", 80, 640);
+			doc.text("Checked By", 320, 640);
+			doc.text("2020.03", 80, 680);
+			doc.text("Divisional Secretory", 320, 680);
+			doc.text(
+				"I certify that above allwance totalling Rupees ............................................................have been paid to \nthe person named or to their authorized agents whose authorities are atached and that allwance \ntotalling Rs...................................... have not been paid   ",
+				40,
+				720
+			);
+			doc.text("Date", 80, 780);
+			doc.text("Postmaster", 320, 780);
+			doc.save(this.title + ".pdf");
+		},
+
+		getData() {
+			return axios
+				.get(
+					"/paymentposttoben/post/" +
+						this.post_off +
+						"/" +
+						this.year +
+						"/" +
+						this.month
+				)
+				.then(res => {
+					console.log(res);
+					this.bshow = res.data.data[0].is_completed;
+					this.m_name = res.data.data[0].m_name;
+					this.p_name = res.data.data[0].post;
+					console.log(this.m_name);
+					(this.title =
+						"The Year  " +
+						this.year +
+						" " +
+						this.m_name +
+						" Payment Info  " +
+						res.data.data[0].post +
+						"(" +
+						this.post_off +
+						")"),
+						(this.pay_info = res.data.data);
+					return res;
+				});
 		},
 		showw(pp) {
 			this.clickedid = pp.rowData.elder_id;
