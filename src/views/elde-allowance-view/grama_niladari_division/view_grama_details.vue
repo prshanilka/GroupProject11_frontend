@@ -1,7 +1,6 @@
 <template>
 	<AppLayout>
 		<b-colxx xl="10" lg="12" style="margin:auto ">
-
 			<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
 				<h1>Grama Division & Grama Niladari Details</h1>
 			</b-colxx>
@@ -10,40 +9,45 @@
 				<b-row>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-relative">
-                            <img src="/assets/img/profiles/4.jpg" class="card-img-top" />
-                        </div>
+							<img src="/assets/img/profiles/4.jpg" class="card-img-top" />
+						</div>
 					</b-colxx>
-                
+
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="m-4">
-                            <p class="text-muted text-small mb-2">Grama Niladari Full Name</p>
+							<p class="text-muted text-small mb-2">Grama Niladari Full Name</p>
 							<p class="mb-4 text-large text-primary">{{details.oname}}</p>
 							<p class="text-muted text-small mb-2">Grama Niladari Email</p>
-							<p class="mb-4  text-large text-danger">{{details.oemail}}</p>
-                            <p class="text-muted text-small mb-2">Grama Niladari Phone Number</p>
-                            <p class="mb-4  text-large text-danger">{{details.ophone}}</p>
-                            <p class="text-muted text-small mb-2">Grama Niladari Officer ID</p>
-                            <p class="mb-4  text-large ">{{details.grmaniladari_officer_id}}</p>
+							<p class="mb-4 text-large text-danger">{{details.oemail}}</p>
+							<p class="text-muted text-small mb-2">Grama Niladari Phone Number</p>
+							<p class="mb-4 text-large text-danger">{{details.ophone}}</p>
+							<p class="text-muted text-small mb-2">Grama Niladari Officer ID</p>
+							<p class="mb-4 text-large">{{details.grmaniladari_officer_id}}</p>
+						</div>
+						<div class="text-center">
+							<b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-primary">Update</b-button>
+							<b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-warning">Delete</b-button>
 						</div>
 					</b-colxx>
 				</b-row>
 				<b-card-body>
-					
-						<div lg="6" md="12" class="mb-4 text-center">
-                            <p class="text-muted text-small mb-2">Grama Division Name</p>
-                            <p class="mb-4 text-large ">{{details.dname}}</p>
+					<div lg="6" md="12" class="mb-4 text-center">
+						<p class="text-muted text-small mb-2">Grama Division Name</p>
+						<p class="mb-4 text-large">{{details.dname}}</p>
 
-                            <p class="text-muted text-small mb-2">Grama Division Address</p>
-                            <p class="mb-4 text-large ">{{details.address}}</p>
+						<p class="text-muted text-small mb-2">Grama Division Address</p>
+						<p class="mb-4 text-large">{{details.address}}</p>
 
-							<p class="text-muted text-small mb-2">Grama Division Email</p>
-							<p class="mb-4  text-default ">{{details.demail}}</p>
+						<p class="text-muted text-small mb-2">Grama Division Email</p>
+						<p class="mb-4 text-default">{{details.demail}}</p>
 
-                            <p class="text-muted text-small mb-2">Grama Division Phone Number</p>
-                            <p class="mb-4  text-default ">{{details.number}}</p>
-						</div>
-					
-					
+						<p class="text-muted text-small mb-2">Grama Division Phone Number</p>
+						<p class="mb-4 text-default">{{details.number}}</p>
+					</div>
+					<div class="text-center">
+						<b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-primary">Update</b-button>
+						<b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-warning">Delete</b-button>
+					</div>
 				</b-card-body>
 			</b-card>
 		</b-colxx>
@@ -61,21 +65,16 @@ const { required, maxLength, minLength } = require("vuelidate/lib/validators");
 export default {
 	name: "view-details",
 	components: {
-		AppLayout: AppLayout,
-		
+		AppLayout: AppLayout
 	},
 	data() {
 		return {
-			
-			details: {},
-			
+			details: {}
 		};
 	},
 	props: ["id"],
 	mixins: [validationMixin],
-	validations: {
-		
-	},
+	validations: {},
 	async created() {
 		axios({
 			method: "get",
@@ -86,8 +85,7 @@ export default {
 			// this.aplications = result.data.data;
 		});
 	},
-	methods: {
-    }
+	methods: {}
 };
 </script>
 <style>

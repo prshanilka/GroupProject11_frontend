@@ -1,7 +1,6 @@
 <template>
 	<AppLayout>
 		<b-colxx xl="10" lg="12" style="margin:auto ">
-
 			<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
 				<h1>Post Office Details</h1>
 			</b-colxx>
@@ -10,22 +9,28 @@
 				<b-row>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-relative">
-                            <img src="/assets/img/profiles/post.jpg" class="card-img-top" />
-                        </div>
+							<img src="/assets/img/profiles/post.jpg" class="card-img-top" />
+						</div>
 					</b-colxx>
-                
+
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="m-4">
-                            <p class="mb-2">Postal Code</p>
+							<p class="mb-2">Postal Code</p>
 							<p class="mb-4 text-large text-primary">{{details.post_office_id}}</p>
 							<p class="mb-2">Name</p>
-							<p class="mb-4  text-large text-danger">{{details.name}}</p>
-                            <p class="mb-2">Address</p>
-							<p class="mb-4  text-large text-danger">{{details.address}}</p>
-                            <p class="mb-2">Phone Number</p>
-                            <p class="mb-4  text-large text-danger">{{details.phone_no}}</p>
-                            <p class="mb-2">Email</p>
-                            <p class="mb-4  text-large ">{{details.email}}</p>
+							<p class="mb-4 text-large text-danger">{{details.name}}</p>
+							<p class="mb-2">Address</p>
+							<p class="mb-4 text-large text-danger">{{details.address}}</p>
+							<p class="mb-2">Phone Number</p>
+							<p class="mb-4 text-large text-danger">{{details.phone_no}}</p>
+							<p class="mb-2">Email</p>
+							<p class="mb-4 text-large">{{details.email}}</p>
+						</div>
+					</b-colxx>
+					<b-colxx lg="12" md="12" class="mb-4">
+						<div class="text-center">
+							<b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-primary">Update</b-button>
+							<b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-warning">Delete</b-button>
 						</div>
 					</b-colxx>
 				</b-row>
@@ -45,21 +50,16 @@ const { required, maxLength, minLength } = require("vuelidate/lib/validators");
 export default {
 	name: "view-details",
 	components: {
-		AppLayout: AppLayout,
-		
+		AppLayout: AppLayout
 	},
 	data() {
 		return {
-			
-			details: {},
-			
+			details: {}
 		};
 	},
 	props: ["id"],
 	mixins: [validationMixin],
-	validations: {
-		
-	},
+	validations: {},
 	async created() {
 		axios({
 			method: "get",
@@ -70,8 +70,7 @@ export default {
 			// this.aplications = result.data.data;
 		});
 	},
-	methods: {
-    }
+	methods: {}
 };
 </script>
 <style>
