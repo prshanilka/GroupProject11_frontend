@@ -230,6 +230,13 @@ const data = [
       }
     ]
   },
+  {
+    id: "admin-citiria",
+    icon: "simple-icon-compass",
+    label: "menu.criteria",
+    to: `/sysadmin/criteria/`,
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
+  },
 
   ///End System Admin////////////
 

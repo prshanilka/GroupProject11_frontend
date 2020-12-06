@@ -225,6 +225,15 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_officer_form"
       )
   },
+
+  {
+    path: "/sysadmin/criteria",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/criteria"
+      )
+  },
+
   /////////////////End System Admin////////////////////
   ////////////////////////////////////////////////////////////////////////
   //Divisional Officer
