@@ -6,15 +6,15 @@
 					<i class="iconsminds-wallet text-xlarge" />
 				</div>
 
-				<h1>The {{data.year}} Year Payments</h1>
+				<h1>The {{data.m_name}} Month Payments</h1>
 
-				<p class="mb-1">Total Amount To Post Office : {{ data.year_to_post }}</p>
+				<p class="mb-1">Total Amount To Post Office : {{ data.tot_post }}</p>
 				<p class="mb-1">
 					Money To National Elders Fund:
 					<br />
-					{{ data.year_to_fund }}
+					{{ data.fund }}
 				</p>
-				<p class="mb-1">All the Money: {{ data.year_tot }}</p>
+				<p class="mb-1">All the Money: {{ data.total }}</p>
 			</router-link>
 		</b-card>
 	</b-colxx>

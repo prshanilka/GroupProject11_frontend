@@ -5,7 +5,7 @@
 				<div class="icon-row-item">
 					<i class="iconsminds-dollar-sign-2 text-xlarge" />
 				</div>
-				<h1>The {{data.year}} {{data.month}} March payments</h1>
+				<h1>The {{data.year}} {{data.m_name }} payments</h1>
 				<p class="lead text-center">Payment Id:{{ data.payment_id }}</p>
 				<p class="lead text-center">Check No:{{ data.check_no }}</p>
 				<h3>Total To Div {{ data.total_money_amount}}</h3>
