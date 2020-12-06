@@ -4,15 +4,15 @@
 					<div class="icon-row-item">
 						<i class="simple-icon-like text-xlarge" />				
 					</div>
-					<h2 class="mb-2">Criteria Is Submit Success</h2>
+					<h2 class="mb-2">Constant Update Success</h2>
 					<p></p>
 				</b-card>
 
 				<b-card class="mb-4" v-show="submit_ag">
 					<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
 						<b-form-group>
-							<b-form-input type="text" v-model="$v.criteria.$model" :state="!$v.criteria.$error" />
-							<b-form-invalid-feedback v-if="!$v.criteria.required">Please Enter Criteria</b-form-invalid-feedback>
+							<b-form-input type="text" v-model="$v.constant.$model" :state="!$v.constant.$error" />
+							<b-form-invalid-feedback v-if="!$v.constant.required">Please Enter Constant</b-form-invalid-feedback>
 						</b-form-group>
 						<b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
 					</b-form>
@@ -28,16 +28,16 @@ const {
 } = require("vuelidate/lib/validators");
 
 export default {
-	props: ["data"],
+	props: ["id"],
 	data() {
 		return {
 			submit_ag: true,
-			criteria: "",
+			constant: "",
 		};
 	},
 	mixins: [validationMixin],
 	validations: {
-		criteria: {
+		constant: {
 			required,
 		}
 	},
@@ -48,12 +48,12 @@ export default {
 			
 			if (!this.$v.$invalid) {
 				const body = {
-					criteria: this.criteria,
+					value: this.constant,
+					name: this.id
 				};
-				console.log(body);
 				axios({
-					method: "post",
-					url: "/marks/",
+					method: "patch",
+					url: "/divisionaloffice/cons/",
 					data: body,
 				})
 					.then(res => {
@@ -66,7 +66,7 @@ export default {
 
 				console.log(
 					JSON.stringify({
-						criteria: this.criteria
+						body: this.body
 					})
 				);
 				this.submit_ag = !this.submit_ag;

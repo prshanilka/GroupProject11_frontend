@@ -1,6 +1,6 @@
 <template>
 
-  <b-colxx md="6" sm="6" lg="4" xxs="12">
+  <b-colxx md="6" sm="6" lg="3" xxs="12">
     <b-card class="mb-4 text-center">
     		
             <div class="icon-row-item">
