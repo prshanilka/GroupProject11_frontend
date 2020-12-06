@@ -17,6 +17,7 @@
 						<b-form-group :label="$t('officer.id')">
 							<b-form-input
 								type="text"
+								disabled
 								v-model="$v.gramaniladari_officer.officer_id.$model"
 								:state="!$v.gramaniladari_officer.officer_id.$error"
 							/>
@@ -109,7 +110,7 @@
 							>{{$t('form.e-grama')}}</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
+						<b-button type="submit" variant="primary" class="mt-4">Update</b-button>
 					</b-form>
 				</b-card>
 			</b-card>
@@ -172,7 +173,7 @@ export default {
 					disabled: true
 				},
 				{
-					value: null,
+					value: "hold",
 					text: "Waiting Division "
 				}
 			]
@@ -252,17 +253,18 @@ export default {
 			method: "get",
 			url: "/gramaniladariofficer/topost/" + this.off_id
 		}).then(result => {
-			this.details = result.data.data;
 			console.log(result.data);
-			this.gramaniladari_officer.officer_id = this.off_id;
-			this.gramaniladari_officer.name = result.data.data.address;
-			this.gramaniladari_officer.nic = result.data.data[0];
-			this.gramaniladari_officer.phone = this.off_id;
-			this.gramaniladari_officer.email = result.data.data[0];
-			this.gramaniladari_officer.district_id = result.data.data[0];
-			this.gramaniladari_officer.divisional_id = result.data.data[0];
+			this.gramaniladari_officer.officer_id =
+				result.data.data.grmaniladari_officer_id;
+			this.gramaniladari_officer.name = result.data.data.oname;
+			this.gramaniladari_officer.nic = result.data.data.nic_no;
+			this.gramaniladari_officer.phone = result.data.data.ophone;
+			this.gramaniladari_officer.email = result.data.data.oemail;
+			this.gramaniladari_officer.district_id = result.data.data.district_id;
+			this.gramaniladari_officer.divisional_id =
+				result.data.data.divisional_secratary_id;
 			this.gramaniladari_officer.gramaniladari_division_id =
-				result.data.data[0];
+				result.data.data.gramaniladari_division_id;
 		});
 	},
 	methods: {
@@ -289,8 +291,8 @@ export default {
 					GramaOfficer
 				};
 				axios({
-					method: "post",
-					url: "/gramaniladariofficer/gramaofficer",
+					method: "patch",
+					url: "/gramaniladariofficer/updategramaofficer",
 					data: body
 				})
 					.then(res => {

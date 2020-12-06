@@ -4,7 +4,18 @@
 			<elder-details :off_id="off_id" />
 		</b-modal>
 		<b-modal id="delete" size="xl" title="Revove GramaNiladari" hide-footer>
-			<h1>delete Grama</h1>
+			<div class="text-center">
+				<h1>Confirm Delete GramaNiladari</h1>
+				<div>
+					<b-button
+						class="mb-2"
+						size="md"
+						style="margin-top:20px;"
+						variant="outline-warning"
+						@click.prevent="deleteGramaOff"
+					>Confirm Delete</b-button>
+				</div>
+			</div>
 		</b-modal>
 		<b-colxx xl="10" lg="12" style="margin:auto ">
 			<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
@@ -103,7 +114,11 @@ export default {
 			this.off_id = this.id;
 		});
 	},
-	methods: {}
+	methods: {
+		deleteGramaOff() {
+			console.log("Delete" + this.details.grmaniladari_officer_id);
+		}
+	}
 };
 </script>
 <style>
