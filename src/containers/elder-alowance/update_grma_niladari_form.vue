@@ -1,6 +1,6 @@
 <template>
 	<b-row>
-		<b-colxx xl="8" lg="12" style="margin:auto ">
+		<b-colxx xl="12" lg="12" style="margin:auto ">
 			<b-card>
 				<div class="text-center">
 					<h1>{{$t('officer.g-form')}}</h1>
@@ -170,10 +170,15 @@ export default {
 					text:
 						"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
 					disabled: true
+				},
+				{
+					value: null,
+					text: "Waiting Division "
 				}
 			]
 		};
 	},
+	props: ["off_id"],
 	mixins: [validationMixin],
 	validations: {
 		gramaniladari_officer: {
@@ -242,6 +247,23 @@ export default {
 			.catch(err => {
 				console.log(err);
 			});
+
+		axios({
+			method: "get",
+			url: "/gramaniladariofficer/topost/" + this.off_id
+		}).then(result => {
+			this.details = result.data.data;
+			console.log(result.data);
+			this.gramaniladari_officer.officer_id = this.off_id;
+			this.gramaniladari_officer.name = result.data.data.address;
+			this.gramaniladari_officer.nic = result.data.data[0];
+			this.gramaniladari_officer.phone = this.off_id;
+			this.gramaniladari_officer.email = result.data.data[0];
+			this.gramaniladari_officer.district_id = result.data.data[0];
+			this.gramaniladari_officer.divisional_id = result.data.data[0];
+			this.gramaniladari_officer.gramaniladari_division_id =
+				result.data.data[0];
+		});
 	},
 	methods: {
 		onValitadeFormSubmit() {
