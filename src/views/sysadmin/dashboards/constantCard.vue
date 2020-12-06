@@ -5,7 +5,6 @@
 						<i class="simple-icon-like text-xlarge" />				
 					</div>
 					<h2 class="mb-2">Constant Update Success</h2>
-					<p></p>
 				</b-card>
 
 				<b-card class="mb-4" v-show="submit_ag">
