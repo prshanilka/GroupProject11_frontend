@@ -56,11 +56,14 @@
 				</v-contextmenu-item>
 			</v-contextmenu>
 		</div>
+		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>
 	</AppLayout>
 </template>
 
 <script>
 import axios from "axios";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 import AppLayout from "../../../layouts/EAppLayout";
 import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
@@ -90,6 +93,7 @@ export default {
 			lastPage: 0,
 			items: [],
 			selectedItems: [],
+			pay_repo: [],
 
 			fields: [
 				{
@@ -169,7 +173,7 @@ export default {
 		}).then(res => {
 			console.log(res.data.data[0]);
 			this.title =
-				" Payments To the Benifisher  " +
+				"Payments To the Benifisher  " +
 				res.data.data[0].year +
 				" " +
 				res.data.data[0].m_name +
@@ -182,12 +186,54 @@ export default {
 		});
 	},
 	methods: {
+		exportPDF() {
+			var vm = this;
+			var columns = [
+				{ title: "Elder Pay Id", dataKey: "id" },
+				{ title: "Elder Id", dataKey: "elder_id" },
+				{ title: "Name", dataKey: "name" },
+				{ title: "Nic", dataKey: "nic_id" },
+				{ title: "Money", dataKey: "money_amount" },
+				{ title: "Agent Status", dataKey: "ajent_available" },
+				{ title: "Recived", dataKey: "is_taken_money" }
+			];
+			var doc = new jsPDF("p", "pt");
+			doc.setFontSize("15");
+			doc.text(this.title, 40, 90);
+			doc.text("Over 70 Monthly Allowance ", 180, 60);
+			// doc.text("Post Office :", 40, 120);
+			// doc.text(" " + this.post_off + " " + this.p_name, 120, 120);
+			// doc.text(" Head  ", 120, 160);
+			doc.autoTable(columns, vm.pay_repo, {
+				margin: { top: 200 }
+			});
+			// doc.setFontSize("12");
+			// doc.text(
+			// 	"I certify that above allowance contained on ................. sheat and totalling  ....................................\nonly Rupees are authorized  in Registrer of Allowance and are due for payment",
+			// 	40,
+			// 	600
+			// );
+
+			// doc.text("Prepared By", 80, 640);
+			// doc.text("Checked By", 320, 640);
+			// doc.text("2020.03", 80, 680);
+			// doc.text("Divisional Secretory", 320, 680);
+			// doc.text(
+			// 	"I certify that above allwance totalling Rupees ............................................................have been paid to \nthe person named or to their authorized agents whose authorities are atached and that allwance \ntotalling Rs...................................... have not been paid   ",
+			// 	40,
+			// 	720
+			// );
+			// doc.text("Date", 80, 780);
+			// doc.text("Postmaster", 320, 780);
+			doc.save(this.title + ".pdf");
+		},
 		getData() {
 			return axios({
 				method: "get",
 				url: "/paymentposttoben/payid/" + this.pay_id
 			}).then(res => {
 				console.log(res.data.data[0]);
+				this.pay_repo = res.data.data;
 				return res;
 			});
 		},

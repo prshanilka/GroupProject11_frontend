@@ -70,11 +70,14 @@
 				</v-contextmenu>
 			</b-overlay>
 		</div>
+		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>
 	</AppLayout>
 </template>
 
 <script>
 import axios from "axios";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 import AppLayout from "../../../layouts/EAppLayout";
 import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
@@ -109,6 +112,7 @@ export default {
 			lastPage: 0,
 			items: [],
 			selectedItems: [],
+			ben_info: [],
 
 			fields: [
 				{
@@ -163,8 +167,56 @@ export default {
 	},
 
 	methods: {
+		exportPDF() {
+			var vm = this;
+			var columns = [
+				{ title: "Elder Id", dataKey: "elder_id" },
+				{ title: "Elder Name", dataKey: "name" },
+				{ title: "Address", dataKey: "address" },
+				{ title: "Number", dataKey: "number" },
+				{ title: "Email", dataKey: "email" }
+				// { title: "Signature", dataKey: n }
+				// { title: "Total", dataKey: "total_amount" }
+			];
+			var doc = new jsPDF("p", "pt");
+			doc.setFontSize("15");
+			doc.text(
+				"The List Of Benifishers that registerd To the Post Office",
+				150,
+				40
+			);
+
+			// doc.text("Post Office :", 40, 120);
+
+			// doc.text(" Head  ", 120, 160);
+			doc.autoTable(columns, vm.ben_info, {
+				margin: { top: 200 }
+			});
+			doc.setFontSize("12");
+			// doc.text(
+			// 	"I certify that above allowance contained on ................. sheat and totalling  ....................................\nonly Rupees are authorized  in Registrer of Allowance and are due for payment",
+			// 	40,
+			// 	600
+			// );
+
+			// doc.text("Prepared By", 80, 640);
+			// doc.text("Checked By", 320, 640);
+			// doc.text("2020.03", 80, 680);
+			// doc.text("Divisional Secretory", 320, 680);
+			// doc.text(
+			// 	"I certify that above allwance totalling Rupees ............................................................have been paid to \nthe person named or to their authorized agents whose authorities are atached and that allwance \ntotalling Rs...................................... have not been paid   ",
+			// 	40,
+			// 	720
+			// );
+			// doc.text("Date", 80, 780);
+			// doc.text("Postmaster", 320, 780);
+			doc.save("dummy" + ".pdf");
+		},
 		getData() {
-			return axios.get("/postoffice/benfisherslist");
+			return axios.get("/postoffice/benfisherslist").then(res => {
+				this.ben_info = res.data.data;
+				return res;
+			});
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];

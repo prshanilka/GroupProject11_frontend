@@ -3,11 +3,11 @@
 		<b-colxx xl="8" lg="12" style="margin:auto ">
 			<b-card>
 				<div class="text-center">
-					<h1>{{$t('office.g-form')}}</h1>
+					<h1>Grmma Niladari Division Form</h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_grmaniladari_div">
 					<div class="icon-row-item">
-						<i class="simple-icon-like text-xlarge" />				
+						<i class="simple-icon-like text-xlarge" />
 					</div>
 					<h2 class="mb-2">{{$t('office.g-succsess')}}</h2>
 					<p>{{$t('office.g-register')}}</p>
@@ -202,7 +202,6 @@ export default {
 				required
 			}
 		}
-
 	},
 	created() {
 		axios
@@ -219,7 +218,10 @@ export default {
 			.get("/divisionaloffice/selectbox")
 			.then(res => {
 				console.log(res);
-				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+				this.divisional_off_option = [
+					...this.divisional_off_option,
+					...res.data.data
+				];
 			})
 			.catch(err => {
 				console.log(err);
@@ -235,8 +237,7 @@ export default {
 						.grmaniladari_divisional_id,
 					district_id: this.grmaniladari_div.district_id,
 
-					divisional_secratory_id: this.grmaniladari_div
-						.grmaniladari_divisional_id,
+					divisional_secratory_id: this.grmaniladari_div.divisional_id,
 					name: this.grmaniladari_div.grmaniladari_div_name,
 					address: this.grmaniladari_div.office_address,
 					number: this.grmaniladari_div.phone_no,

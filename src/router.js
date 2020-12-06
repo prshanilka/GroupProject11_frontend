@@ -176,6 +176,13 @@ const routes = [
       )
   },
   {
+    path: "/sysadmin/list-of-postofficers",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_officers.vue"
+      )
+  },
+  {
     path: "/sysadmin/list-of-post-office",
     component: () =>
       import(

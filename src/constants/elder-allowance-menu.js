@@ -222,6 +222,11 @@ const data = [
         icon: "iconsminds-post-office",
         label: "menu.list-of-post-office",
         to: `/sysadmin/list-of-post-office`
+      },
+      {
+        icon: "iconsminds-post-office",
+        label: "menu.list-of-post-office",
+        to: `/sysadmin/list-of-postofficers`
       }
     ]
   },

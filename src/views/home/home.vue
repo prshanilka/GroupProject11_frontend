@@ -78,7 +78,9 @@
 										<router-link tag="a" to="/user/login" class="btn btn-light btn-xl mr-2 mb-2">
 											REGISTER
 											<i class="simple-icon-arrow-right"></i>
+
 										</router-link>
+
 									</b-row>
 								</div>
 							</div>
