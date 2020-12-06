@@ -13,8 +13,8 @@ export const searchPath = `${adminRoot}/pages/miscellaneous/search`;
 export const buyUrl = "https://1.envato.market/nEyZa";
 export const apiUrl = "https://api.coloredstrategies.com";
 
-export const bUrl ="https://elderallowanceuor.ga/api";
-//export const bUrl ="http://localhost:3000/api";
+//export const bUrl ="https://elderallowanceuor.ga/api";
+export const bUrl ="http://localhost:3000/api";
 export const subHiddenBreakpoint = 1440;
 export const menuHiddenBreakpoint = 768;
 
@@ -47,7 +47,7 @@ export const firebaseConfig = {
 export const currentUser = {
   id: 1,
   title: "Sarah Kortney",
-  img: "/assets/img/profiles/l-1.jpg",
+  img: "/assets/img/profiles/def.png",
   date: "Last seen today 15:24",
   role: UserRole.Admin
 };
