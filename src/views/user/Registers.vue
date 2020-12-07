@@ -17,7 +17,7 @@
 					<h6 class="mb-4">{{ $t('user.register')}}</h6>
 					<b-form @submit.prevent="formSubmit">
 						<label class="form-group has-float-label mb-4">
-							<input type="text" class="form-control" v-model="fullname" />
+							<input type="text" class="form-control" v-model="username" />
 							<span>{{ $t('user.fullname') }}</span>
 						</label>
 						<label class="form-group has-float-label mb-4">

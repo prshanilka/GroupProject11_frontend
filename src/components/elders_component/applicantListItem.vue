@@ -4,7 +4,7 @@
 			<b-colxx lg="2" md="12" class="mb-1">
 				<router-link tag="a" :to="detailPath">
 					<img
-						src="/assets/img/profiles/1.jpg"
+						src="/assets/img/profiles/def.png"
 						:alt="data.title"
 						class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center m-2 medium"
 					/>
