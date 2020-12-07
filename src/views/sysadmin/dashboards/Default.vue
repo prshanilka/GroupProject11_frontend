@@ -50,7 +50,7 @@
 			      <i class="iconsminds-dollar-sign-2 text-xlarge"/>
         </div>
             <p class="lead text-center text-success">Total Amount</p>
-            <p class="lead text-center text-danger">{{constant.data[0].value}}</p> 
+            <p class="lead text-center text-danger">"{{constant.data[0].value}}"</p> 
             <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid= constant.data[0].name">Update</b-button> 
       </b-card>
     </b-colxx>

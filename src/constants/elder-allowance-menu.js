@@ -693,8 +693,8 @@ const data = [
 
   {
     id: "gramaniladari-dashboard",
-    icon: "iconsminds-add-user",
-    label: "menu.gramaniladari-dashboard",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
     to: `/grama/gramaniladari-dashboard`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
   },
