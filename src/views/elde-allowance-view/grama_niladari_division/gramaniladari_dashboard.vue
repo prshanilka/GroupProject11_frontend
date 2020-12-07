@@ -39,7 +39,7 @@
 				<b-colxx lg="12" xs="12" class="text-center" style="margin:auto ">
 					<b-card class="mb-4 text-center">
 						<h2 class="mb-4 text-large text-primary">Count Of Benifishers In My Division</h2>
-						<p class="text-xlarge text-danger">{{division.count_of_benifishers}}</p>
+						<p class="text-xlarge text-danger">{{bcount.count}}</p>
 					</b-card>
 				</b-colxx>
 			</b-row>
@@ -66,6 +66,7 @@ export default {
 	data() {
 		return {
 			division: [],
+			bcount: "",
 		}
 	},
 	async beforeCreate() {
@@ -74,6 +75,12 @@ export default {
 			.then(result => {
 				console.log(result.data.data);
         		this.division = result.data.data;
+			});
+		axios
+			.get("/gramadivision/count")
+			.then(result => {
+				console.log(result.data.data[0]);
+        		this.bcount = result.data.data[0];
 			});
 	},
 };
