@@ -227,7 +227,12 @@ const data = [
         icon: "iconsminds-post-office",
         label: "menu.list-of-post-office",
         to: `/sysadmin/list-of-postofficers`
+      },{
+        icon: "iconsminds-post-office",
+        label: "menu.list-of-post-office",
+        to: `/sysadmin/list-divisional-secretry`
       }
+      
     ]
   },
   {
