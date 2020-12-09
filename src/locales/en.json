@@ -71,7 +71,8 @@
     "divisional_officer": "Divisional officer",
     "divisional_head": "Divisional Head",
     "details": "Details",
-    "view": "View"
+    "view": "View",
+    "fillapplication" : "Fill Application"
   },
   "agent": {
     "form": "Agent Form",
