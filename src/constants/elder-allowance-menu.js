@@ -222,8 +222,20 @@ const data = [
         icon: "iconsminds-post-office",
         label: "menu.list-of-post-office",
         to: `/sysadmin/list-of-post-office`
+      },
+      {
+        icon: "iconsminds-post-office",
+        label: "menu.list-of-post-office",
+        to: `/sysadmin/list-of-postofficers`
       }
     ]
+  },
+  {
+    id: "admin-citiria",
+    icon: "simple-icon-compass",
+    label: "menu.criteria",
+    to: `/sysadmin/criteria/`,
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
 
   ///End System Admin////////////
@@ -681,8 +693,8 @@ const data = [
 
   {
     id: "gramaniladari-dashboard",
-    icon: "iconsminds-add-user",
-    label: "menu.gramaniladari-dashboard",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
     to: `/grama/gramaniladari-dashboard`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
   },

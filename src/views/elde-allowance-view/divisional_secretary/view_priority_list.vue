@@ -185,13 +185,11 @@ export default {
 
 	methods: {
 		getData() {
-			return axios
-				.get("/prioritylist/div/G1")
-				.then(res => {
-					console.log(res);
-					// this.show = false;
-					return res;
-				});
+			return axios.get("/prioritylist/div/G1").then(res => {
+				console.log(res);
+				// this.show = false;
+				return res;
+			});
 		},
 		makeQueryParams(sortOrder, currentPage, perPage) {
 			this.selectedItems = [];
