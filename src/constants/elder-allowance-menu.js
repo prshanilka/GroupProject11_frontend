@@ -3,6 +3,57 @@ import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot } from "./config";
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
+
+    ////////////////////////////////////////////////////////
+  //Divisinal Officer
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_do",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${dofficerRoot}/dashboard/`,
+    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
+  },
+  {
+    id: "applications",
+    icon: "iconsminds-digital-drawing",
+    label: "menu.applications",
+    roles: [UserRole.DivisionalOfficers],
+    subs: [
+      {
+        id: "pages-authorization",
+        label: "menu.pendingapplications",
+        to: `${dofficerRoot}/pendingapplications/`
+      },
+      {
+        id: "pages-authorization",
+        label: "menu.selectedapplications",
+        to: `${dofficerRoot}/selectedapplications`
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     id: "dashboards",
     icon: "simple-icon-equalizer",
@@ -92,6 +143,29 @@ const data = [
   //     }
   //   ]
   // },
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //////Admin//////
 
@@ -786,33 +860,6 @@ const data = [
     roles: [UserRole.Editor]
   },
 
-  ////////////////////////////////////////////////////////
-  //Divisinal Officer
-  ////////////////////////////////////////////////////////
-  {
-    id: "dashboard_do",
-    icon: "simple-icon-equalizer",
-    label: "menu.dashboard",
-    to: `${dofficerRoot}/dashboard/`,
-    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
-  },
-  {
-    id: "applications",
-    icon: "iconsminds-digital-drawing",
-    label: "menu.applications",
-    roles: [UserRole.DivisionalOfficers],
-    subs: [
-      {
-        id: "pages-authorization",
-        label: "menu.pendingapplications",
-        to: `${dofficerRoot}/pendingapplications/`
-      },
-      {
-        id: "pages-authorization",
-        label: "menu.selectedapplications",
-        to: `${dofficerRoot}/selectedapplications`
-      }
-    ]
-  }
+
 ];
 export default data;

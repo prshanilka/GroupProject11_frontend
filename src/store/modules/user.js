@@ -96,10 +96,9 @@ export default {
         password: payload.password
       };
       bapi.auth(ddd, (err, results) => {
-        console.log("sadsad");
+        console.log(results);
         if (err) {
           setCurrentUser(null);
-          console.log("ssss");
           console.log(err);
           commit("setError", err.message);
           setTimeout(() => {

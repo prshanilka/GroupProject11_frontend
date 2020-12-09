@@ -7,7 +7,7 @@
           <b-card class="mb-4 text-center">
             <router-link to="?">
               <img
-                src="/assets/img/profiles/l-1.jpg"
+                src="/assets/img/profiles/def.png"
                 alt="Card image cap"
                 class="img-thumbnail list-thumbnail rounded-circle border-0 mb-4"
               />
