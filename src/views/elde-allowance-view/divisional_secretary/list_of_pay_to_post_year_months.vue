@@ -60,11 +60,14 @@
 				</v-contextmenu-item>
 			</v-contextmenu>
 		</div>
+		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>
 	</AppLayout>
 </template>
 
 <script>
 import axios from "axios";
+import jsPDF from "jspdf";
+import "jspdf-autotable";
 import AppLayout from "../../../layouts/EAppLayout";
 import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
@@ -94,6 +97,7 @@ export default {
 			lastPage: 0,
 			items: [],
 			selectedItems: [],
+			records: [],
 
 			fields: [
 				{
@@ -179,13 +183,54 @@ export default {
 		}).then(res => {
 			this.mm = res.data.data[0].m_name;
 			this.title =
-				"This is Divisional List Of elder Payments To the Post Officer " +
-				this.year +
-				"  " +
-				this.mm;
+				" Elder Payments To the Post Officer " + this.year + "  " + this.mm;
 		});
 	},
 	methods: {
+		exportPDF() {
+			var vm = this;
+			var columns = [
+				{ title: "Div Pay Id", dataKey: "payment_id" },
+				{ title: "Post Code", dataKey: "post_office_id" },
+				{ title: "Name", dataKey: "name" },
+				{ title: "Address", dataKey: "address" },
+				{ title: "Bank Account", dataKey: "bank_account_no" },
+				{ title: "Total", dataKey: "total_money_amount" },
+				{ title: "Monthly To Fund", dataKey: "year_to_fund" },
+				{ title: "Elder Payment Count", dataKey: "pay_count" },
+				{ title: "Paid To Elders", dataKey: "elder_got" },
+				{ title: "Again Return to Div", dataKey: "not_recive" }
+			];
+			var doc = new jsPDF("p", "pt");
+			doc.setFontSize("15");
+			doc.text(this.title, 120, 90);
+			doc.text("Over 70 Monthly Allowance ", 180, 60);
+			// doc.text("Post Office :", 40, 120);
+			// doc.text(" " + this.post_off + " " + this.p_name, 120, 120);
+			// doc.text(" Head  ", 120, 160);
+			doc.autoTable(columns, vm.records, {
+				margin: { top: 200 }
+			});
+			// doc.setFontSize("12");
+			// doc.text(
+			// 	"I certify that above allowance contained on ................. sheat and totalling  ....................................\nonly Rupees are authorized  in Registrer of Allowance and are due for payment",
+			// 	40,
+			// 	600
+			// );
+
+			// doc.text("Prepared By", 80, 640);
+			// doc.text("Checked By", 320, 640);
+			// doc.text("2020.03", 80, 680);
+			// doc.text("Divisional Secretory", 320, 680);
+			// doc.text(
+			// 	"I certify that above allwance totalling Rupees ............................................................have been paid to \nthe person named or to their authorized agents whose authorities are atached and that allwance \ntotalling Rs...................................... have not been paid   ",
+			// 	40,
+			// 	720
+			// );
+			// doc.text("Date", 80, 780);
+			// doc.text("Postmaster", 320, 780);
+			doc.save("pay year" + ".pdf");
+		},
 		showList(props) {
 			console.log(props);
 			const uu =
@@ -200,6 +245,7 @@ export default {
 			}).then(res => {
 				console.log(res);
 				this.mm = res.data.data[0].m_name;
+				this.records = res.data.data;
 				return res;
 			});
 		},
