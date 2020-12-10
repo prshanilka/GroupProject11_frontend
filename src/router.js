@@ -68,6 +68,13 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
           )
       },
+        {
+        path: "/elder/update-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/update_elder.vue"
+          )
+      },
       {
         path: "/elder/agent-form",
         component: () =>
