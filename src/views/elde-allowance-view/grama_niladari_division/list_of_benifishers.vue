@@ -5,7 +5,7 @@
 		</b-modal>
 		<div>
 			<datatable-heading
-				title="List Of the benifishers to the perticular grama Division"
+				title="List Of the benifishers "
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"

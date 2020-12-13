@@ -4,7 +4,7 @@
 			<div class="icon-row-item mb-5">
 				<i class="simple-icon-user text-xlarge" />
 			</div>
-			<h1>The {{data.year}} {{data.month}} payments</h1>
+			<h1>The {{data.year}} {{data.m_name }} payments</h1>
 			<p class="lead text-center">Payment Id:{{ data.payment_id }}</p>
 
 			<h3 class="lead text-center">Amount :{{ data.money_amount}}</h3>

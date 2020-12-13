@@ -47,7 +47,8 @@
 						</p>
 						<p class="mb-3">
 							<span class="text-muted text-small mb-2">Age:</span>
-							{{elder.birth_day}} ---> 97
+															 {{elder.age}}
+
 						</p>
 					</div>
 				</b-colxx>
@@ -131,7 +132,10 @@ export default {
 		}).then(result => {
 			this.elder = result.data.data;
 			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
+			console.log(new Date());
 			console.log(result.data.data);
+						 this.elder.age =  (new Date().getFullYear() -  new Date(this.elder.birth_day).getFullYear() );
+
 			// this.aplications = result.data.data;
 		});
 	},

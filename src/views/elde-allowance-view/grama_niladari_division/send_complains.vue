@@ -117,7 +117,7 @@ export default {
 					title: "elder_id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "20%"
+					width: "10%"
 				},
 				{
 					name: "name",
@@ -125,7 +125,7 @@ export default {
 					title: "name",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "10%"
 				},
 				{
 					name: "address",
@@ -141,7 +141,7 @@ export default {
 					title: "Phone number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "10%"
 				},
 				{
 					name: "email",
@@ -149,7 +149,7 @@ export default {
 					title: "email",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "10%"
 				},
 				{
 					name: "__slot:actions1",

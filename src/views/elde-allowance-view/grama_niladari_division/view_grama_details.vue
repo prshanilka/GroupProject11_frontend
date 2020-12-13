@@ -26,7 +26,7 @@
 				<b-row>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-relative">
-							<img src="/assets/img/profiles/4.jpg" class="card-img-top" />
+							<img src="/assets/img/profiles/def.png" class="card-img-top" height="450px"   />
 						</div>
 					</b-colxx>
 

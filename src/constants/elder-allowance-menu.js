@@ -546,16 +546,16 @@ const data = [
         label: "menu.paymenttopostoffice",
         to: `/division/pay_post_office_form`
       },
-      {
-        icon: "iconsminds-dollar-sign-2",
-        label: "menu.paytopost",
-        to: `/division/div_to_post`
-      },
-      {
-        icon: "iconsminds-dollar-sign-2",
-        label: "menu.paytoben",
-        to: `/division/div_to_ben`
-      },
+      // {
+      //   icon: "iconsminds-dollar-sign-2",
+      //   label: "menu.paytopost",
+      //   to: `/division/div_to_post`
+      // },
+      // {
+      //   icon: "iconsminds-dollar-sign-2",
+      //   label: "menu.paytoben",
+      //   to: `/division/div_to_ben`
+      // },
       {
         icon: "iconsminds-dollar-sign-2",
         label: "menu.payhistory",

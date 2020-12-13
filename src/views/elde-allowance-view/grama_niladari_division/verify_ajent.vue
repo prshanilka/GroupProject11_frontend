@@ -54,14 +54,14 @@
 						<b-colxx lg="6" md="12" class="mb-4">
 							<div class="position-absolute card-top-buttons"></div>
 							<single-lightbox
-								thumb="../assets/img/profiles/2.jpg"
-								large="../assets/img/profiles/2.jpg"
+								thumb="../assets/img/profiles/def.png"
+								large="../assets/img/profiles/def.png"
 								class-name="card-img-top "
 								class="m-4"
 							/>
 						</b-colxx>
 						<b-colxx lg="6" md="12" class="mb-4">
-							<h2 class="text-center m-4">Agent Information</h2>
+							<h2 class="text-center m-4">Guardian Information</h2>
 
 							<p class="text-muted text-small mb-2">Agent Name</p>
 							<p class="mb-3">{{agent.name}}</p>
@@ -83,7 +83,7 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladari Rewiwe About the Elders Agent">
+						<b-card class="mb-4" title="Grama Niladari Rewiwe About the Elders Guardian">
 							<b-form class="av-tooltip tooltip-label-right">
 								<b-form-group label="Grama Niladari Comment">
 									<b-form-textarea
@@ -101,14 +101,14 @@
 								</b-form-group>
 								<b-row>
 									<b-colxx lg="6" md="6" class="mb-4 text-center">
-										<b-button type="button" variant="primary" @click.prevent="sssss">Aprove Agent</b-button>
+										<b-button type="button" variant="primary" @click.prevent="sssss">Aprove Guardian</b-button>
 									</b-colxx>
 									<b-colxx lg="6" md="6" class="mb-4 text-center">
 										<b-button
 											type="button"
 											variant="primary"
 											@click.prevent="onValitadeFormSubmit"
-										>Disqualify Agent</b-button>
+										>Disqualify Guardian</b-button>
 									</b-colxx>
 								</b-row>
 							</b-form>
@@ -127,7 +127,7 @@ import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
 
 export default {
-	name: "aprove-agents",
+	name: "aprove-Guardian",
 	components: {
 		"single-lightbox": SingleLightbox
 	},

@@ -72,7 +72,7 @@
     "divisional_head": "Divisional Head",
     "details": "Details",
     "view": "View",
-    "fillapplication" : "Fill Application"
+    "fillapplication": "Fill Application"
   },
   "agent": {
     "form": "Agent Form",
@@ -128,11 +128,11 @@
 
   "menu": {
     "elderform": "elder_form",
-    "agentform": "Agent Form",
+    "agentform": "Guardian Form",
     "agentdetails": "Agent Details",
     "elderlist": "Elder List",
-    "elder-dashboard": "Elder Dashboard",
-    "elder-pament-details": "Pyment List",
+    "elder-dashboard": "Dashboard",
+    "elder-pament-details": "Payment List",
     "reason-about-payments": "Reason Not Payment",
     "elder-application-list": "Divisional Allcication List",
     "paytopost": "Payment To PostOff",
@@ -190,7 +190,7 @@
     "view-elder-application-verify": "Elder Verify",
     "view-elder-details": "Elder Deatails",
     "send-reports-d": "Send Reports",
-    "aprove-agents": "Aprovve Agents",
+    "aprove-agents": "Aprovve Guardian",
 
     "elderlang": "Sinhala",
 
