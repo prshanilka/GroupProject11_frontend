@@ -3,6 +3,57 @@ import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot } from "./config";
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
+
+    ////////////////////////////////////////////////////////
+  //Divisinal Officer
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_do",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${dofficerRoot}/dashboard/`,
+    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
+  },
+  {
+    id: "applications",
+    icon: "iconsminds-digital-drawing",
+    label: "menu.applications",
+    roles: [UserRole.DivisionalOfficers],
+    subs: [
+      {
+        id: "pages-authorization",
+        label: "menu.pendingapplications",
+        to: `${dofficerRoot}/pendingapplications/`
+      },
+      {
+        id: "pages-authorization",
+        label: "menu.selectedapplications",
+        to: `${dofficerRoot}/selectedapplications`
+      }
+    ]
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     id: "dashboards",
     icon: "simple-icon-equalizer",
@@ -44,6 +95,13 @@ const data = [
     icon: "iconsminds-male-female",
     label: "menu.elderform",
     to: `/elder/elder-form`,
+    roles: [UserRole.Editor, UserRole.Elders]
+  },
+    {
+    id: "update-form",
+    icon: "iconsminds-male-female",
+    label: "menu.elderform",
+    to: `/elder/update-form`,
     roles: [UserRole.Editor, UserRole.Elders]
   },
   // {
@@ -92,6 +150,29 @@ const data = [
   //     }
   //   ]
   // },
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //////Admin//////
 
@@ -227,7 +308,12 @@ const data = [
         icon: "iconsminds-post-office",
         label: "menu.list-of-post-office",
         to: `/sysadmin/list-of-postofficers`
+      },{
+        icon: "iconsminds-post-office",
+        label: "menu.list-of-post-office",
+        to: `/sysadmin/list-divisional-secretry`
       }
+      
     ]
   },
   {
@@ -460,16 +546,16 @@ const data = [
         label: "menu.paymenttopostoffice",
         to: `/division/pay_post_office_form`
       },
-      {
-        icon: "iconsminds-dollar-sign-2",
-        label: "menu.paytopost",
-        to: `/division/div_to_post`
-      },
-      {
-        icon: "iconsminds-dollar-sign-2",
-        label: "menu.paytoben",
-        to: `/division/div_to_ben`
-      },
+      // {
+      //   icon: "iconsminds-dollar-sign-2",
+      //   label: "menu.paytopost",
+      //   to: `/division/div_to_post`
+      // },
+      // {
+      //   icon: "iconsminds-dollar-sign-2",
+      //   label: "menu.paytoben",
+      //   to: `/division/div_to_ben`
+      // },
       {
         icon: "iconsminds-dollar-sign-2",
         label: "menu.payhistory",
@@ -786,33 +872,6 @@ const data = [
     roles: [UserRole.Editor]
   },
 
-  ////////////////////////////////////////////////////////
-  //Divisinal Officer
-  ////////////////////////////////////////////////////////
-  {
-    id: "dashboard_do",
-    icon: "simple-icon-equalizer",
-    label: "menu.dashboard",
-    to: `${dofficerRoot}/dashboard/`,
-    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
-  },
-  {
-    id: "applications",
-    icon: "iconsminds-digital-drawing",
-    label: "menu.applications",
-    roles: [UserRole.DivisionalOfficers],
-    subs: [
-      {
-        id: "pages-authorization",
-        label: "menu.pendingapplications",
-        to: `${dofficerRoot}/pendingapplications/`
-      },
-      {
-        id: "pages-authorization",
-        label: "menu.selectedapplications",
-        to: `${dofficerRoot}/selectedapplications`
-      }
-    ]
-  }
+
 ];
 export default data;

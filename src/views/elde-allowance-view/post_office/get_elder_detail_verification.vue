@@ -7,12 +7,12 @@
 		<div v-show="!is_submited">
 			<b-row>
 				<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-					<h1>Elder Benifisher for Verification {{id}}</h1>
+					<h1>Elder Benifisher for Verification  </h1>
 				</b-colxx>
 				<b-colxx lg="6" md="12" class="mb-4">
 					<single-lightbox
-						thumb="/assets/img/profiles/1.jpg"
-						large="/assets/img/profiles/1.jpg"
+						thumb="/assets/img/profiles/def.png"
+						large="/assets/img/profiles/def.png"
 						class-name="card-img-top "
 						class="m-4"
 					/>

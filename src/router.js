@@ -68,6 +68,13 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
           )
       },
+        {
+        path: "/elder/update-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/update_elder.vue"
+          )
+      },
       {
         path: "/elder/agent-form",
         component: () =>
@@ -187,6 +194,13 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_office"
+      )
+  },
+  {
+    path: "/sysadmin/list-divisional-secretry",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_divisional_secretry"
       )
   },
   {
@@ -556,6 +570,14 @@ const routes = [
       ),
     props: true
   },
+   {
+    path: "/division/get_details_divisional_secretry/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/view_divisional_secretory.vue"
+      ),
+    props: true
+  },
   {
     path: "/division/view-priority-list",
     component: () =>
@@ -714,6 +736,14 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_grama_details"
+      ),
+    props: true
+  },
+  {
+    path: "/post/post-officer-details/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/view_post_officer_detail.vue"
       ),
     props: true
   },

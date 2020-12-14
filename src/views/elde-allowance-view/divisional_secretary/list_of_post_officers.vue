@@ -6,9 +6,9 @@
 
 		<b-row>
 			<list-with-user-item
-				v-for="(item, index) in filteredList"
+				v-for="(item, index) in post_officer"
 				:data="item"
-				:detail-path="'/grama/gramaniladai-officer-details/'+item.gramaniladari_division_id"
+				:detail-path="'/post/post-officer-details/'+item.o_id"
 				:key="index"
 			/>
 		</b-row>
@@ -17,7 +17,7 @@
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import ListWithUserItem from "../../../components/elders_component/GramaNiladariList";
+import ListWithUserItem from "../../../components/elders_component/PostOfficerList";
 import axios from "axios";
 
 export default {
@@ -28,21 +28,14 @@ export default {
 	},
 	data() {
 		return {
-			grama_niladari: []
+			post_officer: []
 		};
 	},
 	async beforeCreate() {
-		axios.get("/gramaniladariofficer/topost/").then(result => {
-			console.log(result.data.data[0]);
-			this.grama_niladari = result.data.data;
+		axios.get("/postofficers/getpostofficer/").then(result => {
+			console.log(result);
+			this.post_officer = result.data.data;
 		});
-	},
-	computed: {
-		filteredList() {
-			return this.grama_niladari.filter(gramDiv => {
-				return gramDiv.grmaniladari_officer_id.toLowerCase();
-			});
-		}
 	}
 };
 </script>

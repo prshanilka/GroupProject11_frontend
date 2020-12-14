@@ -30,8 +30,8 @@
             </b-colxx>
             <b-colxx xxs="12" lg="5" xl="4" class="col-left">
               <single-lightbox
-                thumb="/assets/img/profiles/l-1.jpg"
-                large="/assets/img/profiles/1.jpg"
+                thumb="/assets/img/profiles/def.png"
+                large="/assets/img/profiles/def.png"
                 class-name="img-thumbnail card-img social-profile-img"
               />
               <b-card class="mb-4" no-body>

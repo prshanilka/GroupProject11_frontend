@@ -7,7 +7,7 @@
           <b-card class="mb-4 text-center">
             <router-link to="?">
               <img
-                src="/assets/img/profiles/l-1.jpg"
+                src="/assets/img/profiles/def.png"
                 alt="Card image cap"
                 class="img-thumbnail list-thumbnail rounded-circle border-0 mb-4"
               />
@@ -22,7 +22,7 @@
           <b-card class="mb-4 d-flex flex-row" no-body>
             <router-link to="?" class="d-flex">
               <img
-                src="/assets/img/profiles/l-1.jpg"
+                src="/assets/img/profiles/def.png"
                 alt="Card image cap"
                 class="img-thumbnail list-thumbnail rounded-circle align-self-center m-4"
               />
@@ -45,7 +45,7 @@
           <b-card class="mb-4 d-flex flex-row" no-body>
             <router-link to="?" class="d-flex">
               <div
-                src="/assets/img/profiles/l-1.jpg"
+                src="/assets/img/profiles/def.png"
                 alt="Card image cap"
                 class="align-self-center list-thumbnail-letters rounded-circle m-4"
               >SK</div>
@@ -70,7 +70,7 @@
           <b-card class="mb-4 d-flex flex-row" no-body>
             <router-link to="?" class="d-flex">
               <img
-                src="/assets/img/profiles/l-1.jpg"
+                src="/assets/img/profiles/def.png"
                 alt="Card image cap"
                 class="img-thumbnail list-thumbnail rounded-circle align-self-center m-4 small"
               />
@@ -92,7 +92,7 @@
           <b-card class="mb-4 d-flex flex-row" no-body>
             <router-link to="?" class="d-flex">
               <div
-                src="/assets/img/profiles/l-1.jpg"
+                src="/assets/img/profiles/def.png"
                 alt="Card image cap"
                 class="align-self-center list-thumbnail-letters rounded-circle m-4 small"
               >SK</div>

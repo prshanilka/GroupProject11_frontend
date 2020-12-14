@@ -2,7 +2,7 @@ const tickets = [
   {
     title: 'Mayra Sibley',
     detail: '09.08.2018 - 12:45',
-    thumb: '/assets/img/profiles/l-1.jpg'
+    thumb: '/assets/img/profiles/def.png'
   },
   {
     title: 'Mimi Carreira',
@@ -32,7 +32,7 @@ const tickets = [
   {
     title: 'Laree Munsch',
     detail: '24.05.2018 - 11:00',
-    thumb: '/assets/img/profiles/l-1.jpg'
+    thumb: '/assets/img/profiles/def.png'
   }
 ]
 

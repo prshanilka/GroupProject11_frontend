@@ -134,7 +134,6 @@ export default {
                     max: this.max,
                     min: this.min,
                     withRegex: this.withRegex,
-
                 })
             );
         }

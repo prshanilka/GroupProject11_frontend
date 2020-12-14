@@ -6,7 +6,7 @@
 					<elder-details :id="clickedid" :aid="agentid" />
 				</b-modal>
 				<datatable-heading
-					title="List Of Gardian"
+					title="List Of Guardian"
 					:selectAll="selectAll"
 					:isSelectedAll="isSelectedAll"
 					:isAnyItemSelected="isAnyItemSelected"
@@ -132,7 +132,7 @@ export default {
 				{
 					name: "aname",
 					sortField: "aname",
-					title: "Gardian Name",
+					title: "Guardian Name",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"

@@ -19,7 +19,7 @@
                                     <i class="simple-icon-pencil" />
                                 </b-button>
                             </div>
-                            <single-lightbox thumb="/assets/img/profiles/1.jpg" large="/assets/img/profiles/1.jpg" class-name="card-img-top" />
+                            <single-lightbox thumb="/assets/img/profiles/def.png" large="/assets/img/profiles/def.png" class-name="card-img-top" />
                             <b-card-body>
                                 <p class="text-muted text-small mb-2">{{$t('menu.about')}}</p>
                                 <p class="mb-3">

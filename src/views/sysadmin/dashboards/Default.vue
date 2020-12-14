@@ -97,12 +97,10 @@
 </template>
 
 <script>
-
 import UserCardElder from "../../../containers/elder/UserCardElder";
 import AppLayout from "../../../layouts/EAppLayout";
 import axios from "axios";
 import update from "./constantCard";
-
 export default {
   components: {
    "user-card-elder": UserCardElder,
@@ -124,5 +122,4 @@ export default {
 			});
   },
 };
-
 </script>
