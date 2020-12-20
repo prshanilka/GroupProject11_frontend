@@ -159,10 +159,11 @@
     "postoffice-officer": "Post Officer",
     "send-reports": "Send Reports",
     "assign-post-officers": "Assign Post Officers",
-    "elders-related-to-post-off": "Post Office Elders",
+    "elders-related-to-post-off": "Reg Benifishers",
+    "payment-history":"Payments",
     "get-elder-detail-verification": "Verify Elders",
     "lsit-of-elder-pyament": "Elder Payment List",
-    "post-officer-dashboard": "Postoffice Dashboard",
+    "post-officer-dashboard": "Dashboard",
     "paymenttopostoffice": "Payment to Post Office",
 
     "divisional-office-form": "Divisional Office",

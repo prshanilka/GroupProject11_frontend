@@ -407,7 +407,7 @@ const data = [
   {
     id: "paynemt-histroy",
     icon: "iconsminds-post-mail-2",
-    label: "menu.elders-related-to-post-off",
+    label: "menu.payment-history",
     to: `/post/paynemt-histroy`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
@@ -706,18 +706,18 @@ const data = [
       }
     ]
   },
-  {
-    id: "view-elder-application-verify",
-    icon: "iconsminds-add-user",
-    label: "menu.view-elder-application-verify",
-    to: `/division/view-elder-application-verify/2`,
-    roles: [
-      UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
-    ]
-  },
+  // {
+  //   id: "view-elder-application-verify",
+  //   icon: "iconsminds-add-user",
+  //   label: "menu.view-elder-application-verify",
+  //   to: `/division/view-elder-application-verify/2`,
+  //   roles: [
+  //     UserRole.Editor,
+  //     UserRole.DivisionalOffHead,
+  //     UserRole.DivisionalOffOfficer,
+  //     UserRole.DivisionalOfficers
+  //   ]
+  // },
 
   // {
   //   id: "gramaniladai-division-forma",
