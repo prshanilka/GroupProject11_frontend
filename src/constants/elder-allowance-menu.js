@@ -1,4 +1,4 @@
-import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot } from "./config";
+import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot ,divisionalOffHeadRoot} from "./config";
 
 import { UserRole } from "../utils/auth.roles";
 
@@ -35,7 +35,37 @@ const data = [
 
 
 
-
+    ////////////////////////////////////////////////////////
+  //Divisinal head
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_dhead",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${divisionalOffHeadRoot}/dashboard/`,
+    roles: [UserRole.DivisionalOffHead]
+  },
+  {
+    id: "Approvals",
+    icon: "simple-icon-layers",
+    label: "menu.applications",
+    roles: [UserRole.DivisionalOffHead],
+    subs: [
+      {
+        id: "Approvals",
+        icon: "iconsminds-digital-drawing",
+        label: "menu.applications",
+        roles: [UserRole.DivisionalOffHead],
+        subs: [
+          {
+            id: "pages-authorization",
+            label: "menu.applications",
+            to: `${divisionalOffHeadRoot}/applicationstoapprove/`
+          },
+        ]
+      },
+    ]
+  },
 
 
 
@@ -569,6 +599,7 @@ const data = [
       {
         icon: "iconsminds-dollar-sign-2",
         label: "menu.byyears",
+
         to: `/division/get-payment-by-years`
       }
     ]
@@ -706,18 +737,7 @@ const data = [
       }
     ]
   },
-  {
-    id: "view-elder-application-verify",
-    icon: "iconsminds-add-user",
-    label: "menu.view-elder-application-verify",
-    to: `/division/view-elder-application-verify/2`,
-    roles: [
-      UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
-    ]
-  },
+
 
   // {
   //   id: "gramaniladai-division-forma",
@@ -871,6 +891,7 @@ const data = [
     to: `/app/dashboards/`,
     roles: [UserRole.Editor]
   },
+
 
 
 ];

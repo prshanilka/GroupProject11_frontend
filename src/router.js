@@ -5,7 +5,8 @@ import {
   adminRoot,
   elderRoot,
   sysAdminRoot,
-  dofficerRoot
+  dofficerRoot,
+  divisionalOffHeadRoot
 } from "./constants/config";
 
 import { UserRole } from "./utils/auth.roles";
@@ -284,6 +285,59 @@ const routes = [
       }
     ]
   },
+    /////////////////End System Admin////////////////////
+
+
+  ////////////////////////////////////////////////////////////////////////
+  //Divisional Headz
+  ////////////////////////////////////////////////////////////////////////
+  {
+    path: divisionalOffHeadRoot,
+    component: () => import(/* webpackChunkName: "app" */ "./views/divisionaloffhead"),
+    redirect: `${divisionalOffHeadRoot}/dashboard`,
+    meta: {
+      loginRequired: true,
+      roles: [UserRole.Admin, UserRole.DivisionalOffHead]
+    },
+    children: [
+      {
+        path: "dashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboards" */ "./views/divisionaloffhead/dashboard/"
+          )
+      },
+      {
+        path: "applicationstoapprove",
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboards" */ "./views/divisionaloffhead/applicationstoapprove"
+          )
+      }
+      
+    ]
+  },
+    /////////////////End System Admin////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ////////////////////////////////////////////////////////////////////////
   //Divisional Officer
   ////////////////////////////////////////////////////////////////////////
