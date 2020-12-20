@@ -72,7 +72,8 @@
     "divisional_head": "Divisional Head",
     "details": "Details",
     "view": "View",
-    "fillapplication": "Fill Application"
+    "fillapplication" : "Fill Application",
+    "divisionalofiicerver" : "Verification from Divisional office"
   },
   "agent": {
     "form": "Agent Form",

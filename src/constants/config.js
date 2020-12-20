@@ -5,6 +5,7 @@ export const adminRoot = "/app";
 export const elderRoot = "/elder";
 export const sysAdminRoot = "/sysadmin";
 export const dofficerRoot = "/dofficer";
+export const divisionalOffHeadRoot = "/divisionaloffhead";
 
 export const searchPath = `${adminRoot}/pages/miscellaneous/search`;
 export const buyUrl = "https://1.envato.market/nEyZa";
