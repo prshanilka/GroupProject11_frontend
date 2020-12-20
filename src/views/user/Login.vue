@@ -89,7 +89,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import { validationMixin } from "vuelidate";
-import { adminRoot, elderRoot, dofficerRoot } from "../../constants/config";
+import { adminRoot, elderRoot, dofficerRoot, divisionalOffHeadRoot } from "../../constants/config";
 import { UserRole } from "../../utils/auth.roles";
 
 const {
@@ -144,9 +144,12 @@ export default {
 	},
 	watch: {
 		currentUser(val) {
-
+			
 			if (val && val.role == UserRole.DivisionalOfficers ) {
 					this.$router.push(dofficerRoot);
+			}
+			else if (val && val.role == UserRole.DivisionalOffHead) {
+					this.$router.push(divisionalOffHeadRoot);
 			}
 			else if (val && val.uid) {
 				setTimeout(() => {
