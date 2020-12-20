@@ -1,11 +1,11 @@
 <template>
-	<AppLayout>
+	 
 	<b-colxx xl="10" lg="12" style="margin:auto ">
-		<b-modal id="modallg" size="xl" title="Gardian Details" hide-footer>
+		<b-modal id="modallg" size="xl" title="Guardian Details" hide-footer>
 					<elder-details :id="clickedid"/>
 		</b-modal>
 		<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-			<h1>Agent Deatils</h1>
+			<h1>Guardian Deatils</h1>
 		</b-colxx>
 
 		<b-card no-body class="mb-4 text-center" >
@@ -35,14 +35,14 @@
 									v-b-modal.modallg
 									@click="clickedid = agent.elder_id"
 									variant="outline-danger"
-								>Change Gardian</b-button>
+								>Change Guardian</b-button>
 						</template>
 			</b-colxx>			
 			</b-row>
 			
 		</b-card>
 	</b-colxx>
-	</AppLayout>
+	 
 </template>
 
 <script>

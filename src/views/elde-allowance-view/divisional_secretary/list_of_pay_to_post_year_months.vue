@@ -223,7 +223,7 @@ export default {
 			// doc.text("2020.03", 80, 680);
 			// doc.text("Divisional Secretory", 320, 680);
 			// doc.text(
-			// 	"I certify that above allwance totalling Rupees ............................................................have been paid to \nthe person named or to their authorized agents whose authorities are atached and that allwance \ntotalling Rs...................................... have not been paid   ",
+			// 	"I certify that above allwance totalling Rupees ............................................................have been paid to \nthe person named or to their authorized Guardian whose authorities are atached and that allwance \ntotalling Rs...................................... have not been paid   ",
 			// 	40,
 			// 	720
 			// );

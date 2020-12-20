@@ -1,9 +1,9 @@
 <template>
 	<b-row>
-		<b-colxx xl="8" lg="12" style="margin:auto ">
+		<b-colxx xl="12" lg="12" style="margin:auto ">
 			<b-card>
 				<div class="text-center">
-					<h1>{{$t('office.d-form')}}</h1>
+					<h1>{{$t('office.d-form')}}  </h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_div">
 					<div class="icon-row-item">
@@ -121,7 +121,7 @@
 								v-else-if="!$v.div_sec_off.count_of_benifishers_elders.numeric"
 							>Please enter Numeric Value</b-form-invalid-feedback>
 						</b-form-group>
-						<b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
+						<b-button type="submit" variant="primary" class="mt-4"> Update</b-button>
 					</b-form>
 				</b-card>
 			</b-card>
@@ -171,6 +171,7 @@ export default {
 			]
 		};
 	},
+	props:["id"],
 	mixins: [validationMixin],
 	validations: {
 		div_sec_off: {
@@ -220,6 +221,23 @@ export default {
 			.catch(err => {
 				console.log(err);
 			});
+
+			axios({
+			method: "get",
+			url: "/divisionaloffice/" + this.id
+		}).then(result => {
+			this.details = result.data.data;
+			console.log(result.data);
+			this.div_sec_off.office_address  =result.data.data.address ;
+			this.div_sec_off.bank_account  =result.data.data.bank_account ;
+			this.div_sec_off.count_of_benifishers_elders  =result.data.data.count_of_benifishers_elders ;
+			this.div_sec_off.district_id  =result.data.data.district_id   ;
+			this.div_sec_off.divisional_id  =result.data.data.divisional_secratary_id ;
+			this.div_sec_off.email  =result.data.data.email ;
+			this.div_sec_off.divisional_name  =result.data.data.name ;
+			this.div_sec_off.no_of_officers  =result.data.data.no_of_officers ;
+			this.div_sec_off.phone_no  =result.data.data.number;
+		});
 	},
 
 	methods: {
@@ -241,7 +259,7 @@ export default {
 						.count_of_benifishers_elders
 				};
 				axios({
-					method: "post",
+					method: "patch",
 					url: "/divisionaloffice",
 					data: body
 				})

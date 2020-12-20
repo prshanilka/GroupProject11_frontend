@@ -12,7 +12,7 @@
 
 				<b-card class="mb-4" v-show="submit_ag">
 					<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-						<b-form-group :label="$t('agent.name')">
+						<b-form-group label="Guardian Full Name">
 							<b-form-input type="text" v-model="$v.agent.name.$model" :state="!$v.agent.name.$error" />
 							<b-form-invalid-feedback v-if="!$v.agent.name.required">{{$t('form.e-name')}}</b-form-invalid-feedback>
 							<b-form-invalid-feedback

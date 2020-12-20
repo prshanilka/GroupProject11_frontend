@@ -20,8 +20,8 @@
 					</router-link>
 					<h6 class="mb-4">{{ $t('user.login-title')}}</h6>
 
-					<b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-bottom">
-						<b-form-group :label="$t('user.username')" class="has-float-label mb-4">
+					<b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-right">
+						<b-form-group :label="$t('user.username')"  >
 							<b-form-input type="text" v-model="$v.form.email.$model" :state="!$v.form.email.$error" />
 							<b-form-invalid-feedback v-if="!$v.form.email.required">Please enter your email address</b-form-invalid-feedback>
 							<b-form-invalid-feedback v-else-if="!$v.form.email.email">Please enter a valid email address</b-form-invalid-feedback>
@@ -31,7 +31,7 @@
 							</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group :label="$t('user.password')" class="has-float-label mb-4">
+						<b-form-group :label="$t('user.password')"  >
 							<b-form-input
 								type="password"
 								v-model="$v.form.password.$model"
