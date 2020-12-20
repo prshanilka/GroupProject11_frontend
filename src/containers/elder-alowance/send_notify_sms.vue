@@ -76,10 +76,7 @@ export default {
 		onValitadeFormSubmit() {
 			this.$v.$touch();
 			console.log(this.$v.$invalid + " Checking ");
-            //   fetch("https://api.nytimes.com/svc/books/v3/lists/current/hardcover-fiction.json?api-key=EHWvdxhhBkAzsMfcGFvYXxdwaOMG8JZH")
-            //      .then(response => response.json())
-            //         .then(data => console.log(data.results.books));
-                    
+                     
 			if (!this.$v.$invalid) {
 				const body = {
 					message:this.message
