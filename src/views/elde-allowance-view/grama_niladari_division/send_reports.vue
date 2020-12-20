@@ -2,7 +2,9 @@
 	<AppLayout>
 		<div>
 			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-				
+				<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+			<elder-details :id="clickedid" />
+		</b-modal>
 				<datatable-heading
 					title="List of Benifishers in My Division"
 					:selectAll="selectAll"
@@ -83,7 +85,7 @@ import VuetablePaginationBootstrap from "../../../components/Common/VuetablePagi
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 
-import ElderDetails from "./inform_death_form";
+import ElderDetails from "./view_elder_detail";
 
 export default {
 	props: ["title"],
