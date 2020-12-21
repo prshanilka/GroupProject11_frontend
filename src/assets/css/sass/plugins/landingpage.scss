@@ -35,9 +35,9 @@
     height: unset;
     span {
       display: inline-block;
-      width: 100px;
-      height: 30px;
-      background: url($lp-logo-path-pinned);
+      width: 220px;
+      height: 70px;
+      background: url("/assets/logos/swsw.png");
       background-repeat: no-repeat;
     }
   }
@@ -184,14 +184,22 @@
         display: inline-block;
         width: 240px;
         height: 90px;
-        background: url("/assets/logos/swsw.png");
+        padding-bottom: 10px;
+        background: url("/assets/logos/new.png");
         background-repeat: no-repeat;
+      }
+
+      .logo-mobile {
+        width: 40px;
+        height: 0px;
+        background: url("/assets/logos/sese-min.png") no-repeat;
       }
 
       .dark {
         width: 240px;
         height: 100px;
-        background: url("/assets/logos/swsw.png");
+        padding-bottom: 10px;
+        background: url("/assets/logos/new.png");
         background-repeat: no-repeat;
         display: none;
       }
