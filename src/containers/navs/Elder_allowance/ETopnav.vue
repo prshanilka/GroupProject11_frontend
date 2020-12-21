@@ -120,18 +120,18 @@
 								v-for="(n,index) in notifications"
 								:key="index"
 							>
-								<router-link tag="a" :to="`${adminRoot}/pages/product/details`">
+								<!-- <router-link tag="a" :to="`${adminRoot}/pages/product/details`">
 									<img
 										:src="n.img"
 										:alt="n.title"
 										class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle"
 									/>
-								</router-link>
+								</router-link> -->
 								<div class="pl-3 pr-2">
 									<router-link tag="a" to="#">
 									<!-- <router-link tag="a" :to="`${adminRoot}/pages/product/details`"> -->
-										<p class="font-weight-medium mb-1">{{n.title}}</p>
-										<p class="text-muted mb-0 text-small">{{n.date}}</p>
+										<p class="font-weight-medium mb-1">{{n.notificaton}}</p>
+										<!-- <p class="text-muted mb-0 text-small">{{n.date}}</p> -->
 									</router-link>
 								</div>
 							</div>
@@ -176,7 +176,9 @@
 
 <script>
 import Switches from "vue-switches";
-import notifications from "../../../data/notifications";
+// import notifications from "../../../data/notifications";
+import axios from 'axios'
+
 
 import { mapGetters, mapMutations, mapActions } from "vuex";
 import { MenuIcon, MobileMenuIcon } from "../../../components/Svg";
@@ -210,7 +212,7 @@ export default {
 			adminRoot,
 			ElderAllowancelocaleOptions,
 			buyUrl,
-			notifications,
+			notifications:[],
 			isDarkActive: false
 		};
 	},
@@ -306,6 +308,14 @@ export default {
 	created() {
 		const color = getThemeColor();
 		this.isDarkActive = color.indexOf("dark") > -1;
+
+		axios.get(
+				"/notification"
+			).then(res =>{
+				console.log(res.data.data);
+				this.notifications =res.data.data;
+			});
+
 	},
 	watch: {
 		"$i18n.locale"(to, from) {
