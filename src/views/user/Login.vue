@@ -148,6 +148,9 @@ export default {
 			if (val && val.role == UserRole.DivisionalOfficers ) {
 					this.$router.push(dofficerRoot);
 			}
+			else if (val && val.role == UserRole.DivisionalOffOfficer ) {
+					this.$router.push(dofficerRoot);
+			}
 			else if (val && val.role == UserRole.DivisionalOffHead) {
 					this.$router.push(divisionalOffHeadRoot);
 			}
