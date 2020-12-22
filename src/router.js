@@ -264,7 +264,7 @@ const routes = [
     redirect: `${dofficerRoot}/dashboard`,
     meta: {
       loginRequired: true,
-      roles: [UserRole.Admin, UserRole.DivisionalOfficers]
+      roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.DivisionalOffOfficer]
     },
     children: [
       {
