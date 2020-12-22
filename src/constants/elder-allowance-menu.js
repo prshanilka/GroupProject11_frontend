@@ -389,13 +389,13 @@ const data = [
   //   to: `/post/assign-post-officers`,
   //   roles: [UserRole.Editor, UserRole.PostOfficers]
   // },
-  {
-    id: "send-reports",
-    icon: "iconsminds-monitor-analytics",
-    label: "menu.send-reports",
-    to: `/post/send-reports`,
-    roles: [UserRole.Editor, UserRole.PostOfficers]
-  },
+  // {
+  //   id: "send-reports",
+  //   icon: "iconsminds-monitor-analytics",
+  //   label: "menu.send-reports",
+  //   to: `/post/send-reports`,
+  //   roles: [UserRole.Editor, UserRole.PostOfficers]
+  // },
 
   ///////////////////////////////////////////////////////////////
   // {
@@ -715,6 +715,18 @@ const data = [
         to: `/division/list-of-deaths`
       }
     ]
+  },
+  {
+    id: "elder_form",
+    icon: "iconsminds-the-white-house",
+    label: "menu.div_elder_form",
+    to: `/division/elder_form`,
+    roles: [
+      UserRole.Editor,
+      UserRole.DivisionalOffHead,
+      UserRole.DivisionalOffOfficer,
+      UserRole.DivisionalOfficers
+    ],
   },
 
   {

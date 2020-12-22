@@ -250,6 +250,11 @@ const routes = [
   },
 
   /////////////////End System Admin////////////////////
+/////////////////End System Admin////////////////////
+  
+  
+  
+
   ////////////////////////////////////////////////////////////////////////
   //Divisional Officer
   ////////////////////////////////////////////////////////////////////////
@@ -317,7 +322,7 @@ const routes = [
       
     ]
   },
-    /////////////////End System Admin////////////////////
+    
 
 
 
@@ -498,7 +503,13 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/pay_post_office_form"
       )
   },
-
+{
+    path: "/division/elder_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/division_elderfrom.vue"
+      )
+  },
   {
     path: "/division/payhistory",
     component: () =>
