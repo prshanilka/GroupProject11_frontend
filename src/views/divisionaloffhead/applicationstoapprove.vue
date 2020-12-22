@@ -7,7 +7,7 @@
     spinner-small
     rounded="sm"
 		>
-		<b-modal ref="my-modallg" v-model="modalShow" id="modallg" size="lg" title="Elder Details" hide-footer>
+		<b-modal ref="msy-modallg" v-model="modalShow" id="modallg" size="lg" title="Elder Details" hide-footer>
       <elder-details :dat="clickedVid"/>
 			<marks-section :dat="clickedVid" @event="handler"/>
     </b-modal>
@@ -325,7 +325,7 @@ export default {
 		},
 		
 	    handler(params) {
-				this.$refs['my-modallg'].hide()
+				this.$refs['msy-modallg'].hide()
         this.$refs.vuetable.refresh();
     }
 
