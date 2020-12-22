@@ -1,7 +1,5 @@
 <template>
-  <div>
-          <user-card-elder></user-card-elder>
-  </div>
+  
 </template>
 
 <script>
