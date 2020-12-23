@@ -804,6 +804,15 @@ const routes = [
       ),
     props: true
   },
+
+  {
+    path: "/grama/elder_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/division_elderfrom.vue"
+      )
+  },
+
   {
     path: "/post/post-officer-details/:id",
     component: () =>
