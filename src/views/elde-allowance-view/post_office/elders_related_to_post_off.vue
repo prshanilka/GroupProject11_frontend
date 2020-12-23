@@ -5,6 +5,11 @@
 				<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
 					<elder-details :id="clickedid" />
 				</b-modal>
+				<b-modal id="modalnotify" size="lg" title="Notify Elders" hide-footer>
+					 <h1>Notify elders</h1>
+					 <notifysms/>
+				</b-modal>
+
 				<datatable-heading
 					title="The List Of Benifishers that registerd To the Post Office"
 					:selectAll="selectAll"
@@ -70,7 +75,11 @@
 				</v-contextmenu>
 			</b-overlay>
 		</div>
+		<div>
 		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>
+		<b-button variant="primary" class="mt-4" v-b-modal.modalnotify  > Notify All Elders</b-button>
+		</div>
+		<br>
 	</AppLayout>
 </template>
 
@@ -85,6 +94,9 @@ import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 
 import ElderDetails from "./view_elder_detail";
+import NotifySms from "../../../containers/elder-alowance/send_notify_sms";
+ 
+
 
 export default {
 	props: ["title"],
@@ -93,6 +105,7 @@ export default {
 		AppLayout: AppLayout,
 		vuetable: Vuetable,
 		"elder-details": ElderDetails,
+		"notifysms":NotifySms,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
 		"datatable-heading": DatatableHeading
 	},
