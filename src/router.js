@@ -1382,6 +1382,11 @@ const routes = [
     ]
   },
   {
+    name: "ChangePass",
+    path: "/user/changepass",
+    component: () => import(/* webpackChunkName: "user" */ "./views/user/Changepass"),
+  },
+  {
     path: "*",
     component: () => import(/* webpackChunkName: "error" */ "./views/Error")
   }

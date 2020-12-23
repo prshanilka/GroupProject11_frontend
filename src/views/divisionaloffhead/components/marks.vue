@@ -5,7 +5,8 @@
         </b-table>		
       </b-card>	
 			<b-card>
-				<b-button>Approve</b-button>	
+				<b-button variant="success" @click="approve">Approve</b-button>
+				 <!-- <b-button variant="danger">Reject</b-button> -->
 			</b-card>	
 
 		</div>
@@ -34,6 +35,16 @@ export default {
 	},
 	props: ["dat"],
 	methods:{
+		approve(){
+			let promise = axios.get(bUrl + '/application/verifydhead/'+this.dat.vid)
+      promise
+        .then(result => result.data)
+        .then((data) => {
+						this.$emit('event')
+        }).catch(_error => {
+					console.log(error)
+        })
+		}
 	},
 	computed: {
 
