@@ -20,7 +20,8 @@
     "reset-password-button": "RESET",
     "buy": "BUY",
     "username": "Username",
-    "review": "Review"
+    "review": "Review",
+    "change":"Change"
   },
   "form": {
     "address": "Address",
@@ -654,7 +655,8 @@
     "password-confirm": "Confirm Password",
     "validation-bootstrap": "Bootstrap Validation",
     "validation-vuelidate": "Vuelidate Validation",
-    "name": "Name"
+    "name": "Name",
+    "changepassword":"Change Paaword"
   },
   "form-components": {
     "custom-inputs": "Custom Inputs",
