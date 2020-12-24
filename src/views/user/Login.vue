@@ -165,6 +165,22 @@ export default {
 				});
 			}
 		}
+	},
+	created() {
+		if(localStorage.jwt){
+			var obj = JSON.parse(localStorage.user)
+			if ( obj.role == UserRole.DivisionalOfficers ) {
+					this.$router.push(dofficerRoot);
+			}
+			else if (obj.role == UserRole.DivisionalOffHead) {
+					this.$router.push(divisionalOffHeadRoot);
+			}
+			else {
+				setTimeout(() => {
+					this.$router.push("/elder/dashboards/default");
+				}, 2);
+			}
+		}
 	}
 };
 </script>
