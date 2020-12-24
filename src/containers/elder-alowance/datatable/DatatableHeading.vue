@@ -6,27 +6,7 @@
 			<h1>{{ title }}</h1>
 
 			<div class="top-right-button-container">
-				<b-button-group>
-					<b-dropdown split right @click="selectAll(true)" class="check-button" variant="primary">
-						<label class="custom-control custom-checkbox pl-4 mb-0 d-inline-block" slot="button-content">
-							<input
-								class="custom-control-input"
-								type="checkbox"
-								:checked="isSelectedAll"
-								v-shortkey="{select: ['ctrl','a'], undo: ['ctrl','d']}"
-								@shortkey="keymap"
-							/>
-							<span
-								:class="{
-                'custom-control-label' :true,
-                'indeterminate' : isAnyItemSelected
-                }"
-							>&nbsp;</span>
-						</label>
-						<b-dropdown-item>{{$t('pages.delete')}}</b-dropdown-item>
-						<b-dropdown-item>{{$t('pages.another-action')}}</b-dropdown-item>
-					</b-dropdown>
-				</b-button-group>
+
 			</div>
 			<b-form>
 
@@ -43,23 +23,7 @@
                 <v-select v-model="filter.grama_division" :options="garamaDivision" @input="filterChange(filter)" />
               </b-form-group>
             </b-colxx>
-					<div class="float-md-right pt-1">
-						<span class="text-muted text-small mr-1 mb-2">{{from}}-{{to}} of {{ total }}</span>
-						<b-dropdown
-							id="ddown2"
-							right
-							:text="`${perPage}`"
-							variant="outline-dark"
-							class="d-inline-block"
-							size="xs"
-						>
-							<b-dropdown-item
-								v-for="(size,index) in pageSizes"
-								:key="index"
-								@click="changePageSize(size)"
-							>{{ size }}</b-dropdown-item>
-						</b-dropdown>
-					</div>
+
 				</b-collapse>
 			</div>
 			<div class="separator mb-5" />
@@ -108,7 +72,7 @@ export default {
 					label: "Status"
 				}
 			],
-			pageSizes: [1,4, 8, 12]
+			pageSizes: [12]
 		};
 
 	},
