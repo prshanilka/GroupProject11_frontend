@@ -36,6 +36,27 @@
 							<b-form-invalid-feedback v-if="!$v.div_sec_off_officer.name.required">{{$t('form.e-name')}}</b-form-invalid-feedback>
 						</b-form-group>
 
+						<b-form-group :label="$t('user.username')">
+							<b-form-input
+								type="text"
+								v-model="$v.div_sec_off_officer.uname.$model"
+								:state="!$v.div_sec_off_officer.uname.$error"
+							/>
+							<b-form-invalid-feedback v-if="!$v.div_sec_off_officer.uname.required">{{$t('user.e-uname')}}</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group :label="$t('user.password')">
+							<b-form-input
+								type="text"
+								v-model="$v.div_sec_off_officer.pword.$model"
+								:state="!$v.div_sec_off_officer.pword.$error"
+							/>
+							<b-form-invalid-feedback v-if="!$v.div_sec_off_officer.pword.required">{{$t('user.e-pass')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-else-if="!$v.div_sec_off_officer.pword.minLength"
+							>{{$t('user.v-pass')}}</b-form-invalid-feedback>
+						</b-form-group>
+
 						<b-form-group :label="$t('form.nic')">
 							<b-form-input
 								type="text"
@@ -98,11 +119,12 @@
 						</b-form-group>
 
 						<b-form-group :label="$t('officer.role')">
-							<b-form-input
+							<b-form-select
 								type="text"
 								v-model="$v.div_sec_off_officer.role.$model"
+								:options="role_option"
 								:state="!$v.div_sec_off_officer.role.$error"
-							></b-form-input>
+							/>
 							<b-form-invalid-feedback
 								v-if="!$v.div_sec_off_officer.role.required"
 							>{{$t('officer.e-role')}}</b-form-invalid-feedback>
@@ -163,12 +185,14 @@ export default {
 			div_sec_off_officer: {
 				officer_id: "",
 				name: "",
+				uname: "",
+				pword: "",
 				nic: "",
 				phone: "",
 				email: "",
 				divisional_id: null,
 				designation: "",
-            	role: "",
+            	role: null,
            		type: "",
             	area: ""
 			},
@@ -177,6 +201,25 @@ export default {
 					value: null,
 					text:"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
 					disabled: true
+				}
+			],
+			role_option: [
+				{
+					value: null,
+					text:"Select an Officer Role",
+					disabled: true
+				},
+				{
+					value: 26,
+					text:"Divisional Head"
+				},
+				{
+					value: 20,
+					text:"Divisional Officer"
+				},
+				{
+					value: 24,
+					text:"Field Officer"
 				}
 			]
 		};
@@ -189,6 +232,13 @@ export default {
 			},
 			name: {
 				required
+			},
+			uname: {
+				required
+			},
+			pword: {
+				required,
+				minLength: minLength(10),
 			},
 			nic: {
 				required,
@@ -253,9 +303,17 @@ export default {
             		email: this.div_sec_off_officer.email,
             		phone: this.div_sec_off_officer.phone
 				};
+				const User = {
+					officer_id: this.div_sec_off_officer.officer_id,
+					uname: this.div_sec_off_officer.uname,
+					pword: this.div_sec_off_officer.pword,
+					email: this.div_sec_off_officer.email,
+					role: this.div_sec_off_officer.role,
+				};
 				const body = {
 					DivOfficer,
-					Officer
+					Officer,
+					User
 				};
 				axios({
 					method: "post",
