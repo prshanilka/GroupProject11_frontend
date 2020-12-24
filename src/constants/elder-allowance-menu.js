@@ -4,73 +4,6 @@ import { UserRole } from "../utils/auth.roles";
 
 const data = [
 
-    ////////////////////////////////////////////////////////
-  //Divisinal Officer
-  ////////////////////////////////////////////////////////
-  {
-    id: "dashboard_do",
-    icon: "simple-icon-equalizer",
-    label: "menu.dashboard",
-    to: `${dofficerRoot}/dashboard/`,
-    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
-  },
-  {
-    id: "applications",
-    icon: "iconsminds-digital-drawing",
-    label: "menu.applications",
-    roles: [UserRole.DivisionalOfficers],
-    subs: [
-      {
-        id: "pages-authorization",
-        label: "menu.pendingapplications",
-        to: `${dofficerRoot}/pendingapplications/`
-      },
-      {
-        id: "pages-authorization",
-        label: "menu.selectedapplications",
-        to: `${dofficerRoot}/selectedapplications`
-      }
-    ]
-  },
-
-
-
-    ////////////////////////////////////////////////////////
-  //Divisinal head
-  ////////////////////////////////////////////////////////
-  {
-    id: "dashboard_dhead",
-    icon: "simple-icon-equalizer",
-    label: "menu.dashboard",
-    to: `${divisionalOffHeadRoot}/dashboard/`,
-    roles: [UserRole.DivisionalOffHead]
-  },
-  {
-    id: "Approvals",
-    icon: "simple-icon-layers",
-    label: "menu.applications",
-    roles: [UserRole.DivisionalOffHead],
-    subs: [
-      {
-        id: "Approvals",
-        icon: "iconsminds-digital-drawing",
-        label: "menu.applications",
-        roles: [UserRole.DivisionalOffHead],
-        subs: [
-          {
-            id: "pages-authorization",
-            label: "menu.applications",
-            to: `${divisionalOffHeadRoot}/applicationstoapprove/`
-          },
-        ]
-      },
-    ]
-  },
-
-
-
-
-
 
 
 
@@ -437,7 +370,7 @@ const data = [
   {
     id: "paynemt-histroy",
     icon: "iconsminds-post-mail-2",
-    label: "menu.elders-related-to-post-off",
+    label: "menu.payment-history",
     to: `/post/paynemt-histroy`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
@@ -558,6 +491,89 @@ const data = [
   // },
 
   ///////////////////////////////////
+
+
+  
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////
+  //Divisinal head
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_dhead",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${divisionalOffHeadRoot}/dashboard/`,
+    roles: [ 
+      UserRole.DivisionalOffHead,
+    ]
+  },
+  {
+    id: "Approvals",
+    icon: "simple-icon-layers",
+    label: "menu.applications",
+    roles: [UserRole.DivisionalOffHead],
+    subs: [
+      {
+        id: "Approvals",
+        icon: "iconsminds-digital-drawing",
+        label: "menu.applications",
+        roles: [UserRole.DivisionalOffHead],
+        subs: [
+          {
+            id: "pages-authorization",
+            label: "menu.applications",
+            to: `${divisionalOffHeadRoot}/applicationstoapprove/`
+          },
+        ]
+      },
+    ]
+  },
+
+
+
+
+  
+    ////////////////////////////////////////////////////////
+  //Divisinal Officer
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_do",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${dofficerRoot}/dashboard/`,
+    roles: [UserRole.Admin, 
+      UserRole.DivisionalOfficers,
+      UserRole.DivisionalOffOfficer,
+      , UserRole.Editor]
+  },
+  {
+    id: "applications",
+    icon: "iconsminds-digital-drawing",
+    label: "menu.applications",
+    roles: [UserRole.DivisionalOfficers],
+    subs: [
+      {
+        id: "pages-authorization",
+        label: "menu.pendingapplications",
+        to: `${dofficerRoot}/pendingapplications/`
+      },
+      {
+        id: "pages-authorization",
+        label: "menu.selectedapplications",
+        to: `${dofficerRoot}/selectedapplications`
+      }
+    ]
+  },
+  
+
+
+
+
 
   {
     id: "divisional-office-form",
@@ -737,6 +753,18 @@ const data = [
       }
     ]
   },
+  // {
+  //   id: "view-elder-application-verify",
+  //   icon: "iconsminds-add-user",
+  //   label: "menu.view-elder-application-verify",
+  //   to: `/division/view-elder-application-verify/2`,
+  //   roles: [
+  //     UserRole.Editor,
+  //     UserRole.DivisionalOffHead,
+  //     UserRole.DivisionalOffOfficer,
+  //     UserRole.DivisionalOfficers
+  //   ]
+  // },
 
 
   // {
