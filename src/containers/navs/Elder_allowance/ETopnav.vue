@@ -163,9 +163,7 @@
 							<img :alt="currentUser.title" :src="currentUser.img" />
 						</span>
 					</template>
-					<b-dropdown-item>Account</b-dropdown-item>
-					<b-dropdown-item>Features</b-dropdown-item>
-					<b-dropdown-item>History</b-dropdown-item>		 
+					<b-dropdown-item> <router-link to="/user/changepass"  >{{ $t('user.changepass') }}</router-link></b-dropdown-item>		 
 					<b-dropdown-divider />
 					<b-dropdown-item @click="logout">Sign out</b-dropdown-item>
 				</b-dropdown>

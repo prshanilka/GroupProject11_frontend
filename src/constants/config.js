@@ -1,6 +1,6 @@
 import { UserRole } from "../utils/auth.roles";
 
-export const defaultMenuType = "menu-default"; // 'menu-default', 'menu-sub-hidden', 'menu-hidden';
+export const defaultMenuType = "menu-sub-hidden"; // 'menu-default', 'menu-sub-hidden', 'menu-hidden';
 export const adminRoot = "/app";
 export const elderRoot = "/elder";
 export const sysAdminRoot = "/sysadmin";
