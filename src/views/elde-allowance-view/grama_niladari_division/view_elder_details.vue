@@ -9,8 +9,8 @@
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
-							thumb="../assets/img/profiles/1.jpg"
-							large="../assets/img/profiles/1.jpg"
+							thumb="../assets/img/profiles/def.png"
+							large="../assets/img/profiles/def.png"
 							class-name="card-img-top "
 							class="m-4"
 						/>

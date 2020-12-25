@@ -29,6 +29,12 @@
 						>{{$t('form.v-address')}}</b-form-invalid-feedback>
 					</b-form-group>
 
+	 
+						<b-input-group :label="$t('input-groups.upload')" class="mb-3">
+              				  <b-form-file   @change="onFileChange"  :placeholder="$t('input-groups.choose-file')"></b-form-file>
+            			</b-input-group>
+	 
+
 					<b-form-group :label="$t('form.nic')">
 						<b-form-input type="text" v-model="$v.elder.nic_no.$model" :state="!$v.elder.nic_no.$error" />
 						<b-form-invalid-feedback v-if="!$v.elder.nic_no.required">{{$t('form.e-nic')}}</b-form-invalid-feedback>
@@ -157,9 +163,11 @@ export default {
 	},
 	data() {
 		return {
+			 file:null,
 			elder: {
 				name: "",
 				address: "",
+				img:"",
 				nic_no: "",
 				email: "",
 				sex: "male",
@@ -323,6 +331,25 @@ export default {
 			};
 			this.$emit("changexx", el);
 			console.log("end");
+		},
+		onFileChange(e){
+			   const selectedFile = e.target.files[0]; // accessing file
+				  this.file = selectedFile;
+				  console.log(this.file);
+				  const formData = new FormData();
+      				formData.append("file", this.file);  // appending file
+
+     // sending file to the backend
+      axios
+        .post("/upload/profile", formData)
+        .then(res => {
+		  console.log(res.data.path);
+		  this.elder.img=res.data.path;
+
+        })
+        .catch(err => {
+          console.log(err);
+        });
 		}
 	},
 	watch: {

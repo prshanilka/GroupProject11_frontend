@@ -7,7 +7,7 @@
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_ag">
 					<div class="icon-row-item">
-						<i class="simple-icon-like text-xlarge" />				
+						<i class="simple-icon-like text-xlarge" />
 					</div>
 					<h2 class="mb-2">{{$t('officer.form-success')}}</h2>
 					<p>{{$t('officer.form-register')}}</p>
@@ -32,6 +32,27 @@
 								:state="!$v.gramaniladari_officer.name.$error"
 							/>
 							<b-form-invalid-feedback v-if="!$v.gramaniladari_officer.name.required">{{$t('form.e-name')}}</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group :label="$t('user.username')">
+							<b-form-input
+								type="text"
+								v-model="$v.gramaniladari_officer.uname.$model"
+								:state="!$v.gramaniladari_officer.uname.$error"
+							/>
+							<b-form-invalid-feedback v-if="!$v.gramaniladari_officer.uname.required">{{$t('user.e-uname')}}</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group :label="$t('user.password')">
+							<b-form-input
+								type="text"
+								v-model="$v.gramaniladari_officer.pword.$model"
+								:state="!$v.gramaniladari_officer.pword.$error"
+							/>
+							<b-form-invalid-feedback v-if="!$v.gramaniladari_officer.pword.required">{{$t('user.e-pass')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-else-if="!$v.gramaniladari_officer.pword.minLength"
+							>{{$t('user.v-pass')}}</b-form-invalid-feedback>
 						</b-form-group>
 
 						<b-form-group :label="$t('form.nic')">
@@ -142,12 +163,15 @@ export default {
 			gramaniladari_officer: {
 				officer_id: "",
 				name: "",
+				uname: "",
+				pword: "",
 				nic: "",
 				phone: "",
 				email: "",
 				district_id: null,
 				divisional_id: null,
-				gramaniladari_division_id: null
+				gramaniladari_division_id: null,
+				role: 40
 			},
 			district_option: [
 				{
@@ -159,14 +183,16 @@ export default {
 			divisional_off_option: [
 				{
 					value: null,
-					text: "Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
+					text:
+						"Select an Division Secretary Office/කරුණාකර ප්‍රාදේශීය ලේකම් කාර්යාලය තෝරන්න",
 					disabled: true
 				}
 			],
 			gramaniladari_division_option: [
 				{
 					value: null,
-					text: "Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
+					text:
+						"Select Grama Niladari Division/කරුණාකර ග්‍රාම නිළධාරී කොඨ්ඨාෂ‍ය තෝරන්න",
 					disabled: true
 				}
 			]
@@ -180,6 +206,13 @@ export default {
 			},
 			name: {
 				required
+			},
+			uname: {
+				required
+			},
+			pword: {
+				required,
+				minLength: minLength(10),
 			},
 			nic: {
 				required,
@@ -220,16 +253,22 @@ export default {
 			.get("/divisionaloffice/selectbox")
 			.then(res => {
 				console.log(res);
-				this.divisional_off_option = [...this.divisional_off_option, ...res.data.data];
+				this.divisional_off_option = [
+					...this.divisional_off_option,
+					...res.data.data
+				];
 			})
 			.catch(err => {
 				console.log(err);
 			});
 		axios
-			.get("/gramadivision/selectbox")
+			.get("/gramadivision//selectofficer")
 			.then(res => {
 				console.log(res);
-				this.gramaniladari_division_option = [...this.gramaniladari_division_option, ...res.data.data];
+				this.gramaniladari_division_option = [
+					...this.gramaniladari_division_option,
+					...res.data.data
+				];
 			})
 			.catch(err => {
 				console.log(err);
@@ -254,9 +293,17 @@ export default {
 					district_id: this.gramaniladari_officer.district_id,
 					divisional_secratary_id: this.gramaniladari_officer.divisional_id
 				};
+				const User = {
+					officer_id: this.gramaniladari_officer.officer_id,
+					uname: this.gramaniladari_officer.uname,
+					pword: this.gramaniladari_officer.pword,
+					email: this.gramaniladari_officer.email,
+					role: this.gramaniladari_officer.role
+				};
 				const body = {
 					Officer,
-					GramaOfficer
+					GramaOfficer,
+					User
 				};
 				axios({
 					method: "post",

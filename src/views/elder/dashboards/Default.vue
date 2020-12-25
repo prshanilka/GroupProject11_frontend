@@ -1,13 +1,9 @@
 <template>
   <div>
           <user-card-elder></user-card-elder>
-
-          <b-row  >
-                   
-          </b-row>
         <b-row >
           
-          <b-colxx lg="4" xl="12" class="mb-4" >
+          <b-colxx lg="4" xl="12" class="mb-4" v-if="!EApplicationStatus.success == 0" >
             <b-alert show variant="danger" v-if="EApplicationStatus.correction">{{ $t(EApplicationStatus.correction) }}</b-alert>
             <gradient-with-radial-progress-card
               icon="iconsminds-bell"
@@ -17,7 +13,16 @@
               :progressText="`${EApplicationStatus.presentage}%`"
             />
           </b-colxx>
+          <b-colxx lg="4" xl="12" class="mb-4" v-if="EApplicationStatus.success == 0" >
+            
+                  <b-button class="mb-2" block variant="secondary"  @click="$router.push('/elder/elder-form')" >{{ $t('elder.fillapplication') }}</b-button>
+          </b-colxx>
+          
         </b-row>
+
+
+
+
 
 
   </div>

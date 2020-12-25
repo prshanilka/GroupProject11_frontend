@@ -37,8 +37,12 @@ axios.defaults.baseURL = bUrl;
 let isRefreshing = false;
 
 axios.interceptors.response.use(
+  
+
   async response => {
+    console.log(response)
     return response;
+    
   },
   async err => {
     const {
@@ -87,6 +91,10 @@ axios.interceptors.response.use(
 
 axios.interceptors.request.use(
   function(config) {
+    if (config.url == "/users/checkusername") {
+
+      return config;
+    }
     if (config.url == "/users/refresh") {
       config.headers.Authorization = `Bearer ${localStorage.jwtr}`;
       return config;

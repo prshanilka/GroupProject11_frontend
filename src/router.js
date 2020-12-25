@@ -5,7 +5,8 @@ import {
   adminRoot,
   elderRoot,
   sysAdminRoot,
-  dofficerRoot
+  dofficerRoot,
+  divisionalOffHeadRoot
 } from "./constants/config";
 
 import { UserRole } from "./utils/auth.roles";
@@ -55,7 +56,6 @@ const routes = [
       },
       {
         path: "/elderlogin",
-        name:ellogin,
         component: () =>
           import(
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/login"
@@ -69,11 +69,26 @@ const routes = [
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/elderfrom"
           )
       },
+        {
+        path: "/elder/update-form",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/update_elder.vue"
+          )
+      },
       {
         path: "/elder/agent-form",
         component: () =>
           import(
             /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_form"
+          )
+      },
+
+      {
+        path: "/elder/agent-details",
+        component: () =>
+          import(
+            /* webpackChunkName: "home" */ "./views/elde-allowance-view/user/agent_details"
           )
       },
 
@@ -169,10 +184,24 @@ const routes = [
       )
   },
   {
+    path: "/sysadmin/list-of-postofficers",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_officers.vue"
+      )
+  },
+  {
     path: "/sysadmin/list-of-post-office",
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_office"
+      )
+  },
+  {
+    path: "/sysadmin/list-divisional-secretry",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_divisional_secretry"
       )
   },
   {
@@ -211,7 +240,21 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/divisional_office_officer_form"
       )
   },
+
+  {
+    path: "/sysadmin/criteria",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/criteria"
+      )
+  },
+
   /////////////////End System Admin////////////////////
+/////////////////End System Admin////////////////////
+  
+  
+  
+
   ////////////////////////////////////////////////////////////////////////
   //Divisional Officer
   ////////////////////////////////////////////////////////////////////////
@@ -221,7 +264,7 @@ const routes = [
     redirect: `${dofficerRoot}/dashboard`,
     meta: {
       loginRequired: true,
-      roles: [UserRole.Admin, UserRole.DivisionalOfficers]
+      roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.DivisionalOffOfficer]
     },
     children: [
       {
@@ -247,6 +290,59 @@ const routes = [
       }
     ]
   },
+    /////////////////End System Admin////////////////////
+
+
+  ////////////////////////////////////////////////////////////////////////
+  //Divisional Headz
+  ////////////////////////////////////////////////////////////////////////
+  {
+    path: divisionalOffHeadRoot,
+    component: () => import(/* webpackChunkName: "app" */ "./views/divisionaloffhead"),
+    redirect: `${divisionalOffHeadRoot}/dashboard`,
+    meta: {
+      loginRequired: true,
+      roles: [UserRole.Admin, UserRole.DivisionalOffHead]
+    },
+    children: [
+      {
+        path: "dashboard",
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboards" */ "./views/divisionaloffhead/dashboard/"
+          )
+      },
+      {
+        path: "applicationstoapprove",
+        component: () =>
+          import(
+            /* webpackChunkName: "dashboards" */ "./views/divisionaloffhead/applicationstoapprove"
+          )
+      }
+      
+    ]
+  },
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   ////////////////////////////////////////////////////////////////////////
   //Divisional Officer
   ////////////////////////////////////////////////////////////////////////
@@ -407,7 +503,13 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/pay_post_office_form"
       )
   },
-
+{
+    path: "/division/elder_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/division_elderfrom.vue"
+      )
+  },
   {
     path: "/division/payhistory",
     component: () =>
@@ -477,6 +579,13 @@ const routes = [
       )
   },
   {
+    path: "/division/list-of-post-complains",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_post_complains"
+      )
+  },
+  {
     path: "/division/evaluate-elder-application",
     component: () =>
       import(
@@ -526,6 +635,14 @@ const routes = [
       ),
     props: true
   },
+   {
+    path: "/division/get_details_divisional_secretry/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/view_divisional_secretory.vue"
+      ),
+    props: true
+  },
   {
     path: "/division/view-priority-list",
     component: () =>
@@ -570,7 +687,30 @@ const routes = [
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/get_payment_years.vue"
       )
   },
-
+  {
+    path: "/division/get-payment-by-months/:year",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/get_payment_month.vue"
+      ),
+    props: true
+  },
+  {
+    path: "/division/list_of_pay_to_post_year_months/:year/:month",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_of_pay_to_post_year_months.vue"
+      ),
+    props: true
+  },
+  {
+    path: "/division/list-paybenifisher-by-pay_id/:pay_id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/list_paybenifisher_by_post_office.vue"
+      ),
+    props: true
+  },
   //////////////////////////////
   //////////////////////////
   //////////////////////////////////////////////
@@ -661,6 +801,23 @@ const routes = [
     component: () =>
       import(
         /* webpackChunkName: "home" */ "./views/elde-allowance-view/grama_niladari_division/view_grama_details"
+      ),
+    props: true
+  },
+
+  {
+    path: "/grama/elder_form",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/division_elderfrom.vue"
+      )
+  },
+
+  {
+    path: "/post/post-officer-details/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/post_office/view_post_officer_detail.vue"
       ),
     props: true
   },
@@ -1223,6 +1380,11 @@ const routes = [
           import(/* webpackChunkName: "user" */ "./views/user/ResetPassword")
       }
     ]
+  },
+  {
+    name: "ChangePass",
+    path: "/user/changepass",
+    component: () => import(/* webpackChunkName: "user" */ "./views/user/Changepass"),
   },
   {
     path: "*",

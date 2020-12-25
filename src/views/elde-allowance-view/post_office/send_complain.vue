@@ -2,7 +2,7 @@
 	<AppLayout>
 		<div>
 			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-				<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+				<b-modal id="modallg" size="large" title="Elder Details" hide-footer>
 					<elder-details :id="clickedid" />
 				</b-modal>
 				<datatable-heading
@@ -42,8 +42,8 @@
 									class="mb-1"
 									v-b-modal.modallg
 									@click="clickedid = props.rowData.elder_id"
-									variant="outline-primary"
-								>Send Complain</b-button>
+									variant="outline-danger"
+								>Complain</b-button>
 							</template>
 						</vuetable>
 						<vuetable-pagination-bootstrap
@@ -81,7 +81,7 @@ import VuetablePaginationBootstrap from "../../../components/Common/VuetablePagi
 import { bUrl } from "../../../constants/config";
 import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 
-import ElderDetails from "../../../views/elde-allowance-view/divisional_secretary/view_elder_application_verify";
+import ElderDetails from "./send_complains_form";
 
 export default {
 	props: ["title"],

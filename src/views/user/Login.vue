@@ -20,8 +20,8 @@
 					</router-link>
 					<h6 class="mb-4">{{ $t('user.login-title')}}</h6>
 
-					<b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-bottom">
-						<b-form-group :label="$t('user.username')" class="has-float-label mb-4">
+					<b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-right">
+						<b-form-group :label="$t('user.username')"  >
 							<b-form-input type="text" v-model="$v.form.email.$model" :state="!$v.form.email.$error" />
 							<b-form-invalid-feedback v-if="!$v.form.email.required">Please enter your email address</b-form-invalid-feedback>
 							<b-form-invalid-feedback v-else-if="!$v.form.email.email">Please enter a valid email address</b-form-invalid-feedback>
@@ -31,7 +31,7 @@
 							</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group :label="$t('user.password')" class="has-float-label mb-4">
+						<b-form-group :label="$t('user.password')"  >
 							<b-form-input
 								type="password"
 								v-model="$v.form.password.$model"
@@ -89,7 +89,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import { validationMixin } from "vuelidate";
-import { adminRoot, elderRoot, dofficerRoot } from "../../constants/config";
+import { adminRoot, elderRoot, dofficerRoot, divisionalOffHeadRoot ,sysAdminRoot } from "../../constants/config";
 import { UserRole } from "../../utils/auth.roles";
 
 const {
@@ -144,9 +144,24 @@ export default {
 	},
 	watch: {
 		currentUser(val) {
-
+			
 			if (val && val.role == UserRole.DivisionalOfficers ) {
 					this.$router.push(dofficerRoot);
+			}
+			else if (val && val.role == UserRole.DivisionalOffOfficer ) {
+					this.$router.push(dofficerRoot);
+			}
+			else if (val && val.role == UserRole.DivisionalOffHead) {
+					this.$router.push(divisionalOffHeadRoot);
+			}
+			else if (val && val.role == UserRole.SystemAdmin) {
+					this.$router.push("/sysadmin/dashboards/");
+			}
+			else if (val && val.role == UserRole.PostOfficers) {
+					this.$router.push("/post/post-officer-dashboard");
+			}
+			else if (val && val.role == UserRole.GramaNiladariOffices) {
+					this.$router.push("/grama/gramaniladari-dashboard");
 			}
 			else if (val && val.uid) {
 				setTimeout(() => {
@@ -160,6 +175,22 @@ export default {
 					duration: 3000,
 					permanent: false
 				});
+			}
+		}
+	},
+	created() {
+		if(localStorage.jwt){
+			var obj = JSON.parse(localStorage.user)
+			if ( obj.role == UserRole.DivisionalOfficers ) {
+					this.$router.push(dofficerRoot);
+			}
+			else if (obj.role == UserRole.DivisionalOffHead) {
+					this.$router.push(divisionalOffHeadRoot);
+			}
+			else {
+				setTimeout(() => {
+					this.$router.push("/elder/dashboards/default");
+				}, 2);
 			}
 		}
 	}

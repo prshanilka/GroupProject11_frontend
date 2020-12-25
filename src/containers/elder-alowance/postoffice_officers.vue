@@ -34,6 +34,27 @@
 							<b-form-invalid-feedback v-if="!$v.postoffice_officer.name.required">{{$t('form.e-name')}}</b-form-invalid-feedback>
 						</b-form-group>
 
+						<b-form-group :label="$t('user.username')">
+							<b-form-input
+								type="text"
+								v-model="$v.postoffice_officer.uname.$model"
+								:state="!$v.postoffice_officer.uname.$error"
+							/>
+							<b-form-invalid-feedback v-if="!$v.postoffice_officer.uname.required">{{$t('user.e-uname')}}</b-form-invalid-feedback>
+						</b-form-group>
+
+						<b-form-group :label="$t('user.password')">
+							<b-form-input
+								type="text"
+								v-model="$v.postoffice_officer.pword.$model"
+								:state="!$v.postoffice_officer.pword.$error"
+							/>
+							<b-form-invalid-feedback v-if="!$v.postoffice_officer.pword.required">{{$t('user.e-pass')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback
+								v-else-if="!$v.postoffice_officer.pword.minLength"
+							>{{$t('user.v-pass')}}</b-form-invalid-feedback>
+						</b-form-group>
+
 						<b-form-group :label="$t('form.nic')">
 							<b-form-input
 								type="text"
@@ -154,6 +175,8 @@ export default {
 			postoffice_officer: {
 				officer_id: "",
 				name: "",
+				uname: "",
+				pword: "",
 				nic: "",
 				phone: "",
 				email: "",
@@ -161,7 +184,8 @@ export default {
 				divisional_id: null,
 				post_office_id: null,
 				type: "",
-				designation: ""
+				designation: "",
+				role: 30
 			},
 			district_option: [
 				{
@@ -194,6 +218,13 @@ export default {
 			},
 			name: {
 				required
+			},
+			uname: {
+				required
+			},
+			pword: {
+				required,
+				minLength: minLength(10),
 			},
 			nic: {
 				required,
@@ -281,9 +312,17 @@ export default {
 					type: this.postoffice_officer.type,
 					designation: this.postoffice_officer.designation
 				};
+				const User = {
+					officer_id: this.postoffice_officer.officer_id,
+					uname: this.postoffice_officer.uname,
+					pword: this.postoffice_officer.pword,
+					email: this.postoffice_officer.email,
+					role: this.postoffice_officer.role
+				};
 				const body = {
 					officer,
-					postofficer
+					postofficer,
+					User
 				};
 				axios({
 					method: "post",

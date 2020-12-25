@@ -18,8 +18,8 @@
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
-							thumb="/assets/img/profiles/1.jpg"
-							large="/assets/img/profiles/1.jpg"
+							thumb="/assets/img/profiles/def.png"
+							large="/assets/img/profiles/def.png"
 							class-name="card-img-top "
 							class="m-4"
 						/>
@@ -56,7 +56,8 @@
 							</p>
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Age:</span>
-								{{elder.birth_day}} ---> 97
+								 
+								 {{elder.age}}
 							</p>
 						</div>
 					</b-colxx>
@@ -99,7 +100,7 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladari Rewiwe About the Elder">
+						<b-card class="mb-4" title="Grama Niladhari Reviwe About the Elder">
 							<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
 								<b-form-group label="Grama Niladari Comment">
 									<b-form-textarea
@@ -170,6 +171,7 @@ export default {
 			this.elder = result.data.data;
 			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
 			console.log(result.data.data);
+			 this.elder.age =  (new Date().getFullYear() -  new Date(this.elder.birth_day).getFullYear() );
 			// this.aplications = result.data.data;
 		});
 	},

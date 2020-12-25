@@ -1,8 +1,22 @@
-import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot } from "./config";
+import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot ,divisionalOffHeadRoot} from "./config";
 
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     id: "dashboards",
     icon: "simple-icon-equalizer",
@@ -33,10 +47,24 @@ const data = [
     roles: [UserRole.Editor, UserRole.Elders]
   },
   {
+    id: "agent-details",
+    icon: "simple-icon-user-following",
+    label: "menu.agentdetails",
+    to: "/elder/agent-details",
+    roles: [UserRole.Editor, UserRole.Elders]
+  },
+  {
     id: "elder-form",
     icon: "iconsminds-male-female",
     label: "menu.elderform",
     to: `/elder/elder-form`,
+    roles: [UserRole.Editor, UserRole.Elders]
+  },
+    {
+    id: "update-form",
+    icon: "iconsminds-male-female",
+    label: "menu.elderform",
+    to: `/elder/update-form`,
     roles: [UserRole.Editor, UserRole.Elders]
   },
   // {
@@ -85,6 +113,29 @@ const data = [
   //     }
   //   ]
   // },
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   //////Admin//////
 
@@ -215,8 +266,25 @@ const data = [
         icon: "iconsminds-post-office",
         label: "menu.list-of-post-office",
         to: `/sysadmin/list-of-post-office`
+      },
+      {
+        icon: "iconsminds-post-office",
+        label: "menu.list-of-post-office",
+        to: `/sysadmin/list-of-postofficers`
+      },{
+        icon: "iconsminds-post-office",
+        label: "menu.list-of-post-office",
+        to: `/sysadmin/list-divisional-secretry`
       }
+      
     ]
+  },
+  {
+    id: "admin-citiria",
+    icon: "simple-icon-compass",
+    label: "menu.criteria",
+    to: `/sysadmin/criteria/`,
+    roles: [UserRole.SystemAdmin, UserRole.Editor]
   },
 
   ///End System Admin////////////
@@ -302,7 +370,7 @@ const data = [
   {
     id: "paynemt-histroy",
     icon: "iconsminds-post-mail-2",
-    label: "menu.elders-related-to-post-off",
+    label: "menu.payment-history",
     to: `/post/paynemt-histroy`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
@@ -321,13 +389,13 @@ const data = [
   //   to: `/post/assign-post-officers`,
   //   roles: [UserRole.Editor, UserRole.PostOfficers]
   // },
-  {
-    id: "send-reports",
-    icon: "iconsminds-monitor-analytics",
-    label: "menu.send-reports",
-    to: `/post/send-reports`,
-    roles: [UserRole.Editor, UserRole.PostOfficers]
-  },
+  // {
+  //   id: "send-reports",
+  //   icon: "iconsminds-monitor-analytics",
+  //   label: "menu.send-reports",
+  //   to: `/post/send-reports`,
+  //   roles: [UserRole.Editor, UserRole.PostOfficers]
+  // },
 
   ///////////////////////////////////////////////////////////////
   // {
@@ -424,6 +492,89 @@ const data = [
 
   ///////////////////////////////////
 
+
+  
+
+
+
+
+
+
+    ////////////////////////////////////////////////////////
+  //Divisinal head
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_dhead",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${divisionalOffHeadRoot}/dashboard/`,
+    roles: [ 
+      UserRole.DivisionalOffHead,
+    ]
+  },
+  {
+    id: "Approvals",
+    icon: "simple-icon-layers",
+    label: "menu.applications",
+    roles: [UserRole.DivisionalOffHead],
+    subs: [
+      {
+        id: "Approvals",
+        icon: "iconsminds-digital-drawing",
+        label: "menu.applications",
+        roles: [UserRole.DivisionalOffHead],
+        subs: [
+          {
+            id: "pages-authorization",
+            label: "menu.applications",
+            to: `${divisionalOffHeadRoot}/applicationstoapprove/`
+          },
+        ]
+      },
+    ]
+  },
+
+
+
+
+  
+    ////////////////////////////////////////////////////////
+  //Divisinal Officer
+  ////////////////////////////////////////////////////////
+  {
+    id: "dashboard_do",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
+    to: `${dofficerRoot}/dashboard/`,
+    roles: [UserRole.Admin, 
+      UserRole.DivisionalOfficers,
+      UserRole.DivisionalOffOfficer,
+      , UserRole.Editor]
+  },
+  {
+    id: "applications",
+    icon: "iconsminds-digital-drawing",
+    label: "menu.applications",
+    roles: [UserRole.DivisionalOfficers],
+    subs: [
+      {
+        id: "pages-authorization",
+        label: "menu.pendingapplications",
+        to: `${dofficerRoot}/pendingapplications/`
+      },
+      {
+        id: "pages-authorization",
+        label: "menu.selectedapplications",
+        to: `${dofficerRoot}/selectedapplications`
+      }
+    ]
+  },
+  
+
+
+
+
+
   {
     id: "divisional-office-form",
     icon: "iconsminds-dollar-sign-2",
@@ -441,16 +592,16 @@ const data = [
         label: "menu.paymenttopostoffice",
         to: `/division/pay_post_office_form`
       },
-      {
-        icon: "iconsminds-dollar-sign-2",
-        label: "menu.paytopost",
-        to: `/division/div_to_post`
-      },
-      {
-        icon: "iconsminds-dollar-sign-2",
-        label: "menu.paytoben",
-        to: `/division/div_to_ben`
-      },
+      // {
+      //   icon: "iconsminds-dollar-sign-2",
+      //   label: "menu.paytopost",
+      //   to: `/division/div_to_post`
+      // },
+      // {
+      //   icon: "iconsminds-dollar-sign-2",
+      //   label: "menu.paytoben",
+      //   to: `/division/div_to_ben`
+      // },
       {
         icon: "iconsminds-dollar-sign-2",
         label: "menu.payhistory",
@@ -464,6 +615,7 @@ const data = [
       {
         icon: "iconsminds-dollar-sign-2",
         label: "menu.byyears",
+
         to: `/division/get-payment-by-years`
       }
     ]
@@ -554,11 +706,28 @@ const data = [
         to: `/division/list-of-complains`
       },
       {
+        icon: "iconsminds-target",
+        label: "menu.list-of-post-complains",
+        to: `/division/list-of-post-complains`
+      },
+      {
         icon: "iconsminds-target-market",
         label: "menu.list-of-deaths",
         to: `/division/list-of-deaths`
       }
     ]
+  },
+  {
+    id: "elder_form",
+    icon: "iconsminds-the-white-house",
+    label: "menu.div_elder_form",
+    to: `/division/elder_form`,
+    roles: [
+      UserRole.Editor,
+      UserRole.DivisionalOffHead,
+      UserRole.DivisionalOffOfficer,
+      UserRole.DivisionalOfficers
+    ],
   },
 
   {
@@ -596,18 +765,19 @@ const data = [
       }
     ]
   },
-  {
-    id: "view-elder-application-verify",
-    icon: "iconsminds-add-user",
-    label: "menu.view-elder-application-verify",
-    to: `/division/view-elder-application-verify/2`,
-    roles: [
-      UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
-    ]
-  },
+  // {
+  //   id: "view-elder-application-verify",
+  //   icon: "iconsminds-add-user",
+  //   label: "menu.view-elder-application-verify",
+  //   to: `/division/view-elder-application-verify/2`,
+  //   roles: [
+  //     UserRole.Editor,
+  //     UserRole.DivisionalOffHead,
+  //     UserRole.DivisionalOffOfficer,
+  //     UserRole.DivisionalOfficers
+  //   ]
+  // },
+
 
   // {
   //   id: "gramaniladai-division-forma",
@@ -669,8 +839,8 @@ const data = [
 
   {
     id: "gramaniladari-dashboard",
-    icon: "iconsminds-add-user",
-    label: "menu.gramaniladari-dashboard",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
     to: `/grama/gramaniladari-dashboard`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
   },
@@ -746,6 +916,14 @@ const data = [
     to: `/grama/aprove-agents`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
   },
+  {
+    id: "elder-form",
+    icon: "iconsminds-add-user",
+    label: "menu.grama-elder",
+    to: `/division/elder_form`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  },
+   
   ///////////////////////////////////
   // {
   //   id: "dashboard",
@@ -762,33 +940,7 @@ const data = [
     roles: [UserRole.Editor]
   },
 
-  ////////////////////////////////////////////////////////
-  //Divisinal Officer
-  ////////////////////////////////////////////////////////
-  {
-    id: "dashboard_do",
-    icon: "simple-icon-equalizer",
-    label: "menu.dashboard",
-    to: `${dofficerRoot}/dashboard/`,
-    roles: [UserRole.Admin, UserRole.DivisionalOfficers, UserRole.Editor]
-  },
-  {
-    id: "applications",
-    icon: "iconsminds-digital-drawing",
-    label: "menu.applications",
-    roles: [UserRole.DivisionalOfficers],
-    subs: [
-      {
-        id: "pages-authorization",
-        label: "menu.pendingapplications",
-        to: `${dofficerRoot}/pendingapplications/`
-      },
-      {
-        id: "pages-authorization",
-        label: "menu.selectedapplications",
-        to: `${dofficerRoot}/selectedapplications`
-      }
-    ]
-  }
+
+
 ];
 export default data;

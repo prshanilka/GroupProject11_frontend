@@ -1,181 +1,308 @@
- 
- 
- 
-
 <template>
 	<AppLayout>
-		<b-colxx xl="10" lg="12" style="margin:auto ">
-			<b-card no-body class="mb-4">
+		<div>
+			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
+				<b-modal id="modallg" size="xl" title="Details" hide-footer>
+					<elder-details :id="clickedid" :aid="agentid" />
+				</b-modal>
+				<datatable-heading
+					title="List Of Guardian"
+					:selectAll="selectAll"
+					:isSelectedAll="isSelectedAll"
+					:isAnyItemSelected="isAnyItemSelected"
+					:keymap="keymap"
+					:changePageSize="changePageSize"
+					:searchChange="searchChange"
+					:from="from"
+					:to="to"
+					:total="total"
+					:perPage="perPage"
+				></datatable-heading>
 				<b-row>
-					<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-						<h1>Aprove Agents submited By The Elders</h1>
-					</b-colxx>
-					<b-colxx lg="6" md="12" class="mb-4">
-						<div class="position-absolute card-top-buttons"></div>
-						<single-lightbox
-							thumb="../../assets/img/profiles/1.jpg"
-							large="../assets/img/profiles/1.jpg"
-							class-name="card-img-top "
-							class="m-4"
+					<b-colxx xxs="12">
+						<vuetable
+							ref="vuetable"
+							class="table-divided order-with-arrow"
+							:http-fetch="getData"
+							:api-url="apiBase"
+							:query-params="makeQueryParams"
+							:per-page="perPage"
+							:reactive-api-url="true"
+							:fields="fields"
+							pagination-path
+							:row-class="onRowClass"
+							@vuetable:pagination-data="onPaginationData"
+							@vuetable:row-clicked="rowClicked"
+							@vuetable:cell-rightclicked="rightClicked"
+							@vuetable:loading="show=true"
+							@vuetable:load-success="show=false"
+						>
+							<template slot="actions1" slot-scope="props">
+								<b-button
+									class="mb-2"
+									v-b-modal.modallg
+									@click="() =>showw(props)"
+									size="small"
+									variant="outline-danger"
+								>View</b-button>
+							</template>
+						</vuetable>
+						<vuetable-pagination-bootstrap
+							class="mt-4"
+							ref="pagination"
+							@vuetable-pagination:change-page="onChangePage"
 						/>
 					</b-colxx>
-					<b-colxx lg="6" md="12" class="mb-4">
-						<div class="m-4">
-							<h2 class="text-center m-4">Elder Details</h2>
-							<p class="text-muted text-small mb-2">Elder Full Name</p>
-							<p class="mb-3">Sahan Lakshitha</p>
-
-							<p class="text-muted text-small mb-2">Elder Address</p>
-							<p class="mb-3">49A /149 hansagiri road, 5th lane Gampaha</p>
-
-							<p class="mb-3">
-								<span class="text-muted text-small mb-2">Sex:</span> Male
-							</p>
-							<p class="mb-3">
-								<span class="text-muted text-small mb-2">Phone No:</span> 0713327794
-							</p>
-
-							<p class="mb-3">
-								<span class="text-muted text-small mb-2">Nic No:</span> 970983325V
-							</p>
-							<p class="mb-3">
-								<span class="text-muted text-small mb-2">Email:</span> sahanbcsrh@gmail.com
-							</p>
-
-							<p class="mb-3">
-								<span class="text-muted text-small mb-2">Date of Birth:</span> 1997-04-07
-							</p>
-							<p class="mb-3">
-								<span class="text-muted text-small mb-2">Age:</span> 97
-							</p>
-						</div>
-					</b-colxx>
 				</b-row>
-				<b-card-body>
-					<b-row>
-						<b-colxx lg="6" md="12" class="mb-4">
-							<div class="position-absolute card-top-buttons"></div>
-							<single-lightbox
-								thumb="../assets/img/profiles/2.jpg"
-								large="../assets/img/profiles/2.jpg"
-								class-name="card-img-top "
-								class="m-4"
-							/>
-						</b-colxx>
-						<b-colxx lg="6" md="12" class="mb-4">
-							<h2 class="text-center m-4">Agent Information</h2>
 
-							<p class="text-muted text-small mb-2">Agent Name</p>
-							<p class="mb-3">Sada probooooo</p>
-
-							<p class="text-muted text-small mb-2">Agent NIC</p>
-							<p class="mb-3">834356355V</p>
-
-							<p class="text-muted text-small mb-2">Agent Address</p>
-							<p class="mb-3">49A /149 ,hansgiri Road ,5th Lane Gampaha</p>
-
-							<p class="text-muted text-small mb-2">Agent Phone Number</p>
-							<p class="mb-3">0332227443</p>
-
-							<p class="text-muted text-small mb-2">Email</p>
-							<p class="mb-3">sada@gmail.com</p>
-
-							<p class="text-muted text-small mb-2">Relationship With Elder</p>
-							<p class="mb-3">Sister</p>
-						</b-colxx>
-					</b-row>
-					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladari Rewiwe About the Elders Agent">
-							<b-form class="av-tooltip tooltip-label-right">
-								<b-form-group label="Grama Niladari Comment">
-									<b-form-textarea
-										type="text"
-										v-model="$v.grama_comment.$model"
-										:state="!$v.grama_comment.$error"
-									/>
-
-									<b-form-invalid-feedback
-										v-if="!$v.grama_comment.required"
-									>Grama Niladari Comment Is reqiured</b-form-invalid-feedback>
-									<b-form-invalid-feedback
-										v-else-if="!$v.grama_comment.minLength || !$v.grama_comment.maxLength"
-									>The Comment Should be between 10 and 256</b-form-invalid-feedback>
-								</b-form-group>
-								<b-row>
-									<b-colxx lg="6" md="6" class="mb-4 text-center">
-										<b-button type="button" variant="primary" @click.prevent="sssss">Aprove Agent</b-button>
-									</b-colxx>
-									<b-colxx lg="6" md="6" class="mb-4 text-center">
-										<b-button
-											type="button"
-											variant="primary"
-											@click.prevent="onValitadeFormSubmit"
-										>Disqualify Agent</b-button>
-									</b-colxx>
-								</b-row>
-							</b-form>
-						</b-card>
-					</b-colxx>
-				</b-card-body>
-			</b-card>
-		</b-colxx>
+				<v-contextmenu ref="contextmenu">
+					<v-contextmenu-item @click="onContextMenuAction('copy')">
+						<i class="simple-icon-docs" />
+						<span>Copy</span>
+					</v-contextmenu-item>
+					<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
+						<i class="simple-icon-drawer" />
+						<span>Move to archive</span>
+					</v-contextmenu-item>
+					<v-contextmenu-item @click="onContextMenuAction('delete')">
+						<i class="simple-icon-trash" />
+						<span>Delete</span>
+					</v-contextmenu-item>
+				</v-contextmenu>
+			</b-overlay>
+		</div>
 	</AppLayout>
 </template>
 
 <script>
+import axios from "axios";
 import AppLayout from "../../../layouts/EAppLayout";
-import SingleLightbox from "../../../containers/pages/SingleLightbox";
+import Vuetable from "vuetable-2/src/components/Vuetable";
+import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
+import { bUrl } from "../../../constants/config";
+import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 
-import { validationMixin } from "vuelidate";
-const { required, maxLength, minLength } = require("vuelidate/lib/validators");
+import ElderDetails from "./verify_ajent";
 
 export default {
-	name: "aprove-agents",
+	props: ["title"],
 	components: {
+		name: "post-officer-elder-payment-authenticate-verify",
 		AppLayout: AppLayout,
-		"single-lightbox": SingleLightbox
+		vuetable: Vuetable,
+		"elder-details": ElderDetails,
+		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
+		"datatable-heading": DatatableHeading
 	},
 	data() {
 		return {
-			grama_comment: "	"
+			clickedid: null,
+			agentid: null,
+			show: true,
+			apiBase: bUrl + "/elders",
+			isLoad: false,
+			sort: "",
+			page: 1,
+			perPage: 8,
+			search: "",
+			from: 0,
+			to: 0,
+			total: 0,
+			lastPage: 0,
+			items: [],
+			selectedItems: [],
+
+			fields: [
+				{
+					name: "elder_id",
+					sortField: "elder_id",
+					title: "Elder Id",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "20%"
+				},
+				{
+					name: "ename",
+					sortField: "ename",
+					title: "Elder Name",
+					titleClass: "",
+					dataClass: "list-item-heading",
+					width: "20%"
+				},
+				{
+					name: "aname",
+					sortField: "aname",
+					title: "Guardian Name",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "20%"
+				},
+				{
+					name: "aaddress",
+					sortField: "aaddress",
+					title: "Address",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "20%"
+				},
+				{
+					name: "anic",
+					sortField: "anic",
+					title: "NIC",
+					titleClass: "",
+					dataClass: "text-muted",
+					width: "20%"
+				},
+				{
+					name: "__slot:actions1",
+					title: "",
+					titleClass: "center aligned text-right",
+					dataClass: "center aligned text-right",
+					width: "25%"
+				}
+			]
 		};
 	},
-	mixins: [validationMixin],
-	validations: {
-		grama_comment: {
-			required,
-			maxLength: maxLength(256),
-			minLength: minLength(10)
-		}
-	},
+
 	methods: {
-		onValitadeFormSubmit() {
-			this.$v.$touch();
-			console.log(this.$v.$invalid + " dis king ");
-			if (!this.$v.$invalid) {
-				console.log(
-					JSON.stringify({
-						messsage: this.grama_comment
+		getData() {
+			return axios.get(
+				"/gramadivision/agent"
+			);
+		},
+		showw(pp) {
+			this.clickedid = pp.rowData.elder_id;
+			this.agentid = pp.rowData.agent_id;
+		},
+		makeQueryParams(sortOrder, currentPage, perPage) {
+			this.selectedItems = [];
+			return sortOrder[0]
+				? {
+						sort: sortOrder[0]
+							? sortOrder[0].field + "|" + sortOrder[0].direction
+							: "",
+						page: currentPage,
+						per_page: this.perPage,
+						search: this.search
+				  }
+				: {
+						page: currentPage,
+						per_page: this.perPage,
+						search: this.search
+				  };
+		},
+		onRowClass(dataItem, index) {
+			if (this.selectedItems.includes(dataItem.elder_id)) {
+				return "selected";
+			}
+			return "";
+		},
+
+		rowClicked(dataItem, event) {
+			const itemId = dataItem.elder_id;
+			if (event.shiftKey && this.selectedItems.length > 0) {
+				let itemsForToggle = this.items;
+				var start = this.getIndex(itemId, itemsForToggle, "elder_id");
+				var end = this.getIndex(
+					this.selectedItems[this.selectedItems.length - 1],
+					itemsForToggle,
+					"elder_id"
+				);
+				itemsForToggle = itemsForToggle.slice(
+					Math.min(start, end),
+					Math.max(start, end) + 1
+				);
+				this.selectedItems.push(
+					...itemsForToggle.map(item => {
+						return item.elder_id;
 					})
 				);
+				this.selectedItems = [...new Set(this.selectedItems)];
+			} else {
+				if (this.selectedItems.includes(itemId)) {
+					this.selectedItems = this.selectedItems.filter(x => x !== itemId);
+				} else this.selectedItems.push(itemId);
 			}
 		},
-		sssss() {
-			this.$v.$touch();
-			console.log(this.$v.$invalid + "  ase cking ");
-			if (!this.$v.$invalid) {
-				console.log(
-					JSON.stringify({
-						messsage: this.grama_comment
-					})
-				);
+		rightClicked(dataItem, field, event) {
+			event.preventDefault();
+			if (!this.selectedItems.includes(dataItem.elder_id)) {
+				this.selectedItems = [dataItem.elder_id];
 			}
+			this.$refs.contextmenu.show({ top: event.pageY, left: event.pageX });
+		},
+		onPaginationData(paginationData) {
+			this.from = paginationData.from;
+			this.to = paginationData.to;
+			this.total = paginationData.total;
+			this.lastPage = paginationData.last_page;
+			this.items = paginationData.data;
+			this.$refs.pagination.setPaginationData(paginationData);
+		},
+		onChangePage(page) {
+			this.$refs.vuetable.changePage(page);
+		},
+
+		changePageSize(perPage) {
+			this.perPage = perPage;
+			this.$refs.vuetable.refresh();
+		},
+
+		searchChange(val) {
+			this.search = val;
+			this.$refs.vuetable.refresh();
+		},
+
+		selectAll(isToggle) {
+			if (this.selectedItems.length >= this.items.length) {
+				if (isToggle) this.selectedItems = [];
+			} else {
+				this.selectedItems = this.items.map(x => x.elder_id);
+			}
+		},
+		keymap(event) {
+			switch (event.srcKey) {
+				case "select":
+					this.selectAll(false);
+					break;
+				case "undo":
+					this.selectedItems = [];
+					break;
+			}
+		},
+		getIndex(value, arr, prop) {
+			for (var i = 0; i < arr.length; i++) {
+				if (arr[i][prop] === value) {
+					return i;
+				}
+			}
+			return -1;
+		},
+
+		onContextMenuAction(action) {
+			console.log(
+				"context menu item clicked - " + action + ": ",
+				this.selectedItems
+			);
+		}
+	},
+	computed: {
+		isSelectedAll() {
+			return this.selectedItems.length >= this.items.length;
+		},
+		isAnyItemSelected() {
+			return (
+				this.selectedItems.length > 0 &&
+				this.selectedItems.length < this.items.length
+			);
 		}
 	}
 };
 </script>
-<style>
-p {
-	font-size: 1.4em;
-}
-</style>
+
+
+
+ 
+
+
+ 

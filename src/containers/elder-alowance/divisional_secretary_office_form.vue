@@ -107,19 +107,7 @@
 								v-else-if="!$v.div_sec_off.no_of_officers.numeric"
 							>Please enter Numeric Value</b-form-invalid-feedback>
 						</b-form-group>
-						<b-form-group :label="$t('office.elders')">
-							<b-form-input
-								type="text"
-								v-model="$v.div_sec_off.count_of_priority_listed_elders.$model"
-								:state="!$v.div_sec_off.count_of_priority_listed_elders.$error"
-							/>
-							<b-form-invalid-feedback
-								v-if="!$v.div_sec_off.count_of_priority_listed_elders.required"
-							>Please enterNo of priority listed elders from Division</b-form-invalid-feedback>
-							<b-form-invalid-feedback
-								v-else-if="!$v.div_sec_off.count_of_priority_listed_elders.numeric"
-							>Please enter Numeric Value</b-form-invalid-feedback>
-						</b-form-group>
+					 
 						<b-form-group :label="$t('office.benifishers')">
 							<b-form-input
 								type="text"
@@ -171,8 +159,7 @@ export default {
 				phone_no: "",
 				email: "",
 				bank_account: "",
-				no_of_officers: "",
-				count_of_priority_listed_elders: "",
+				no_of_officers: "", 
 				count_of_benifishers_elders: ""
 			},
 			district_option: [
@@ -217,10 +204,7 @@ export default {
 				required,
 				numeric
 			},
-			count_of_priority_listed_elders: {
-				required,
-				numeric
-			},
+			 
 			count_of_benifishers_elders: {
 				required
 			}
@@ -253,8 +237,6 @@ export default {
 					email: this.div_sec_off.email,
 					bank_account: this.div_sec_off.bank_account,
 					no_of_officers: this.div_sec_off.no_of_officers,
-					count_of_priority_listed_elders: this.div_sec_off
-						.count_of_priority_listed_elders,
 					count_of_benifishers_elders: this.div_sec_off
 						.count_of_benifishers_elders
 				};

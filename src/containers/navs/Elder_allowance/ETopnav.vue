@@ -15,7 +15,7 @@
 			>
 				<mobile-menu-icon />
 			</a>
-			<div
+			<!-- <div
 				:class="{'search':true, 'mobile-view':isMobileSearch}"
 				ref="searchContainer"
 				@mouseenter="isSearchOver=true"
@@ -25,7 +25,7 @@
 				<span class="search-icon" @click="searchClick">
 					<i class="simple-icon-magnifier"></i>
 				</span>
-			</div>
+			</div> -->
 
 			<div class="d-inline-block">
 				<b-dropdown id="langddm" class="ml-2" variant="light" size="xs" toggle-class="language-button">
@@ -43,7 +43,7 @@
 				<a class="btn btn-outline-primary btn-sm ml-2" target="_top" :href="buyUrl">{{$t('user.buy')}}</a>
 			</div>-->
 		</div>
-		<router-link class="navbar-logo" tag="a" :to="adminRoot">
+		<router-link class="navbar-logo" tag="a" to="#">
 			<span class="logo d-none d-md-block"></span>
 			<span class="logo-mobile d-block d-md-none"></span>
 		</router-link>
@@ -60,7 +60,7 @@
 				<b-tooltip target="tool-mode-switch" placement="left" title="Dark Mode"></b-tooltip>
 			</div>
 			<div class="header-icons d-inline-block align-middle">
-				<div class="position-relative d-none d-sm-inline-block">
+				<!-- <div class="position-relative d-none d-sm-inline-block">
 					<b-dropdown
 						variant="empty"
 						size="sm"
@@ -99,7 +99,7 @@
 							</router-link>
 						</div>
 					</b-dropdown>
-				</div>
+				</div> -->
 
 				<div class="position-relative d-inline-block">
 					<b-dropdown
@@ -120,17 +120,18 @@
 								v-for="(n,index) in notifications"
 								:key="index"
 							>
-								<router-link tag="a" :to="`${adminRoot}/pages/product/details`">
+								<!-- <router-link tag="a" :to="`${adminRoot}/pages/product/details`">
 									<img
 										:src="n.img"
 										:alt="n.title"
 										class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle"
 									/>
-								</router-link>
+								</router-link> -->
 								<div class="pl-3 pr-2">
-									<router-link tag="a" :to="`${adminRoot}/pages/product/details`">
-										<p class="font-weight-medium mb-1">{{n.title}}</p>
-										<p class="text-muted mb-0 text-small">{{n.date}}</p>
+									<router-link tag="a" to="#">
+									<!-- <router-link tag="a" :to="`${adminRoot}/pages/product/details`"> -->
+										<p class="font-weight-medium mb-1">{{n.notificaton}}</p>
+										<!-- <p class="text-muted mb-0 text-small">{{n.date}}</p> -->
 									</router-link>
 								</div>
 							</div>
@@ -164,8 +165,7 @@
 					</template>
 					<b-dropdown-item>Account</b-dropdown-item>
 					<b-dropdown-item>Features</b-dropdown-item>
-					<b-dropdown-item>History</b-dropdown-item>
-					<b-dropdown-item>Support</b-dropdown-item>
+					<b-dropdown-item>History</b-dropdown-item>		 
 					<b-dropdown-divider />
 					<b-dropdown-item @click="logout">Sign out</b-dropdown-item>
 				</b-dropdown>
@@ -176,7 +176,9 @@
 
 <script>
 import Switches from "vue-switches";
-import notifications from "../../../data/notifications";
+// import notifications from "../../../data/notifications";
+import axios from 'axios'
+
 
 import { mapGetters, mapMutations, mapActions } from "vuex";
 import { MenuIcon, MobileMenuIcon } from "../../../components/Svg";
@@ -210,7 +212,7 @@ export default {
 			adminRoot,
 			ElderAllowancelocaleOptions,
 			buyUrl,
-			notifications,
+			notifications:[],
 			isDarkActive: false
 		};
 	},
@@ -306,6 +308,14 @@ export default {
 	created() {
 		const color = getThemeColor();
 		this.isDarkActive = color.indexOf("dark") > -1;
+
+		axios.get(
+				"/notification"
+			).then(res =>{
+				console.log(res.data.data);
+				this.notifications =res.data.data;
+			});
+
 	},
 	watch: {
 		"$i18n.locale"(to, from) {

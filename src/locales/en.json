@@ -20,7 +20,11 @@
     "reset-password-button": "RESET",
     "buy": "BUY",
     "username": "Username",
-    "review": "Review"
+    "review": "Review",
+    "change":"Change",
+    "e-uname": "Please enter Username",
+    "e-pass": "Please enter Password",
+    "v-pass": "Password must be only 10 characters"
   },
   "form": {
     "address": "Address",
@@ -44,7 +48,7 @@
     "e-number": "Please enter your phone number",
     "v-number": "Your phone number must be only 10 numbers",
     "n-number": "Value must be a Numbers",
-    "e-mali": "Please enter your email address",
+    "e-mail": "Please enter your email address",
     "v-mail": "Please enter valid email address",
     "e-district": "Please select District",
     "e-divisional": "Please select Divisional Office",
@@ -71,7 +75,9 @@
     "divisional_officer": "Divisional officer",
     "divisional_head": "Divisional Head",
     "details": "Details",
-    "view": "View"
+    "view": "View",
+    "fillapplication" : "Fill Application",
+    "divisionalofiicerver" : "Verification from Divisional office"
   },
   "agent": {
     "form": "Agent Form",
@@ -96,7 +102,7 @@
     "e-designation": "Please Enter Officer Designation",
     "role": "Role",
     "area": "Area",
-    "e-role": "Please Enter Officer's Role",
+    "e-role": "Please Select Officer's Role",
     "e-area": "Please Enter Area Related to the Officer"
   },
   "office": {
@@ -127,10 +133,11 @@
 
   "menu": {
     "elderform": "elder_form",
-    "agentform": "Agent Form",
+    "agentform": "Guardian Form",
+    "agentdetails": "Agent Details",
     "elderlist": "Elder List",
-    "elder-dashboard": "Elder Dashboard",
-    "elder-pament-details": "Pyment List",
+    "elder-dashboard": "Dashboard",
+    "elder-pament-details": "Payment List",
     "reason-about-payments": "Reason Not Payment",
     "elder-application-list": "Divisional Allcication List",
     "paytopost": "Payment To PostOff",
@@ -143,11 +150,14 @@
     "list": "List Of",
     "payhistory": "Payment History",
     "complain-death": "Feedback",
-    "list-of-complains": "List of Complains",
+    "list-of-complains": "Gramaniladari Complains",
+    "list-of-post-complains": "Post Offices Complains",
     "list-of-deaths": "List of Deaths",
     "complain": "Send Complains",
-
+    "criteria": "Criteria",
     "paynemt-histroy": "Payment History ",
+    "div_elder_form":"Add Elders",
+    "grama-elder":"Add Elders",
 
     "pendingapplications": "Pending Applications",
     "selectedapplications": "Selected Applications",
@@ -156,10 +166,11 @@
     "postoffice-officer": "Post Officer",
     "send-reports": "Send Reports",
     "assign-post-officers": "Assign Post Officers",
-    "elders-related-to-post-off": "Post Office Elders",
+    "elders-related-to-post-off": "Reg Benifishers",
+    "payment-history":"Payments",
     "get-elder-detail-verification": "Verify Elders",
     "lsit-of-elder-pyament": "Elder Payment List",
-    "post-officer-dashboard": "Postoffice Dashboard",
+    "post-officer-dashboard": "Dashboard",
     "paymenttopostoffice": "Payment to Post Office",
 
     "divisional-office-form": "Divisional Office",
@@ -187,7 +198,7 @@
     "view-elder-application-verify": "Elder Verify",
     "view-elder-details": "Elder Deatails",
     "send-reports-d": "Send Reports",
-    "aprove-agents": "Aprovve Agents",
+    "aprove-agents": "Aprovve Guardian",
 
     "elderlang": "Sinhala",
 
@@ -649,7 +660,8 @@
     "password-confirm": "Confirm Password",
     "validation-bootstrap": "Bootstrap Validation",
     "validation-vuelidate": "Vuelidate Validation",
-    "name": "Name"
+    "name": "Name",
+    "changepassword":"Change Paaword"
   },
   "form-components": {
     "custom-inputs": "Custom Inputs",
