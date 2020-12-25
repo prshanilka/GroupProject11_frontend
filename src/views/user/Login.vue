@@ -129,17 +129,16 @@ export default {
 		...mapActions(["login"]),
 		formSubmit() {
 			this.$v.$touch();
-			//this.form.email = "piaf-vue@coloredstrategies.com";
-			//this.form.password = "piaf123";
+
 			console.log(this.form.email + " " + this.form.password);
 
 			this.$v.form.$touch();
-			// if (!this.$v.form.$anyError) {
+			if (!this.$v.form.$anyError) {
 			this.login({
 				email: this.form.email,
 				password: this.form.password
 			});
-			//}
+			}
 		}
 	},
 	watch: {
@@ -178,8 +177,8 @@ export default {
 			}
 		}
 	},
-	created() {
-		if(localStorage.jwt){
+		created() {
+		if(localStorage.jwt && !localStorage.jwt==null ){
 			var obj = JSON.parse(localStorage.user)
 			if ( obj.role == UserRole.DivisionalOfficers ) {
 					this.$router.push(dofficerRoot);

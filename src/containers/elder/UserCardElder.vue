@@ -7,14 +7,14 @@
           <b-card class="mb-4 text-center">
             <router-link to="?">
               <img
-                src="/assets/img/profiles/def.png"
+                :src="currentUser.img"
                 alt="Card image cap"
                 class="img-thumbnail list-thumbnail rounded-circle border-0 mb-4"
               />
               <h6 class="mb-1 card-subtitle">{{ currentUser.title }}</h6>
               <p class="text-muted text-small mb-4">Elder</p>
             </router-link>
-            <b-button size="sm" variant="outline-primary">Edit</b-button>
+             <router-link to="/user/changepass" tag="b-button" size="sm" variant="outline-primary" >{{ $t('user.changepass') }}</router-link>
           </b-card>
         </b-colxx>
       </b-row>
