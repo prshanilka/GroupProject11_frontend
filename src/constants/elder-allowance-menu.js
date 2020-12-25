@@ -389,13 +389,13 @@ const data = [
   //   to: `/post/assign-post-officers`,
   //   roles: [UserRole.Editor, UserRole.PostOfficers]
   // },
-  {
-    id: "send-reports",
-    icon: "iconsminds-monitor-analytics",
-    label: "menu.send-reports",
-    to: `/post/send-reports`,
-    roles: [UserRole.Editor, UserRole.PostOfficers]
-  },
+  // {
+  //   id: "send-reports",
+  //   icon: "iconsminds-monitor-analytics",
+  //   label: "menu.send-reports",
+  //   to: `/post/send-reports`,
+  //   roles: [UserRole.Editor, UserRole.PostOfficers]
+  // },
 
   ///////////////////////////////////////////////////////////////
   // {
@@ -717,6 +717,18 @@ const data = [
       }
     ]
   },
+  {
+    id: "elder_form",
+    icon: "iconsminds-the-white-house",
+    label: "menu.div_elder_form",
+    to: `/division/elder_form`,
+    roles: [
+      UserRole.Editor,
+      UserRole.DivisionalOffHead,
+      UserRole.DivisionalOffOfficer,
+      UserRole.DivisionalOfficers
+    ],
+  },
 
   {
     id: "list",
@@ -904,6 +916,14 @@ const data = [
     to: `/grama/aprove-agents`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
   },
+  {
+    id: "elder-form",
+    icon: "iconsminds-add-user",
+    label: "menu.grama-elder",
+    to: `/division/elder_form`,
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+  },
+   
   ///////////////////////////////////
   // {
   //   id: "dashboard",

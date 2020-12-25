@@ -21,7 +21,10 @@
     "buy": "BUY",
     "username": "Username",
     "review": "Review",
-    "change":"Change"
+    "change":"Change",
+    "e-uname": "Please enter Username",
+    "e-pass": "Please enter Password",
+    "v-pass": "Password must be only 10 characters"
   },
   "form": {
     "address": "Address",
@@ -45,7 +48,7 @@
     "e-number": "Please enter your phone number",
     "v-number": "Your phone number must be only 10 numbers",
     "n-number": "Value must be a Numbers",
-    "e-mali": "Please enter your email address",
+    "e-mail": "Please enter your email address",
     "v-mail": "Please enter valid email address",
     "e-district": "Please select District",
     "e-divisional": "Please select Divisional Office",
@@ -99,7 +102,7 @@
     "e-designation": "Please Enter Officer Designation",
     "role": "Role",
     "area": "Area",
-    "e-role": "Please Enter Officer's Role",
+    "e-role": "Please Select Officer's Role",
     "e-area": "Please Enter Area Related to the Officer"
   },
   "office": {
@@ -153,6 +156,8 @@
     "complain": "Send Complains",
     "criteria": "Criteria",
     "paynemt-histroy": "Payment History ",
+    "div_elder_form":"Add Elders",
+    "grama-elder":"Add Elders",
 
     "pendingapplications": "Pending Applications",
     "selectedapplications": "Selected Applications",

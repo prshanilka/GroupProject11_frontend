@@ -152,7 +152,6 @@ export default {
 				gramaniladari_division_id: this.elderdetails[0].grama_niladari_div,
 				near_post_office_id: this.elderdetails[0].nearest_post_office,
 				name: this.elderdetails[0].name,
-				profile:this.elderdetails[0].img,
 				sex: this.elderdetails[0].sex,
 				email: this.elderdetails[0].email,
 				address: this.elderdetails[0].address,
@@ -198,7 +197,7 @@ export default {
 
 			axios({
 				method: "post",
-				url: "/elders/elder-registration",
+				url: "/elders/grama-div-elder-registration",
 				data: body
 			})
 				.then(res => {
