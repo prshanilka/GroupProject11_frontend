@@ -4,7 +4,7 @@
 			<b-colxx lg="2" md="12" class="mb-1">
 				<router-link tag="a" :to="detailPath">
 					<img
-						src="/assets/img/profiles/def.png"
+						:src="img"
 						:alt="data.title"
 						class="img-thumbnail border-0 rounded-circle list-thumbnail align-self-center m-2 medium"
 					/>
@@ -34,7 +34,35 @@
 </template>
 
 <script>
+import axios from "axios";
+
+import  {bUrl} from '../../constants/config';
+
 export default {
-	props: ["data", "detailPath"]
+	props: ["data", "detailPath"],
+	data(){
+		return{
+			img:""
+		}
+	},
+	created(){
+		console.log(this.data.elder_id);
+		const body = {
+				id:this.data.elder_id,
+				role_id:"10"
+			}
+			axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			// console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+			console.log(img);
+		}).catch(cc=>{
+			console.log(cc);
+			// this.img ="/assets/img/profiles/def.png";
+		});
+	}
 };
 </script>
