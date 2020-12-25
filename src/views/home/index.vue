@@ -83,7 +83,7 @@
             <div class="container">
               <div class="row home-row" id="homeRow">
                 <div class="col-12 d-block d-md-none">
-                  <a :href="adminRoot" target="_blank">
+                   <a :href="adminRoot" target="_blank">
                     <img
                       alt="mobile hero"
                       class="mobile-hero"
@@ -521,17 +521,17 @@ const layouts = [
 const applications = [
   {
     title: "Survey",
-    path: `${adminRoot}/applications/survey`,
+    path: `${adminRoot}/#survey`,
     img: "/assets/img/landing-page/applications/survey.jpg"
   },
   {
     title: "Chat",
-    path: `${adminRoot}/applications/chat`,
+    path: `${adminRoot}/#chat`,
     img: "/assets/img/landing-page/applications/chat.jpg"
   },
   {
     title: "Todo",
-    path: `${adminRoot}/applications/todo`,
+    path: `${adminRoot}/#todo`,
     img: "/assets/img/landing-page/applications/todo.jpg"
   }
 ];

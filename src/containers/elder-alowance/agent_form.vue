@@ -31,6 +31,12 @@
 							>{{$t('form.v-nic')}}</b-form-invalid-feedback>
 						</b-form-group>
 
+						<b-form-group label="Gardian Photo">
+						<b-input-group  >
+              				  <b-form-file   @change="onFileChange"  :placeholder="$t('input-groups.choose-file')"></b-form-file>
+            			</b-input-group>
+						</b-form-group>
+
 						<b-form-group :label="$t('form.address')" class="error-l-100">
 							<b-form-textarea
 								type="text"
@@ -106,15 +112,9 @@ export default {
 				address: "",
 				phone: "",
 				email: "",
+				pic:"",
 				relationship_with_elder: ""
-			}
-			// name: "",
-			// email: "",
-			// emailAgain: "",
-			// number: "",
-			// max: "",
-			// min: "",
-			// withRegex: ""
+			} 
 		};
 	},
 	mixins: [validationMixin],
@@ -151,39 +151,7 @@ export default {
 			}
 		}
 
-		// name: {
-		// 	required,
-		// 	maxLength: maxLength(16),
-		// 	minLength: minLength(2),
-		// 	alpha
-		// },
-		// email: {
-		// 	required,
-		// 	email
-		// },
-		// emailAgain: {
-		// 	required,
-		// 	email,
-		// 	sameAsEmail: sameAs("email")
-		// },
-		// number: {
-		// 	required,
-		// 	numeric
-		// },
-		// max: {
-		// 	required,
-		// 	numeric,
-		// 	maxValue: maxValue(5)
-		// },
-		// min: {
-		// 	required,
-		// 	numeric,
-		// 	minValue: minValue(5)
-		// },
-		// withRegex: {
-		// 	required,
-		// 	upperCase
-		// }
+		 
 	},
 	methods: {
 		onValitadeFormSubmit() {
@@ -192,12 +160,13 @@ export default {
 
 			if (!this.$v.$invalid) {
 				const body = {
-					elder_id: "11",
+					elder_id: "",
 					name: this.agent.name,
 					nic: this.agent.nic,
 					address: this.agent.address,
 					phone: this.agent.phone,
 					email: this.agent.email,
+					pic:this.agent.pic,
 					relation_with_elder: this.agent.relationship_with_elder
 				};
 				axios({
@@ -220,6 +189,25 @@ export default {
 				);
 				this.submit_ag = !this.submit_ag;
 			}
+		},
+		onFileChange(e){
+			   const selectedFile = e.target.files[0]; // accessing file
+				  this.file = selectedFile;
+				  console.log(this.file);
+				  const formData = new FormData();
+      				formData.append("file", this.file);  // appending file
+
+     // sending file to the backend
+      axios
+        .post("/upload/guardianpic", formData)
+        .then(res => {
+		  console.log(res.data.path);
+		  this.agent.pic=res.data.path;
+
+        })
+        .catch(err => {
+          console.log(err);
+        });
 		}
 	}
 };
