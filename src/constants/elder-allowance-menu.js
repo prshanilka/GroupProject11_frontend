@@ -645,18 +645,18 @@ const data = [
   //     label: "menu.evaluate-elder-application",
   //       to: `/division/evaluate-elder-application`
   // },
-  {
-    id: "get-reports",
-    icon: "iconsminds-monitor-analytics",
-    label: "menu.get-reports",
-    to: `/division/get-reports`,
-    roles: [
-      UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
-    ]
-  },
+  // {
+  //   id: "get-reports",
+  //   icon: "iconsminds-monitor-analytics",
+  //   label: "menu.get-reports",
+  //   to: `/division/get-reports`,
+  //   roles: [
+  //     UserRole.Editor,
+  //     UserRole.DivisionalOffHead,
+  //     UserRole.DivisionalOffOfficer,
+  //     UserRole.DivisionalOfficers
+  //   ]
+  // },
 
   {
     id: "grama-divisions",

@@ -24,7 +24,8 @@
     "change":"Change",
     "e-uname": "Please enter Username",
     "e-pass": "Please enter Password",
-    "v-pass": "Password must be only 10 characters"
+    "v-pass": "Password must be only 10 characters",
+    "changepass" :"Change Password"
   },
   "form": {
     "address": "Address",
