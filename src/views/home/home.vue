@@ -34,7 +34,6 @@
         </ul>
       </div>
 
-<<<<<<< HEAD
       <div class="main-container">
         <div class="landing-page-nav">
           <headroom style="height:initial;">
@@ -78,37 +77,6 @@
             </nav>
           </headroom>
         </div>
-=======
-		<div class="main-container">
-			<div class="landing-page-nav">
-				<headroom style="height:initial;">
-					<nav>
-						<div class="container d-flex align-items-center justify-content-between">
-							<a class="navbar-logo pull-left" @click="scrollTo('#home')" href="javascript:;">
-								<span class="logo-mobile d-block d-md-none"></span>
-								<span class="white d-none d-md-block"></span>
-								<!-- <span class="dark d-none d-md-block"></span> -->
-								
-							</a>
-							<ul class="navbar-nav d-none d-lg-flex flex-row">
-								<li class="nav-item">
-									<a @click="scrollTo('#layouts')" href="javascript:;">BLOG</a>
-								</li>
-								<li class="nav-item">
-									<a @click="scrollTo('#components')" href="javascript:;">ABOUT US</a>
-								</li>
-							</ul>
-							<span
-								class="mobile-menu-button"
-								@click="showMobileMenu=!showMobileMenu; $event.stopPropagation()"
-							>
-								<i class="simple-icon-menu"></i>
-							</span>
-						</div>
-					</nav>
-				</headroom>
-			</div>
->>>>>>> 2eba77a1429c16c9f931f9aef73185daa2d28b85
 
         <div class="content-container" id="home">
           <div class="section home" id="sectionHome">
