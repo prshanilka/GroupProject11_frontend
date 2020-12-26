@@ -26,7 +26,7 @@
 						size="xs"
 						style="margin-top:20px;"
 						variant="primary"
-					>View Elder and verify details</b-button>
+					>View Elder  details</b-button>
 				</router-link>
 			</b-colxx>
 		</b-row>

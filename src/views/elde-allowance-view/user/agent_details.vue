@@ -10,7 +10,7 @@
 
 		<b-card no-body class="mb-4 text-center" >
 			<div xl="10" lg="12" class="m-lg-4 text-center mb-4" style="mrgin-top:50px;">
-				<img src="/assets/img/profiles/5.jpg" class="card-img" />
+				<img :src="agent.pic" class="card-img" />
 			</div>
 			
 			<b-row>
@@ -52,6 +52,7 @@ import axios from "axios";
 import ElderDetails from "../../../containers/elder-alowance/agent_formModallg";
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
+import  {bUrl} from '../../../constants/config';
 
 export default {
 	name: "view-application-and-verify",
@@ -72,6 +73,7 @@ export default {
 			.then(result => {
 				console.log(result.data.data);
 				this.agent = result.data.data;
+				this.agent.pic = bUrl + this.agent.pic;
 			});
 	}
 };

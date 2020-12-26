@@ -14,8 +14,8 @@
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
-							thumb="../../assets/img/profiles/def.png"
-							large="../assets/img/profiles/def.png"
+							:thumb="img"
+							:large="img"
 							class-name="card-img-top "
 							class="m-4"
 						/>
@@ -54,8 +54,8 @@
 						<b-colxx lg="6" md="12" class="mb-4">
 							<div class="position-absolute card-top-buttons"></div>
 							<single-lightbox
-								thumb="../assets/img/profiles/def.png"
-								large="../assets/img/profiles/def.png"
+								:thumb="agent.pic"
+								:large="agent.pic"
 								class-name="card-img-top "
 								class="m-4"
 							/>
@@ -125,7 +125,7 @@ import SingleLightbox from "../../../containers/pages/SingleLightbox";
 import axios from "axios";
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
-
+import  {bUrl} from '../../../constants/config';
 export default {
 	name: "aprove-Guardian",
 	components: {
@@ -134,7 +134,8 @@ export default {
 	data() {
 		return {
 			submit_ag: true,
-			grama_comment: "	",
+			img:"",
+			grama_comment: "",
 			agent: [],
 			elder: []
 		};
@@ -149,13 +150,30 @@ export default {
 			console.log(this.id);
 			console.log(result.data.data)
 		});
+		const body = {
+				id:this.id,
+				role_id:"10"
+			}
+			axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			// console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+			console.log(img);
+		}).catch(cc => {
+			console.log(cc);
+			this.img = "/assets/img/profiles/def.png"
+		});
 		axios({
 			method: "get",
 			url: "/agent/aid/" + this.aid
 		}).then(result => {
 			this.agent = result.data.data,
-			console.log(this.aid);
-			console.log(result.data.data)
+			this.agent.pic = bUrl + this.agent.pic;
+			// console.log(this.aid);
+			// console.log(result.data.data)
 		});
 	},
 	mixins: [validationMixin],

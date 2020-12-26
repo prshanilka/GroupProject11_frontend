@@ -11,7 +11,7 @@
 				</b-colxx>
 				<b-colxx lg="6" md="12" class="mb-4">
 					<single-lightbox
-						thumb="/assets/img/profiles/def.png"
+						:thumb="img"
 						large="/assets/img/profiles/def.png"
 						class-name="card-img-top "
 						class="m-4"
@@ -21,6 +21,8 @@
 				</b-colxx>
 				<b-colxx lg="6" md="12" class="mb-4">
 					<div class="m-4">
+							<h2 class="text-center m-4">Elder Information</h2>
+
 						<p class="mb-2">Elder Address:</p>
 						<p class="mb-2">{{elder.address}}</p>
 
@@ -40,6 +42,37 @@
 						<p class="mb-2">{{elder.birth_day}}</p>
 					</div>
 				</b-colxx>
+				<b-colxx  v-if="agent.name" lg="6" md="12" class="mb-4">
+					<single-lightbox
+						:thumb="agent.pic"
+						large="/assets/img/profiles/def.png"
+						class-name="card-img-top "
+						class="m-4"
+					/>
+					<p class="mb-3 text-xlarge text-primary text-center">{{agent.name}}</p>
+					<p class="mb-3 text-center text-danger text-large">{{agent.nic}}</p>
+				</b-colxx>
+				<b-colxx  v-if="agent.name" lg="6" md="12" class="mb-4">
+							<h2 class="text-center m-4">Guardian Information</h2>
+
+							<p class="text-muted text-small mb-2">Agent Name</p>
+							<p class="mb-3">{{agent.name}}</p>
+
+							<p class="text-muted text-small mb-2">NIC</p>
+							<p class="mb-3">{{agent.nic}}</p>
+
+							<p class="text-muted text-small mb-2">Agent Address</p>
+							<p class="mb-3">{{agent.address}}</p>
+
+							<p class="text-muted text-small mb-2">Agent Phone Number</p>
+							<p class="mb-3">{{agent.phone}}</p>
+
+							<p class="text-muted text-small mb-2">Email</p>
+							<p class="mb-3">{{agent.email}}</p>
+
+							<p class="text-muted text-small mb-2">Relationship With Elder</p>
+							<p class="mb-3">{{agent.relation_with_elder}}</p>
+						</b-colxx>
 			</b-row>
 
 			<b-row>
@@ -66,6 +99,8 @@
 import AppLayout from "../../../layouts/EAppLayout";
 import SingleLightbox from "../../../containers/pages/SingleLightbox";
 import axios from "axios";
+import {bUrl} from '../../../constants/config'
+
 
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
@@ -79,6 +114,7 @@ export default {
 	data() {
 		return {
 			is_submited: false,
+			img:"",
 			elder: {},
 			agent: {}
 		};
@@ -100,10 +136,29 @@ export default {
 			method: "get",
 			url: "/agent/elder/" + this.id
 		}).then(result => {
+			 
 			this.agent = result.data.data;
-			console.log(result.data.data);
+			this.agent.pic = bUrl+this.agent.pic;
+			console.log(result);
 			// this.aplications = result.data.data;
 		});
+
+		const body = {
+				id:this.id,
+				role_id:"10"
+			}
+			axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+		}).catch(cc => {
+			console.log(cc);
+			this.img = "/assets/img/profiles/def.png"
+		});
+
 	},
 	methods: {
 		onSubmit() {
