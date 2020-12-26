@@ -391,7 +391,6 @@ const slideSettings = {
     "1200": { perView: 3 }
   }
 };
-
 const slideItems = [
   {
     icon: "iconsminds-mouse-3",
@@ -442,7 +441,6 @@ const slideItems = [
       "Custom Bootstrap 4 xxs & xxl classes delivers better experiences for smaller and larger screens."
   }
 ];
-
 const features = [
   {
     title: "Pleasant Design",
@@ -475,7 +473,6 @@ const features = [
       "Instead of good old single panel menus with accordion structure that looks over complicated, we created 2 panels and categorized pages accordingly.<br><br>The default menu auto hides sub panel when resolution is under some breakpoint to open some space. You may also hide menu completely or use only main panel open only."
   }
 ];
-
 const layouts = [
   {
     title: "Menu Default",
@@ -517,7 +514,6 @@ const layouts = [
   },
   { title: "Tabs", img: "/assets/img/landing-page/layouts/tabs.jpg" }
 ];
-
 const applications = [
   {
     title: "Survey",
@@ -535,7 +531,6 @@ const applications = [
     img: "/assets/img/landing-page/applications/todo.jpg"
   }
 ];
-
 const themes = [
   { title: "Navy Blue", class: "bluenavy" },
   { title: "Olympic Blue", class: "blueolympic" },
@@ -556,7 +551,6 @@ const scrollOptions = {
   x: false,
   y: true
 };
-
 export default {
   components: {
     "home-layout": HomeLayout,
@@ -583,11 +577,9 @@ export default {
         .getBoundingClientRect();
       const homeSection = document.getElementById("sectionHome");
       homeSection.style.backgroundPositionX = homeRect.x - 580 + "px";
-
       const footerSection = document.getElementById("sectionFooter");
       footerSection.style.backgroundPositionX =
         event.target.innerWidth - homeRect.x - 2000 + "px";
-
       if (event.target.innerWidth >= 992) {
         this.showMobileMenu = false;
       }
@@ -598,7 +590,6 @@ export default {
     onWindowClick() {
       this.showMobileMenu = false;
     },
-
     scrollTo(target) {
       VueScrollTo.scrollTo(target, 200, scrollOptions);
     }

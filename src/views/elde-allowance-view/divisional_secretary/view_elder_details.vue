@@ -1,10 +1,24 @@
 <template>
-	<div>
+    <AppLayout>
+	<b-colxx xl="10" lg="12" style="margin:auto ">
 		<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-			<h1>View  Elder Detail</h1>
+			<h1>Elder Details  </h1>
 		</b-colxx>
 
-		<b-card no-body class="mb-4">
+		<b-card class="mb-4 text-center" v-show="!submit_div">
+			<div class="icon-row-item">
+				<i class="simple-icon-like text-xlarge" />
+			</div>
+			<h2 class="mb-2">You SuccecFully Verified The Payment Details</h2>
+			<p>Verified Details are Submitted Now</p>
+		</b-card>
+
+		<b-card class="mb-4 text-center" v-show="!submit_div">
+			<h2 class="mb-2">You SuccecFully Verified The Payment Details</h2>
+			<p>Verified Details are Submitted Now</p>
+		</b-card>
+
+		<b-card no-body class="mb-4" v-show="submit_div">
 			<b-row>
 				<b-colxx lg="6" md="12" class="mb-4">
 					<div class="position-absolute card-top-buttons"></div>
@@ -43,11 +57,11 @@
 
 						<p class="mb-3">
 							<span class="text-muted text-small mb-2">Date of Birth:</span>
-							{{elder.birth_day }}
+							{{elder.birth_day}}
 						</p>
 						<p class="mb-3">
 							<span class="text-muted text-small mb-2">Age:</span>
-						 {{elder.age}}
+							{{elder.birth_day}} ---> 97
 						</p>
 					</div>
 				</b-colxx>
@@ -89,17 +103,18 @@
 						<p class="mb-3">{{elder.income}}</p>
 					</b-colxx>
 				</b-row>
+				 
 			</b-card-body>
 		</b-card>
-	</div>
+	</b-colxx>
+    </AppLayout>
 </template>
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
 import SingleLightbox from "../../../containers/pages/SingleLightbox";
 import axios from "axios";
-import {bUrl} from '../../../constants/config'
-
+import  {bUrl} from '../../../constants/config';
 
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
@@ -112,16 +127,17 @@ export default {
 	},
 	data() {
 		return {
+			img:"",
 			submit_div: true,
 			elder: {},
-			img:"",
-			grama_comment: ""
+			div_comment: "",
+			eee: 2
 		};
 	},
 	props: ["id"],
 	mixins: [validationMixin],
 	validations: {
-		grama_comment: {
+		div_comment: {
 			required,
 			maxLength: maxLength(256),
 			minLength: minLength(10)
@@ -133,14 +149,10 @@ export default {
 			url: "/elders/" + this.id
 		}).then(result => {
 			this.elder = result.data.data;
-			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
 			console.log(result.data.data);
-			 this.elder.age =  (new Date().getFullYear() -  new Date(this.elder.birth_day).getFullYear() );
 			// this.aplications = result.data.data;
 		});
-
-		
-		const body = {
+			const body = {
 				id:this.id,
 				role_id:"10"
 			}
@@ -149,13 +161,13 @@ export default {
 			url: "/upload/getprofile"  ,
 			data:body
 		}).then(res => {
+			console.log("sasa");
 			console.log(res.data.data[0].profile);
 			this.img = bUrl+res.data.data[0].profile;
-		}).catch(cc => {
+		}).catch(cc =>{
 			console.log(cc);
-			this.img = "/assets/img/profiles/def.png"
+			this.img ="/assets/img/profiles/def.png";
 		});
-
 	},
 	methods: {
 		onValitadeFormSubmit() {
@@ -163,14 +175,14 @@ export default {
 			console.log(this.$v.$invalid + " dis king ");
 			if (!this.$v.$invalid) {
 				const body = {
-					gramaniladari_id: "2",
-					gramaniladari_comment: this.grama_comment,
-					correction: this.grama_comment,
+					divisional_officer_id: "2",
+					divisional_officers_comment: this.div_comment,
+					correction: this.div_comment,
 					elder_id: this.id
 				};
 				axios({
 					method: "patch",
-					url: "/verifyelder/gramadisqualify",
+					url: "/verifyelder/divofffdisqulify",
 					data: body
 				})
 					.then(res => {
@@ -182,7 +194,7 @@ export default {
 					});
 				console.log(
 					JSON.stringify({
-						messsage: this.grama_comment
+						messsage: this.div_comment
 					})
 				);
 				this.submit_div = !this.submit_div;
@@ -193,13 +205,13 @@ export default {
 			console.log(this.$v.$invalid + "  ase cking ");
 			if (!this.$v.$invalid) {
 				const body = {
-					gramaniladari_id: "2",
-					gramaniladari_comment: this.grama_comment,
+					divisional_officer_id: "2",
+					divisional_officers_comment: this.div_comment,
 					elder_id: this.id
 				};
 				axios({
 					method: "patch",
-					url: "/verifyelder/gramaaccept",
+					url: "/verifyelder/divoffaccept",
 					data: body
 				})
 					.then(res => {
@@ -211,7 +223,7 @@ export default {
 					});
 				console.log(
 					JSON.stringify({
-						messsage: this.grama_comment
+						messsage: this.div_comment
 					})
 				);
 				this.submit_div = !this.submit_div;
