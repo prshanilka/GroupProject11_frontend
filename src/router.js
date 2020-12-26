@@ -666,6 +666,14 @@ const routes = [
     props: true
   },
   {
+    path: "/division/view-elder-details/:id",
+    component: () =>
+      import(
+        /* webpackChunkName: "home" */ "./views/elde-allowance-view/divisional_secretary/view_elder_details"
+      ),
+    props: true
+  },
+  {
     path: "/division/elder-application-list",
     component: () =>
       import(

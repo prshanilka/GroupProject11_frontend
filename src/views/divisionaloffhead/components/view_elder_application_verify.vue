@@ -6,8 +6,8 @@
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
-							thumb="/assets/img/profiles/def.png"
-							large="/assets/img/profiles/def.png"
+							:thumb="img"
+							:large="img"
 							class-name="card-img-top "
 							class="m-4"
 						/>
@@ -44,7 +44,7 @@
 							</p>
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Age:</span>
-								{{elder.birth_day}} ---> 97
+								{{elder.age}} 
 							</p>
 						</div>
 					</b-colxx>
@@ -98,6 +98,8 @@ import axios from "axios";
 
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
+import {bUrl} from '../../../constants/config'
+
 
 export default {
 	name: "view-application-and-verify",
@@ -108,6 +110,7 @@ export default {
 		return {
 			submit_div: true,
 			elder: {},
+			img:"",
 			div_comment: "",
 			eee: 2,
 		};
@@ -128,7 +131,31 @@ export default {
 			this.elder = result.data.data;
 			//console.log(result.data.data);
 			// this.aplications = result.data.data;
+			
+			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
+			 this.elder.age =  (new Date().getFullYear() -  new Date(this.elder.birth_day).getFullYear() );
 		});
+
+					const body = {
+				id:this.dat.elder_id,
+				role_id:"10"
+			}
+		axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			console.log("sasa");
+			console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+		}).catch(cc =>{
+			console.log(cc);
+			this.img ="/assets/img/profiles/def.png";
+		});
+
+
+
+
 	},
 
 	

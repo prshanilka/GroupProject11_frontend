@@ -162,6 +162,9 @@ export default {
 			// console.log(res.data.data[0].profile);
 			this.img = bUrl+res.data.data[0].profile;
 			console.log(img);
+		}).catch(cc => {
+			console.log(cc);
+			this.img = "/assets/img/profiles/def.png"
 		});
 		axios({
 			method: "get",
