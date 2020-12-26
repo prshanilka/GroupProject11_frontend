@@ -3,20 +3,6 @@ import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot ,divisionalOffHeadRoot
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   {
     id: "dashboards",
     icon: "simple-icon-equalizer",
