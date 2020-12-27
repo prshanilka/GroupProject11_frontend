@@ -29,6 +29,7 @@
   },
   "form": {
     "address": "Address",
+    "photo": "Photo",
     "nic": "NIC",
     "email": "E-Mail",
     "sex": "Sex",
@@ -80,13 +81,30 @@
     "fillapplication" : "Fill Application",
     "divisionalofiicerver" : "Verification from Divisional office"
   },
+  "wizard": {
+    "step-name-1": "Step 1",
+    "step-name-2": "Step 2",
+    "step-name-3": "Step 3",
+    "step-desc-1": "Private Details",
+    "step-desc-2": "Details of Income",
+    "step-desc-3": "Other Details",
+    "content-1": "Step content for first step.",
+    "content-2": "Step content for second step.",
+    "content-3": "Last step content!",
+    "content-thanks": "Thank You!",
+    "next": "Next",
+    "prev": "Back",
+    "registered": "Your registration completed successfully!",
+    "async": "Async save for 3 seconds!"
+  },
   "agent": {
-    "form": "Agent Form",
-    "name": "Agent Full Name",
-    "form-success": "You SuccecFully Added The Agent",
-    "form-register": "Agent is registerd Now",
+    "form": "Guardian's Details Form",
+    "name": "Guardian's Full Name",
+    "form-success": "You SuccecFully Added Guardian's Details",
+    "form-register": "Guardian is registerd Now",
     "relation": "Relationship with Elder",
-    "e-relation": "Please enter Relationship with Elder"
+    "e-relation": "Please enter Relationship with Elder",
+    "photo": "Guardian's Photo"
   },
   "officer": {
     "d-form": "Divisional Secratary Office Officer Details Form",
@@ -186,6 +204,7 @@
     "list-of-grama-divisions": "List Of Grama divisionas",
     "list-of-gramaniladari": "List Of Grama Niladari",
     "list-of-post-office": "List Of Post Offices",
+    "list-of-post-officers": "List Of Post Officers",
     "view-priority-list": "Priority  List ",
     "view-benifisher-list": "Benifisher List",
 
@@ -798,22 +817,6 @@
     "vue-tables": "Vue Tables",
     "vue-pagination": "Pagination",
     "vue-scrollable": "Scrollable"
-  },
-  "wizard": {
-    "step-name-1": "Step 1",
-    "step-name-2": "Step 2",
-    "step-name-3": "Step 3",
-    "step-desc-1": "First step description",
-    "step-desc-2": "Second step description",
-    "step-desc-3": "Third step description",
-    "content-1": "Step content for first step.",
-    "content-2": "Step content for second step.",
-    "content-3": "Last step content!",
-    "content-thanks": "Thank You!",
-    "next": "Next",
-    "prev": "Back",
-    "registered": "Your registration completed successfully!",
-    "async": "Async save for 3 seconds!"
   },
   "application": {
     "gramaniladharidivision": "Grama Niladhari Division"
