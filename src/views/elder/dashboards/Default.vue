@@ -2,7 +2,11 @@
   <div>
           <user-card-elder></user-card-elder>
         <b-row >
-                      <b-alert show variant="danger" v-if="EApplicationStatus.correction">{{ $t(EApplicationStatus.correction) }}</b-alert>
+                          <b-colxx xxs="12" class="text-center">
+                          <b-alert show variant="danger" v-if="EApplicationStatus.correction">{{ $t(EApplicationStatus.correction) }}</b-alert>
+                          <b-alert show variant="success" v-if="EApplicationStatus.presentage == 0 && !EApplicationStatus.correction">{{ $t('elder.notification') }}</b-alert>
+                          </b-colxx>
+                      
           <b-colxx lg="4" xl="12" class="mb-4" v-if="EApplicationStatus.success != 0 && EApplicationStatus.presentage != 0" >
 
               <b-card class="mb-4 text-center">
@@ -17,7 +21,7 @@
             />
           </b-colxx>
 
-           <b-alert show variant="success" v-if="EApplicationStatus.presentage == 0 && !EApplicationStatus.correction">{{ $t('elder.notification') }}</b-alert>
+           
           
           <b-colxx lg="4" xl="12" class="mb-4" v-if="EApplicationStatus.success == 0" >
             
