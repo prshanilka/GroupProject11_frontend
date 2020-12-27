@@ -38,6 +38,7 @@
 					<b-form-group :label="$t('form.nic')">
 						<b-form-input type="text" v-model="$v.elder.nic_no.$model" :state="!$v.elder.nic_no.$error" />
 						<b-form-invalid-feedback v-if="!$v.elder.nic_no.required">{{$t('form.e-nic')}}</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-if="!$v.elder.nic_no.validnic">{{$t('form.e-valid')}}</b-form-invalid-feedback>
 						<b-form-invalid-feedback
 							v-else-if="!$v.elder.nic_no.minLength || !$v.elder.nic_no.maxLength"
 						>{{$t('form.v-nic')}}</b-form-invalid-feedback>
@@ -71,6 +72,7 @@
 						/>
 						<b-form-invalid-feedback v-if="!$v.elder.phone_no.required">{{$t('form.e-number')}}</b-form-invalid-feedback>
 						<b-form-invalid-feedback v-else-if="!$v.elder.phone_no.numeric">{{$t('form.n-number')}}</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-else-if="!$v.elder.phone_no.validphone">{{$t('form.vaid-no')}}</b-form-invalid-feedback>
 						<b-form-invalid-feedback
 							v-else-if="!$v.elder.phone_no.minLength || !$v.elder.phone_no.maxLength"
 						>{{$t('form.v-number')}}</b-form-invalid-feedback>
@@ -155,6 +157,8 @@ const {
 } = require("vuelidate/lib/validators");
 
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
+const validnic =  helpers.regex("upperCase", /^(?:19|20)?\d{2}(?:[0-35-8]\d\d(?<!(?:000|500|36[7-9]|3[7-9]\d|86[7-9]|8[7-9]\d)))\d{4}(?:[vVxX])$/);
+const validphone = helpers.regex("upperCase", /^(?:0|94|\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|5|6|7|8)\d)\d{6}$/);
 import Datepicker from "vuejs-datepicker";
 import axios from "axios";
 export default {
@@ -226,6 +230,7 @@ export default {
 			},
 			nic_no: {
 				required,
+				validnic,
 				maxLength: maxLength(10),
 				minLength: minLength(10)
 			},
@@ -239,6 +244,7 @@ export default {
 			phone_no: {
 				required,
 				numeric,
+				validphone,
 				maxLength: maxLength(10),
 				minLength: minLength(10)
 			},
