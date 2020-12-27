@@ -5,7 +5,7 @@
 				<div class="position-relative image-side">
                     
 					 
-					<p class="h2 mb-5">Welcome To National Secretariat for Elders</p>
+					<p class="h2 mb-5">Welcome To Elders Allowance Management System for Gampaha Divisional Secretary.</p>
 					<h3 class="white mt-5 font-weight-bolder">
 						Please use this form to register.
 						<br />If you are a member, please
