@@ -47,7 +47,7 @@
 					<div class="icon-row-item">
 						<i class="iconsminds-conference text-xlarge" />
 					</div>
-					<p class="text-large text-center text-primary">No of Qulified Elders</p>
+					<p class="text-large text-center text-primary">No of Qualified Elders</p>
 					<p class="text-large text-center text-success">{{ details.no_qualified_elders }}</p>
 				</b-card>
 			</b-colxx>
@@ -57,7 +57,7 @@
 					<div class="icon-row-item">
 						<i class="iconsminds-conference text-xlarge" />
 					</div>
-					<p class="text-large text-center text-primary">No of Elders Got Money</p>
+					<p class="text-large text-center text-primary">No of Elders Received Money</p>
 					<p class="text-large text-center text-warning">{{ count }}</p>
 				</b-card>
 			</b-colxx>

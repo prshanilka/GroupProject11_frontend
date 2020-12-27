@@ -5,7 +5,7 @@
 		</b-modal>
 		<div>
 			<datatable-heading
-				title="List Of the benifishers "
+				title="List Of Beneficiaries"
 				:selectAll="selectAll"
 				:isSelectedAll="isSelectedAll"
 				:isAnyItemSelected="isAnyItemSelected"
@@ -41,7 +41,7 @@
 								v-b-modal.modallg
 								@click="clickedid = props.rowData.elder_id;"
 								variant="outline-primary"
-							>View Elder</b-button>
+							>View</b-button>
 						</template>
 					</vuetable>
 					<vuetable-pagination-bootstrap
@@ -108,10 +108,10 @@ export default {
 				{
 					name: "benifesher_id",
 					sortField: "benifesher_id",
-					title: "BenFisher Id",
+					title: "Beneficiary Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "5%"
+					width: "15%"
 				},
 				{
 					name: "elder_id",
@@ -119,7 +119,7 @@ export default {
 					title: "Elder Id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "5%"
+					width: "10%"
 				},
 
 				{
@@ -133,7 +133,7 @@ export default {
 				{
 					name: "address",
 					sortField: "address",
-					title: "address",
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -141,15 +141,15 @@ export default {
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone Number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "email",
 					sortField: "email",
-					title: "email",
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"

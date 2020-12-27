@@ -2,7 +2,7 @@
 	<AppLayout>
 		<div>
 			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-				<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+				<b-modal id="modallg" size="lg" title="Complain" hide-footer>
 					<elder-details :id="clickedid" />
 				</b-modal>
 				<datatable-heading
@@ -114,7 +114,7 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "10%"
@@ -122,34 +122,34 @@ export default {
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "address",
 					sortField: "address",
-					title: "address",
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "25%"
 				},
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone Number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "email",
 					sortField: "email",
-					title: "email",
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "__slot:actions1",

@@ -1,6 +1,4 @@
- 
- 
- <template>
+<template>
 	<AppLayout>
 		<div>
 			<datatable-heading

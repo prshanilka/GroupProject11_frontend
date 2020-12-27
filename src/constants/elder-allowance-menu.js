@@ -327,8 +327,8 @@ const data = [
 
   {
     id: "post-officer-dashboard",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.post-officer-dashboard",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
     to: `/post/post-officer-dashboard`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
@@ -348,14 +348,14 @@ const data = [
   // },
   {
     id: "elders-related-to-post-off",
-    icon: "iconsminds-post-mail-2",
+    icon: "iconsminds-business-man-woman",
     label: "menu.elders-related-to-post-off",
     to: `/post/elders-related-to-post-off`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
   {
     id: "paynemt-histroy",
-    icon: "iconsminds-post-mail-2",
+    icon: "iconsminds-financial",
     label: "menu.payment-history",
     to: `/post/paynemt-histroy`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
@@ -853,7 +853,7 @@ const data = [
 
   {
     id: "list-of-applicans",
-    icon: "iconsminds-add-user",
+    icon: "simple-icon-notebook",
     label: "menu.list-of-applicans",
     to: `/grama/list-of-applicans`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices],
@@ -897,7 +897,7 @@ const data = [
   },
   {
     id: "aprove-agents",
-    icon: "iconsminds-add-user",
+    icon: "simple-icon-user-following",
     label: "menu.aprove-agents",
     to: `/grama/aprove-agents`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]

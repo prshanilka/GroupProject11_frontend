@@ -6,9 +6,7 @@
 		</div>
 		<div v-show="!is_submited">
 			<b-row>
-				<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-					<h1>Elder Benifisher for Verification  </h1>
-				</b-colxx>
+
 				<b-colxx lg="6" md="12" class="mb-4">
 					<single-lightbox
 						:thumb="img"
@@ -16,30 +14,30 @@
 						class-name="card-img-top "
 						class="m-4"
 					/>
-					<p class="mb-3 text-xlarge text-primary text-center">{{elder.name}}</p>
+					<p class="mb-4 text-xlarge text-primary text-center">{{elder.name}}</p>
 					<p class="mb-3 text-center text-danger text-large">{{elder.nic_id}}</p>
 				</b-colxx>
 				<b-colxx lg="6" md="12" class="mb-4">
 					<div class="m-4">
 							<h2 class="text-center m-4">Elder Information</h2>
 
-						<p class="mb-2">Elder Address:</p>
-						<p class="mb-2">{{elder.address}}</p>
+						<p class="text-muted text-small mb-2">Elder Address:</p>
+						<p class="mb-3">{{elder.address}}</p>
 
-						<p class="mb-2">Sex:</p>
-						<p class="mb-2">{{elder.sex}}</p>
+						<p class="text-muted text-small mb-2">Sex:</p>
+						<p class="mb-3">{{elder.sex}}</p>
 
-						<p class="mb-2">Phone No:</p>
-						<p class="mb-2">{{elder.number}}</p>
+						<p class="text-muted text-small mb-2">Phone No:</p>
+						<p class="mb-3">{{elder.number}}</p>
 
-						<p class="mb-2">Email:</p>
-						<p class="mb-2">{{elder.email}}</p>
+						<p class="text-muted text-small mb-2">Email:</p>
+						<p class="mb-3">{{elder.email}}</p>
 
-						<p class="mb-2">Date of Birth:</p>
-						<p class="mb-2">{{elder.birth_day}}</p>
+						<p class="text-muted text-small mb-2">Date of Birth:</p>
+						<p class="mb-3">{{elder.birth_day}}</p>
 
-						<p class="mb-2">Age:</p>
-						<p class="mb-2">{{elder.birth_day}}</p>
+						<p class="text-muted text-small mb-2">Age:</p>
+						<p class="mb-3">{{elder.birth_day}}</p>
 					</div>
 				</b-colxx>
 				<b-colxx  v-if="agent.name" lg="6" md="12" class="mb-4">
@@ -49,22 +47,22 @@
 						class-name="card-img-top "
 						class="m-4"
 					/>
-					<p class="mb-3 text-xlarge text-primary text-center">{{agent.name}}</p>
+					<p class="mb-4 text-xlarge text-primary text-center">{{agent.name}}</p>
 					<p class="mb-3 text-center text-danger text-large">{{agent.nic}}</p>
 				</b-colxx>
 				<b-colxx  v-if="agent.name" lg="6" md="12" class="mb-4">
 							<h2 class="text-center m-4">Guardian Information</h2>
 
-							<p class="text-muted text-small mb-2">Agent Name</p>
+							<p class="text-muted text-small mb-2">Name</p>
 							<p class="mb-3">{{agent.name}}</p>
 
 							<p class="text-muted text-small mb-2">NIC</p>
 							<p class="mb-3">{{agent.nic}}</p>
 
-							<p class="text-muted text-small mb-2">Agent Address</p>
+							<p class="text-muted text-small mb-2">Address</p>
 							<p class="mb-3">{{agent.address}}</p>
 
-							<p class="text-muted text-small mb-2">Agent Phone Number</p>
+							<p class="text-muted text-small mb-2">Phone Number</p>
 							<p class="mb-3">{{agent.phone}}</p>
 
 							<p class="text-muted text-small mb-2">Email</p>
@@ -79,16 +77,16 @@
 				<b-colxx md="12" class="mb-4 text-center">
 					<b-button
 						type="submit"
-						variant="primary"
+						variant="outline-success"
 						@click.prevent="onSubmit"
 						class="mt-4"
-					>Allowance Paid To Elder</b-button>
+					>Paid To Elder</b-button>
 					<b-button
 						type="submit"
-						variant="primary"
+						variant="outline-success"
 						@click.prevent="onPress"
 						class="mt-4"
-					>Allowance Paid To Gradian</b-button>
+					>Paid To Guardian</b-button>
 				</b-colxx>
 			</b-row>
 		</div>
