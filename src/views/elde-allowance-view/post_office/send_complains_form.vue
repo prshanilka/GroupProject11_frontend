@@ -107,7 +107,7 @@ export default {
 	async created() {
 		axios({
 			method: "get",
-			url: "http://localhost:3000/api/elders/" + this.id
+			url: "https://elderallowanceuor.ga/api/elders/" + this.id
 		}).then(result => {
 			this.comElder = result.data.data,
 			this.com_elder.name = result.data.data.name;
@@ -151,7 +151,7 @@ export default {
 				}; 
 				axios({
 					method: "post",
-					url: "http://localhost:3000/api/deadcomplain/sendpostcomplain",
+					url: "https://elderallowanceuor.ga/api/deadcomplain/sendpostcomplain",
 					data: body
 				})
 					.then(res => {

@@ -11,9 +11,8 @@ export const searchPath = `${adminRoot}/pages/miscellaneous/search`;
 export const buyUrl = "https://1.envato.market/nEyZa";
 export const apiUrl = "https://api.coloredstrategies.com";
 
-
-//export const bUrl ="https://elderallowanceuor.ga/api";
-export const bUrl ="http://localhost:3000/api";
+//export const bUrl ="https://elderallowanceuor.gaapi";
+export const bUrl = "https://elderallowanceuor.ga/api";
 export const subHiddenBreakpoint = 1440;
 export const menuHiddenBreakpoint = 768;
 
