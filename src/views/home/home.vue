@@ -62,8 +62,10 @@
 							<div class="col-12 col-xl-4 col-lg-5 col-md-6">
 								<div class="home-text">
 									<div class="display-1">
-										Welcome To National Secretariat for Elders
-										<br />Management system of Gampaha Division.
+ 
+										Welcome To Elders Allowance 
+										<br />Management System for Gampaha Divisional Secretary.
+ 
 									</div>
 									<!-- <p class="white mb-5">
 											<br />

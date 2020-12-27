@@ -151,12 +151,12 @@
   },
 
   "menu": {
-    "elderform": "elder_form",
+    "elderform": "Elder form",
     "agentform": "Guardian Form",
-    "agentdetails": "Agent Details",
+    "agentdetails": "Guardian Details",
     "elderlist": "Elder List",
     "elder-dashboard": "Dashboard",
-    "elder-pament-details": "Payment List",
+    "elder-pament-details": "Payments",
     "reason-about-payments": "Reason Not Payment",
     "elder-application-list": "Divisional Allcication List",
     "paytopost": "Payment To PostOff",

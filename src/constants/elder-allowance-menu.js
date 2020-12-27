@@ -13,7 +13,7 @@ const data = [
 
   {
     id: "elder-pament-details",
-    icon: "simple-icon-user-following",
+    icon: "iconsminds-dollar-sign-2",
     label: "menu.elder-pament-details",
     to: `/elder/elder-pament-details`,
     roles: [UserRole.Editor, UserRole.Elders]
@@ -25,13 +25,13 @@ const data = [
   //   to: `/elder/reason-about-payments/114`,
   //   roles: [UserRole.Editor, UserRole.Elders]
   // },
-  {
-    id: "agent-form",
-    icon: "simple-icon-user-following",
-    label: "menu.agentform",
-    to: "/elder/agent-form",
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
+  // {
+  //   id: "agent-form",
+  //   icon: "simple-icon-user-following",
+  //   label: "menu.agentform",
+  //   to: "/elder/agent-form",
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
   {
     id: "agent-details",
     icon: "simple-icon-user-following",
@@ -39,13 +39,13 @@ const data = [
     to: "/elder/agent-details",
     roles: [UserRole.Editor, UserRole.Elders]
   },
-  {
-    id: "elder-form",
-    icon: "iconsminds-male-female",
-    label: "menu.elderform",
-    to: `/elder/elder-form`,
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
+  // {
+  //   id: "elder-form",
+  //   icon: "iconsminds-male-female",
+  //   label: "menu.elderform",
+  //   to: `/elder/elder-form`,
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
     {
     id: "update-form",
     icon: "iconsminds-male-female",

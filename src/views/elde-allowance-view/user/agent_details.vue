@@ -5,7 +5,7 @@
 					<elder-details :id="clickedid"/>
 		</b-modal>
 		<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-			<h1>Guardian Deatils</h1>
+			<h1>Guardian Information</h1>
 		</b-colxx>
 
 		<b-card no-body class="mb-4 text-center" >
@@ -30,12 +30,21 @@
 						</p>
 						<template>
 					  <b-button
+					  				v-if="agent.name"
 									class="mb-2"
 									size="xl"
 									v-b-modal.modallg
 									@click="clickedid = agent.elder_id"
 									variant="outline-danger"
-								>Change Guardian</b-button>
+								>Change Guardian </b-button>
+								<b-button
+					  				v-if="!agent.name"
+									class="mb-2"
+									size="xl"
+									v-b-modal.modallg
+									@click="clickedid = agent.elder_id"
+									variant="outline-danger"
+								>Add Guardian </b-button>
 						</template>
 			</b-colxx>			
 			</b-row>
