@@ -30,7 +30,7 @@ export default {
         const body = 
 				axios({
 					method: "patch",
-					url: "https://elderallowanceuor.ga/api/deadcomplain/"+this.data.elder_id,
+					url: "http://localhost:3000/api/deadcomplain/"+this.data.elder_id,
 				})
 					.then(res => {
 						console.log("Accept res");

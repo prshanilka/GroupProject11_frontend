@@ -27,7 +27,7 @@ export default {
          
 				axios({
 					method: "patch",
-					url: "https://elderallowanceuor.ga/api/deadcomplain/comp/"+this.data.elder_id,
+					url: "http://localhost:3000/api/deadcomplain/comp/"+this.data.elder_id,
 				})
 					.then(res => {
 						console.log("Accept res");

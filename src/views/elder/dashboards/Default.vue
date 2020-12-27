@@ -3,8 +3,11 @@
           <user-card-elder></user-card-elder>
         <b-row >
           
-          <b-colxx lg="4" xl="12" class="mb-4" v-if="!EApplicationStatus.success == 0" >
+          <b-colxx lg="4" xl="12" class="mb-4" v-if="EApplicationStatus.success != 0 && EApplicationStatus.presentage != 0" >
             <b-alert show variant="danger" v-if="EApplicationStatus.correction">{{ $t(EApplicationStatus.correction) }}</b-alert>
+              <b-card class="mb-4 text-center">
+                  <h1>Application Status</h1>
+              </b-card>
             <gradient-with-radial-progress-card
               icon="iconsminds-bell"
               :title="$t(EApplicationStatus.title)"
@@ -13,9 +16,16 @@
               :progressText="`${EApplicationStatus.presentage}%`"
             />
           </b-colxx>
+
+           <b-alert show variant="success" v-if="EApplicationStatus.presentage == 0">{{ $t('elder.notification') }}</b-alert>
+          
           <b-colxx lg="4" xl="12" class="mb-4" v-if="EApplicationStatus.success == 0" >
             
                   <b-button class="mb-2" block variant="secondary"  @click="$router.push('/elder/elder-form')" >{{ $t('elder.fillapplication') }}</b-button>
+          </b-colxx>
+          <b-colxx lg="4" xl="12" class="mb-4" v-if="EApplicationStatus.correction" >
+            
+                  <b-button class="mb-2" block variant="warning"  @click="$router.push('/elder/update-form')" >{{ $t('elder.updateapplication') }}</b-button>
           </b-colxx>
           
         </b-row>

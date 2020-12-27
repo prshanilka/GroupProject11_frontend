@@ -151,7 +151,7 @@ export default {
 
 	methods: {
 		getData() {
-			return axios.get("https://elderallowanceuor.ga/api/deadcomplain/postcomplains/");
+			return axios.get("http://localhost:3000/api/deadcomplain/postcomplains/");
 		},
 		showw(pp) {
 			this.clickedid = pp.rowData.elder_id;
@@ -160,7 +160,7 @@ export default {
          
 				axios({
 					method: "patch",
-					url: "https://elderallowanceuor.ga/api/deadcomplain/comp/"+this.clickedid,
+					url: "http://localhost:3000/api/deadcomplain/comp/"+this.clickedid,
 				})
 					.then(res => {
 						console.log("Accept res");
