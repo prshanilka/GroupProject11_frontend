@@ -63,19 +63,19 @@
 						<b-colxx lg="6" md="12" class="mb-4">
 							<h2 class="text-center m-4">Guardian Information</h2>
 
-							<p class="text-muted text-small mb-2">Agent Name</p>
+							<p class="text-muted text-small mb-2">Guardian Name</p>
 							<p class="mb-3">{{agent.name}}</p>
 
 							<p class="text-muted text-small mb-2">NIC</p>
 							<p class="mb-3">{{agent.nic}}</p>
 
-							<p class="text-muted text-small mb-2">Agent Address</p>
+							<p class="text-muted text-small mb-2">Guardian Address</p>
 							<p class="mb-3">{{agent.address}}</p>
 
-							<p class="text-muted text-small mb-2">Agent Phone Number</p>
+							<p class="text-muted text-small mb-2">Guardian Phone Number</p>
 							<p class="mb-3">{{agent.phone}}</p>
 
-							<p class="text-muted text-small mb-2">Email</p>
+							<p class="text-muted text-small mb-2">Guardian Email</p>
 							<p class="mb-3">{{agent.email}}</p>
 
 							<p class="text-muted text-small mb-2">Relationship With Elder</p>
