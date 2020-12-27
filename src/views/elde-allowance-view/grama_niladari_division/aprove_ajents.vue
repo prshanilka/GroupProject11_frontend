@@ -2,11 +2,11 @@
 	<AppLayout>
 		<div>
 			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-				<b-modal id="modallg" size="xl" title="Details" hide-footer>
+				<b-modal id="modallg" size="xl" title="Verify Guardian" hide-footer>
 					<elder-details :id="clickedid" :aid="agentid" />
 				</b-modal>
 				<datatable-heading
-					title="List Of Guardian"
+					title="List Of Guardians"
 					:selectAll="selectAll"
 					:isSelectedAll="isSelectedAll"
 					:isAnyItemSelected="isAnyItemSelected"
@@ -119,7 +119,7 @@ export default {
 					title: "Elder Id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "15%"
 				},
 				{
 					name: "ename",
@@ -143,7 +143,7 @@ export default {
 					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "25%"
 				},
 				{
 					name: "anic",

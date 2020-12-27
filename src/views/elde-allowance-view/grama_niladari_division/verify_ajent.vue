@@ -22,7 +22,7 @@
 					</b-colxx>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="m-4">
-							<h2 class="text-center m-4">Elder Details</h2>
+							<h2 class="text-center m-4">Elder's Informaion</h2>
 							<p class="text-muted text-small mb-2">Elder Full Name</p>
 							<p class="mb-3">{{elder.name}}</p>
 
@@ -30,7 +30,7 @@
 							<p class="mb-3">{{elder.address}}</p>
 
 							<p class="mb-3">
-								<span class="text-muted text-small mb-2">Sex:</span>{{elder.sex}}
+								<span class="text-muted text-small mb-2">Sex:</span> {{elder.sex}}
 							</p>
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Phone No:</span> {{elder.number}}
@@ -83,9 +83,9 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladari Rewiwe About the Elders Guardian">
+						<b-card class="mb-4" title="Gramaniladari's Comment">
 							<b-form class="av-tooltip tooltip-label-right">
-								<b-form-group label="Grama Niladari Comment">
+								<b-form-group>
 									<b-form-textarea
 										type="text"
 										v-model="$v.grama_comment.$model"
@@ -101,12 +101,12 @@
 								</b-form-group>
 								<b-row>
 									<b-colxx lg="6" md="6" class="mb-4 text-center">
-										<b-button type="button" variant="primary" @click.prevent="sssss">Aprove Guardian</b-button>
+										<b-button type="button" variant="outline-success" @click.prevent="sssss">Approve Guardian</b-button>
 									</b-colxx>
 									<b-colxx lg="6" md="6" class="mb-4 text-center">
 										<b-button
 											type="button"
-											variant="primary"
+											variant="outline-danger"
 											@click.prevent="onValitadeFormSubmit"
 										>Disqualify Guardian</b-button>
 									</b-colxx>
@@ -146,9 +146,10 @@ export default {
 			method: "get",
 			url: "/elders/" + this.id
 		}).then(result => {
-			this.elder = result.data.data,
-			console.log(this.id);
-			console.log(result.data.data)
+			this.elder = result.data.data;
+			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
+			console.log(result.data.data);
+			// this.aplications = result.data.data;
 		});
 		const body = {
 				id:this.id,

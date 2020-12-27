@@ -63,7 +63,7 @@
 								<div class="home-text">
 									<div class="display-1">
 										Welcome To National Secretariat for Elders
-										<br />Management system of Gampaha Divisiona.
+										<br />Management system of Gampaha Division.
 									</div>
 									<!-- <p class="white mb-5">
 											<br />

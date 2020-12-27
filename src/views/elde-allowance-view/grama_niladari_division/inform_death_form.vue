@@ -1,10 +1,7 @@
 <template>
 	<b-row>
-		<b-colxx xl="10" lg="12" style="margin:auto ">
-			<b-card>
-				<div class="text-center">
-					<h1>Inform the Death</h1>
-				</div>
+		<b-colxx xl="12" style="margin:auto ">
+				
 				<b-card class="mb-4 text-center" v-show="!submit_ag">
 					<div class="icon-row-item">
 						<i class="simple-icon-like text-xlarge" />				
@@ -92,7 +89,6 @@
 						<b-button type="submit" variant="primary" class="mt-4">{{ $t('form.submit') }}</b-button>
 					</b-form>
 				</b-card>
-			</b-card>
 		</b-colxx>
 	</b-row>
 </template>
