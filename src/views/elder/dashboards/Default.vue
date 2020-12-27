@@ -17,7 +17,7 @@
             />
           </b-colxx>
 
-           <b-alert show variant="success" v-if="EApplicationStatus.presentage == 0">{{ $t('elder.notification') }}</b-alert>
+           <b-alert show variant="success" v-if="EApplicationStatus.presentage == 0 && !EApplicationStatus.correction">{{ $t('elder.notification') }}</b-alert>
           
           <b-colxx lg="4" xl="12" class="mb-4" v-if="EApplicationStatus.success == 0" >
             
