@@ -10,9 +10,7 @@
 			      <i class="iconsminds-column text-xlarge"/>
         </div>
         <p class="lead text-center text-success">Gramaniladhari Division</p>
-        <p class="lead text-center text-danger">13</p> 
-        <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-primary" >Update</b-button>
-        <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-warning" >Delete</b-button>     
+        <p class="lead text-center text-danger">13</p>    
       </b-card>
     </b-colxx>
 
@@ -24,9 +22,7 @@
         </div>
 		
             <p class="lead text-center text-success">Post Offices</p>
-            <p class="lead text-center text-danger">10</p>
-            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-primary" >Update</b-button>
-        <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-warning" >Delete</b-button>  
+            <p class="lead text-center text-danger">10</p>  
     </b-card>
   </b-colxx>
   <b-colxx md="6" sm="6" lg="4" xxs="12">
@@ -36,9 +32,7 @@
 			      <i class="iconsminds-business-man-woman text-xlarge"/>
         </div>
             <p class="lead text-center text-success">Gramaniladhari Officers</p>
-            <p class="lead text-center text-danger">35</p> 
-            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-primary" >Update</b-button>
-        <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-warning" >Delete</b-button> 
+            <p class="lead text-center text-danger">35</p>
     </b-card>
   </b-colxx>
   </b-row>
@@ -50,7 +44,7 @@
 			      <i class="iconsminds-dollar-sign-2 text-xlarge"/>
         </div>
             <p class="lead text-center text-success">Total Amount</p>
-            <p class="lead text-center text-danger">"{{constant.data[0].value}}"</p> 
+            <p class="lead text-center text-danger">{{constant.data[0].value}}</p> 
             <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid= constant.data[0].name">Update</b-button> 
       </b-card>
     </b-colxx>
@@ -97,7 +91,7 @@
 </template>
 
 <script>
-import UserCardElder from "../../../containers/elder/UserCardElder";
+import UserCardElder from "../../../containers/elder-alowance/sysadmin/UserCard";
 import AppLayout from "../../../layouts/EAppLayout";
 import axios from "axios";
 import update from "./constantCard";

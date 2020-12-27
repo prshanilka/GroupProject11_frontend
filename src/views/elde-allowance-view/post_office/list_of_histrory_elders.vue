@@ -1,8 +1,6 @@
- 
- 
- <template>
+<template>
 	<AppLayout>
-		<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+		<b-modal id="modallg" size="xl" title="Elder And Guardian Verification" hide-footer>
 			<elder-details :id="clickedid" :pay_id="pay_id" />
 		</b-modal>
 		<div>
@@ -121,7 +119,7 @@ export default {
 				{
 					name: "id",
 					sortField: "payment_id",
-					title: "payment_id",
+					title: "Payment Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "5%"
@@ -129,7 +127,7 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "12%"
@@ -137,7 +135,7 @@ export default {
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "12%"
@@ -145,7 +143,7 @@ export default {
 				{
 					name: "money_amount",
 					sortField: "money_amount",
-					title: "money_amount",
+					title: "Amount of Money",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "15%"
@@ -153,7 +151,7 @@ export default {
 				{
 					name: "ajent_available",
 					sortField: "ajent_available",
-					title: "ajent_available",
+					title: "Guardian Available",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
@@ -162,7 +160,7 @@ export default {
 				{
 					name: "nic_id",
 					sortField: "nic_id",
-					title: "nic_id",
+					title: "NIC",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "15%"
@@ -171,7 +169,7 @@ export default {
 				{
 					name: "number",
 					sortField: "number",
-					title: "number",
+					title: "Number",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "15%"
@@ -179,7 +177,7 @@ export default {
 				{
 					name: "is_taken_money",
 					sortField: "is_taken_money",
-					title: "revive",
+					title: "Review",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "5%"
@@ -259,11 +257,10 @@ export default {
 					this.p_name = res.data.data[0].post;
 					console.log(this.m_name);
 					(this.title =
-						"The Year  " +
-						this.year +
-						" " +
 						this.m_name +
-						" Payment Info  " +
+						" of " +
+						this.year +
+						", Payment Info  " +
 						res.data.data[0].post +
 						"(" +
 						this.post_off +

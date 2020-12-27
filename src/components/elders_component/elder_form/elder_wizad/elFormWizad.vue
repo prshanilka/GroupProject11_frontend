@@ -179,6 +179,7 @@ export default {
 				elder_id: "11",
 				name: this.elderdetails[2].agent_name,
 				nic: this.elderdetails[2].agent_nic,
+				pic: this.elderdetails[2].pic,
 				address: this.elderdetails[2].agent_address,
 				phone: this.elderdetails[2].agent_phone_no,
 				email: this.elderdetails[2].agent_email,

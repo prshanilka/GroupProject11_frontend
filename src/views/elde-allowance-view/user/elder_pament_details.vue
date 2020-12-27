@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<b-colxx class="mb-4 text-center" lg="12" xxs="12">
-			<h1>This is for Elder Payment History detail List</h1>
+			<h1>Elder Payment History</h1>
 		</b-colxx>
 		<b-row>
 			<list-with-user-item

@@ -13,7 +13,7 @@ const data = [
 
   {
     id: "elder-pament-details",
-    icon: "simple-icon-user-following",
+    icon: "iconsminds-dollar-sign-2",
     label: "menu.elder-pament-details",
     to: `/elder/elder-pament-details`,
     roles: [UserRole.Editor, UserRole.Elders]
@@ -25,13 +25,13 @@ const data = [
   //   to: `/elder/reason-about-payments/114`,
   //   roles: [UserRole.Editor, UserRole.Elders]
   // },
-  {
-    id: "agent-form",
-    icon: "simple-icon-user-following",
-    label: "menu.agentform",
-    to: "/elder/agent-form",
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
+  // {
+  //   id: "agent-form",
+  //   icon: "simple-icon-user-following",
+  //   label: "menu.agentform",
+  //   to: "/elder/agent-form",
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
   {
     id: "agent-details",
     icon: "simple-icon-user-following",
@@ -39,13 +39,13 @@ const data = [
     to: "/elder/agent-details",
     roles: [UserRole.Editor, UserRole.Elders]
   },
-  {
-    id: "elder-form",
-    icon: "iconsminds-male-female",
-    label: "menu.elderform",
-    to: `/elder/elder-form`,
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
+  // {
+  //   id: "elder-form",
+  //   icon: "iconsminds-male-female",
+  //   label: "menu.elderform",
+  //   to: `/elder/elder-form`,
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
     {
     id: "update-form",
     icon: "iconsminds-male-female",
@@ -254,8 +254,8 @@ const data = [
         to: `/sysadmin/list-of-post-office`
       },
       {
-        icon: "iconsminds-post-office",
-        label: "menu.list-of-post-office",
+        icon: "simple-icon-people",
+        label: "menu.list-of-post-officers",
         to: `/sysadmin/list-of-postofficers`
       },{
         icon: "iconsminds-post-office",
@@ -327,8 +327,8 @@ const data = [
 
   {
     id: "post-officer-dashboard",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.post-officer-dashboard",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
     to: `/post/post-officer-dashboard`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
@@ -348,14 +348,14 @@ const data = [
   // },
   {
     id: "elders-related-to-post-off",
-    icon: "iconsminds-post-mail-2",
+    icon: "iconsminds-business-man-woman",
     label: "menu.elders-related-to-post-off",
     to: `/post/elders-related-to-post-off`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
   {
     id: "paynemt-histroy",
-    icon: "iconsminds-post-mail-2",
+    icon: "iconsminds-financial",
     label: "menu.payment-history",
     to: `/post/paynemt-histroy`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
@@ -853,7 +853,7 @@ const data = [
 
   {
     id: "list-of-applicans",
-    icon: "iconsminds-add-user",
+    icon: "simple-icon-notebook",
     label: "menu.list-of-applicans",
     to: `/grama/list-of-applicans`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices],
@@ -897,7 +897,7 @@ const data = [
   },
   {
     id: "aprove-agents",
-    icon: "iconsminds-add-user",
+    icon: "simple-icon-user-following",
     label: "menu.aprove-agents",
     to: `/grama/aprove-agents`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
