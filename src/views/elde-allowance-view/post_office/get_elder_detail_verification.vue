@@ -19,9 +19,9 @@
 				</b-colxx>
 				<b-colxx lg="6" md="12" class="mb-4">
 					<div class="m-4">
-							<h2 class="text-center m-4">Elder Information</h2>
+							<h2 class="text-center m-4">Elder's Information</h2>
 
-						<p class="text-muted text-small mb-2">Elder Address:</p>
+						<p class="text-muted text-small mb-2">Address:</p>
 						<p class="mb-3">{{elder.address}}</p>
 
 						<p class="text-muted text-small mb-2">Sex:</p>
@@ -51,13 +51,9 @@
 					<p class="mb-3 text-center text-danger text-large">{{agent.nic}}</p>
 				</b-colxx>
 				<b-colxx  v-if="agent.name" lg="6" md="12" class="mb-4">
-							<h2 class="text-center m-4">Guardian Information</h2>
+							<h2 class="text-center m-4">Guardian's Information</h2>
 
-							<p class="text-muted text-small mb-2">Name</p>
-							<p class="mb-3">{{agent.name}}</p>
-
-							<p class="text-muted text-small mb-2">NIC</p>
-							<p class="mb-3">{{agent.nic}}</p>
+							
 
 							<p class="text-muted text-small mb-2">Address</p>
 							<p class="mb-3">{{agent.address}}</p>

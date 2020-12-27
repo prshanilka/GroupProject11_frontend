@@ -5,19 +5,9 @@
 				<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
 			<elder-details :id="clickedid" />
 		</b-modal>
-				<datatable-heading
-					title="List of Benifishers in My Division"
-					:selectAll="selectAll"
-					:isSelectedAll="isSelectedAll"
-					:isAnyItemSelected="isAnyItemSelected"
-					:keymap="keymap"
-					:changePageSize="changePageSize"
-					:searchChange="searchChange"
-					:from="from"
-					:to="to"
-					:total="total"
-					:perPage="perPage"
-				></datatable-heading>
+				<b-colxx xl="10" lg="12" class="text-center" style="margin:auto ">
+					<h1 class="text-large " >Beneficiaries</h1>
+				</b-colxx>
 				<b-row>
 					<b-colxx xxs="12">
 						<vuetable
@@ -47,20 +37,7 @@
 					</b-colxx>
 				</b-row>
 
-				<v-contextmenu ref="contextmenu">
-					<v-contextmenu-item @click="onContextMenuAction('copy')">
-						<i class="simple-icon-docs" />
-						<span>Copy</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-						<i class="simple-icon-drawer" />
-						<span>Move to archive</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('delete')">
-						<i class="simple-icon-trash" />
-						<span>Delete</span>
-					</v-contextmenu-item>
-				</v-contextmenu>
+				
 			</b-overlay>
 		</div>
 		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>

@@ -38,7 +38,7 @@
 			<b-row>
 				<b-colxx lg="12" xs="12" class="text-center" style="margin:auto ">
 					<b-card class="mb-4 text-center">
-						<h2 class="mb-4 text-large text-primary">Count Of Beneficiaries In My Division</h2>
+						<h2 class="mb-4 text-large text-primary">No Of Beneficiaries In Division</h2>
 						<p class="text-xlarge text-danger">{{bcount.count}}</p>
 					</b-card>
 				</b-colxx>
