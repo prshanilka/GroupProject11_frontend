@@ -1,16 +1,12 @@
 <template>
 	<div>
-		<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-			<h1>View Elder Detail</h1>
-		</b-colxx>
-
 		<b-card no-body class="mb-4">
 			<b-row>
 				<b-colxx lg="6" md="12" class="mb-4">
 					<div class="position-absolute card-top-buttons"></div>
 					<single-lightbox
-						thumb="/assets/img/profiles/def.png"
-						large="/assets/img/profiles/def.png"
+						:thumb="img"
+						:large="img"
 						class-name="card-img-top "
 						class="m-4"
 					/>
@@ -99,7 +95,7 @@
 import AppLayout from "../../../layouts/EAppLayout";
 import SingleLightbox from "../../../containers/pages/SingleLightbox";
 import axios from "axios";
-
+import {bUrl} from '../../../constants/config'
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
 
@@ -113,6 +109,7 @@ export default {
 		return {
 			submit_div: true,
 			elder: {},
+			img: "",
 			grama_comment: ""
 		};
 	},
@@ -137,6 +134,22 @@ export default {
 						 this.elder.age =  (new Date().getFullYear() -  new Date(this.elder.birth_day).getFullYear() );
 
 			// this.aplications = result.data.data;
+		});
+
+		const body = {
+				id:this.id,
+				role_id:"10"
+			}
+			axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+		}).catch(cc => {
+			console.log(cc);
+			this.img = "/assets/img/profiles/def.png"
 		});
 	},
 	methods: {

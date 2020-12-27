@@ -16,7 +16,7 @@
 						 
  
 
-						<b-form-group label="Message to Send Eldes" class="error-l-100">
+						<b-form-group label="Message" class="error-l-100">
 							<b-form-textarea
 								type="text"
 								v-model="$v.message.$model"

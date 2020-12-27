@@ -100,9 +100,9 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladhari Reviwe About the Elder">
+						<b-card class="mb-4" title="Gramaniladari's Comment">
 							<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-								<b-form-group label="Grama Niladari Comment">
+								<b-form-group >
 									<b-form-textarea
 										type="text"
 										v-model="$v.grama_comment.$model"
@@ -118,10 +118,10 @@
 								</b-form-group>
 								<b-row>
 									<b-colxx lg="6" md="12" class="mb-4 text-right">
-										<b-button type="button" variant="primary" @click.prevent="accept">Aprove</b-button>
+										<b-button type="button" variant="outline-success" @click.prevent="accept">Approve</b-button>
 									</b-colxx>
 									<b-colxx lg="6" md="12" class="mb-4">
-										<b-button type="submit" variant="primary">Disqualify</b-button>
+										<b-button type="submit" variant="outline-danger">Disqualify</b-button>
 									</b-colxx>
 								</b-row>
 							</b-form>

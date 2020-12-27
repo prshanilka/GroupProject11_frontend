@@ -37,15 +37,7 @@
 							@vuetable:loading="show=true"
 							@vuetable:load-success="show=false"
 						>
-							<template slot="actions1" slot-scope="props">
-								<b-button
-									class="mb-2"
-									v-b-modal.modallg
-									@click="clickedid = props.rowData.elder_id"
-									size="small"
-									variant="outline-primary"
-								>View</b-button>
-							</template>
+							
 						</vuetable>
 						<vuetable-pagination-bootstrap
 							class="mt-4"
@@ -118,15 +110,15 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "20%"
+					width: "15%"
 				},
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -134,15 +126,15 @@ export default {
 				{
 					name: "address",
 					sortField: "address",
-					title: "address",
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "25%"
 				},
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone Number",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -150,17 +142,10 @@ export default {
 				{
 					name: "email",
 					sortField: "email",
-					title: "email",
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
-				},
-				{
-					name: "__slot:actions1",
-					title: "",
-					titleClass: "center aligned text-right",
-					dataClass: "center aligned text-right",
-					width: "25%"
 				}
 			]
 		};
@@ -175,7 +160,7 @@ export default {
 				{ title: "Address", dataKey: "address" },
 				{ title: "NIC", dataKey: "nic_id" },
 				{ title: "Phone Number", dataKey: "number" },
-				{ title: "email", dataKey: "email" },
+				{ title: "Email", dataKey: "email" },
 			];
 			var doc = new jsPDF("p", "pt");
 			doc.text("List Of Benifishers", 200, 70);

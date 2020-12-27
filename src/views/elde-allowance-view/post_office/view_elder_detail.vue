@@ -1,9 +1,6 @@
 <template>
 	<div>
-		<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-			<h1>View  Elder Detail</h1>
-		</b-colxx>
-
+		
 		<b-card no-body class="mb-4">
 			<b-row>
 				<b-colxx lg="6" md="12" class="mb-4">

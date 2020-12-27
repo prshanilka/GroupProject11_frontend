@@ -6,12 +6,11 @@
 					<elder-details :id="clickedid" />
 				</b-modal>
 				<b-modal id="modalnotify" size="lg" title="Notify Elders" hide-footer>
-					 <h1>Notify elders</h1>
 					 <notifysms/>
 				</b-modal>
 
 				<datatable-heading
-					title="The List Of Benifishers that registerd To the Post Office"
+					title="Beneficiary List"
 					:selectAll="selectAll"
 					:isSelectedAll="isSelectedAll"
 					:isAnyItemSelected="isAnyItemSelected"
@@ -131,7 +130,7 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "20%"
@@ -139,7 +138,7 @@ export default {
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -147,7 +146,7 @@ export default {
 				{
 					name: "address",
 					sortField: "address",
-					title: "address",
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -155,7 +154,7 @@ export default {
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone Number",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "25%"
@@ -163,7 +162,7 @@ export default {
 				{
 					name: "email",
 					sortField: "email",
-					title: "email",
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "25%"
@@ -194,7 +193,7 @@ export default {
 			var doc = new jsPDF("p", "pt");
 			doc.setFontSize("15");
 			doc.text(
-				"The List Of Benifishers that registerd To the Post Office",
+				"The list of beneficiary that registerd to the postoffice",
 				150,
 				40
 			);
@@ -223,7 +222,7 @@ export default {
 			// );
 			// doc.text("Date", 80, 780);
 			// doc.text("Postmaster", 320, 780);
-			doc.save("dummy" + ".pdf");
+			doc.save("beneficiarylist" + ".pdf");
 		},
 		getData() {
 			return axios.get("/postoffice/benfisherslist").then(res => {
