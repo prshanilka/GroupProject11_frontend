@@ -81,7 +81,9 @@
     "details": "Details",
     "view": "View",
     "fillapplication" : "Fill Application",
-    "divisionalofiicerver" : "Verification from Divisional office"
+    "divisionalofiicerver" : "Verification from Divisional office",
+    "updateapplication" :"Update Application",
+    "notification":"Your Application is submitted"
   },
   "wizard": {
     "step-name-1": "Step 1",

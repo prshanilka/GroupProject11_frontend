@@ -112,7 +112,7 @@
 					>
 						<template slot="button-content">
 							<i class="simple-icon-bell" />
-							<span class="count">3</span>
+							<!-- <span class="count">3</span> -->
 						</template>
 						<vue-perfect-scrollbar :settings="{ suppressScrollX: true, wheelPropagation: false }">
 							<div
