@@ -1,6 +1,6 @@
 <template>
 	<b-colxx md="6" sm="6" lg="4" xxs="12">
-		<b-card class="mb-4 text-center">
+		<b-card style="min-height:500px"  class="mb-4 text-center">
 			<router-link tag="a" :to="detailPath">
 				<div class="icon-row-item">
 					<i class="iconsminds-dollar-sign-2 text-xlarge" />
