@@ -2,9 +2,9 @@
   <div>
           <user-card-elder></user-card-elder>
         <b-row >
-          
+                      <b-alert show variant="danger" v-if="EApplicationStatus.correction">{{ $t(EApplicationStatus.correction) }}</b-alert>
           <b-colxx lg="4" xl="12" class="mb-4" v-if="EApplicationStatus.success != 0 && EApplicationStatus.presentage != 0" >
-            <b-alert show variant="danger" v-if="EApplicationStatus.correction">{{ $t(EApplicationStatus.correction) }}</b-alert>
+
               <b-card class="mb-4 text-center">
                   <h1>Application Status</h1>
               </b-card>
