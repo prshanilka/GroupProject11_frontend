@@ -254,8 +254,8 @@ const data = [
         to: `/sysadmin/list-of-post-office`
       },
       {
-        icon: "iconsminds-post-office",
-        label: "menu.list-of-post-office",
+        icon: "simple-icon-people",
+        label: "menu.list-of-post-officers",
         to: `/sysadmin/list-of-postofficers`
       },{
         icon: "iconsminds-post-office",

@@ -29,11 +29,11 @@
 						>{{$t('form.v-address')}}</b-form-invalid-feedback>
 					</b-form-group>
 
-	 
+	 				<b-form-group :label="$t('form.photo')">
 						<b-input-group :label="$t('input-groups.upload')" class="mb-3">
               				  <b-form-file   @change="onFileChange"  :placeholder="$t('input-groups.choose-file')"></b-form-file>
             			</b-input-group>
-	 
+	 				</b-form-group>
 
 					<b-form-group :label="$t('form.nic')">
 						<b-form-input type="text" v-model="$v.elder.nic_no.$model" :state="!$v.elder.nic_no.$error" />
