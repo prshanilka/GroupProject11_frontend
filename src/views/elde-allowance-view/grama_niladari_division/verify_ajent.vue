@@ -23,10 +23,10 @@
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="m-4">
 							<h2 class="text-center m-4">Elder's Informaion</h2>
-							<p class="text-muted text-small mb-2">Elder Full Name</p>
+							<p class="text-muted text-small mb-2">Full Name</p>
 							<p class="mb-3">{{elder.name}}</p>
 
-							<p class="text-muted text-small mb-2">Elder Address</p>
+							<p class="text-muted text-small mb-2">Address</p>
 							<p class="mb-3">{{elder.address}}</p>
 
 							<p class="mb-3">
@@ -61,21 +61,21 @@
 							/>
 						</b-colxx>
 						<b-colxx lg="6" md="12" class="mb-4">
-							<h2 class="text-center m-4">Guardian Information</h2>
+							<h2 class="text-center m-4">Guardian's Information</h2>
 
-							<p class="text-muted text-small mb-2">Guardian Name</p>
+							<p class="text-muted text-small mb-2">Full Name</p>
 							<p class="mb-3">{{agent.name}}</p>
 
 							<p class="text-muted text-small mb-2">NIC</p>
 							<p class="mb-3">{{agent.nic}}</p>
 
-							<p class="text-muted text-small mb-2">Guardian Address</p>
+							<p class="text-muted text-small mb-2">Address</p>
 							<p class="mb-3">{{agent.address}}</p>
 
-							<p class="text-muted text-small mb-2">Guardian Phone Number</p>
+							<p class="text-muted text-small mb-2">Phone Number</p>
 							<p class="mb-3">{{agent.phone}}</p>
 
-							<p class="text-muted text-small mb-2">Guardian Email</p>
+							<p class="text-muted text-small mb-2">Email</p>
 							<p class="mb-3">{{agent.email}}</p>
 
 							<p class="text-muted text-small mb-2">Relationship With Elder</p>
@@ -83,7 +83,7 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Gramaniladari's Comment">
+						<b-card class="mb-4" title="Additional Details">
 							<b-form class="av-tooltip tooltip-label-right">
 								<b-form-group>
 									<b-form-textarea
@@ -211,6 +211,9 @@ export default {
 						messsage: this.body
 					})
 				);
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 40);
 				this.submit_ag = !this.submit_ag;
 			}
 		},
@@ -240,6 +243,9 @@ export default {
 						messsage: this.body
 					})
 				);
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 40);
 				this.submit_ag = !this.submit_ag;
 			}
 		}

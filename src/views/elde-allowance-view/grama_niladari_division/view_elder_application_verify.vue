@@ -26,10 +26,10 @@
 					</b-colxx>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="m-4">
-							<p class="text-muted text-small mb-2">Elder Full Name</p>
+							<p class="text-muted text-small mb-2">Full Name</p>
 							<p class="mb-3">{{elder.name}}</p>
 
-							<p class="text-muted text-small mb-2">Elder Address</p>
+							<p class="text-muted text-small mb-2">Address</p>
 							<p class="mb-3">{{elder.address}}</p>
 
 							<p class="mb-3">
@@ -100,7 +100,7 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Gramaniladari's Comment">
+						<b-card class="mb-4" title="Additional Details">
 							<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
 								<b-form-group >
 									<b-form-textarea

@@ -46,9 +46,9 @@
 <script>
 import FormWizard from "../../components/elders_component/elder_form/grama_div_elder_wizad/grama_div_ElFormWizad";
 import Tab from "../../components/elders_component/elder_form/grama_div_elder_wizad/grama_div_elTab";
-import elderformcon1 from "./elderForrms/elderform-con-1.vue";
-import elderformcon2 from "./elderForrms/elderform-con-2.vue";
-import elderformcon3 from "./elderForrms/elderform-con-3.vue";
+import elderformcon1 from "./gramaDivelderForm/elderform-con-1.vue";
+import elderformcon2 from "./gramaDivelderForm/elderform-con-2.vue";
+import elderformcon3 from "./gramaDivelderForm/elderform-con-3.vue";
 
 export default {
 	components: {

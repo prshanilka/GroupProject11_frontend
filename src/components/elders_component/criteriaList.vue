@@ -38,6 +38,10 @@ export default {
 				.catch(err => {
 						console.log(err);
 				});
+
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 			}
 		}
 };

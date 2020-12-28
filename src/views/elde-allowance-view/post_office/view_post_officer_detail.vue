@@ -26,7 +26,7 @@
 				<b-row>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-relative">
-							<img src="/assets/img/profiles/7.jpg" class="card-img-top" />
+							<img :src="img" class="card-img-top" />
 						</div>
 					</b-colxx>
 
@@ -86,7 +86,7 @@ import AppLayout from "../../../layouts/EAppLayout";
 import SingleLightbox from "../../../containers/pages/SingleLightbox";
 import axios from "axios";
 import ElderDetails from "../../../containers/elder-alowance/upadate_post_officer";
-
+import {bUrl} from '../../../constants/config'
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
 
@@ -99,7 +99,8 @@ export default {
 	data() {
 		return {
 			details: {},
-			off_id: null
+			off_id: null,
+			img: ""
 		};
 	},
 	props: ["id"],
@@ -111,6 +112,22 @@ export default {
 		}).then(res => {
 			console.log(res);
 			this.details = res.data.data;
+		});
+
+		const body = {
+				id:this.id,
+				role_id:"30"
+			}
+			axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+		}).catch(cc => {
+			console.log(cc);
+			this.img = "/assets/img/profiles/def.png"
 		});
 	},
 	methods: {

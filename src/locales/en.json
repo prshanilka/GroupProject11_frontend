@@ -51,14 +51,23 @@
     "e-number": "Please enter your phone number",
     "v-number": "Your phone number must be only 10 numbers",
     "n-number": "Value must be a Number",
-    "vaid-no": "Value must be a Valid Number",
+
+    "vaid-no":"Value must be a Valid Phone Number",
+
     "e-mail": "Please enter your email address",
     "v-mail": "Please enter valid email address",
     "e-district": "Please select District",
     "e-divisional": "Please select Divisional Office",
     "e-grama": "Please select Grama Niladari Division",
     "post": "Nearest Post Office",
-    "e-post": "Please Select Nearest Post Office"
+    "e-post": "Please Select Nearest Post Office",
+
+    "v-elder-id":"Your Elders Id must be between 2 and 16 characters",
+    "v-commit":"Your Local elder committe name must be between 3 and 16 characters",
+    "v-memeber":"Your committe Membership No must be between 3 and 16 characters",
+    "v-live-with":"Please enter a Lives with whome Details",
+    "v-elder-nic":"Your Elder Nic must be 10 characters"
+    
   },
   "elder": {
     "form": "Elder Registration",
@@ -77,14 +86,25 @@
     "gramaniladhari": "Gramaniladhari",
     "waiting-for-resubmit": "Waiting for resubmit",
     "divisional_officer": "Divisional officer",
-    "divisional_head": "Divisional Head",
+    "divisional_head": "Divisional secretary",
     "details": "Details",
     "view": "View",
-    "fillapplication": "Fill Application",
-    "divisionalofiicerver": "Verification from Divisional office",
-    "updateapplication": "Update Application",
-    "notification": "Your Application is submitted",
-    "gramaniladari": "Gramanildhari"
+
+    "fillapplication" : "Fill Application",
+    "divisionalofiicerver" : "Verification from Divisional office",
+    "updateapplication" :"Update Application",
+    "notification":"Your Application is submitted",
+
+    "other-e-nic":"Other Elder Nic",
+
+    "gua":"Guardian name",
+    "g-nic":"Guardian Nic ",
+    "g-no":"Guardian phone no",
+    "g-email":"Guardian's Email",
+    "g-add":"Guardian Address",
+    "g-rel":"Guardian relationship with Elder"
+  
+
   },
   "wizard": {
     "step-name-1": "Step 1",
@@ -103,7 +123,7 @@
     "async": "Async save for 3 seconds!"
   },
   "agent": {
-    "form": "Guardian's Details Form",
+    "form": "Guardian's Details ",
     "name": "Guardian's Full Name",
     "form-success": "You SuccecFully Added Guardian's Details",
     "form-register": "Guardian is registerd Now",
@@ -112,9 +132,9 @@
     "photo": "Guardian's Photo"
   },
   "officer": {
-    "d-form": "Divisional Secratary Office Officer Details Form",
-    "g-form": "Gramaniladari Officer Details Form",
-    "p-form": "Post Office Officer Details Form",
+    "d-form": "Divisional Secratary Office Officer Details ",
+    "g-form": "Gramaniladari Officer Details ",
+    "p-form": "Post Office Officer Details",
     "id": "Officer ID",
     "name": "Officer Full Name",
     "form-success": "You SuccecFully Added The Officer",
@@ -130,13 +150,13 @@
     "e-area": "Please Enter Area Related to the Officer"
   },
   "office": {
-    "d-form": "Divisional Secratary Office Details Form",
+    "d-form": "Divisional Secratary Office Details ",
     "d-success": "You SuccecFully Added The Divisional secretary Office",
     "d-register": "Divisional secratary office is registerd Now",
-    "g-form": "Gramaniladari Details Form",
+    "g-form": "Gramaniladari Details ",
     "g-success": "You SuccecFully Added The Grama Niladari Division",
     "g-register": "Gramaniladari Division is registerd Now",
-    "p-form": "Post Office Details Form",
+    "p-form": "Post Office Details ",
     "p-success": "You SuccecFully Added The Post Office",
     "p-register": "Post Office is registerd Now",
     "d-name": "Divisional Secratary Office Name",
@@ -157,7 +177,7 @@
 
   "menu": {
     "elderform": "Elder form",
-    "agentform": "Guardian Form",
+    "agentform": "Guardian ",
     "agentdetails": "Guardian Details",
     "elderlist": "Elder List",
     "elder-dashboard": "Dashboard",
@@ -206,6 +226,7 @@
     "evaluate-elder-application": "Evalate Applications",
     "get-reports": "Get Reparts",
     "list-of-elders": "List Of Elders",
+
     "list-of-grama-divisions": "Grama Niladhari Divisions",
     "list-of-gramaniladari": "Grama Niladhari",
     "list-of-post-office": "Post Offices Details",
@@ -213,17 +234,18 @@
     "view-priority-list": "Priority List ",
     "view-benifisher-list": "Beneficiaries",
 
-    "gramaniladai-division-form": "GramaNiladari Div",
-    "gramaniladai-officer": "GramaNiladari Off",
+
+    "gramaniladai-division-form": "GramaNiladari Division",
+    "gramaniladai-officer": "GramaNiladari Officer",
     "gramaniladari-dashboard": "Gramaniladari Dashboard",
-    "inform-death-of-elder": "Inform About Death",
-    "list-of-applicans": "List Of Applicans",
-    "list-of-benifishers": "List Of Beneficiaries",
+    "inform-death-of-elder": "Inform Death",
+    "list-of-applicans": "Applications",
+    "list-of-benifishers": "Beneficiaries",
     "send-complains": "Send Complains",
     "view-elder-application-verify": "Elder Verify",
     "view-elder-details": "Elder Deatails",
     "send-reports-d": "Send Reports",
-    "aprove-agents": "Aprovve Guardian",
+    "aprove-agents": "Approve Guardian",
 
     "elderlang": "Sinhala",
 
@@ -267,7 +289,7 @@
     "dropdowns": "Dropdowns",
     "editors": "Editors",
     "forms": "Forms",
-    "form-components": "Form Components",
+    "form-components": " Components",
     "icons": "Icons",
     "input-groups": "Input Groups",
     "jumbotron": "Jumbotron",
@@ -316,9 +338,9 @@
     "layouts": "Layouts",
     "validations": "Validations",
     "wizard": "Wizard",
-    "form-layouts": "Form Layouts",
-    "form-validations": "Form Validations",
-    "form-wizard": "Form Wizard",
+    "form-layouts": " Layouts",
+    "form-validations": " Validations",
+    "form-wizard": " Wizard",
     "datatables": "Datatables",
     "divided-table": "Dirived Table",
     "benifisher": "Beneficiaries",
@@ -666,7 +688,7 @@
     "tags-u": "TAGS",
     "date-u": "DATE",
     "state-u": "STATE",
-    "grid": "Form Grid",
+    "grid": " Grid",
     "address": "Address",
     "address2": "Address 2",
     "city": "City",

@@ -63,6 +63,9 @@ export default {
 						console.log(err);
 					});
 
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 				console.log(
 					JSON.stringify({
 						body: this.body

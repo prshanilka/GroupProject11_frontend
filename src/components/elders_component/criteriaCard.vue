@@ -70,6 +70,9 @@ export default {
 					})
 				);
 				this.submit_ag = !this.submit_ag;
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 			};
 		}
 	},

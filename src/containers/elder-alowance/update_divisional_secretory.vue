@@ -277,6 +277,9 @@ export default {
 					})
 				);
 				this.submit_div = !this.submit_div;
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 			}
 		}
 	}

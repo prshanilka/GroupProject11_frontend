@@ -52,6 +52,9 @@ export default {
 
 				// this.aplications = result.data.data;
 			});
+			setTimeout(() => {
+					this.$router.go(0); 
+				}, 40);
 		}
 	}
 };

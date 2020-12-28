@@ -26,7 +26,12 @@
 				<b-row>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-relative">
-							<img src="/assets/img/profiles/def.png" class="card-img-top" height="450px"   />
+						<single-lightbox
+						:thumb="img"
+						:large="img"
+						class-name="card-img-top "
+						class="m-4"
+						/>
 						</div>
 					</b-colxx>
 
@@ -84,7 +89,7 @@ import AppLayout from "../../../layouts/EAppLayout";
 import SingleLightbox from "../../../containers/pages/SingleLightbox";
 import axios from "axios";
 import ElderDetails from "../../../containers/elder-alowance/update_grma_niladari_form";
-
+import {bUrl} from '../../../constants/config'
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
 
@@ -92,12 +97,14 @@ export default {
 	name: "view-details",
 	components: {
 		AppLayout: AppLayout,
-		"elder-details": ElderDetails
+		"elder-details": ElderDetails,
+		"single-lightbox": SingleLightbox
 	},
 	data() {
 		return {
 			details: {},
-			off_id: null
+			off_id: null,
+			img: ""
 		};
 	},
 	props: ["id"],
@@ -109,9 +116,25 @@ export default {
 			url: "/gramaniladariofficer/topost/" + this.id
 		}).then(result => {
 			this.details = result.data.data;
-			console.log(result.data);
+			console.log(result.data.data);
 			// this.aplications = result.data.data;
 			this.off_id = this.id;
+		});
+
+		const body = {
+				id:"260",
+				role_id:"40"
+			}
+			axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+		}).catch(cc => {
+			console.log(cc);
+			this.img = "/assets/img/profiles/def.png"
 		});
 	},
 	methods: {

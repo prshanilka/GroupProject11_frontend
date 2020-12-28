@@ -55,6 +55,14 @@
 							>{{$t('user.v-pass')}}</b-form-invalid-feedback>
 						</b-form-group>
 
+
+						<b-form-group :label="$t('form.photo')">
+							<b-input-group :label="$t('input-groups.upload')" class="mb-3">
+              					  <b-form-file   @change="onFileChange"  :placeholder="$t('input-groups.choose-file')"></b-form-file>
+            				</b-input-group>
+	 					</b-form-group>
+
+
 						<b-form-group :label="$t('form.nic')">
 							<b-form-input
 								type="text"
@@ -62,6 +70,7 @@
 								:state="!$v.gramaniladari_officer.nic.$error"
 							/>
 							<b-form-invalid-feedback v-if="!$v.gramaniladari_officer.nic.required">{{$t('form.e-nic')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-if="!$v.gramaniladari_officer.nic.validnic">{{$t('form.e-valid')}}</b-form-invalid-feedback>
 							<b-form-invalid-feedback
 								v-else-if="!$v.gramaniladari_officer.nic.minLength || !$v.gramaniladari_officer.nic.maxLength"
 							>{{$t('form.v-nic')}}</b-form-invalid-feedback>
@@ -76,6 +85,7 @@
 							<b-form-invalid-feedback
 								v-if="!$v.gramaniladari_officer.phone.required"
 							>{{$t('form.e-number')}}</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-else-if="!$v.gramaniladari_officer.phone.validphone">{{$t('form.vaid-no')}}</b-form-invalid-feedback>
 							<b-form-invalid-feedback
 								v-else-if="!$v.gramaniladari_officer.phone.minLength || !$v.gramaniladari_officer.phone.maxLength"
 							>{{$t('form.v-number')}}</b-form-invalid-feedback>
@@ -156,6 +166,10 @@ const {
 
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
 
+const validnic =  helpers.regex("upperCase", /^(?:19|20)?\d{2}(?:[0-35-8]\d\d(?<!(?:000|500|36[7-9]|3[7-9]\d|86[7-9]|8[7-9]\d)))\d{4}(?:[vVxX])$/);
+const validphone = helpers.regex("upperCase", /^(?:0|94|\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|5|6|7|8)\d)\d{6}$/);
+
+
 export default {
 	data() {
 		return {
@@ -165,6 +179,7 @@ export default {
 				name: "",
 				uname: "",
 				pword: "",
+				img:"",
 				nic: "",
 				phone: "",
 				email: "",
@@ -216,11 +231,13 @@ export default {
 			},
 			nic: {
 				required,
+				validnic,
 				minLength: minLength(10),
 				maxLength: maxLength(10)
 			},
 			phone: {
 				required,
+				validphone,
 				minLength: minLength(10),
 				maxLength: maxLength(10)
 			},
@@ -298,7 +315,8 @@ export default {
 					uname: this.gramaniladari_officer.uname,
 					pword: this.gramaniladari_officer.pword,
 					email: this.gramaniladari_officer.email,
-					role: this.gramaniladari_officer.role
+					role: this.gramaniladari_officer.role,
+					profile:this.gramaniladari_officer.img
 				};
 				const body = {
 					Officer,
@@ -326,6 +344,25 @@ export default {
 
 				this.submit_ag = !this.submit_ag;
 			}
+		},
+		onFileChange(e){
+			   const selectedFile = e.target.files[0]; // accessing file
+				  this.file = selectedFile;
+				  console.log(this.file);
+				  const formData = new FormData();
+      				formData.append("file", this.file);  // appending file
+
+     // sending file to the backend
+      axios
+        .post("/upload/profile", formData)
+        .then(res => {
+		  console.log(res.data.path);
+		  this.gramaniladari_officer.img=res.data.path;
+
+        })
+        .catch(err => {
+          console.log(err);
+        });
 		}
 	}
 };

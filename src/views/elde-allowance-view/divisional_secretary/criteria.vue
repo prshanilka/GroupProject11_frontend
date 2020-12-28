@@ -6,7 +6,7 @@
 		    </b-modal>
             <b-row>
                 <b-colxx xl="12" lg="10" class="text-center">
-		            <h1 class="text-center">List Of Criterias</h1>
+		            <h1 class="text-center">Criterias</h1>
                 </b-colxx>
             </b-row>
             <b-row>
@@ -55,7 +55,8 @@ export default {
 		
 		axios.get("/marks/criteria/").then(result => {
 			console.log(result.data.data[0]);
-			this.criteria = result.data.data;
+            this.criteria = result.data.data;
+            
         });
     },
     computed: {
