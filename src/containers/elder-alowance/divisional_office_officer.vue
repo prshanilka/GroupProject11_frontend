@@ -229,11 +229,11 @@ export default {
 					text:"Divisional Head"
 				},
 				{
-					value: 20,
+					value: 24,
 					text:"Divisional Officer"
 				},
 				{
-					value: 24,
+					value: 20,
 					text:"Field Officer"
 				}
 			]

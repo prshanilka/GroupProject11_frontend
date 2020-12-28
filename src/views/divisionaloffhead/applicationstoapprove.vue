@@ -75,7 +75,7 @@ import AppLayout from "../../layouts/EAppLayout";
 import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../components/Common/VuetablePaginationBootstrap";
 import { bUrl } from "../../constants/config";
-import DatatableHeading from "../../containers/elder-alowance/datatable/DatatableHeading";
+import DatatableHeading from "../../containers/elder-alowance/datatable/DatatableHeading1";
 import ElderDetails from "./components/view_elder_application_verify"
 import marksSection from "./components/marks"
 import StateButton from "../../components/Common/StateButton";
