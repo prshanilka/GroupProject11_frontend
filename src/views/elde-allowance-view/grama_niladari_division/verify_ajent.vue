@@ -14,23 +14,23 @@
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
-							thumb="../../assets/img/profiles/def.png"
-							large="../assets/img/profiles/def.png"
+							:thumb="img"
+							:large="img"
 							class-name="card-img-top "
 							class="m-4"
 						/>
 					</b-colxx>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="m-4">
-							<h2 class="text-center m-4">Elder Details</h2>
-							<p class="text-muted text-small mb-2">Elder Full Name</p>
+							<h2 class="text-center m-4">Elder's Informaion</h2>
+							<p class="text-muted text-small mb-2">Full Name</p>
 							<p class="mb-3">{{elder.name}}</p>
 
-							<p class="text-muted text-small mb-2">Elder Address</p>
+							<p class="text-muted text-small mb-2">Address</p>
 							<p class="mb-3">{{elder.address}}</p>
 
 							<p class="mb-3">
-								<span class="text-muted text-small mb-2">Sex:</span>{{elder.sex}}
+								<span class="text-muted text-small mb-2">Sex:</span> {{elder.sex}}
 							</p>
 							<p class="mb-3">
 								<span class="text-muted text-small mb-2">Phone No:</span> {{elder.number}}
@@ -54,25 +54,25 @@
 						<b-colxx lg="6" md="12" class="mb-4">
 							<div class="position-absolute card-top-buttons"></div>
 							<single-lightbox
-								thumb="../assets/img/profiles/def.png"
-								large="../assets/img/profiles/def.png"
+								:thumb="agent.pic"
+								:large="agent.pic"
 								class-name="card-img-top "
 								class="m-4"
 							/>
 						</b-colxx>
 						<b-colxx lg="6" md="12" class="mb-4">
-							<h2 class="text-center m-4">Guardian Information</h2>
+							<h2 class="text-center m-4">Guardian's Information</h2>
 
-							<p class="text-muted text-small mb-2">Agent Name</p>
+							<p class="text-muted text-small mb-2">Full Name</p>
 							<p class="mb-3">{{agent.name}}</p>
 
 							<p class="text-muted text-small mb-2">NIC</p>
 							<p class="mb-3">{{agent.nic}}</p>
 
-							<p class="text-muted text-small mb-2">Agent Address</p>
+							<p class="text-muted text-small mb-2">Address</p>
 							<p class="mb-3">{{agent.address}}</p>
 
-							<p class="text-muted text-small mb-2">Agent Phone Number</p>
+							<p class="text-muted text-small mb-2">Phone Number</p>
 							<p class="mb-3">{{agent.phone}}</p>
 
 							<p class="text-muted text-small mb-2">Email</p>
@@ -83,9 +83,9 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladari Rewiwe About the Elders Guardian">
+						<b-card class="mb-4" title="Additional Details">
 							<b-form class="av-tooltip tooltip-label-right">
-								<b-form-group label="Grama Niladari Comment">
+								<b-form-group>
 									<b-form-textarea
 										type="text"
 										v-model="$v.grama_comment.$model"
@@ -101,12 +101,12 @@
 								</b-form-group>
 								<b-row>
 									<b-colxx lg="6" md="6" class="mb-4 text-center">
-										<b-button type="button" variant="primary" @click.prevent="sssss">Aprove Guardian</b-button>
+										<b-button type="button" variant="outline-success" @click.prevent="sssss">Approve Guardian</b-button>
 									</b-colxx>
 									<b-colxx lg="6" md="6" class="mb-4 text-center">
 										<b-button
 											type="button"
-											variant="primary"
+											variant="outline-danger"
 											@click.prevent="onValitadeFormSubmit"
 										>Disqualify Guardian</b-button>
 									</b-colxx>
@@ -125,7 +125,7 @@ import SingleLightbox from "../../../containers/pages/SingleLightbox";
 import axios from "axios";
 import { validationMixin } from "vuelidate";
 const { required, maxLength, minLength } = require("vuelidate/lib/validators");
-
+import  {bUrl} from '../../../constants/config';
 export default {
 	name: "aprove-Guardian",
 	components: {
@@ -134,7 +134,8 @@ export default {
 	data() {
 		return {
 			submit_ag: true,
-			grama_comment: "	",
+			img:"",
+			grama_comment: "",
 			agent: [],
 			elder: []
 		};
@@ -145,17 +146,35 @@ export default {
 			method: "get",
 			url: "/elders/" + this.id
 		}).then(result => {
-			this.elder = result.data.data,
-			console.log(this.id);
-			console.log(result.data.data)
+			this.elder = result.data.data;
+			this.elder.birth_day = this.elder.birth_day.split("T", 1)[0];
+			console.log(result.data.data);
+			// this.aplications = result.data.data;
+		});
+		const body = {
+				id:this.id,
+				role_id:"10"
+			}
+			axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			// console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+			 
+		}).catch(cc => {
+			console.log(cc);
+			this.img = "/assets/img/profiles/def.png"
 		});
 		axios({
 			method: "get",
 			url: "/agent/aid/" + this.aid
 		}).then(result => {
 			this.agent = result.data.data,
-			console.log(this.aid);
-			console.log(result.data.data)
+			this.agent.pic = bUrl + this.agent.pic;
+			// console.log(this.aid);
+			// console.log(result.data.data)
 		});
 	},
 	mixins: [validationMixin],
@@ -192,6 +211,9 @@ export default {
 						messsage: this.body
 					})
 				);
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 40);
 				this.submit_ag = !this.submit_ag;
 			}
 		},
@@ -221,6 +243,9 @@ export default {
 						messsage: this.body
 					})
 				);
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 40);
 				this.submit_ag = !this.submit_ag;
 			}
 		}

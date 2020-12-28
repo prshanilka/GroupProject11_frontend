@@ -1,24 +1,11 @@
- 
- 
- <template>
+<template>
 	<AppLayout>
-		<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+		<b-modal id="modallg" size="xl" title="Elder And Guardian Verification" hide-footer>
 			<elder-details :id="clickedid" :pay_id="pay_id" />
 		</b-modal>
 		<div>
 			<h1>{{title}}</h1>
-			<datatable-heading
-				:selectAll="selectAll"
-				:isSelectedAll="isSelectedAll"
-				:isAnyItemSelected="isAnyItemSelected"
-				:keymap="keymap"
-				:changePageSize="changePageSize"
-				:searchChange="searchChange"
-				:from="from"
-				:to="to"
-				:total="total"
-				:perPage="perPage"
-			></datatable-heading>
+			
 			<b-row>
 				<b-colxx xxs="12">
 					<vuetable
@@ -55,20 +42,7 @@
 				</b-colxx>
 			</b-row>
 
-			<v-contextmenu ref="contextmenu">
-				<v-contextmenu-item @click="onContextMenuAction('copy')">
-					<i class="simple-icon-docs" />
-					<span>Copy</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-					<i class="simple-icon-drawer" />
-					<span>Move to archive</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('delete')">
-					<i class="simple-icon-trash" />
-					<span>Delete</span>
-				</v-contextmenu-item>
-			</v-contextmenu>
+			
 		</div>
 		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>
 	</AppLayout>
@@ -121,7 +95,7 @@ export default {
 				{
 					name: "id",
 					sortField: "payment_id",
-					title: "payment_id",
+					title: "Payment Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "5%"
@@ -129,7 +103,7 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "12%"
@@ -137,7 +111,7 @@ export default {
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "12%"
@@ -145,7 +119,7 @@ export default {
 				{
 					name: "money_amount",
 					sortField: "money_amount",
-					title: "money_amount",
+					title: "Amount of Money",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "15%"
@@ -153,7 +127,7 @@ export default {
 				{
 					name: "ajent_available",
 					sortField: "ajent_available",
-					title: "ajent_available",
+					title: "Guardian Available",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
@@ -162,7 +136,7 @@ export default {
 				{
 					name: "nic_id",
 					sortField: "nic_id",
-					title: "nic_id",
+					title: "NIC",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "15%"
@@ -171,7 +145,7 @@ export default {
 				{
 					name: "number",
 					sortField: "number",
-					title: "number",
+					title: "Number",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "15%"
@@ -179,7 +153,7 @@ export default {
 				{
 					name: "is_taken_money",
 					sortField: "is_taken_money",
-					title: "revive",
+					title: "Review",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "5%"
@@ -259,11 +233,10 @@ export default {
 					this.p_name = res.data.data[0].post;
 					console.log(this.m_name);
 					(this.title =
-						"The Year  " +
-						this.year +
-						" " +
 						this.m_name +
-						" Payment Info  " +
+						" of " +
+						this.year +
+						", Payment Info  " +
 						res.data.data[0].post +
 						"(" +
 						this.post_off +

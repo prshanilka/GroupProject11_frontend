@@ -5,19 +5,9 @@
 				<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
 			<elder-details :id="clickedid" />
 		</b-modal>
-				<datatable-heading
-					title="List of Benifishers in My Division"
-					:selectAll="selectAll"
-					:isSelectedAll="isSelectedAll"
-					:isAnyItemSelected="isAnyItemSelected"
-					:keymap="keymap"
-					:changePageSize="changePageSize"
-					:searchChange="searchChange"
-					:from="from"
-					:to="to"
-					:total="total"
-					:perPage="perPage"
-				></datatable-heading>
+				<b-colxx xl="10" lg="12" class="text-center" style="margin:auto ">
+					<h1 class="text-large " >Beneficiaries</h1>
+				</b-colxx>
 				<b-row>
 					<b-colxx xxs="12">
 						<vuetable
@@ -37,15 +27,7 @@
 							@vuetable:loading="show=true"
 							@vuetable:load-success="show=false"
 						>
-							<template slot="actions1" slot-scope="props">
-								<b-button
-									class="mb-2"
-									v-b-modal.modallg
-									@click="clickedid = props.rowData.elder_id"
-									size="small"
-									variant="outline-primary"
-								>View</b-button>
-							</template>
+							
 						</vuetable>
 						<vuetable-pagination-bootstrap
 							class="mt-4"
@@ -55,20 +37,7 @@
 					</b-colxx>
 				</b-row>
 
-				<v-contextmenu ref="contextmenu">
-					<v-contextmenu-item @click="onContextMenuAction('copy')">
-						<i class="simple-icon-docs" />
-						<span>Copy</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-						<i class="simple-icon-drawer" />
-						<span>Move to archive</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('delete')">
-						<i class="simple-icon-trash" />
-						<span>Delete</span>
-					</v-contextmenu-item>
-				</v-contextmenu>
+				
 			</b-overlay>
 		</div>
 		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>
@@ -118,15 +87,15 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "20%"
+					width: "15%"
 				},
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -134,15 +103,15 @@ export default {
 				{
 					name: "address",
 					sortField: "address",
-					title: "address",
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "25%"
 				},
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone Number",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -150,17 +119,10 @@ export default {
 				{
 					name: "email",
 					sortField: "email",
-					title: "email",
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
-				},
-				{
-					name: "__slot:actions1",
-					title: "",
-					titleClass: "center aligned text-right",
-					dataClass: "center aligned text-right",
-					width: "25%"
 				}
 			]
 		};
@@ -175,7 +137,7 @@ export default {
 				{ title: "Address", dataKey: "address" },
 				{ title: "NIC", dataKey: "nic_id" },
 				{ title: "Phone Number", dataKey: "number" },
-				{ title: "email", dataKey: "email" },
+				{ title: "Email", dataKey: "email" },
 			];
 			var doc = new jsPDF("p", "pt");
 			doc.text("List Of Benifishers", 200, 70);

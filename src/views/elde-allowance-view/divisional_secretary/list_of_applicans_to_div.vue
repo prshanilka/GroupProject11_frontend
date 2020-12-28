@@ -19,7 +19,7 @@
 
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
-import ListWithUserItem from "../../../components/elders_component/applicantListItem";
+import ListWithUserItem from "../../../components/elders_component/ElderListItem.vue";
 import LogList from "../../../components/Listing/LogList";
 
 import axios from "axios";

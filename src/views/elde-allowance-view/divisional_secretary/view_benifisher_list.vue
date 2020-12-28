@@ -1,19 +1,11 @@
 <template>
 	<AppLayout>
 		<div>
-			<datatable-heading
-				:title="$t('menu.benifisher')"
-				:selectAll="selectAll"
-				:isSelectedAll="isSelectedAll"
-				:isAnyItemSelected="isAnyItemSelected"
-				:keymap="keymap"
-				:changePageSize="changePageSize"
-				:searchChange="searchChange"
-				:from="from"
-				:to="to"
-				:total="total"
-				:perPage="perPage"
-			></datatable-heading>
+			<b-row>
+				<h1>Beneficiaries</h1>
+				<div class="border-top my-3"></div>
+				<hr>
+			</b-row>
 			<b-row>
 				<b-colxx xxs="12">
 					<vuetable
@@ -25,39 +17,17 @@
 						:per-page="perPage"
 						:reactive-api-url="true"
 						:fields="fields"
-						q
-						pagination-path
+
 						:row-class="onRowClass"
-						@vuetable:pagination-data="onPaginationData"
-						@vuetable:row-clicked="rowClicked"
-						@vuetable:cell-rightclicked="rightClicked"
+
 					>
-						<template slot="actions" slot-scope="props">
-							<b-form-checkbox :checked="selectedItems.includes(props.rowData.id)" class="itemCheck mb-0"></b-form-checkbox>
-						</template>
+	
 					</vuetable>
-					<vuetable-pagination-bootstrap
-						class="mt-4"
-						ref="pagination"
-						@vuetable-pagination:change-page="onChangePage"
-					/>
+	
 				</b-colxx>
 			</b-row>
 
-			<v-contextmenu ref="contextmenu">
-				<v-contextmenu-item @click="onContextMenuAction('copy')">
-					<i class="simple-icon-docs" />
-					<span>Copy</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-					<i class="simple-icon-drawer" />
-					<span>Move to archive</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('delete')">
-					<i class="simple-icon-trash" />
-					<span>Delete</span>
-				</v-contextmenu-item>
-			</v-contextmenu>
+		
 		</div>
 	</AppLayout>
 </template>
@@ -95,15 +65,15 @@ export default {
 			fields: [
 				{
 					name: "benifesher_id",
-					sortField: "benifesher_id",
-					title: "BenFisher Id",
+
+					title: "Beneficiary Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "5%"
 				},
 				{
 					name: "elder_id",
-					sortField: "elder_id",
+
 					title: "Elder Id",
 					titleClass: "",
 					dataClass: "text-muted",
@@ -112,7 +82,7 @@ export default {
 
 				{
 					name: "name",
-					sortField: "name",
+
 					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
@@ -120,15 +90,15 @@ export default {
 				},
 				{
 					name: "address",
-					sortField: "address",
-					title: "address",
+
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
 				},
 				{
 					name: "number",
-					sortField: "number",
+
 					title: "Phone number",
 					titleClass: "",
 					dataClass: "text-muted",
@@ -136,21 +106,13 @@ export default {
 				},
 				{
 					name: "email",
-					sortField: "email",
-					title: "email",
+
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"
 				},
 
-				{
-					name: "added_officer_id",
-					sortField: "added_officer_id",
-					title: "Added Off Id",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "5%"
-				},
 				{
 					name: "added_date",
 					sortField: "added_date",
@@ -159,13 +121,6 @@ export default {
 					dataClass: "text-muted",
 					width: "20%"
 				},
-				{
-					name: "__slot:actions",
-					title: "",
-					titleClass: "center aligned text-right",
-					dataClass: "center aligned text-right",
-					width: "5%"
-				}
 			]
 		};
 	},

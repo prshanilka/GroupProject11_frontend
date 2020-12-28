@@ -4,6 +4,7 @@ import { currentUser, isAuthGuardActive } from "../../constants/config";
 import { setCurrentUser, getCurrentUser } from "../../utils";
 import bapi from "../../api/auth";
 import axios from "axios";
+import { bUrl } from "../../constants/config";
 export default {
   state: {
     currentUser:localStorage.getItem("user") != null ? getCurrentUser() : currentUser,
@@ -107,7 +108,7 @@ export default {
         }
         if (results) {
           console.log("dddd");
-          //console.log(currentUser)
+          results.img=bUrl+results.img
           const item = { uid: "${ results.id }", ...results };
 
           setCurrentUser(item);
@@ -162,6 +163,9 @@ export default {
         axios
         .delete("/token")
         .then(response => {
+          localStorage.setItem('jwt', 'null')
+          localStorage.setItem('jwtr', 'null')
+          localStorage.setItem('user', 'null')
           console.log(response)
           setCurrentUser(null);
           commit("setLogout");
@@ -200,8 +204,8 @@ export default {
         axios
           .post("/users/refresh")
           .then(response => {
-            console.log("ddd");
-            console.log(response);
+            //console.log("ddd");
+           // console.log(response);
             resolve(response);
           })
           .catch(error => {

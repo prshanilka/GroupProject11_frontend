@@ -3,20 +3,6 @@ import { adminRoot, elderRoot, sysAdminRoot, dofficerRoot ,divisionalOffHeadRoot
 import { UserRole } from "../utils/auth.roles";
 
 const data = [
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   {
     id: "dashboards",
     icon: "simple-icon-equalizer",
@@ -27,9 +13,17 @@ const data = [
 
   {
     id: "elder-pament-details",
-    icon: "simple-icon-user-following",
+    icon: "iconsminds-dollar-sign-2",
     label: "menu.elder-pament-details",
     to: `/elder/elder-pament-details`,
+    roles: [UserRole.Editor, UserRole.Elders]
+  },
+
+  {
+    id: "agent-details",
+    icon: "simple-icon-user-following",
+    label: "menu.agentdetails",
+    to: "/elder/agent-details",
     roles: [UserRole.Editor, UserRole.Elders]
   },
   // {
@@ -39,34 +33,28 @@ const data = [
   //   to: `/elder/reason-about-payments/114`,
   //   roles: [UserRole.Editor, UserRole.Elders]
   // },
-  {
-    id: "agent-form",
-    icon: "simple-icon-user-following",
-    label: "menu.agentform",
-    to: "/elder/agent-form",
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
-  {
-    id: "agent-details",
-    icon: "simple-icon-user-following",
-    label: "menu.agentdetails",
-    to: "/elder/agent-details",
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
-  {
-    id: "elder-form",
-    icon: "iconsminds-male-female",
-    label: "menu.elderform",
-    to: `/elder/elder-form`,
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
-    {
-    id: "update-form",
-    icon: "iconsminds-male-female",
-    label: "menu.elderform",
-    to: `/elder/update-form`,
-    roles: [UserRole.Editor, UserRole.Elders]
-  },
+  // {
+  //   id: "agent-form",
+  //   icon: "simple-icon-user-following",
+  //   label: "menu.agentform",
+  //   to: "/elder/agent-form",
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
+  
+  // {
+  //   id: "elder-form",
+  //   icon: "iconsminds-male-female",
+  //   label: "menu.elderform",
+  //   to: `/elder/elder-form`,
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
+  //   {
+  //   id: "update-form",
+  //   icon: "iconsminds-male-female",
+  //   label: "menu.elderform",
+  //   to: `/elder/update-form`,
+  //   roles: [UserRole.Editor, UserRole.Elders]
+  // },
   // {
   //   id: "elder-list",
   //   icon: "iconsminds-network",
@@ -268,11 +256,11 @@ const data = [
         to: `/sysadmin/list-of-post-office`
       },
       {
-        icon: "iconsminds-post-office",
-        label: "menu.list-of-post-office",
+        icon: "simple-icon-people",
+        label: "menu.list-of-post-officers",
         to: `/sysadmin/list-of-postofficers`
       },{
-        icon: "iconsminds-post-office",
+        icon: "iconsminds-the-white-house",
         label: "menu.list-of-post-office",
         to: `/sysadmin/list-divisional-secretry`
       }
@@ -341,8 +329,8 @@ const data = [
 
   {
     id: "post-officer-dashboard",
-    icon: "iconsminds-post-mail-2",
-    label: "menu.post-officer-dashboard",
+    icon: "simple-icon-equalizer",
+    label: "menu.dashboard",
     to: `/post/post-officer-dashboard`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
@@ -362,14 +350,14 @@ const data = [
   // },
   {
     id: "elders-related-to-post-off",
-    icon: "iconsminds-post-mail-2",
+    icon: "iconsminds-business-man-woman",
     label: "menu.elders-related-to-post-off",
     to: `/post/elders-related-to-post-off`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
   },
   {
     id: "paynemt-histroy",
-    icon: "iconsminds-post-mail-2",
+    icon: "iconsminds-financial",
     label: "menu.payment-history",
     to: `/post/paynemt-histroy`,
     roles: [UserRole.Editor, UserRole.PostOfficers]
@@ -584,11 +572,10 @@ const data = [
       UserRole.Editor,
       UserRole.DivisionalOffHead,
       UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
     ],
     subs: [
       {
-        icon: "iconsminds-dollar-sign-2",
+
         label: "menu.paymenttopostoffice",
         to: `/division/pay_post_office_form`
       },
@@ -603,17 +590,17 @@ const data = [
       //   to: `/division/div_to_ben`
       // },
       {
-        icon: "iconsminds-dollar-sign-2",
+
         label: "menu.payhistory",
         to: `/division/payhistory`
       },
       {
-        icon: "iconsminds-dollar-sign-2",
+
         label: "menu.allpay",
         to: `/division/all-payment-report`
       },
       {
-        icon: "iconsminds-dollar-sign-2",
+
         label: "menu.byyears",
 
         to: `/division/get-payment-by-years`
@@ -624,7 +611,7 @@ const data = [
   ///
   {
     id: "advance-serch-elders",
-    icon: "iconsminds-the-white-house",
+    icon: "simple-icon-magnifier",
     label: "menu.advance-serch-elders",
     to: `/division/advance-serch-elders`,
     roles: [
@@ -645,46 +632,84 @@ const data = [
   //     label: "menu.evaluate-elder-application",
   //       to: `/division/evaluate-elder-application`
   // },
-  {
-    id: "get-reports",
-    icon: "iconsminds-monitor-analytics",
-    label: "menu.get-reports",
-    to: `/division/get-reports`,
-    roles: [
-      UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
-    ]
-  },
+  // {
+  //   id: "get-reports",
+  //   icon: "iconsminds-monitor-analytics",
+  //   label: "menu.get-reports",
+  //   to: `/division/get-reports`,
+  //   roles: [
+  //     UserRole.Editor,
+  //     UserRole.DivisionalOffHead,
+  //     UserRole.DivisionalOffOfficer,
+  //     UserRole.DivisionalOfficers
+  //   ]
+  // },zzzzzzzzzzzzzzzzzz
 
   {
     id: "grama-divisions",
-    icon: "iconsminds-the-white-house",
-    label: "menu.divisional-office-form",
+    icon: "simple-icon-briefcase",
+    label: "Others",
     to: `/division/`,
     roles: [
       UserRole.Editor,
       UserRole.DivisionalOffHead,
       UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
+
     ],
+    
     subs: [
       {
-        icon: "iconsminds-the-white-house",
-        label: "menu.list-of-grama-divisions",
-        to: `/division/list-of-grama-divisions`
+        id: "GramaDivision",
+        icon: "simple-icon-location-pin",
+        label: "Grama Division",
+        subs: [
+          {
+       
+            label: "menu.list-of-grama-divisions",
+            to: `/division/list-of-grama-divisions`
+          },
+          {
+         
+            label: "menu.list-of-gramaniladari",
+            to: `/division/list-of-gramaniladari`
+          },
+        ]
+
       },
       {
-        icon: "iconsminds-the-white-house",
-        label: "menu.list-of-gramaniladari",
-        to: `/division/list-of-gramaniladari`
+        id: "PostOffice",
+        icon: "simple-icon-envelope-letter",
+        label: "Post Office",
+        subs: [
+          {
+     
+            label: "menu.list-of-post-office",
+            to: `/division/list-of-post-office`
+          }
+        ]
+
       },
       {
-        icon: "iconsminds-the-white-house",
-        label: "menu.list-of-post-office",
-        to: `/division/list-of-post-office`
-      }
+        id: "Elders",
+        icon: "simple-icon-envelope-letter",
+        label: "Elder",
+        subs: [
+          {
+            label: "menu.view-priority-list",
+            to: `/division/view-priority-list`
+          },
+          {
+            label: "menu.view-benifisher-list",
+            to: `/division/view-benifisher-list`
+          },
+          {
+            label: "menu.list-of-elders",
+            to: `/division/list-of-elders`
+          }
+        ]
+
+      },
+     
     ]
   },
 
@@ -697,7 +722,6 @@ const data = [
       UserRole.Editor,
       UserRole.DivisionalOffHead,
       UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
     ],
     subs: [
       {
@@ -724,9 +748,6 @@ const data = [
     to: `/division/elder_form`,
     roles: [
       UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
     ],
   },
 
@@ -737,9 +758,8 @@ const data = [
     to: `/division/`,
     roles: [
       UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
+
+
     ],
     subs: [
       {
@@ -867,7 +887,7 @@ const data = [
 
   {
     id: "list-of-applicans",
-    icon: "iconsminds-add-user",
+    icon: "simple-icon-notebook",
     label: "menu.list-of-applicans",
     to: `/grama/list-of-applicans`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices],
@@ -911,7 +931,7 @@ const data = [
   },
   {
     id: "aprove-agents",
-    icon: "iconsminds-add-user",
+    icon: "simple-icon-user-following",
     label: "menu.aprove-agents",
     to: `/grama/aprove-agents`,
     roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
@@ -921,7 +941,7 @@ const data = [
     icon: "iconsminds-add-user",
     label: "menu.grama-elder",
     to: `/division/elder_form`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices,UserRole.DivisionalOffOfficer]
   },
    
   ///////////////////////////////////

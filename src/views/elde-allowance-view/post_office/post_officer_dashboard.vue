@@ -1,7 +1,7 @@
 <template>
 	<AppLayout>
 		<b-row>
-			<b-colxx lg="3" md="6" sm="6" xxs="12">
+			<b-colxx lg="4" md="6" sm="6" xxs="12">
 				<b-card class="mb-4 text-center">
 					<div class="icon-row-item">
 						<i class="iconsminds-calendar-4 text-xlarge" />
@@ -11,7 +11,7 @@
 				</b-card>
 			</b-colxx>
 
-			<b-colxx lg="3" md="6" sm="6" xxs="12">
+			<b-colxx lg="4" md="6" sm="6" xxs="12">
 				<b-card class="mb-4 text-center">
 					<div class="icon-row-item">
 						<i class="iconsminds-calendar-4 text-xlarge" />
@@ -21,17 +21,7 @@
 				</b-card>
 			</b-colxx>
 
-			<b-colxx lg="3" md="6" sm="6" xxs="12">
-				<b-card class="mb-4 text-center">
-					<div class="icon-row-item">
-						<i class="iconsminds-newspaper text-xlarge" />
-					</div>
-					<p class="text-large text-center text-primary">Check Number</p>
-					<p class="text-large text-center text-danger">{{ details.check_no }}</p>
-				</b-card>
-			</b-colxx>
-
-			<b-colxx lg="3" md="6" sm="6" xxs="12">
+			<b-colxx lg="4" md="6" sm="6" xxs="12">
 				<b-card class="mb-4 text-center">
 					<div class="icon-row-item">
 						<i class="iconsminds-newspaper text-xlarge" />
@@ -41,13 +31,26 @@
 				</b-card>
 			</b-colxx>
 		</b-row>
+
+		<b-row>
+		<b-colxx lg="12"  xxs="12">
+				<b-card class="mb-4 text-center">
+					<div class="icon-row-item">
+						<i class="iconsminds-newspaper text-xlarge" />
+					</div>
+					<p class="text-large text-center text-primary">Check Number</p>
+					<p class="text-large text-center text-danger">{{ details.check_no }}</p>
+				</b-card>
+		</b-colxx>
+		</b-row>
+
 		<b-row>
 			<b-colxx md="6" sm="6" xxs="12">
 				<b-card class="mb-4 text-center">
 					<div class="icon-row-item">
 						<i class="iconsminds-conference text-xlarge" />
 					</div>
-					<p class="text-large text-center text-primary">No of Qulified Elders</p>
+					<p class="text-large text-center text-primary">No of Qualified Elders</p>
 					<p class="text-large text-center text-success">{{ details.no_qualified_elders }}</p>
 				</b-card>
 			</b-colxx>
@@ -57,7 +60,7 @@
 					<div class="icon-row-item">
 						<i class="iconsminds-conference text-xlarge" />
 					</div>
-					<p class="text-large text-center text-primary">No of Elders Got Money</p>
+					<p class="text-large text-center text-primary">No of Elders Received Money</p>
 					<p class="text-large text-center text-warning">{{ count }}</p>
 				</b-card>
 			</b-colxx>

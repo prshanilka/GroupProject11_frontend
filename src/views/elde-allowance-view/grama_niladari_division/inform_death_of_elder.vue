@@ -2,22 +2,12 @@
 	<AppLayout>
 		<div>
 			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-				<b-modal id="modallg" size="xl" title="Elder Details" hide-footer>
+				<b-modal id="modallg" size="lg" title="Inform the Death" hide-footer>
 					<elder-details :id="clickedid" />
 				</b-modal>
-				<datatable-heading
-					title="Inform Death Of Elders"
-					:selectAll="selectAll"
-					:isSelectedAll="isSelectedAll"
-					:isAnyItemSelected="isAnyItemSelected"
-					:keymap="keymap"
-					:changePageSize="changePageSize"
-					:searchChange="searchChange"
-					:from="from"
-					:to="to"
-					:total="total"
-					:perPage="perPage"
-				></datatable-heading>
+				<b-colxx xl="10" lg="12" class="text-center" style="margin:auto ">
+					<h1 class="text-large " >Inform Death</h1>
+				</b-colxx>
 				<b-row>
 					<b-colxx xxs="12">
 						<vuetable
@@ -55,20 +45,6 @@
 					</b-colxx>
 				</b-row>
 
-				<v-contextmenu ref="contextmenu">
-					<v-contextmenu-item @click="onContextMenuAction('copy')">
-						<i class="simple-icon-docs" />
-						<span>Copy</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-						<i class="simple-icon-drawer" />
-						<span>Move to archive</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('delete')">
-						<i class="simple-icon-trash" />
-						<span>Delete</span>
-					</v-contextmenu-item>
-				</v-contextmenu>
 			</b-overlay>
 		</div>
 	</AppLayout>
@@ -80,7 +56,6 @@ import AppLayout from "../../../layouts/EAppLayout";
 import Vuetable from "vuetable-2/src/components/Vuetable";
 import VuetablePaginationBootstrap from "../../../components/Common/VuetablePaginationBootstrap";
 import { bUrl } from "../../../constants/config";
-import DatatableHeading from "../../../containers/datatable/DatatableHeading";
 
 import ElderDetails from "./inform_death_form";
 
@@ -92,7 +67,6 @@ export default {
 		vuetable: Vuetable,
 		"elder-details": ElderDetails,
 		"vuetable-pagination-bootstrap": VuetablePaginationBootstrap,
-		"datatable-heading": DatatableHeading
 	},
 	data() {
 		return {
@@ -115,42 +89,42 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "5%"
+					width: "10%"
 				},
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "address",
 					sortField: "address",
-					title: "address",
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "25%"
 				},
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone Number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "email",
 					sortField: "email",
-					title: "email",
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "__slot:actions1",

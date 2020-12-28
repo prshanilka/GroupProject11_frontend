@@ -18,18 +18,18 @@
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="position-absolute card-top-buttons"></div>
 						<single-lightbox
-							thumb="/assets/img/profiles/def.png"
-							large="/assets/img/profiles/def.png"
+							:thumb="img"
+							:large="img"
 							class-name="card-img-top "
 							class="m-4"
 						/>
 					</b-colxx>
 					<b-colxx lg="6" md="12" class="mb-4">
 						<div class="m-4">
-							<p class="text-muted text-small mb-2">Elder Full Name</p>
+							<p class="text-muted text-small mb-2">Full Name</p>
 							<p class="mb-3">{{elder.name}}</p>
 
-							<p class="text-muted text-small mb-2">Elder Address</p>
+							<p class="text-muted text-small mb-2">Address</p>
 							<p class="mb-3">{{elder.address}}</p>
 
 							<p class="mb-3">
@@ -100,9 +100,9 @@
 						</b-colxx>
 					</b-row>
 					<b-colxx xxs="12">
-						<b-card class="mb-4" title="Grama Niladhari Reviwe About the Elder">
+						<b-card class="mb-4" title="Additional Details">
 							<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
-								<b-form-group label="Grama Niladari Comment">
+								<b-form-group >
 									<b-form-textarea
 										type="text"
 										v-model="$v.grama_comment.$model"
@@ -118,10 +118,10 @@
 								</b-form-group>
 								<b-row>
 									<b-colxx lg="6" md="12" class="mb-4 text-right">
-										<b-button type="button" variant="primary" @click.prevent="accept">Aprove</b-button>
+										<b-button type="button" variant="outline-success" @click.prevent="accept">Approve</b-button>
 									</b-colxx>
 									<b-colxx lg="6" md="12" class="mb-4">
-										<b-button type="submit" variant="primary">Disqualify</b-button>
+										<b-button type="submit" variant="outline-danger">Disqualify</b-button>
 									</b-colxx>
 								</b-row>
 							</b-form>
@@ -136,6 +136,7 @@
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
 import SingleLightbox from "../../../containers/pages/SingleLightbox";
+import {bUrl} from '../../../constants/config'
 import axios from "axios";
 
 import { validationMixin } from "vuelidate";
@@ -151,6 +152,7 @@ export default {
 		return {
 			submit_div: true,
 			elder: {},
+			img:"",
 			grama_comment: ""
 		};
 	},
@@ -174,6 +176,23 @@ export default {
 			 this.elder.age =  (new Date().getFullYear() -  new Date(this.elder.birth_day).getFullYear() );
 			// this.aplications = result.data.data;
 		});
+
+		const body = {
+				id:this.id,
+				role_id:"10"
+			}
+			axios({
+			method: "post",
+			url: "/upload/getprofile"  ,
+			data:body
+		}).then(res => {
+			console.log(res.data.data[0].profile);
+			this.img = bUrl+res.data.data[0].profile;
+		}).catch(cc => {
+			console.log(cc);
+			this.img = "/assets/img/profiles/def.png"
+		});
+
 	},
 	methods: {
 		onValitadeFormSubmit() {

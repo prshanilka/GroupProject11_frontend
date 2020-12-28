@@ -7,30 +7,12 @@
         </a>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a @click="scrollTo('#features')" href="javascript:;">FEATURES</a>
+            <a @click="scrollTo('#features')" href="javascript:;">Login</a>
           </li>
           <li class="nav-item">
-            <a @click="scrollTo('#layouts')" href="javascript:;">LAYOUTS</a>
+            <a @click="scrollTo('#layouts')" href="javascript:;">Register</a>
           </li>
-          <li class="nav-item">
-            <a @click="scrollTo('#components')" href="javascript:;">COMPONENTS</a>
-          </li>
-          <li class="nav-item">
-            <a @click="scrollTo('#apps')" href="javascript:;">APPS</a>
-          </li>
-          <li class="nav-item">
-            <a @click="scrollTo('#themes')" href="javascript:;">THEMES</a>
-          </li>
-          <li class="nav-item">
-            <div class="separator"></div>
-          </li>
-          <li class="nav-item text-center">
-            <a
-              class="btn btn-outline-primary btn-sm mobile-menu-cta"
-              target="_blank"
-              :href="buyUrl"
-            >BUY</a>
-          </li>
+          
         </ul>
       </div>
 

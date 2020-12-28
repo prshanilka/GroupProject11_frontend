@@ -1,7 +1,7 @@
 <template>
 	<AppLayout>
 		<b-colxx class="mb-4 text-center" lg="12" xxs="12">
-			<h1>List of Divisional Secretry</h1>
+			<h1>Divisional Secretry</h1>
 	    </b-colxx>
         <b-row>
 				<list-with-user-item

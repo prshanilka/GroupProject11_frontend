@@ -3,7 +3,7 @@
 		<b-colxx xxs="12" md="10" class="mx-auto my-auto">
 			<b-card class="auth-card" no-body>
 				<div class="position-relative image-side">
-					<p class="h2 mb-5">Welcome To National Secretariat for Elders</p>
+					<p class="h2 mb-5">Welcome To Elders Allowance Management System for Gampaha Divisional Secretary.</p>
 					<h3 class="white mt-5 font-weight-bolder">
 						Please use your credentials to login.
 						<br />If you are not a member,

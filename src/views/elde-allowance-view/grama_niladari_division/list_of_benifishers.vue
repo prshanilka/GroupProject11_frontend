@@ -4,19 +4,9 @@
 			<elder-details :id="clickedid" />
 		</b-modal>
 		<div>
-			<datatable-heading
-				title="List Of the benifishers "
-				:selectAll="selectAll"
-				:isSelectedAll="isSelectedAll"
-				:isAnyItemSelected="isAnyItemSelected"
-				:keymap="keymap"
-				:changePageSize="changePageSize"
-				:searchChange="searchChange"
-				:from="from"
-				:to="to"
-				:total="total"
-				:perPage="perPage"
-			></datatable-heading>
+			<b-colxx xl="10" lg="12" class="text-center" style="margin:auto ">
+					<h1 class="text-large " >Beneficiaries</h1>
+			</b-colxx>
 			<b-row>
 				<b-colxx xxs="12">
 					<vuetable
@@ -41,7 +31,7 @@
 								v-b-modal.modallg
 								@click="clickedid = props.rowData.elder_id;"
 								variant="outline-primary"
-							>View Elder</b-button>
+							>View</b-button>
 						</template>
 					</vuetable>
 					<vuetable-pagination-bootstrap
@@ -52,20 +42,7 @@
 				</b-colxx>
 			</b-row>
 
-			<v-contextmenu ref="contextmenu">
-				<v-contextmenu-item @click="onContextMenuAction('copy')">
-					<i class="simple-icon-docs" />
-					<span>Copy</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-					<i class="simple-icon-drawer" />
-					<span>Move to archive</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('delete')">
-					<i class="simple-icon-trash" />
-					<span>Delete</span>
-				</v-contextmenu-item>
-			</v-contextmenu>
+			
 		</div>
 	</AppLayout>
 </template>
@@ -108,10 +85,10 @@ export default {
 				{
 					name: "benifesher_id",
 					sortField: "benifesher_id",
-					title: "BenFisher Id",
+					title: "Beneficiary Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
-					width: "5%"
+					width: "15%"
 				},
 				{
 					name: "elder_id",
@@ -119,7 +96,7 @@ export default {
 					title: "Elder Id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "5%"
+					width: "10%"
 				},
 
 				{
@@ -133,7 +110,7 @@ export default {
 				{
 					name: "address",
 					sortField: "address",
-					title: "address",
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -141,15 +118,15 @@ export default {
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone Number",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "10%"
+					width: "15%"
 				},
 				{
 					name: "email",
 					sortField: "email",
-					title: "email",
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "10%"

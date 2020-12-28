@@ -6,23 +6,12 @@
 					<elder-details :id="clickedid" />
 				</b-modal>
 				<b-modal id="modalnotify" size="lg" title="Notify Elders" hide-footer>
-					 <h1>Notify elders</h1>
 					 <notifysms/>
 				</b-modal>
-
-				<datatable-heading
-					title="The List Of Benifishers that registerd To the Post Office"
-					:selectAll="selectAll"
-					:isSelectedAll="isSelectedAll"
-					:isAnyItemSelected="isAnyItemSelected"
-					:keymap="keymap"
-					:changePageSize="changePageSize"
-					:searchChange="searchChange"
-					:from="from"
-					:to="to"
-					:total="total"
-					:perPage="perPage"
-				></datatable-heading>
+				<b-colxx xl="10" lg="12" class="text-center" style="margin:auto ">
+					<h1 class="text-large " >Beneficiaries</h1>
+				</b-colxx>
+				
 				<b-row>
 					<b-colxx xxs="12">
 						<vuetable
@@ -59,20 +48,7 @@
 					</b-colxx>
 				</b-row>
 
-				<v-contextmenu ref="contextmenu">
-					<v-contextmenu-item @click="onContextMenuAction('copy')">
-						<i class="simple-icon-docs" />
-						<span>Copy</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-						<i class="simple-icon-drawer" />
-						<span>Move to archive</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('delete')">
-						<i class="simple-icon-trash" />
-						<span>Delete</span>
-					</v-contextmenu-item>
-				</v-contextmenu>
+				
 			</b-overlay>
 		</div>
 		<div>
@@ -131,7 +107,7 @@ export default {
 				{
 					name: "elder_id",
 					sortField: "elder_id",
-					title: "elder_id",
+					title: "Elder Id",
 					titleClass: "",
 					dataClass: "list-item-heading",
 					width: "20%"
@@ -139,7 +115,7 @@ export default {
 				{
 					name: "name",
 					sortField: "name",
-					title: "name",
+					title: "Name",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -147,7 +123,7 @@ export default {
 				{
 					name: "address",
 					sortField: "address",
-					title: "address",
+					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "20%"
@@ -155,7 +131,7 @@ export default {
 				{
 					name: "number",
 					sortField: "number",
-					title: "Phone number",
+					title: "Phone Number",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "25%"
@@ -163,7 +139,7 @@ export default {
 				{
 					name: "email",
 					sortField: "email",
-					title: "email",
+					title: "Email",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "25%"
@@ -194,7 +170,7 @@ export default {
 			var doc = new jsPDF("p", "pt");
 			doc.setFontSize("15");
 			doc.text(
-				"The List Of Benifishers that registerd To the Post Office",
+				"The list of beneficiary that registerd to the postoffice",
 				150,
 				40
 			);
@@ -223,7 +199,7 @@ export default {
 			// );
 			// doc.text("Date", 80, 780);
 			// doc.text("Postmaster", 320, 780);
-			doc.save("dummy" + ".pdf");
+			doc.save("beneficiarylist" + ".pdf");
 		},
 		getData() {
 			return axios.get("/postoffice/benfisherslist").then(res => {

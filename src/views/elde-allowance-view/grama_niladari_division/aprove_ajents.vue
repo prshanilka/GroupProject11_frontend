@@ -2,22 +2,12 @@
 	<AppLayout>
 		<div>
 			<b-overlay :show="show" spinner-variant="primary" spinner-type="grow" spinner-small rounded="sm">
-				<b-modal id="modallg" size="xl" title="Details" hide-footer>
+				<b-modal id="modallg" size="xl" title="Verify Guardian" hide-footer>
 					<elder-details :id="clickedid" :aid="agentid" />
 				</b-modal>
-				<datatable-heading
-					title="List Of Guardian"
-					:selectAll="selectAll"
-					:isSelectedAll="isSelectedAll"
-					:isAnyItemSelected="isAnyItemSelected"
-					:keymap="keymap"
-					:changePageSize="changePageSize"
-					:searchChange="searchChange"
-					:from="from"
-					:to="to"
-					:total="total"
-					:perPage="perPage"
-				></datatable-heading>
+				<b-colxx xl="10" lg="12" class="text-center" style="margin:auto ">
+					<h1 class="text-large " >Beneficiaries</h1>
+				</b-colxx>
 				<b-row>
 					<b-colxx xxs="12">
 						<vuetable
@@ -55,20 +45,8 @@
 					</b-colxx>
 				</b-row>
 
-				<v-contextmenu ref="contextmenu">
-					<v-contextmenu-item @click="onContextMenuAction('copy')">
-						<i class="simple-icon-docs" />
-						<span>Copy</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-						<i class="simple-icon-drawer" />
-						<span>Move to archive</span>
-					</v-contextmenu-item>
-					<v-contextmenu-item @click="onContextMenuAction('delete')">
-						<i class="simple-icon-trash" />
-						<span>Delete</span>
-					</v-contextmenu-item>
-				</v-contextmenu>
+				
+				
 			</b-overlay>
 		</div>
 	</AppLayout>
@@ -119,7 +97,7 @@ export default {
 					title: "Elder Id",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "15%"
 				},
 				{
 					name: "ename",
@@ -143,7 +121,7 @@ export default {
 					title: "Address",
 					titleClass: "",
 					dataClass: "text-muted",
-					width: "20%"
+					width: "25%"
 				},
 				{
 					name: "anic",

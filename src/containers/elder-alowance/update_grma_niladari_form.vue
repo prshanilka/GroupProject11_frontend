@@ -308,7 +308,9 @@ export default {
 						gramaniladari_officer: this.gramaniladari_officer
 					})
 				);
-
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 				this.submit_ag = !this.submit_ag;
 			}
 		}

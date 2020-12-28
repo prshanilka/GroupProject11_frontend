@@ -1,23 +1,23 @@
 <template>
 	<b-colxx md="6" sm="6" lg="4" xxs="12">
-		<b-card class="mb-4 text-center">
+		<b-card style="min-height:500px"  class="mb-4 text-center">
 			<router-link tag="a" :to="detailPath">
 				<div class="icon-row-item">
 					<i class="iconsminds-dollar-sign-2 text-xlarge" />
 				</div>
-				<h1>The {{data.year}} {{data.m_name }} payments</h1>
+				<h1>{{data.m_name }} of {{data.year}}</h1>
 				<p class="lead text-center">Payment Id:{{ data.payment_id }}</p>
 				<p class="lead text-center">Check No:{{ data.check_no }}</p>
-				<h3>Total To Div {{ data.total_money_amount}}</h3>
-				<h3>Total To PostOffice{{data.sent_amount_to_post_office}}</h3>
-				<h3>Centerl BAnk {{data.amount_of_money_debited_to_centrel_bank}}</h3>
-				<p class="card-text font-weight-semibold mb-0">Qualified Eldes :{{ data.no_qualified_elders }}</p>
+				
+				<h3>Received To PostOffice :Rs.{{data.sent_amount_to_post_office}}</h3>
+				
+				<p class="card-text font-weight-semibold mb-1">Qualified Elders :{{ data.no_qualified_elders }}</p>
+				<p
+					class="card-text font-weight-semibold mb-1"
+				>No of Elders Ricieved Money :{{ data.no_of_elders_got_money }}</p>
 				<p
 					class="card-text font-weight-semibold mb-0"
-				>No OF Eldes got money{{ data.no_of_elders_got_money }}</p>
-				<p
-					class="card-text font-weight-semibold mb-0"
-				>Retuned Money {{ data.elders_dose_not_resive_total_money }}</p>
+				>Returned Money :Rs.{{ data.elders_dose_not_resive_total_money }}</p>
 			</router-link>
 			<div v-show="!data.is_completed">
 				<b-colxx>
@@ -52,6 +52,9 @@ export default {
 
 				// this.aplications = result.data.data;
 			});
+			setTimeout(() => {
+					this.$router.go(0); 
+				}, 40);
 		}
 	}
 };

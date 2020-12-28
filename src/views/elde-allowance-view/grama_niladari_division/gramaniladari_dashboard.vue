@@ -12,7 +12,7 @@
 						<div class="icon-row-item mb-3">
 							<i class="iconsminds-the-white-house text-xlarge" />				
 						</div>
-						<h2 class="mb-2 text-md">District Id</h2>
+						<h2 class="mb-2 text-md">District ID</h2>
 						<p class="text-large text-danger">{{division.district_id}}</p>
 					</b-card>
 				</b-colxx>
@@ -38,7 +38,7 @@
 			<b-row>
 				<b-colxx lg="12" xs="12" class="text-center" style="margin:auto ">
 					<b-card class="mb-4 text-center">
-						<h2 class="mb-4 text-large text-primary">Count Of Benifishers In My Division</h2>
+						<h2 class="mb-4 text-large text-primary">No Of Beneficiaries In Division</h2>
 						<p class="text-xlarge text-danger">{{bcount.count}}</p>
 					</b-card>
 				</b-colxx>
@@ -55,7 +55,7 @@
 <script>
 import AppLayout from "../../../layouts/EAppLayout";
 import axios from "axios";
-import UserCardElder from "../../../containers/elder/UserCardElder";
+import UserCardElder from "../../../containers/elder-alowance/grama/UserCard";
 
 export default {
 	name: "grama-niladari-dashboard",

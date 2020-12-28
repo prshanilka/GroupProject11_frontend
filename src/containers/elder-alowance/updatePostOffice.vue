@@ -3,7 +3,7 @@
 		<b-colxx xl="12" lg="12" style="margin:auto ">
 			<b-card>
 				<div class="text-center">
-					<h1>{{$t('office.p-form')}}</h1>
+					<h1>{{$t('office.p-form')}} </h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_ag">
 					<div class="icon-row-item">
@@ -292,6 +292,9 @@ export default {
 						postoffice: this.postoffice
 					})
 				);
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 				this.submit_ag = !this.submit_ag;
 			}
 		}

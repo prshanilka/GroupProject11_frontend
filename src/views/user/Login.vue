@@ -3,9 +3,9 @@
 		<b-colxx xxs="12" md="10" class="mx-auto my-auto">
 			<b-card class="auth-card" no-body>
 				<div class="position-relative image-side">
-					<p class="h2 mb-5">Welcome To National Secretariat for Elders</p>
+					<p class="h2 mb-5">Welcome To Elders Allowance Management System for Gampaha Divisional Secretary.</p>
 					<h3 class="white mt-5 font-weight-bolder">
-						Please use your credentials to login.
+						Please use your credentials to login
 						<br />If you are not a member,
 						<router-link tag="a" to="/user/register" class="white">
 							<br />
@@ -23,12 +23,7 @@
 					<b-form @submit.prevent="formSubmit" class="av-tooltip tooltip-label-right">
 						<b-form-group :label="$t('user.username')"  >
 							<b-form-input type="text" v-model="$v.form.email.$model" :state="!$v.form.email.$error" />
-							<b-form-invalid-feedback v-if="!$v.form.email.required">Please enter your email address</b-form-invalid-feedback>
-							<b-form-invalid-feedback v-else-if="!$v.form.email.email">Please enter a valid email address</b-form-invalid-feedback>
-							<b-form-invalid-feedback v-else-if="!$v.form.email.minLength">
-								Your email must be minimum 4
-								characters
-							</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-if="!$v.form.email.required">Please enter your username</b-form-invalid-feedback> 
 						</b-form-group>
 
 						<b-form-group :label="$t('user.password')"  >
@@ -48,10 +43,10 @@
 							</b-form-invalid-feedback>
 						</b-form-group>
 						<div class="d-flex justify-content-between align-items-center">
-							<router-link tag="a" to="/user/forgot-password">
-								{{
+							<router-link tag="a" to="">
+								<!-- {{ /user/forgot-password
 								$t("user.forgot-password-question")
-								}}
+								}} -->
 							</router-link>
 							<b-button
 								type="submit"
@@ -129,17 +124,16 @@ export default {
 		...mapActions(["login"]),
 		formSubmit() {
 			this.$v.$touch();
-			//this.form.email = "piaf-vue@coloredstrategies.com";
-			//this.form.password = "piaf123";
+
 			console.log(this.form.email + " " + this.form.password);
 
 			this.$v.form.$touch();
-			// if (!this.$v.form.$anyError) {
+			if (!this.$v.form.$anyError) {
 			this.login({
 				email: this.form.email,
 				password: this.form.password
 			});
-			//}
+			}
 		}
 	},
 	watch: {
@@ -178,8 +172,8 @@ export default {
 			}
 		}
 	},
-	created() {
-		if(localStorage.jwt){
+		created() {
+		if(localStorage.jwt && !localStorage.jwt==null ){
 			var obj = JSON.parse(localStorage.user)
 			if ( obj.role == UserRole.DivisionalOfficers ) {
 					this.$router.push(dofficerRoot);
