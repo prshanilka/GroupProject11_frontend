@@ -101,7 +101,7 @@ export default {
         if (err) {
           setCurrentUser(null);
           console.log(err);
-          commit("setError", err.data);
+          commit("setError", err.message);
           setTimeout(() => {
             commit("clearError");
           }, 3000);

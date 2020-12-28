@@ -146,12 +146,19 @@ export default {
 			console.log(this.elderdetails);
 			console.log("sahan");
 
+			const user = {
+				userName: this.elderdetails[0].uname,
+				email: this.elderdetails[0].email,
+				password: this.elderdetails[0].pword
+			}
+
 			const elder = {
 				district_id: this.elderdetails[0].district,
 				divisional_secratory_id: this.elderdetails[0].divisional_off,
 				gramaniladari_division_id: this.elderdetails[0].grama_niladari_div,
 				near_post_office_id: this.elderdetails[0].nearest_post_office,
 				name: this.elderdetails[0].name,
+				profile:this.elderdetails[0].img,
 				sex: this.elderdetails[0].sex,
 				email: this.elderdetails[0].email,
 				address: this.elderdetails[0].address,
@@ -178,6 +185,7 @@ export default {
 				elder_id: "11",
 				name: this.elderdetails[2].agent_name,
 				nic: this.elderdetails[2].agent_nic,
+				pic: this.elderdetails[2].pic,
 				address: this.elderdetails[2].agent_address,
 				phone: this.elderdetails[2].agent_phone_no,
 				email: this.elderdetails[2].agent_email,
@@ -190,6 +198,7 @@ export default {
 			};
 
 			const body = {
+				user,
 				elder,
 				verify,
 				agent

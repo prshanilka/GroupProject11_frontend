@@ -9,7 +9,9 @@
 		>
 		<b-modal ref="my-modallg" v-model="modalShow" id="modallg" size="lg" title="Elder Details" hide-footer>
       <elder-details :dat="clickedVid"/>
+			<additional-section :dat="clickedVid"/>
 			<marks-section :dat="clickedVid" @event="handler"/>
+			
     </b-modal>
 		<datatable-heading
 			:title="$t('menu.selectedapplications')"
@@ -62,20 +64,7 @@
 			</b-colxx>
 		</b-row>
 
-		<v-contextmenu ref="contextmenu">
-			<v-contextmenu-item @click="onContextMenuAction('copy')">
-				<i class="simple-icon-docs" />
-				<span>Copy</span>
-			</v-contextmenu-item>
-			<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-				<i class="simple-icon-drawer" />
-				<span>Move to archive</span>
-			</v-contextmenu-item>
-			<v-contextmenu-item @click="onContextMenuAction('delete')">
-				<i class="simple-icon-trash" />
-				<span>Delete</span>
-			</v-contextmenu-item>
-		</v-contextmenu>
+		
 		</b-overlay>
 	</div>
 </template>
@@ -89,6 +78,7 @@ import { bUrl } from "../../constants/config";
 import DatatableHeading from "../../containers/elder-alowance/datatable/DatatableHeading";
 import ElderDetails from "./components/view_elder_application_verify"
 import marksSection from "./components/marks"
+import addiSec from "./components/additional"
 import StateButton from "../../components/Common/StateButton";
 export default {
 	props: ["title"],
@@ -99,7 +89,8 @@ export default {
 		"datatable-heading": DatatableHeading,
 		"elder-details": ElderDetails ,
 		"state-button": StateButton,
-		"marks-section":marksSection
+		"marks-section":marksSection,
+		"additional-section":addiSec
 	},
 	data() {
 		return {
@@ -157,37 +148,9 @@ export default {
 					width: "20%"
 				},
 
-				{
-					name: "__slot:actions",
-					title: "",
-					titleClass: "center aligned text-right",
-					dataClass: "center aligned text-right",
-					width: "5%"
-				}
-				
+			
 			],
-										it: [
-      { name: 'Apple', qty: 5 },
-      { name: 'Banana', qty: 10 },
-    ],
-    fi: [
-      {
-        key: 'index',
-        label: '#',
-      },
-      {
-        key: 'name',
-        label: 'fruit',
-      },
-      {
-        key: 'qty',
-        label: 'quantity',
-        thClass: 'red',
-      },
-      {
-        key: 'action',
-      },
-    ],
+									
   
 		};
 	},
