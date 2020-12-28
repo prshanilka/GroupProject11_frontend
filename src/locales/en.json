@@ -21,11 +21,11 @@
     "buy": "BUY",
     "username": "Username",
     "review": "Review",
-    "change":"Change",
+    "change": "Change",
     "e-uname": "Please enter Username",
     "e-pass": "Please enter Password",
     "v-pass": "Password must be only 10 characters",
-    "changepass" :"Change Password"
+    "changepass": "Change Password"
   },
   "form": {
     "address": "Address",
@@ -44,14 +44,16 @@
     "e-name": "Please enter your full name",
     "v-name": "Your name must be between 3 and 16 characters",
     "e-nic": "Please enter your Nic no",
-    "e-valid":"Please enter Valid Nic no",
+    "e-valid": "Please enter Valid Nic no",
     "v-nic": "Your Nic must be only 10 characters",
     "e-address": "Please enter your address",
     "v-address": "Your Address must be between 6 and 256 characters",
     "e-number": "Please enter your phone number",
     "v-number": "Your phone number must be only 10 numbers",
     "n-number": "Value must be a Number",
+
     "vaid-no":"Value must be a Valid Phone Number",
+
     "e-mail": "Please enter your email address",
     "v-mail": "Please enter valid email address",
     "e-district": "Please select District",
@@ -87,6 +89,7 @@
     "divisional_head": "Divisional secretary",
     "details": "Details",
     "view": "View",
+
     "fillapplication" : "Fill Application",
     "divisionalofiicerver" : "Verification from Divisional office",
     "updateapplication" :"Update Application",
@@ -101,6 +104,7 @@
     "g-add":"Guardian Address",
     "g-rel":"Guardian relationship with Elder"
   
+
   },
   "wizard": {
     "step-name-1": "Step 1",
@@ -183,7 +187,7 @@
     "paytopost": "Payment To PostOff",
     "paytoben": "Payments To Benifisher",
     "admin": "Admin",
-    "allpay": "All Pay detail Post",
+    "allpay": "Detailed Payment Report(Post Office)",
     "byyears": "Years",
     "add-offices": "Add Offices",
     "add-officer": "Add Officer",
@@ -196,8 +200,8 @@
     "complain": "Send Complains",
     "criteria": "Criteria",
     "paynemt-histroy": "Payment History ",
-    "div_elder_form":"Add Elders",
-    "grama-elder":"Add Elders",
+    "div_elder_form": "Add Elders",
+    "grama-elder": "Add Elders",
 
     "pendingapplications": "Pending Applications",
     "selectedapplications": "Selected Applications",
@@ -207,27 +211,29 @@
     "send-reports": "Send Reports",
     "assign-post-officers": "Assign Post Officers",
     "elders-related-to-post-off": "Beneficiaries",
-    "payment-history":"Payments",
+    "payment-history": "Payments",
     "get-elder-detail-verification": "Verify Elders",
     "lsit-of-elder-pyament": "Elder Payment List",
     "post-officer-dashboard": "Dashboard",
     "paymenttopostoffice": "Payment to Post Office",
 
-    "divisional-office-form": "Divisional Office",
+    "divisional-office-form": "Payments Details",
     "divisional-office-officer": "Divisional Officer",
     "district-office": "District Offfice",
-    "advance-serch-elders": "Adavace Serch Elders",
+    "advance-serch-elders": "Search Elders",
     "assign-grama-niladari": "Assign Grama Niladari",
     "divisional-secretary-officer-dashboard": "Dashboard",
     "evaluate-elder-application": "Evalate Applications",
     "get-reports": "Get Reparts",
     "list-of-elders": "List Of Elders",
-    "list-of-grama-divisions": "Gramasewa Divisions",
-    "list-of-gramaniladari": "Gramaniladari",
-    "list-of-post-office": "Post Offices",
+
+    "list-of-grama-divisions": "Grama Niladhari Divisions",
+    "list-of-gramaniladari": "Grama Niladhari",
+    "list-of-post-office": "Post Offices Details",
     "list-of-post-officers": "Post Officers",
-    "view-priority-list": "Priority  List ",
-    "view-benifisher-list": "Benifisher List",
+    "view-priority-list": "Priority List ",
+    "view-benifisher-list": "Beneficiaries",
+
 
     "gramaniladai-division-form": "GramaNiladari Division",
     "gramaniladai-officer": "GramaNiladari Officer",
@@ -337,7 +343,7 @@
     "form-wizard": " Wizard",
     "datatables": "Datatables",
     "divided-table": "Dirived Table",
-    "benifisher": "Benifisher List In Division",
+    "benifisher": "Beneficiaries",
     "priority": "Priority List In Division",
     "scrollable": "Scrollable",
     "responsive": "Responsive",
@@ -702,7 +708,7 @@
     "validation-bootstrap": "Bootstrap Validation",
     "validation-vuelidate": "Vuelidate Validation",
     "name": "Name",
-    "changepassword":"Change Paaword"
+    "changepassword": "Change Paaword"
   },
   "form-components": {
     "custom-inputs": "Custom Inputs",

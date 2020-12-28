@@ -2,7 +2,9 @@
 	<AppLayout>
   
 				<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-					<h1>Gramaniladari</h1>
+
+					<h1>Grama Niladari Details</h1>
+
 				</b-colxx>
       
         <b-row>
