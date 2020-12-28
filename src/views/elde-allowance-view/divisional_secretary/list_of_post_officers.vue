@@ -1,7 +1,7 @@
 <template>
 	<AppLayout>
 		<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-			<h1>List of Post Officers</h1>
+			<h1>Post Officers</h1>
 		</b-colxx>
 
 		<b-row>

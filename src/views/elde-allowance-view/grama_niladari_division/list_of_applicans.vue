@@ -3,7 +3,7 @@
 		<b-colxx xl="8" lg="10" md="12" style="margin:auto ">
 			<b-card>
 				<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-					<h1>Applicant List For Verification</h1>
+					<h1>Applicants For Verification</h1>
 				</b-colxx>
 				<list-with-user-item
 					v-for="(item, index) in applications"

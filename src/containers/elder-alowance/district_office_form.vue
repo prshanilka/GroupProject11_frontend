@@ -3,7 +3,7 @@
 		<b-colxx xl="8" lg="12" style="margin:auto ">
 			<b-card>
 				<div class="text-center">
-					<h1>District Office Form</h1>
+					<h1>District Office </h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_dis">
 					<div class="icon-row-item">

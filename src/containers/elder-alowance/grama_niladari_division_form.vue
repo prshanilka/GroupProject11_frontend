@@ -3,7 +3,7 @@
 		<b-colxx xl="8" lg="12" style="margin:auto ">
 			<b-card>
 				<div class="text-center">
-					<h1>Grmma Niladari Division Form</h1>
+					<h1>Grmma Niladari Division </h1>
 				</div>
 				<b-card class="mb-4 text-center" v-show="!submit_grmaniladari_div">
 					<div class="icon-row-item">
