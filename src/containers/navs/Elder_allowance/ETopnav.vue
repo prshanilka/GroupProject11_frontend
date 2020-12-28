@@ -101,7 +101,7 @@
 					</b-dropdown>
 				</div> -->
 
-				<div class="position-relative d-inline-block">
+				<!-- <div class="position-relative d-inline-block">
 					<b-dropdown
 						variant="empty"
 						size="sm"
@@ -120,24 +120,24 @@
 								v-for="(n,index) in notifications"
 								:key="index"
 							>
-								<!-- <router-link tag="a" :to="`${adminRoot}/pages/product/details`">
+								<router-link tag="a" :to="`${adminRoot}/pages/product/details`">
 									<img
 										:src="n.img"
 										:alt="n.title"
 										class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle"
 									/>
-								</router-link> -->
+								</router-link>
 								<div class="pl-3 pr-2">
 									<router-link tag="a" to="#">
-									<!-- <router-link tag="a" :to="`${adminRoot}/pages/product/details`"> -->
+									<router-link tag="a" :to="`${adminRoot}/pages/product/details`">
 										<p class="font-weight-medium mb-1">{{n.notificaton}}</p>
-										<!-- <p class="text-muted mb-0 text-small">{{n.date}}</p> -->
+										<p class="text-muted mb-0 text-small">{{n.date}}</p>
 									</router-link>
 								</div>
 							</div>
 						</vue-perfect-scrollbar>
 					</b-dropdown>
-				</div>
+				</div> -->
 				<!-- <div class="position-relative d-none d-sm-inline-block">
 					<div class="btn-group">
 						<b-button variant="empty" class="header-icon btn-sm" @click="toggleFullScreen">

@@ -4,7 +4,7 @@
 			<div class="icon-row-item mb-5">
 				<i class="iconsminds-dollar-sign-2 text-xlarge" />
 			</div>
-			<h1> {{data.m_name }}  {{data.year}} payments</h1>
+			<h1> {{data.m_name }}  {{data.year}}  </h1>
 			<p class="lead text-center">Payment Id:{{ data.payment_id }}</p>
 
 			<h3 class="lead text-center">Amount :{{ data.money_amount}}</h3>
@@ -22,12 +22,15 @@
 			<div v-show="show">
 				<b-colxx>
 					<router-link tag="a" :to="detailPath">
+						 <b-colxx xxs="12" class="text-center">
+                          <b-alert show variant="danger" >Payment Returned </b-alert>
+                          </b-colxx>
 						<b-button
 							class="mb-2"
 							size="md"
 							style="margin-top:20px;"
 							variant="danger"
-						> Money Returned Submit Reasons?</b-button>
+						> Submit Reasons?</b-button>
 					</router-link>
 				</b-colxx>
 			</div>

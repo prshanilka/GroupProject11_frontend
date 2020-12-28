@@ -14,8 +14,7 @@
 							:state="!$v.elder.elder_id.$error"
 						/>
 						<b-form-invalid-feedback v-if="!$v.elder.elder_id.minLength || !$v.elder.elder_id.maxLength">
-							Your Elders Id must be between 2 and 16
-							characters
+							 {{$t('form.v-elder-id')}}
 						</b-form-invalid-feedback>
 					</b-form-group>
 					<b-form-group :label="$t('elder.r-name')">
@@ -27,8 +26,7 @@
 						<b-form-invalid-feedback
 							v-if="!$v.elder.elder_committe_name.minLength || !$v.elder.elder_committe_name.maxLength"
 						>
-							Your Local elder committe name must be between 3 and 16
-							characters
+							{{$t('form.v-commit')}}
 						</b-form-invalid-feedback>
 					</b-form-group>
 
@@ -41,8 +39,7 @@
 						<b-form-invalid-feedback
 							v-if="!$v.elder.comm_membership_no.minLength || !$v.elder.comm_membership_no.maxLength"
 						>
-							Your committe Membership No must be between 3 and 16
-							characters
+							{{$t('form.v-memeber')}}
 						</b-form-invalid-feedback>
 					</b-form-group>
 
@@ -54,10 +51,10 @@
 						/>
 						<b-form-invalid-feedback
 							v-if="!$v.elder.lives_with.required"
-						>Please enter a Lives with whome Details</b-form-invalid-feedback>
+						>{{$t('form.v-live-with')}}</b-form-invalid-feedback>
 					</b-form-group>
 
-					<b-form-group label="Other Elder Nic">
+					<b-form-group :label="$t('elder.other-e-nic')">
 						<b-form-input
 							type="text"
 							v-model="$v.elder.other_elder_nic.$model"
@@ -66,9 +63,9 @@
 						<b-form-invalid-feedback
 							v-if="!$v.elder.other_elder_nic.minLength || !$v.elder.other_elder_nic.maxLength"
 						>
-							Your Elder Nic must be 10
-							characters
+							{{$t('form.v-elder-nic')}}
 						</b-form-invalid-feedback>
+						<b-form-invalid-feedback v-else-if="!$v.elder.other_elder_nic.validnic">{{$t('form.e-valid')}}</b-form-invalid-feedback>
 					</b-form-group>
 
 					<b-form-group :label="$t('elder.other')">
@@ -171,6 +168,7 @@ const {
 } = require("vuelidate/lib/validators");
 
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
+const validnic =  helpers.regex("upperCase", /^(?:19|20)?\d{2}(?:[0-35-8]\d\d(?<!(?:000|500|36[7-9]|3[7-9]\d|86[7-9]|8[7-9]\d)))\d{4}(?:[vVxX])$/);
 
 export default {
 	// props: {
@@ -223,7 +221,8 @@ export default {
 			},
 			other_elder_nic: {
 				maxLength: maxLength(10),
-				minLength: minLength(10)
+				minLength: minLength(10),
+				validnic
 			},
 			other_names_and_details: {
 				maxLength: maxLength(256),
