@@ -4,18 +4,18 @@
 		<b-colxx xl="8" lg="12" style="margin:auto ">
             <b-card>
 			<div class="text-center">
-				<h1>  Advace  Search of  Elders</h1>
+				<h1> Advanced  Elder Search</h1>
 			</div>
 
 			<b-card class="mb-4">
 				<!-- //there was an emit click method ss -->
 
 				<b-form class="av-tooltip tooltip-label-right">
-					<b-form-group label="Elder  Name ">
+					<b-form-group label="Elder's name ">
 						<b-form-input type="text" v-model="elder.name"   />
  					</b-form-group>
 
-                    <b-form-group label="Elder  ID ">
+                    <b-form-group label="Elder's ID ">
 						<b-form-input type="text" v-model="elder.elder_id"   />
  					</b-form-group>
 

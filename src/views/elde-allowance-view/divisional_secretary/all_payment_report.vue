@@ -1,19 +1,11 @@
 <template>
 	<AppLayout>
 		<div>
-			<datatable-heading
-				title="The all detail payment report"
-				:selectAll="selectAll"
-				:isSelectedAll="isSelectedAll"
-				:isAnyItemSelected="isAnyItemSelected"
-				:keymap="keymap"
-				:changePageSize="changePageSize"
-				:searchChange="searchChange"
-				:from="from"
-				:to="to"
-				:total="total"
-				:perPage="perPage"
-			></datatable-heading>
+						<b-row>
+				<h1>Detailed Payment Report(Post Office)</h1>
+				<div class="border-top my-3"></div>
+				<hr>
+			</b-row>
 			<b-row>
 				<b-colxx xxs="12">
 					<vuetable
@@ -27,32 +19,13 @@
 						:fields="fields"
 						pagination-path
 						:row-class="onRowClass"
-						@vuetable:pagination-data="onPaginationData"
-						@vuetable:row-clicked="rowClicked"
-						@vuetable:cell-rightclicked="rightClicked"
+
 					></vuetable>
-					<vuetable-pagination-bootstrap
-						class="mt-4"
-						ref="pagination"
-						@vuetable-pagination:change-page="onChangePage"
-					/>
+					
 				</b-colxx>
 			</b-row>
 
-			<v-contextmenu ref="contextmenu">
-				<v-contextmenu-item @click="onContextMenuAction('copy')">
-					<i class="simple-icon-docs" />
-					<span>Copy</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('move-to-archive')">
-					<i class="simple-icon-drawer" />
-					<span>Move to archive</span>
-				</v-contextmenu-item>
-				<v-contextmenu-item @click="onContextMenuAction('delete')">
-					<i class="simple-icon-trash" />
-					<span>Delete</span>
-				</v-contextmenu-item>
-			</v-contextmenu>
+			
 		</div>
 		<b-button variant="primary" class="mt-4" @click="exportPDF">Print Report</b-button>
 	</AppLayout>
@@ -93,7 +66,7 @@ export default {
 			fields: [
 				{
 					name: "near_post_office_id",
-					sortField: "near_post_office_id",
+
 					title: "Post Code",
 					titleClass: "",
 					dataClass: "list-item-heading",
@@ -101,7 +74,7 @@ export default {
 				},
 				{
 					name: "name",
-					sortField: "name",
+
 					title: "Name",
 					titleClass: "",
 					dataClass: "list-item-heading",
@@ -109,7 +82,7 @@ export default {
 				},
 				{
 					name: "benifsher",
-					sortField: "benifsher",
+
 					title: "Count Of Benfisher",
 					titleClass: "",
 					dataClass: "text-muted",
@@ -117,7 +90,7 @@ export default {
 				},
 				{
 					name: "per_one_person",
-					sortField: "per_one_person",
+
 					title: "for one person",
 					titleClass: "",
 					dataClass: "text-muted",
@@ -126,7 +99,7 @@ export default {
 
 				{
 					name: "all_per_one",
-					sortField: "all_per_one",
+
 					title: "all for elders",
 					titleClass: "",
 					dataClass: "text-muted",
@@ -134,15 +107,15 @@ export default {
 				},
 				{
 					name: "to_nationa_fund",
-					sortField: "to_nationa_fund",
-					title: "TO National Fund",
+
+					title: "National Elder fund deduction",
 					titleClass: "",
 					dataClass: "text-muted",
 					width: "15%"
 				},
 				{
 					name: "total_amount",
-					sortField: "total_amount",
+
 					title: "Total Money Amount",
 					titleClass: "",
 					dataClass: "text-muted",

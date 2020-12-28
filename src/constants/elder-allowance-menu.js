@@ -570,11 +570,10 @@ const data = [
       UserRole.Editor,
       UserRole.DivisionalOffHead,
       UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
     ],
     subs: [
       {
-        icon: "iconsminds-dollar-sign-2",
+
         label: "menu.paymenttopostoffice",
         to: `/division/pay_post_office_form`
       },
@@ -589,17 +588,17 @@ const data = [
       //   to: `/division/div_to_ben`
       // },
       {
-        icon: "iconsminds-dollar-sign-2",
+
         label: "menu.payhistory",
         to: `/division/payhistory`
       },
       {
-        icon: "iconsminds-dollar-sign-2",
+
         label: "menu.allpay",
         to: `/division/all-payment-report`
       },
       {
-        icon: "iconsminds-dollar-sign-2",
+
         label: "menu.byyears",
 
         to: `/division/get-payment-by-years`
@@ -610,7 +609,7 @@ const data = [
   ///
   {
     id: "advance-serch-elders",
-    icon: "iconsminds-the-white-house",
+    icon: "simple-icon-magnifier",
     label: "menu.advance-serch-elders",
     to: `/division/advance-serch-elders`,
     roles: [
@@ -642,35 +641,73 @@ const data = [
   //     UserRole.DivisionalOffOfficer,
   //     UserRole.DivisionalOfficers
   //   ]
-  // },
+  // },zzzzzzzzzzzzzzzzzz
 
   {
     id: "grama-divisions",
-    icon: "iconsminds-the-white-house",
-    label: "menu.divisional-office-form",
+    icon: "simple-icon-briefcase",
+    label: "Others",
     to: `/division/`,
     roles: [
       UserRole.Editor,
       UserRole.DivisionalOffHead,
       UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
+
     ],
+    
     subs: [
       {
-        icon: "iconsminds-the-white-house",
-        label: "menu.list-of-grama-divisions",
-        to: `/division/list-of-grama-divisions`
+        id: "GramaDivision",
+        icon: "simple-icon-location-pin",
+        label: "Grama Division",
+        subs: [
+          {
+       
+            label: "menu.list-of-grama-divisions",
+            to: `/division/list-of-grama-divisions`
+          },
+          {
+         
+            label: "menu.list-of-gramaniladari",
+            to: `/division/list-of-gramaniladari`
+          },
+        ]
+
       },
       {
-        icon: "iconsminds-the-white-house",
-        label: "menu.list-of-gramaniladari",
-        to: `/division/list-of-gramaniladari`
+        id: "PostOffice",
+        icon: "simple-icon-envelope-letter",
+        label: "Post Office",
+        subs: [
+          {
+     
+            label: "menu.list-of-post-office",
+            to: `/division/list-of-post-office`
+          }
+        ]
+
       },
       {
-        icon: "iconsminds-the-white-house",
-        label: "menu.list-of-post-office",
-        to: `/division/list-of-post-office`
-      }
+        id: "Elders",
+        icon: "simple-icon-envelope-letter",
+        label: "Elder",
+        subs: [
+          {
+            label: "menu.view-priority-list",
+            to: `/division/view-priority-list`
+          },
+          {
+            label: "menu.view-benifisher-list",
+            to: `/division/view-benifisher-list`
+          },
+          {
+            label: "menu.list-of-elders",
+            to: `/division/list-of-elders`
+          }
+        ]
+
+      },
+     
     ]
   },
 
@@ -683,7 +720,6 @@ const data = [
       UserRole.Editor,
       UserRole.DivisionalOffHead,
       UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
     ],
     subs: [
       {
@@ -710,9 +746,6 @@ const data = [
     to: `/division/elder_form`,
     roles: [
       UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
     ],
   },
 
@@ -723,9 +756,8 @@ const data = [
     to: `/division/`,
     roles: [
       UserRole.Editor,
-      UserRole.DivisionalOffHead,
-      UserRole.DivisionalOffOfficer,
-      UserRole.DivisionalOfficers
+
+
     ],
     subs: [
       {
@@ -907,7 +939,7 @@ const data = [
     icon: "iconsminds-add-user",
     label: "menu.grama-elder",
     to: `/division/elder_form`,
-    roles: [UserRole.Editor, UserRole.GramaNiladariOffices]
+    roles: [UserRole.Editor, UserRole.GramaNiladariOffices,UserRole.DivisionalOffOfficer]
   },
    
   ///////////////////////////////////

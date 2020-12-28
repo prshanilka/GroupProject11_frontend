@@ -51,7 +51,7 @@
 
 
 <script>
-import UserCardElder from "../../../containers/elder-alowance/dofficer/UserCard";
+import UserCardElder from "../../../containers/elder-alowance/dofficer/UserCard2";
 import AppLayout from "../../../layouts/EAppLayout";
 import axios from "axios";
 

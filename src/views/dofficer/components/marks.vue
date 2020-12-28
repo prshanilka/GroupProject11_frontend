@@ -1,7 +1,7 @@
 <template>
 		<div>
 			<b-form @submit.prevent="onValitadeFormSubmit">
-      <b-card class="mb-2" :title="$t('table.bootstrap-responsive')">
+      <b-card class="mb-2" title="Marks">
         <b-table responsive :items="items" :fields="fields"  >
 
 					<template #cell(criteria_id)="data">{{ data.item.criteria_id }}</template>
