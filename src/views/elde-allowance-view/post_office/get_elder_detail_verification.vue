@@ -175,6 +175,9 @@ export default {
 				console.log(result);
 				this.is_submited = !this.is_submited;
 				// this.aplications = result.data.data;
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 			});
 		},
 		onPress() {
@@ -193,6 +196,9 @@ export default {
 				console.log(result);
 				this.is_submited = !this.is_submited;
 				// this.aplications = result.data.data;
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 			});
 		}
 	}

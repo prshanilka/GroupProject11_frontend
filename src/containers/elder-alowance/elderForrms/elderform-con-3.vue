@@ -22,7 +22,7 @@
 				</div>
 				<div v-show="elder.available">
 					<b-form class="av-tooltip tooltip-label-right">
-						<b-form-group label="Guardian name" class="error-l-100">
+						<b-form-group :label="$t('elder.gua')" class="error-l-100">
 							<b-form-input
 								type="text"
 								v-model="$v.elder.agent_name.$model"
@@ -37,13 +37,14 @@
 							</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group label="Guardian Nic ">
+						<b-form-group :label="$t('elder.g-nic')">
 							<b-form-input
 								type="text"
 								v-model="$v.elder.agent_nic.$model"
 								:state="!$v.elder.agent_nic.$error"
 							/>
 							<b-form-invalid-feedback v-if="!$v.elder.agent_nic.required">Pleace Enter the Guardian NIC No</b-form-invalid-feedback>
+							<b-form-invalid-feedback v-if="!$v.elder.agent_nic.validnic">Pleace Enter Valid   NIC No</b-form-invalid-feedback>
 							<b-form-invalid-feedback
 								v-else-if="!$v.elder.agent_nic.minLength || !$v.elder.agent_nic.maxLength"
 							>
@@ -59,7 +60,7 @@
 						</b-form-group>
 
 
-						<b-form-group label="Guardian phone no">
+						<b-form-group :label="$t('elder.g-no')">
 							<b-form-input
 								type="text"
 								v-model="$v.elder.agent_phone_no.$model"
@@ -70,8 +71,13 @@
 							>Pleace Enter the Guardian Phone No</b-form-invalid-feedback>
 
 							<b-form-invalid-feedback
+								v-else-if="!$v.elder.agent_phone_no.validphone"
+							>Pleace Enter Valid Phone No</b-form-invalid-feedback>
+
+							<b-form-invalid-feedback
 								v-else-if="!$v.elder.agent_phone_no.numeric"
 							>Guardian Phone No Should contains only Numeric</b-form-invalid-feedback>
+							
 							<b-form-invalid-feedback
 								v-else-if="!$v.elder.agent_phone_no.minLength || !$v.elder.agent_phone_no.maxLength"
 							>
@@ -80,7 +86,7 @@
 							</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group label="Agent Email" class="error-l-100">
+						<b-form-group :label="$t('elder.g-email')" class="error-l-100">
 							<b-form-input
 								type="text"
 								v-model="$v.elder.agent_email.$model"
@@ -90,7 +96,7 @@
 							<b-form-invalid-feedback v-else-if="!$v.elder.agent_email.email">{{$t('form.v-mail')}}</b-form-invalid-feedback>
 						</b-form-group>
 
-						<b-form-group label="Guardian Address" class="error-l-125">
+						<b-form-group :label="$t('elder.g-add')" class="error-l-125">
 							<b-form-textarea
 								type="text"
 								v-model="$v.elder.agent_address.$model"
@@ -106,7 +112,7 @@
 								characters
 							</b-form-invalid-feedback>
 						</b-form-group>
-						<b-form-group label="Guardian relationship with Elder" class="error-l-125">
+						<b-form-group :label="$t('elder.g-rel')" class="error-l-125">
 							<b-form-input
 								type="text"
 								v-model="$v.elder.agent_relationship_with_elder.$model"
@@ -147,6 +153,10 @@ const {
 
 const upperCase = helpers.regex("upperCase", /^[A-Z]*$/);
 
+const validnic =  helpers.regex("upperCase", /^(?:19|20)?\d{2}(?:[0-35-8]\d\d(?<!(?:000|500|36[7-9]|3[7-9]\d|86[7-9]|8[7-9]\d)))\d{4}(?:[vVxX])$/);
+const validphone = helpers.regex("upperCase", /^(?:0|94|\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|5|6|7|8)\d)\d{6}$/);
+
+
 export default {
 	data() {
 		return {
@@ -179,12 +189,14 @@ export default {
 			},
 			agent_nic: {
 				required,
+				validnic,
 				minLength: minLength(10),
 				maxLength: maxLength(10)
 			},
 			agent_phone_no: {
 				required,
 				numeric,
+				validphone,
 				minLength: minLength(10),
 				maxLength: maxLength(10)
 			},

@@ -211,6 +211,9 @@ export default {
 						messsage: this.body
 					})
 				);
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 40);
 				this.submit_ag = !this.submit_ag;
 			}
 		},
@@ -240,6 +243,9 @@ export default {
 						messsage: this.body
 					})
 				);
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 40);
 				this.submit_ag = !this.submit_ag;
 			}
 		}

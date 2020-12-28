@@ -36,7 +36,7 @@
     "male": "Male",
     "female": "Female",
     "number": "Phone Number",
-    "district": "Ditrict",
+    "district": "District",
     "divisional": "Divisional Secratriat",
     "gramaniladari-division": "Grama Niladari Division",
     "birth": "Birth Day",
@@ -58,7 +58,14 @@
     "e-divisional": "Please select Divisional Office",
     "e-grama": "Please select Grama Niladari Division",
     "post": "Nearest Post Office",
-    "e-post": "Please Select Nearest Post Office"
+    "e-post": "Please Select Nearest Post Office",
+
+    "v-elder-id":"Your Elders Id must be between 2 and 16 characters",
+    "v-commit":"Your Local elder committe name must be between 3 and 16 characters",
+    "v-memeber":"Your committe Membership No must be between 3 and 16 characters",
+    "v-live-with":"Please enter a Lives with whome Details",
+    "v-elder-nic":"Your Elder Nic must be 10 characters"
+    
   },
   "elder": {
     "form": "Elder Registration",
@@ -77,13 +84,23 @@
     "gramaniladhari": "Gramaniladhari",
     "waiting-for-resubmit": "Waiting for resubmit",
     "divisional_officer": "Divisional officer",
-    "divisional_head": "Divisional Head",
+    "divisional_head": "Divisional secretary",
     "details": "Details",
     "view": "View",
     "fillapplication" : "Fill Application",
     "divisionalofiicerver" : "Verification from Divisional office",
     "updateapplication" :"Update Application",
-    "notification":"Your Application is submitted"
+    "notification":"Your Application is submitted",
+
+    "other-e-nic":"Other Elder Nic",
+
+    "gua":"Guardian name",
+    "g-nic":"Guardian Nic ",
+    "g-no":"Guardian phone no",
+    "g-email":"Guardian's Email",
+    "g-add":"Guardian Address",
+    "g-rel":"Guardian relationship with Elder"
+  
   },
   "wizard": {
     "step-name-1": "Step 1",
