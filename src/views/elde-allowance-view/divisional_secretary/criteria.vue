@@ -55,7 +55,8 @@ export default {
 		
 		axios.get("/marks/criteria/").then(result => {
 			console.log(result.data.data[0]);
-			this.criteria = result.data.data;
+            this.criteria = result.data.data;
+            
         });
     },
     computed: {

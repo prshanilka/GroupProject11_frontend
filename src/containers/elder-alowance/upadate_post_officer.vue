@@ -317,6 +317,10 @@ export default {
 						})
 					);
 				});
+
+				setTimeout(() => {
+					this.$router.go(0); 
+				}, 100);
 			}
 		}
 	}

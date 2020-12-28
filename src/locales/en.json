@@ -51,7 +51,7 @@
     "e-number": "Please enter your phone number",
     "v-number": "Your phone number must be only 10 numbers",
     "n-number": "Value must be a Number",
-    "vaid-no":"Value must be a Valid Number",
+    "vaid-no":"Value must be a Valid Phone Number",
     "e-mail": "Please enter your email address",
     "v-mail": "Please enter valid email address",
     "e-district": "Please select District",
