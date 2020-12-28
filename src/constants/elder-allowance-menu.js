@@ -260,7 +260,7 @@ const data = [
         label: "menu.list-of-post-officers",
         to: `/sysadmin/list-of-postofficers`
       },{
-        icon: "iconsminds-post-office",
+        icon: "iconsminds-the-white-house",
         label: "menu.list-of-post-office",
         to: `/sysadmin/list-divisional-secretry`
       }

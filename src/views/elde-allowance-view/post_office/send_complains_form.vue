@@ -14,7 +14,7 @@
 				<b-card class="mb-4" v-show="submit_ag">
 					<b-form @submit.prevent="onValitadeFormSubmit" class="av-tooltip tooltip-label-right">
 					
-						<b-form-group label="Elder Full Name">
+						<b-form-group label="Elder's Full Name">
 							<b-form-input
 								type="text"
 								v-model="$v.com_elder.name.$model"

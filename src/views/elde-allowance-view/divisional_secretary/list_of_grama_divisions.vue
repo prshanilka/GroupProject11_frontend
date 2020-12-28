@@ -3,7 +3,7 @@
 		
 			<b-row>
 				<b-colxx lg="12" md="12" class="m-lg-4 text-center" style="mrgin-top:50px;">
-					<h1>List Of the Grama Divisions</h1>
+					<h1>Grama Divisions</h1>
 				</b-colxx>
 				<div class="m--5 p-5" >
 					<b-form-group label="Serch by Grama Division Name">
