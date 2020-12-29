@@ -32,6 +32,7 @@ import axios from "axios";
 import VueGeolocation from "vue-browser-geolocation";
 import * as VueGoogleMaps from "vue2-google-maps";
 import { bUrl } from './constants/config'
+import './registerServiceWorker'
 
 axios.defaults.baseURL = bUrl;
 let isRefreshing = false;

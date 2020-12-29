@@ -184,7 +184,6 @@ import {
 	searchPath,
 	menuHiddenBreakpoint,
 	ElderAllowancelocaleOptions,
-	buyUrl,
 	adminRoot
 } from "../../../constants/config";
 import {
@@ -209,7 +208,6 @@ export default {
 			searchPath,
 			adminRoot,
 			ElderAllowancelocaleOptions,
-			buyUrl,
 			notifications:[],
 			isDarkActive: false
 		};
