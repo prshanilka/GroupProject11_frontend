@@ -119,10 +119,8 @@ export default {
 			console.log(result.data.data);
 			// this.aplications = result.data.data;
 			this.off_id = this.id;
-		});
-
-		const body = {
-				id:"260",
+			const body = {
+				id: result.data.data.grmaniladari_officer_id,
 				role_id:"40"
 			}
 			axios({
@@ -135,6 +133,7 @@ export default {
 		}).catch(cc => {
 			console.log(cc);
 			this.img = "/assets/img/profiles/def.png"
+		});
 		});
 	},
 	methods: {

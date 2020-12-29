@@ -164,14 +164,14 @@ export default {
 					dataClass: "text-muted",
 					width: "10%"
 				},
-				{
-					name: "marks",
+				// {
+				// 	name: "marks",
 
-					title: "marks",
-					titleClass: "",
-					dataClass: "text-muted",
-					width: "5%"
-				},
+				// 	title: "marks",
+				// 	titleClass: "",
+				// 	dataClass: "text-muted",
+				// 	width: "5%"
+				// },
 				{
 					name: "__slot:actions1",
 					title: "",
