@@ -208,8 +208,8 @@ export default {
 				minLength: minLength(2)
 			},
 			elder_committe_name: {
-				maxLength: maxLength(16),
-				minLength: minLength(2)
+				maxLength: maxLength(50),
+				minLength: minLength(3)
 			},
 			comm_membership_no: {
 				maxLength: maxLength(16),

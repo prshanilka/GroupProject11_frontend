@@ -44,8 +44,8 @@
 			      <i class="iconsminds-dollar-sign-2 text-xlarge"/>
         </div>
             <p class="lead text-center text-success">Total Amount</p>
-            <p class="lead text-center text-danger">{{constant.data[0].value}}</p> 
-            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid= constant.data[0].name">Update</b-button> 
+            <p class="lead text-center text-danger">{{ta.value}}</p> 
+            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid=ta.name">Update</b-button> 
       </b-card>
     </b-colxx>
     <b-colxx md="4" sm="6" lg="3" xxs="12">
@@ -55,8 +55,8 @@
 			      <i class="iconsminds-coins text-xlarge"/>
         </div>
             <p class="lead text-center text-success">Elder Recieve</p>
-            <p class="lead text-center text-danger">{{constant.data[1].value}}</p> 
-            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid= constant.data[1].name">Update</b-button> 
+            <p class="lead text-center text-danger">{{er.value}}</p> 
+            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid= er.name">Update</b-button> 
       </b-card>
     </b-colxx>
     <b-colxx md="4" sm="6" lg="3" xxs="12">
@@ -66,8 +66,8 @@
 			      <i class="iconsminds-financial text-xlarge"/>
         </div>
             <p class="lead text-center text-success">For Fund</p>
-            <p class="lead text-center text-danger">{{constant.data[2].value}}</p> 
-            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid= constant.data[2].name">Update</b-button> 
+            <p class="lead text-center text-danger">{{ff.value}}</p> 
+            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid= ff.name">Update</b-button> 
       </b-card>
     </b-colxx>
     <b-colxx md="4" sm="6" lg="3" xxs="12">
@@ -77,8 +77,8 @@
 			      <i class="iconsminds-wallet text-xlarge"/>
         </div>
             <p class="lead text-center text-success">Bank Account</p>
-            <p class="lead text-center text-danger">{{constant.data[3].value}}</p> 
-            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid= constant.data[3].name">Update</b-button> 
+            <p class="lead text-center text-danger">{{ba.value}}</p> 
+            <b-button class="mb-2" size="md" style="margin-top:20px;" variant="outline-dark" v-b-modal.modallg @click="clickid=ba.name">Update</b-button> 
       </b-card>
     </b-colxx>
   </b-row>
@@ -104,15 +104,25 @@ export default {
   data() {
     return {
       constant: [],
+      ta:{name:null,value:null},
+      er:{name:null,value:null},
+      ff:{name:null,value:null},
+      ba:{name:null,value:null},
+
       clickid: null,
     }
   },
-  async beforeCreate() {
+  async created() {
 		axios
 			.get("/divisionaloffice/cons")
 			.then(result => {
 				console.log(result.data.data);
-        this.constant = result.data;
+        this.ta = result.data.data[0];
+        this.er = result.data.data[1];
+        this.ff = result.data.data[2];
+        this.ba = result.data.data[3];
+        
+
 			});
   },
 };

@@ -263,7 +263,7 @@ export default {
 			nic_no: {
 				required,
 				validnic,
-				maxLength: maxLength(10),
+				maxLength: maxLength(11),
 				minLength: minLength(10)
 			},
 			email: {

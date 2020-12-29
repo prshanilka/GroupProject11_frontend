@@ -120,7 +120,7 @@ export default {
 		agent: {
 			name: {
 				required,
-				maxLength: maxLength(16),
+				maxLength: maxLength(32),
 				minLength: minLength(2)
 			},
 			nic: {

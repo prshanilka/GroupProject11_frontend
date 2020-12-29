@@ -28,9 +28,9 @@ export default new Vuex.Store({
   modules: {
     menu,
     user,
-    chat,
-    todo,
-    survey,
+    // chat,
+    // todo,
+    // survey,
     application
   }
 });
