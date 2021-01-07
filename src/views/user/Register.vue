@@ -50,7 +50,7 @@
                     <b-form-invalid-feedback v-if="!$v.userName.required">Please enter your name</b-form-invalid-feedback>
                     <b-form-invalid-feedback v-else-if="!$v.userName.minLength || !$v.userName.maxLength">Your User name must be between 4 and 8 characters</b-form-invalid-feedback>
                     <b-form-invalid-feedback v-else-if="!$v.userName.isUnique">Alredy exists</b-form-invalid-feedback>
-                    <b-form-invalid-feedback v-else-if="!$v.userName.validUser">Enter A-Z a-z 1-9 with no spaces </b-form-invalid-feedback>
+                    <!-- <b-form-invalid-feedback v-else-if="!$v.userName.validUser">Enter A-Z a-z 1-9 with no spaces </b-form-invalid-feedback> -->
                 </b-form-group>
 
                 <b-form-group :label="$t('forms.email')">
@@ -102,6 +102,7 @@
 <script>
 import axios from "axios";
 import { adminRoot,bUrl } from "../../constants/config";
+import { UserRole } from "../../utils/auth.roles";
 import {
     validationMixin
 } from "vuelidate";
@@ -136,7 +137,6 @@ export default {
             maxLength: maxLength(8),
             minLength: minLength(2),
             alpha,
-            validUser,
             async isUnique (value) {
                 const requestOptions = {
                     method: "POST",
@@ -175,7 +175,7 @@ export default {
 		onValitadeFormSubmit() {
       this.$v.$touch();
       console.log(this.$v.$anyError);
-      if (!this.$v.$anyError) {
+
 
         const requestOptions = {
                 method: "POST",
@@ -206,7 +206,7 @@ export default {
 
 
                 
-      }
+      
     }
     },
     created() {
