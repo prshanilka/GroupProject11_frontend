@@ -8,11 +8,11 @@ export const dofficerRoot = "/dofficer";
 export const divisionalOffHeadRoot = "/divisionaloffhead";
 
 export const searchPath = `${adminRoot}/pages/miscellaneous/search`;
-export const buyUrl = "https://1.envato.market/nEyZa";
-export const apiUrl = "https://api.coloredstrategies.com";
+export const buyUrl = "";
+export const apiUrl = "";
 
-//export const bUrl ="http://localhost:3000api";
-export const bUrl = "http://localhost:3000/api";
+export const bUrl ="https://elderallowanceuor.ga/api";
+//export const bUrl = "http://localhost:3000/api";
 export const subHiddenBreakpoint = 1440;
 export const menuHiddenBreakpoint = 768;
 

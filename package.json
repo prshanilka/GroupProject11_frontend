@@ -1,9 +1,9 @@
 {
   "name": "piaf-vue",
-  "version": "5.2.0",
-  "description": "Piaf - Vue 2 Bootstrap 4 Admin Dashboard Template",
-  "author": "Colored Strategies <support@coloredstrategies.com>",
+  "version": "1.0.0",
   "private": true,
+  "description": "",
+  "author": "",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"
@@ -17,6 +17,7 @@
     "firebase": "^7.24.0",
     "jspdf": "^2.1.1",
     "jspdf-autotable": "^3.5.13",
+    "register-service-worker": "^1.7.1",
     "v-contextmenu": "^2.9.0",
     "video.js": "^7.8.3",
     "vue": "^2.6.11",
@@ -50,6 +51,7 @@
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-pwa": "~4.5.0",
     "@vue/cli-plugin-router": "^4.4.6",
     "@vue/cli-plugin-vuex": "^4.4.6",
     "@vue/cli-service": "^4.4.6",
